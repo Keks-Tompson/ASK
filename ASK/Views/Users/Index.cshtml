@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*Сохраняем текущую страницу*@
+@*@using ASK.Controllers.Setting;
+@{Accaunt.CurrentPage = "~/Views/Users/Index.cshtml";}*@
+
+
+
+
+
+
+
+      <div class="text-center"
+            style=" color: #808080;
+                padding: 10px;
+                border-radius: 10px;
+                /* box-shadow: 0 0 10px;*/
+                /*box-shadow: inset 0 0 5px;*/
+                line-height: 1;
+                /*margin: 0 -23px 0 0;*/
+                /*padding: 10px;*/
+                font-size: 230%;
+                /* width: 375px;*/
+                height 100px;
+                ">
+
+    
+
+        
+            <label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Авторизация</label>  @*&nbsp - не разрывной пробел*@
+
+    </div>
+
+    <br />
+
+
+<div class="container-fluid row align-items-center" >    
+    <div class="col">
+    </div>
+
+   <div class="col"
+            style=" color: #808080;
+                padding: 10px;
+                border-radius: 10px;
+                /* box-shadow: 0 0 10px;*/
+                box-shadow: inset 0 0 5px;
+                line-height: 1;
+                /*margin: 0 -23px 0 0;*/
+                /*padding: 10px;*/
+                font-size: 180%;
+                /* width: 375px;*/
+                height 100px;
+                ">
+         
+            <br />
+             <form method="post" >
+                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Пользователь</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login">
+                       <br />
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                      </div>
+                      <div class="text-center">
+                     <input class="btn btn-primary btn-lg" style="margin: 0 0 4px 0;" type="submit" value="Войти"/>
+                      </div>
+                      @*<button class="text-center" type="submit" class="btn btn-primary">Войти</button>*@
+                      
+            </form>
+
+
+    </div>
+
+    <div class="col">
+    </div>
+    </div>

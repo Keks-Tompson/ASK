@@ -1,0 +1,304 @@
+﻿
+@{
+    ViewData["Title"] = "Значения";
+} 
+
+@*Сохраняем текущую страницу*@
+@using ASK.Controllers.Setting;
+@{Accaunt.CurrentPage = "CurrentValue";}
+
+
+<div class="container-fluid"
+     style=" color: #808080;
+            padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 0px;
+  /*          box-shadow: 0 0 10px;*/
+          /*  box-shadow: inset 0 0 5px;*/
+            line-height: 1;
+            margin: 0 0 0 0;
+            padding: 10px;
+            font-size: 94%;
+            font-family: Times New Roman" , Times, serif; font-size: 20%;">
+
+      @*<h4 class="text-center">График концентраций </h4>*@
+      <h4 class="text-center">@ViewData["Title"] системы ASK </h4>
+
+       <canvas  id="line" style="  width: 1000px;  height: 130px;"></canvas>
+
+</div>
+
+<div class="container-fluid"
+     style=" color: #808080;
+            padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 0px;
+       /*     box-shadow: 0 0 5px;*/
+          /*  box-shadow: inset 0 0 5px;*/
+            line-height: 1;
+            margin: 0 0 0 0;
+            padding: 10px;
+            font-size: 94%;
+            font-family: Times New Roman" , Times, serif; font-size: 20%;">
+
+
+  @*  <h4 class="text-center">Состояние системы ASK </h4>*@
+ 
+
+    <div style="margin:0 0 0 0">
+        <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;" @*width: 1720px; "*@>
+
+
+            <tr style="font-weight:bold; ">
+
+                <td style="vertical-align: middle">Связь с контроллером</td> @*style="width: 18rem;"class="table-primary"*@
+                <td style="vertical-align: middle">Режим АСК</td>
+                <td style="vertical-align: middle">Режим архевирования выбросов АСК</td>
+                <td style="vertical-align: middle">Режим работы трубы</td>
+                <td style="vertical-align: middle">Приближение к ПДЗ</td>
+                <td style="vertical-align: middle">Превышение ПДЗ</td>
+                <td style="vertical-align: middle">Наличие аварийных состояний АСК</td>
+                <td style="vertical-align: middle">Техобслуживание АСК</td>
+                <td style="vertical-align: middle">Дверь контейнера</td>
+                <td style="vertical-align: middle">Сигнал пожара</td>
+            </tr>
+
+
+            <tr>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Есть связь с контроллером</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Текущие значения выбросов</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">В работе, O₂ &#60 20%</td> @*&#60 = <*@
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Нет приближения к ПДЗ</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Превышений нет</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Техническое обслуживание не выполняется</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>
+
+            </tr>
+
+
+        </table>
+    </div>
+
+    
+ 
+
+
+    <div style="margin: 0 0 0 0">
+        <table class="table table-bordered  border-white table-secondary + text-center " style="  box-shadow: 0 0 1px; table-layout: fixed;">
+            <tr style="font-weight:bold; ">
+                <td style="vertical-align: middle;">Компонент</td>
+                <td style="vertical-align: middle">CO <br /> <font style" size="2">(мг/м³, при н.у.*) </font> </td>
+                <td style="vertical-align: middle">CO₂ <br /> <font style" size="2">(мг/м³, при н.у.*)</font></td>
+                <td style="vertical-align: middle">NOₓ <br /> <font style" size="2">(мг/м³, при н.у.*)</font></td>
+                <td style="vertical-align: middle">SO₂ <br /> <font style" size="2">(мг/м³, при н.у.*)</font></td>
+                <td style="vertical-align: middle">Тв. ч. <br /> <font style" size="2">(мг/м³, при н.у.*)</font></td>
+                <td style="vertical-align: middle">Расход ДГ (расчетный) <br /> <font style" size="2">(м³/c, при н.у.*)</font></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">Концентрации</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">0,575</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">202916,406</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">458,443</td> @*&#60 = <*@
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">106,745</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">39,514</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">39,514</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">ПДК</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">900</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">500</td> @*&#60 = <*@
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">1520</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">150</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+     <div style="margin: 0 0 0 0">
+        <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed" @*width: 1720px; "*@>
+            <tr style="font-weight:bold; ">
+                <td style="vertical-align: middle; ">Компонент</td>
+                <td style="vertical-align: middle">CO <br /> <font style" size="2">(г/с) </font> </td>
+                <td style="vertical-align: middle">CO₂ <br /> <font style" size="2">(г/с)</font></td>
+                <td style="vertical-align: middle">NO <br /> <font style" size="2">(г/с)</font></td>
+                <td style="vertical-align: middle">NO₂ <br /> <font style" size="2">(г/с)</font></td>
+                <td style="vertical-align: middle">NOₓ <br /> <font style" size="2">(г/с)</font></td>
+                <td style="vertical-align: middle">SO₂ <br /> <font style" size="2">(г/с)</font></td>
+                <td style="vertical-align: middle">Тв. ч. <br /> <font style" size="2">(г/с)</font></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">Выбросы</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">0,025</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">1277,065 @*<br> <font style" size="1"">(расчет по выбросам NOₓ)</font>*@</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">0,498 @*<br> <font style" size="1"">(расчет по выбросам NOₓ)</font>*@</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">3,067</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">3,666</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">0,578</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">0,245</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">ПДВ</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">-/-</td>
+            </tr>
+        </table>
+    </div>
+
+     <div style="margin: 0 0 0 0">
+        <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed" @*width: 1720px; "*@>
+            <tr style="font-weight:bold; ">
+                <td style="vertical-align: middle; ">Датчики (аналог.)</td>
+                <td style="vertical-align: middle">CO</td>
+                <td style="vertical-align: middle">CO₂</td>
+                <td style="vertical-align: middle">NOₓ</td>
+                <td style="vertical-align: middle">SO₂</td>
+                <td style="vertical-align: middle">Тв. ч.</td>
+                <td style="vertical-align: middle">O₂(сух.)</td>
+                <td style="vertical-align: middle">O₂(вл.)</td>
+                <td style="vertical-align: middle">Температура ДГ </td>
+                <td style="vertical-align: middle">Давление ДГ</td>
+                <td style="vertical-align: middle">Скорость ДГ</td>
+                <td style="vertical-align: middle">Давление воздуха КИП</td>
+                <td style="vertical-align: middle">Температура конверора NOₓ</td>
+                <td style="vertical-align: middle">Расход пробы</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">Показания</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">0,39 мг/м³</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">5,941 % @*<br> <font style" size="1"">(расчет по выбросам NOₓ)</font>*@</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">223,797 мг/м³@*<br> <font style" size="1"">(расчет по выбросам NOₓ)</font>*@</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">86,319 мг/м³</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">13,818 мг/м³</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">14,342 %</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">11,629 %</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">121,049 °C</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">99,725 кПа</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">12,93 м/с</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">5,906 Бар</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">400,755 °C</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">30,378 л/ч</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">mA</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">4,005</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">9,24</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">8,471</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">4,796</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">5,371</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">14,537</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">12,697</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">9,493</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">11,771</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">9,17</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">11,872</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">18,231</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">8,817</td>
+            </tr>
+        </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="~/lib/package/dist/chart.js"></script>
+
+    <script type="text/javascript">
+        
+
+
+
+
+        var piechart = document.getElementById('line').getContext('2d');
+        var mypiechart = new Chart(piechart, {
+           
+            type: 'line',
+            data: {
+                 labels: ['14:00', '14:01', '14:02','14:03','14:04','14:05','14:06','14:07','14:08','14:09','14:10','14:11','14:12','14:13','14:14','14:15','14:16','14:17','14:18','14:19','14:20','14:21','14:22','14:23','14:24','14:25','14:26','14:27','14:28','14:29','14:30','14:31','14:32','14:33','14:34','14:35','14:36','14:37','14:38','14:39','14:40','14:41','14:42','14:43','14:44','14:45','14:46','14:47','14:48','14:49','14:50','14:51','14:51','14:53','14:54','14:55','14:56','14:57','14:58','14:59','15:01','15:02','15:03','15:03','15:05','15:06','15:07','15:08','15:09','15:10','15:11','15:12','15:13','15:14','15:15','15:16','15:17','15:18','15:19','15:20','15:21','15:22','15:23','15:24','15:25','15:25','15:27','15:28','15:29','15:30','15:31','15:32','15:33','15:34','15:35','15:36','15:37','15:38','15:39','15:40','15:41','15:42','15:43','15:44','15:45','15:46','15:47','15:48','15:49','15:50','15:51','15:52','15:53','15:54','15:55','15:56','15:57','15:58','15:59','16:00','16:01','16:02','16:03','16:04','16:05','16:06','16:07','16:08','16:09','16:10','16:11','16:12','16:13','16:14','16:15','16:16','16:17','16:18','16:19','16:20','16:21','16:22','16:23','16:24','16:25','16:26','16:27','16:28','16:29','16:30','16:31','16:32','16:33','16:34','16:35','16:36','16:37','16:38','16:39','16:40','16:41','16:42','16:43','16:44','16:45','16:46','16:47','16:48','16:49','16:50','16:51','16:52','16:53','16:54','16:55','16:56','16:57','16:58','16:59','17:00'],
+                datasets: [{
+                    label: 'CO',
+                    data: [Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000)],
+                    fill: false,
+                    borderColor: 'rgba(6,24,249)',
+                    backgroundColor: 'rgba(6,24,249)',
+                    tension: 0.1,
+                    
+                },{
+                    label: 'NO',
+                    data: [Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300),Math.floor(Math.random(100)*300)],
+                    fill: false,
+                    borderColor: 'rgb(255,0,0)',
+                    backgroundColor: 'rgb(255,0,0)',
+                    tension: 0.1,
+                }//,{
+                //    label: '003',
+                //    data: [Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000)],
+                //    fill: false,
+                //    borderColor: 'rgb(65,70,64)',
+                //    tension: 0.1,
+                //}
+                //,{
+                //    label: '004',
+                //    data: [Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000), Math.floor(Math.random(1)*1000)],
+                //    fill: false,
+                //    borderColor: 'rgb(65,70,1)',
+                //    tension: 0.1,
+                //}
+
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        })
+
+
+
+
+
+    </script>

@@ -1,0 +1,1685 @@
+﻿@*
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    *@
+@{
+}
+
+@*Сохраняем текущую страницу*@
+@using ASK.Controllers.Setting;
+@*@{Accaunt.CurrentPage = "~/Views/Settings/Index.cshtml";}*@
+
+
+@using System.Globalization;                                                                    @*Это всё для подключения*@
+@using System.Threading;                                                                        @*типа double*@
+@{
+    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
+}            @*из формы в конттроллер (описание в контроллере)*@
+
+
+<div class="container-fluid" >
+
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active"  style="font-size: 130%; font-family: Times New Roman;" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">ПДЗ</button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link"  style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact2" type="button" role="tab" aria-controls="contact2" aria-selected="false">Основные натройки</button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки видимости</button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Настройки отчётов Excel</button>
+        </li>
+    </ul>
+
+
+
+
+    <div class="tab-content " id="myTabContent"
+        style=" color: #808080;
+                padding: 12px;
+                /*border-radius: 10px;*/
+                /*box-shadow: 0 0 10px;*/
+                /*box-shadow: inset 0 0 3px;*/
+                /*line-height: 1;*/
+                /*margin: 0 -23px 0 0;*/
+                /*padding: 10px;*/
+                font-size: 130%;
+                /*font-family: Times New Roman , Times, serif;*/
+                /* width: 375px;*/
+                /*height 100px;*/
+    ">
+            
+            <div class="tab-pane fade show active"  id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                <h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Настройка предельно допустимых значения</label></h2>  @*&nbsp - не разрывной пробел*@
+                <form method="post">  
+
+                    <div class="container-fluid"
+                        style=" color: #808080;
+                                border-radius: 10px;
+                                box-shadow: inset 0 0 2px;
+                    ">
+
+                        <table class="table table-borderless">
+                            <tr>
+                                <th scope="col">
+                                    <div class="row align-items-start"
+                                        style=" color: #808080;
+                                                padding 10px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 0 0 0 0;
+                                    ">
+                                        @if (@GlobalStaticSettingsASK.PDZ.UsedNumberFuel != 1)
+                                        {
+                                            <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Топливо 1</label></h3>  @*&nbsp - не разрывной пробел*@
+
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Название топлива</span>
+                                                <input type="text"  class="form-control text-end" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Name" name="PDZ_1_Name">
+                                            </div>
+                                        }
+
+
+                                        <div class="col">
+
+                                            <div>
+                                                <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Концентрации</label></h3>  @*&nbsp - не разрывной пробел*@
+                                            </div>
+
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Conc" name="PDZ_1_CO_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Conc" name="PDZ_1_CO2_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Conc" name="PDZ_1_NO_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Conc" name="PDZ_1_NOx_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Conc" name="PDZ_1_SO2_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Conc" name="PDZ_1_Dust_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Conc" name="PDZ_1_CH4_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Conc" name="PDZ_1_H2S_Conc"> 
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_1" name="PDZ_1_Add_Conc_1">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_2" name="PDZ_1_Add_Conc_2">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_3" name="PDZ_1_Add_Conc_3">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_4" name="PDZ_1_Add_Conc_4">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_5" name="PDZ_1_Add_Conc_5">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col">
+
+                                            <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Выбросы</label></h3>  @*&nbsp - не разрывной пробел*@
+
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Emis" name="PDZ_1_CO_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Emis" name="PDZ_1_CO2_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Emis" name="PDZ_1_NO_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Emis" name="PDZ_1_NOx_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Emis" name="PDZ_1_SO2_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Emis" name="PDZ_1_Dust_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Emis" name="PDZ_1_CH4_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Emis" name="PDZ_1_H2S_Emis">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_1" name="PDZ_1_Add_Emis_1">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_2" name="PDZ_1_Add_Emis_2">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_3" name="PDZ_1_Add_Emis_3">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_4" name="PDZ_1_Add_Emis_4">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_5" name="PDZ_1_Add_Emis_5">
+                                            </div>
+                                        </div>
+
+
+                                        @if (@GlobalStaticSettingsASK.PDZ.UsedNumberFuel != 1)
+                                        {
+                                            <div class="row align-items_start"> 
+                                            
+                                                <div class="col">
+                                                </div>
+                                                
+                                                <div class="col">
+                                                </div>
+                                                
+                                                <div class="col">
+                                                </div>
+
+                                                @if (@GlobalStaticSettingsASK.PDZ.Is_Active == 1)
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio1" value="1" checked>
+                                                        <label class="form-check-label " for="inlineRadio1">Используется</label>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio1" value="1">
+                                                        <label class="form-check-label " for="inlineRadio1">Используется</label>
+                                                    </div>
+                                                }
+
+                                                <div class="col">
+                                                </div>
+                                                
+                                                <div class="col">
+                                                </div>
+                                                
+                                                <div class="col">
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </div>
+                                </th>
+
+                                @if (@GlobalStaticSettingsASK.PDZ.UsedNumberFuel != 1)
+                                {
+                                    <th scope="col">
+                                        <div class="row align-items-start"
+                                            style=" color: #808080;
+                                                    padding 10px;
+                                                    border-radius: 10px;
+                                                    box-shadow: inset 0 0 2px;
+                                                    margin: 0 0 0 0;
+                                        ">
+                                            <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Топливо 2</label></h3>  @*&nbsp - не разрывной пробел*@
+
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Название топлива</span>
+                                                <input type="text"  class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Name" name="PDZ_2_Name">
+                                            </div>
+
+                                            <div class="col">
+
+                                                <div>
+                                                    <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Концентрации</label></h3>  @*&nbsp - не разрывной пробел*@
+                                                </div>
+
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Conc" name="PDZ_2_CO_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Conc" name="PDZ_2_CO2_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Conc" name="PDZ_2_NO_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Conc" name="PDZ_2_NOx_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Conc" name="PDZ_2_SO2_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Conc" name="PDZ_2_Dust_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Conc" name="PDZ_2_CH4_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Conc" name="PDZ_2_H2S_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_1" name="PDZ_2_Add_Conc_1">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_2" name="PDZ_2_Add_Conc_2">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_3" name="PDZ_2_Add_Conc_3">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_4" name="PDZ_2_Add_Conc_4">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_5" name="PDZ_2_Add_Conc_5">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col">
+
+                                                <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Выбросы</label></h3>  @*&nbsp - не разрывной пробел*@
+
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Emis" name="PDZ_2_CO_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Emis" name="PDZ_2_CO2_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Emis" name="PDZ_2_NO_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Emis" name="PDZ_2_NOx_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Emis" name="PDZ_2_SO2_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Emis" name="PDZ_2_Dust_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Emis" name="PDZ_2_CH4_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Emis" name="PDZ_2_H2S_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_1" name="PDZ_2_Add_Emis_1">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_2" name="PDZ_2_Add_Emis_2">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_3" name="PDZ_2_Add_Emis_3">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_4" name="PDZ_2_Add_Emis_4">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_5" name="PDZ_2_Add_Emis_5">
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items_start"> 
+                                                
+                                                <div class="col">
+                                                </div>
+                                                
+                                                <div class="col">
+                                                </div>
+
+                                                <div class="col">
+                                                </div>
+
+
+                                                @if (@GlobalStaticSettingsASK.PDZ.Is_Active == 2)
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio2" value="2" checked>
+                                                        <label class="form-check-label " for="inlineRadio2">Используется</label>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio2" value="2">
+                                                        <label class="form-check-label " for="inlineRadio2">Используется</label>
+                                                    </div>
+                                                }
+
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </th>
+                                    
+                                    <th scope="col">
+                                        <div class="row align-items-start"
+                                        style=" color: #808080;
+                                            padding 10px;
+                                            border-radius: 10px;
+                                            box-shadow: inset 0 0 2px;
+                                            margin: 0 0 0 0;
+                                        ">
+                                            <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Топливо 3</label></h3>  @*&nbsp - не разрывной пробел*@
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Название топлива</span>
+                                                <input type="text" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Name" name="PDZ_3_Name">
+                                            </div>
+
+                                            <div class="col">
+
+                                                <div>
+                                                    <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Концентрации</label></h3>  @*&nbsp - не разрывной пробел*@
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Conc" name="PDZ_3_CO_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Conc" name="PDZ_3_CO2_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Conc" name="PDZ_3_NO_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Conc" name="PDZ_3_NOx_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Conc" name="PDZ_3_SO2_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Conc" name="PDZ_3_Dust_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Conc" name="PDZ_3_CH4_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Conc" name="PDZ_3_H2S_Conc">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_1" name="PDZ_3_Add_Conc_1">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_2" name="PDZ_3_Add_Conc_2">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_3" name="PDZ_3_Add_Conc_3">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_4" name="PDZ_3_Add_Conc_4">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_5" name="PDZ_3_Add_Conc_5">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col">
+
+                                                <h3 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Выбросы</label></h3>  @*&nbsp - не разрывной пробел*@
+
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Emis" name="PDZ_3_CO_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Emis" name="PDZ_3_CO2_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Emis" name="PDZ_3_NO_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Emis" name="PDZ_3_NOx_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Emis" name="PDZ_3_SO2_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Emis" name="PDZ_3_Dust_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Emis" name="PDZ_3_CH4_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Emis" name="PDZ_3_H2S_Emis">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_1" name="PDZ_3_Add_Emis_1">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_2" name="PDZ_3_Add_Emis_2">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_3" name="PDZ_3_Add_Emis_3">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_4" name="PDZ_3_Add_Emis_4">
+                                                </div>
+
+                                                <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_5" name="PDZ_3_Add_Emis_5">
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items_start"> 
+                                            
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+
+
+                                                @if (@GlobalStaticSettingsASK.PDZ.Is_Active == 3)
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio3" value="3" checked>
+                                                        <label class="form-check-label " for="inlineRadio3">Используется</label>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="form-check form-check-inline col" >
+                                                        <input class="form-check-input" type="radio" name="PDZ_Active" id="inlineRadio3" value="3">
+                                                        <label class="form-check-label " for="inlineRadio3">Используется</label>
+                                                    </div>
+                                                }
+
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+                                            
+                                                <div class="col">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </th>
+                                }
+                                else
+                                {
+                                     <th scope="col" width="66%">
+                                     </th>
+
+                                     
+
+                                }
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+
+                                    <div class="row align-items_start mb-0" > 
+                                        
+                                        <div class="col">
+                                            @if (GlobalStaticSettingsASK.PDZ.UsedNumberFuel != 1)
+                                            {
+                                                <input class="btn btn-primary " type="submit" asp-action="PDZ_Set" asp-controller="Settings" value="Использовать&nbspодно&nbspтопливо"/>  @*&nbsp - не разрывной пробел*@
+                                            }
+                                            else
+                                            {
+                                                <input class="btn btn-primary " type="submit" asp-action="PDZ_Set" asp-controller="Settings" value="Использовать&nbspнесколько&nbspвидов&nbspтоплив"/>  @*&nbsp - не разрывной пробел*@
+                                            }
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+                                         <div class="col">
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+
+
+                                        <div class="col">
+
+                                                @if (@GlobalStaticSettingsASK.PDZ.UsedNumberFuel != 1)
+                                                {
+                                                        <input class="btn btn-primary " type="submit" asp-action="PDZ_FUEL" asp-controller="Settings" value="Изменить"/>
+                                                }
+                                                else
+                                                {
+
+                                                        <input class="btn btn-primary " type="submit" asp-action="PDZ_ONE" asp-controller="Settings" value="Изменить"/>
+                                                }
+
+
+                                        </div>
+
+                                    </div>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            
+            
+            <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">
+
+                <form method="post">   
+                    <h2 ><label style="font-family: Times New Roman" , Times, serif; font-size: 70%;" for="start" > Название&nbspсистемы&nbsp</label></h2>  @*&nbsp - не разрывной пробел*@
+
+                    <div class="form-floating text-center">
+                        <textarea class="form-control"  style="font-size: 120%; font-family: Times New Roman; height: 70px" placeholder="Leave a comment here" typeof="text" name="NameASKSystem" id="floatingTextarea1">@GlobalStaticSettingsASK.SettingOptions.NameASKSystem</textarea>
+                        <label   style="font-size: 70%" for="floatingTextarea1">Пример - «Автоматизированная система контроля за выбросами загрязняющих веществ в атмосферный воздух.»</label>
+                    </div>
+                    <br />
+
+                    <h2 ><label style="font-family: Times New Roman" , Times, serif; font-size: 70%;" for="start" > Название&nbspобъекта&nbsp</label></h2>  @*&nbsp - не разрывной пробел*@
+                    <div class="form-floating text-center">
+                        <textarea class="form-control"  style="font-size: 120%; font-family: Times New Roman; height: 70px" placeholder="Leave a comment here" typeof="text" name="NameASK" id="floatingTextarea2">@GlobalStaticSettingsASK.SettingOptions.NameASK</textarea>
+                        <label   style="font-size: 70%" for="floatingTextarea2">Пример - «Котельная ИООО «СВУДС экспорт» г. Борисов.»</label>
+                    </div>
+                    <br />
+
+                    <h2 ><label style="font-family: Times New Roman" , Times, serif; font-size: 70%;" for="start" > Номер&nbspпроекта&nbsp</label></h2>  @*&nbsp - не разрывной пробел*@
+                    <div class="form-floating text-center">
+                        <textarea class="form-control"  style="font-size: 120%; font-family: Times New Roman; height: 70px" placeholder="Leave a comment here"  typeof="text" name="NumberASK" id="floatingTextarea3">@GlobalStaticSettingsASK.SettingOptions.NumberASK</textarea>
+                        <label   style="font-size: 70%" for="floatingTextarea3">Пример - «10433»</label>
+                    </div>
+
+                    <br />
+                    <input class="btn btn-primary" style="margin: 0 0 4px 0; float: right;" type="submit" value="Изменить"/>
+
+                    <br />
+                    <br />
+
+                </form>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <form method="post"> 
+                     <h2 class="text-center" ><label style="font-family: Times New Roman" , Times, serif;"  > Выберите&nbspкомпоненты,&nbspкоторые&nbspбудут&nbspиспользоваться&nbspв&nbspотчётах</label></h2>  @*&nbsp - не разрывной пробел*@
+
+                    <div class="container-fluid"
+                        style=" color: #808080;
+                            border-radius: 10px;
+                            box-shadow: inset 0 0 3px;
+                         ">
+
+                        <div class="row align-items-start">
+
+                        @*Концентрации*@
+                                <div class="col">
+                                    <br />
+                            @*Чекбокс Концентрации CO*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Conc" id="flexCheckDefault1" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault1">
+                                                        Концентрации CO
+                                                    </label>
+                                            </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Conc" id="flexCheckDefault2">
+                                                    <label class="form-check-label" for="flexCheckDefault2">
+                                                        Концентрации CO
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации CO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Conc" id="flexCheckDefault3" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault3">
+                                                        Концентрации CO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Conc" id="flexCheckDefault4">
+                                                    <label class="form-check-label" for="flexCheckDefault4">
+                                                        Концентрации CO₂
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Концентрации NO*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Conc" id="flexCheckDefault5" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault5">
+                                                        Концентрации NO
+                                                    </label>
+                                             </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Conc" id="flexCheckDefault6">
+                                                    <label class="form-check-label" for="flexCheckDefault6">
+                                                        Концентрации NO
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Концентрации NO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Conc" id="flexCheckDefault7" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault7">
+                                                        Концентрации NO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Conc" id="flexCheckDefault8">
+                                                    <label class="form-check-label" for="flexCheckDefault8">
+                                                        Концентрации NO₂
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации NOx*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Conc" id="flexCheckDefault9" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault9">
+                                                        Концентрации NOx
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Conc" id="flexCheckDefault10">
+                                                    <label class="form-check-label" for="flexCheckDefault10">
+                                                        Концентрации NOx
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации SO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Conc" id="flexCheckDefault11" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault11">
+                                                        Концентрации SO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Conc" id="flexCheckDefault12">
+                                                    <label class="form-check-label" for="flexCheckDefault12">
+                                                        Концентрации SO₂
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Концентрации Тв.ч.*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Conc" id="flexCheckDefault13" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault13">
+                                                        Концентрации Тв.ч.
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Conc" id="flexCheckDefault14">
+                                                    <label class="form-check-label" for="flexCheckDefault14">
+                                                        Концентрации Тв.ч.
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации CH4*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Conc" id="flexCheckDefault15" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault15">
+                                                        Концентрации CH₄
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Conc" id="flexCheckDefault16">
+                                                    <label class="form-check-label" for="flexCheckDefault16">
+                                                        Концентрации CH₄
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации H2S*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Conc" id="flexCheckDefault17" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault17">
+                                                        Концентрации H₂S
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Conc" id="flexCheckDefault18">
+                                                    <label class="form-check-label" for="flexCheckDefault18">
+                                                        Концентрации H₂S
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Концентрации Add_Conc_1*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_1" id="flexCheckDefault19" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault19">
+                                                        Концентрация резерв 1
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_1" id="flexCheckDefault20">
+                                                    <label class="form-check-label" for="flexCheckDefault20">
+                                                        Концентрация резерв 1
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации Add_Conc_2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_2" id="flexCheckDefault21" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault21">
+                                                        Концентрация резерв 2
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_2" id="flexCheckDefault22">
+                                                    <label class="form-check-label" for="flexCheckDefault22">
+                                                        Концентрация резерв 2
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Концентрации Add_Conc_3*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_3" id="flexCheckDefault23" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault23">
+                                                        Концентрация резерв 3
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_3" id="flexCheckDefault24">
+                                                    <label class="form-check-label" for="flexCheckDefault24">
+                                                        Концентрация резерв 3
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Концентрации Add_Conc_4*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_4" id="flexCheckDefault25" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault25">
+                                                        Концентрация резерв 4
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_4" id="flexCheckDefault26">
+                                                    <label class="form-check-label" for="flexCheckDefault26">
+                                                        Концентрация резерв 4
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Концентрации Add_Conc_5*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_5" id="flexCheckDefault27" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault27">
+                                                        Концентрация резерв 5
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_5" id="flexCheckDefault28">
+                                                    <label class="form-check-label" for="flexCheckDefault28">
+                                                        Концентрация резерв 5
+                                                    </label>
+                                            </div>
+                            }
+                                </div> 
+
+
+
+
+
+                        @*Выбросы*@
+                                <div class="col" >   
+                                    <br />
+                            @*Чекбокс Выбросы CO*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Emis" id="flexCheckDefault29" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault29">
+                                                        Выбросы CO
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Emis" id="flexCheckDefault30">
+                                                    <label class="form-check-label" for="flexCheckDefault30">
+                                                        Выбросы CO
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы CO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Emis" id="flexCheckDefault31" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault31">
+                                                        Выбросы CO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Emis" id="flexCheckDefault32">
+                                                    <label class="form-check-label" for="flexCheckDefault32">
+                                                        Выбросы CO₂
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы NO*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Emis" id="flexCheckDefault33" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault33">
+                                                        Выбросы NO
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Emis" id="flexCheckDefault34">
+                                                    <label class="form-check-label" for="flexCheckDefault34">
+                                                        Выбросы NO
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Выбросы NO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Emis" id="flexCheckDefault35" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault35">
+                                                        Выбросы NO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Emis" id="flexCheckDefault36">
+                                                    <label class="form-check-label" for="flexCheckDefault36">
+                                                        Выбросы NO₂
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы NOx*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Emis" id="flexCheckDefault37" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault37">
+                                                        Выбросы NOx
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Emis" id="flexCheckDefault38">
+                                                    <label class="form-check-label" for="flexCheckDefault38">
+                                                        Выбросы NOx
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы SO2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Emis" id="flexCheckDefault39" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault39">
+                                                        Выбросы SO₂
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Emis" id="flexCheckDefault40">
+                                                    <label class="form-check-label" for="flexCheckDefault40">
+                                                        Выбросы SO₂
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Выбросы Тв.ч.*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault41" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault41">
+                                                        Выбросы Тв.ч.
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault42">
+                                                    <label class="form-check-label" for="flexCheckDefault42">
+                                                        Выбросы Тв.ч.
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы CH4*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Emis" id="flexCheckDefault43" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault43">
+                                                        Выбросы CH₄
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Emis" id="flexCheckDefault44">
+                                                    <label class="form-check-label" for="flexCheckDefault44">
+                                                        Выбросы CH₄
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы H2S*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Emis" id="flexCheckDefault45" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault45">
+                                                        Выбросы H₂S
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Emis" id="flexCheckDefault46">
+                                                    <label class="form-check-label" for="flexCheckDefault46">
+                                                        Выбросы H₂S
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Выбросы Add_Conc_1*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_1" id="flexCheckDefault47" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault47">
+                                                        Выбросы резерв 1
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_1" id="flexCheckDefault48">
+                                                    <label class="form-check-label" for="flexCheckDefault48">
+                                                        Выбросы резерв 1
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы Add_Conc_2*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_2" id="flexCheckDefault49" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault49">
+                                                        Выбросы резерв 2
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_2" id="flexCheckDefault50">
+                                                    <label class="form-check-label" for="flexCheckDefault50">
+                                                        Выбросы резерв 2
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Выбросы Add_Conc_3*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_3" id="flexCheckDefault51" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault51">
+                                                        Выбросы резерв 3
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_3" id="flexCheckDefault52">
+                                                    <label class="form-check-label" for="flexCheckDefault52">
+                                                        Выбросы резерв 3
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Выбросы Add_Conc_4*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_4" id="flexCheckDefault53" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault53">
+                                                        Выбросы резерв 4
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_4" id="flexCheckDefault54">
+                                                    <label class="form-check-label" for="flexCheckDefault54">
+                                                        Выбросы резерв 4
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Выбросы Add_Conc_5*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5 == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_5" id="flexCheckDefault55" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault55">
+                                                        Выбросы резерв 5
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_5" id="flexCheckDefault56">
+                                                    <label class="form-check-label" for="flexCheckDefault56">
+                                                        Выбросы резерв 5
+                                                    </label>
+                                            </div>
+                            }
+
+                                </div> 
+
+
+
+                        @*Параметры*@
+                                <div class="col" >   
+                                    <br />
+                            @*Чекбокс Параметр O2_Wet*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Wet" id="flexCheckDefault57" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault57">
+                                                        O₂ влажный
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Wet" id="flexCheckDefault58">
+                                                    <label class="form-check-label" for="flexCheckDefault58">
+                                                        O₂ влажный
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Параметр O2_Dry*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Dry" id="flexCheckDefault59" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault59">
+                                                        O₂ сухой
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Dry" id="flexCheckDefault60">
+                                                    <label class="form-check-label" for="flexCheckDefault60">
+                                                        O₂ сухой
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Параметр H2O*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2O == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2O" id="flexCheckDefault61" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault61">
+                                                        H₂O (Влажность)
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2O" id="flexCheckDefault62">
+                                                    <label class="form-check-label" for="flexCheckDefault62">
+                                                        H₂O (Влажность)
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Параметр Давление ДГ*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Pressure == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Pressure" id="flexCheckDefault63" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault63">
+                                                        Давление ДГ
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Pressure" id="flexCheckDefault64">
+                                                    <label class="form-check-label" for="flexCheckDefault64">
+                                                        Давление ДГ
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Параметр Температура ДГ*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature" id="flexCheckDefault65" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault65">
+                                                        Температура ДГ
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature" id="flexCheckDefault66">
+                                                    <label class="form-check-label" for="flexCheckDefault66">
+                                                        Температура ДГ
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Параметр Скорость ДГ*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Speed == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Speed" id="flexCheckDefault67" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault67">
+                                                        Скорость ДГ
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Speed" id="flexCheckDefault68">
+                                                    <label class="form-check-label" for="flexCheckDefault68">
+                                                        Скорость ДГ
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Параметр Расход ДГ*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Flow == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Flow" id="flexCheckDefault69" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault69">
+                                                        Расход ДГ
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Flow" id="flexCheckDefault70">
+                                                    <label class="form-check-label" for="flexCheckDefault70">
+                                                        Расход ДГ
+                                                    </label>
+                                            </div>
+                            }
+
+                            @*Чекбокс Параметр Температура КИП*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_KIP" id="flexCheckDefault71" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault71">
+                                                        Температура КИП
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_KIP" id="flexCheckDefault72">
+                                                    <label class="form-check-label" for="flexCheckDefault72">
+                                                        Температура КИП
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Параметр Температура NOx*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_NOx" id="flexCheckDefault73" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault73">
+                                                        Температура NOx
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_NOx" id="flexCheckDefault74">
+                                                    <label class="form-check-label" for="flexCheckDefault74">
+                                                        Температура NOx
+                                                    </label>
+                                            </div>
+                            }
+
+
+                            @*Чекбокс Параметр Режим работы АСК*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Mode_ASK" id="flexCheckDefault75" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault75">
+                                                        Режим работы АСК
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Mode_ASK" id="flexCheckDefault76">
+                                                    <label class="form-check-label" for="flexCheckDefault76">
+                                                        Режим работы АСК
+                                                    </label>
+                                            </div>
+                            }
+
+
+
+                            @*Чекбокс Параметр Вид топлива*@
+                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel == "table-cell")
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_PDZ_Fuel" id="flexCheckDefault77" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault77">
+                                                        Вид топлива (ПДЗ)
+                                                    </label>
+                                                </div>
+                            }
+                            else
+                            {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_PDZ_Fuel" id="flexCheckDefault78">
+                                                    <label class="form-check-label" for="flexCheckDefault78">
+                                                        Вид топлива (ПДЗ)
+                                                    </label>
+                                            </div>
+                            }
+
+                                </div> 
+
+
+
+                        </div>
+
+                        <div>
+                            <input class="btn btn-primary " style="float: right;" type="submit" asp-action="CheckBox" asp-controller="Settings" value="Изменить"/>
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">... Уже совсем скоро ...
+
+
+
+            </div>
+        </div>
+</div>
+

@@ -1,0 +1,517 @@
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.dev.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.AssemblyReference.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.Manifest.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CopyComplete
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.genruntimeconfig.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\EPPlus.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportDaily\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportMonthly\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 2 (Работа с БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.dev.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\EPPlus.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.AssemblyReference.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.Manifest.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportDaily\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportMonthly\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CopyComplete
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.genruntimeconfig.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 3 (Адаптируем БД)\ASK\ASK\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.AssemblyReference.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.dev.json
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\EPPlus.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.Manifest.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.xml
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportDaily\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportMonthly\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\Index.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cs
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.Views.pdb
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CopyComplete
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.genruntimeconfig.cache
+C:\Users\Evgeniy.Sundukov\Desktop\S7.Net\ASK_CORE_MVC\Попытка 4 (Упращаем Excel)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Charts\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\libman.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.dev.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\EPPlus.Core.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.AssemblyReference.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.editorconfig
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.Manifest.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.xml
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Charts\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportDaily\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportMonthly\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.Views.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CopyComplete
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.genruntimeconfig.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Settings\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\VisibilityOptions20MJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\SettingOptionsJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\AlarmList\Alarm.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 5 (Доделываем отчёты)\ASK\ASK\bin\Debug\netcoreapp3.1\PdzJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\libman.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\PdzJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\SettingOptionsJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\VisibilityOptions20MJSON.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.runtimeconfig.dev.json
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Views.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\EPPlus.Core.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.AssemblyReference.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.editorconfig
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.Manifest.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.xml
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\AlarmList\Alarm.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Charts\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportDaily\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\ReportMonthly\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Settings\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorTargetAssemblyInfo.cs
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.Views.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CopyComplete
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.dll
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.pdb
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.genruntimeconfig.cache
+D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcoreapp3.1\Quartz.dll

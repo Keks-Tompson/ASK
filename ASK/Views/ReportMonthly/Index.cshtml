@@ -1,0 +1,665 @@
+﻿
+
+@using ASK.Controllers
+
+
+
+@*Сохраняем текущую страницу*@
+@using ASK.Controllers.Setting;
+@{Accaunt.CurrentPage = "ReportMonthly";}
+
+
+
+
+
+<div class="container-fluid row align-items-start" >
+     
+
+      <div class="col"
+            style=" color: #808080;
+                padding: 10px;
+                border-radius: 10px;
+                /* box-shadow: 0 0 10px;*/
+                box-shadow: inset 0 0 5px;
+                line-height: 1;
+                /*margin: 0 -23px 0 0;*/
+                /*padding: 10px;*/
+                font-size: 230%;
+                /* width: 375px;*/
+                height 100px;
+                ">
+            
+    
+
+  
+            <label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Отчёт&nbspза&nbspмесяц</label>  @*&nbsp - не разрывной пробел*@
+           
+
+
+
+
+    </div>
+    
+    
+   
+     
+        
+        <div class="col">
+         </div>
+         
+         <div class="col">     
+         </div>
+         
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+       
+
+        
+        
+      
+
+
+         <div class="col"
+    style=" color: #808080;
+             padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 10px;
+       /*     box-shadow: 0 0 10px;*/
+            box-shadow: inset 0 0 10px;
+            line-height: 1;
+            margin: 0 10px 0 0;
+           /* padding: 10px;*/
+            font-size: 170%;
+            /*width: 340px;*/
+            /*height 60px;*/
+            white-space: nowrap; 
+            ">
+
+    
+
+      
+            
+          
+            
+            @*<label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Отчёт за сутки</label> *@
+
+            @*<label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" > на:</label> *@
+
+            <form method="post" >
+           
+
+                  <label>
+
+            <select class="form-select" aria-label="" name="month"  
+                style=" color: #808080;
+         
+                    font-size: 68%;
+                    width: 130px;
+                 /* height 60px;*/
+                    white-space: nowrap; 
+                ">
+               
+                @*Нужно придумать лучше спопоб выбора текущего месяца*@
+                    @if (ReportMonthlyController.masMonth[1]) {<option selected value = "1">Январь</option>}
+                        else {<option value = "1">Январь</option>}
+
+                    @if (ReportMonthlyController.masMonth[2]) {<option selected value = "2">Февраль</option>}
+                        else {<option value = "2">Февраль</option>}
+                     
+                    @if (ReportMonthlyController.masMonth[3]) {<option selected value = "3">Март</option>}
+                        else {<option value = "3">Март</option>}
+
+                    @if (ReportMonthlyController.masMonth[4]) {<option selected value = "4">Апрель</option>}
+                        else {<option value = "4">Апрель</option>}
+
+                    @if (ReportMonthlyController.masMonth[5]) {<option selected value = "5">Май</option>}
+                        else {<option value = "5">Май</option>}
+
+                    @if (ReportMonthlyController.masMonth[6]){<option selected value = "6">Июнь</option>}
+                        else {<option value = "6">Июнь</option>}
+
+                    @if (ReportMonthlyController.masMonth[7]) {<option selected value = "7">Июль</option>}
+                        else {<option value = "7">Июль</option>}
+
+                    @if (ReportMonthlyController.masMonth[8]) {<option selected value = "8">Август</option>}
+                        else {<option value = "8">Август</option>}
+
+                    @if (ReportMonthlyController.masMonth[9]) {<option selected value = "9">Сентябрь</option>}
+                        else {<option value = "9">Сентябрь</option>}
+
+                    @if (ReportMonthlyController.masMonth[10]) {<option selected value = "10">Октябрь</option>}
+                        else {<option value = "10">Октябрь</option>}
+
+                    @if (ReportMonthlyController.masMonth[11]) {<option selected value = "11">Ноябрь</option>}
+                        else {<option value = "11">Ноябрь</option>}
+
+                    @if (ReportMonthlyController.masMonth[12]) {<option selected value = "12">Декабрь</option>}
+                        else {<option value = "12">Декабрь</option>}
+            </select>
+            </label>
+
+
+                <label>
+            <select class="form-select" aria-label="" name="year" 
+                style=" color: #808080;
+         
+                    font-size: 68%;
+                    width: 90px;
+                 /* height 60px;*/
+                    white-space: nowrap; 
+                ">
+
+                @*Нужно придумать лучше спопоб выбора текущего года*@
+                    @if (ReportMonthlyController.masYear[1]) {<option selected value = "1">2022</option>}
+                        else {<option value = "1">2022</option>}
+
+                    @if (ReportMonthlyController.masYear[2]) {<option selected value = "2">2023</option>}
+                        else {<option value = "2">2023</option>}
+                     
+                    @if (ReportMonthlyController.masYear[3]) {<option selected value = "3">2024</option>}
+                        else {<option value = "3">2024</option>}
+
+                    @if (ReportMonthlyController.masYear[4]) {<option selected value = "4">2025</option>}
+                        else {<option value = "4">2025</option>}
+
+                    @if (ReportMonthlyController.masYear[5]) {<option selected value = "5">2026</option>}
+                        else {<option value = "5">2026</option>}
+
+                    @if (ReportMonthlyController.masYear[6]) {<option selected value = "6">2027</option>}
+                        else {<option value = "6">2027</option>}
+
+                    @if (ReportMonthlyController.masYear[7]) {<option selected value = "7">2028</option>}
+                        else {<option value = "7">2028</option>}
+
+                    @if (ReportMonthlyController.masYear[8]) {<option selected value = "8">2029</option>}
+                        else {<option value = "8">2029</option>}
+
+                    @if (ReportMonthlyController.masYear[9]) {<option selected value = "9">2030</option>}
+                        else {<option value = "9">2030</option>}
+
+                    @if (ReportMonthlyController.masYear[10]) {<option selected value = "10">2031</option>}
+                        else {<option value = "10">2031</option>}
+
+                    @if (ReportMonthlyController.masYear[11]) {<option selected value = "11">2032</option>}
+                        else {<option value = "11">2032</option>}
+
+                    @if (ReportMonthlyController.masYear[12]) {<option selected value = "12">2033</option>}
+                        else {<option value = "12">2033</option>}
+
+                    @if (ReportMonthlyController.masYear[13]) {<option selected value = "13">2034</option>}
+                        else {<option value = "13">2034</option>}
+
+                    @if (ReportMonthlyController.masYear[14]) {<option selected value = "14">2035</option>}
+                        else {<option value = "14">2035</option>}
+
+            </select>
+            </label>
+           
+            <input class="btn btn-primary" style="margin: 0 0 4px 0;" type="submit" value="Сформировать"/>
+
+            </form>
+
+     
+
+
+
+    </div>
+            
+
+ 
+     
+
+    <div class="col"
+    style=" color: #808080;
+             padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 10px;
+       /*     box-shadow: 0 0 10px;*/
+            box-shadow: inset 0 0 10px;
+            line-height: 1;
+            margin: 0 -23px 0 0;
+           /* padding: 10px;*/
+            font-size: 170%;
+            /*width: 380px;*/
+            /*height 60px;*/
+            white-space: nowrap; 
+            ">
+
+         <a asp-action="ExportToExcel" asp-controller="ReportMonthly" class="btn btn-success"  style="margin: 0 0 4px 0;"> 
+            Сохраниь в Excel
+         </a>
+
+            @* <a asp-action="ImportToExcel" asp-controller="ReportDailys" class="btn btn-primary">
+            Import from Excel
+            </a>*@
+
+                @*  <a asp-action="Add_20M" asp-controller="c " class="btn btn-success"  style="margin: 0 0 4px 0;"> 
+            Добавить строчку в БД
+         </a>*@
+        </div>
+      
+    
+   
+
+</div>
+
+
+<br />
+
+<div class="container-fluid">
+
+
+   <style>
+        table {}
+        td, th {}
+        th {}
+        tbody tr:bordered
+        {background: #FFDEAD;}
+        tbody tr:hover {
+        background: #FFDEAD; /* Цвет фона при наведении */
+        /*color: #fff; /* Цвет текста при наведении */*/
+   }
+      </style>
+
+
+        <div  style="font-family: Times New Roman" , Times, serif; font-size: 20%;">
+            <table   class="table table-striped   table-bordered  + text-center  " style="  box-shadow: 0 0 1px; font-size: 86%; line-height: 110%;">
+                <thead>
+                    <tr class="table-secondary"  style="font-weight:bold; background: #FFDEAD;" >
+                        <td style="vertical-align: middle">Дата</td>
+                        
+                        @*Коонцентрации*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; vertical-align: middle">CO мг/м³, при н.у.</td>   @*display: table-cell/none;*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; vertical-align: middle">CO2 мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; vertical-align: middle">NO мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; vertical-align: middle">NO₂ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; vertical-align: middle">NOₓ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; vertical-align: middle">SO₂ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; vertical-align: middle">Тв.ч. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; vertical-align: middle">длит. прев. ч.</td>
+                        
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; vertical-align: middle">CH₄. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; vertical-align: middle">H₂S. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; vertical-align: middle">Add_Conc_1. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; vertical-align: middle">Add_Conc_2. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; vertical-align: middle">Add_Conc_3. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; vertical-align: middle">Add_Conc_4. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; vertical-align: middle">Add_Conc_5. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; vertical-align: middle">длит. прев. ч.</td>
+
+
+                        @*Выбросы*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; vertical-align: middle">CO кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; vertical-align: middle">CO₂ кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; vertical-align: middle">NO кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; vertical-align: middle">NO₂ кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; vertical-align: middle">NOₓ кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; vertical-align: middle">длит. прев. ч.в</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; vertical-align: middle">SO₂ кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; vertical-align: middle">Тв.ч. кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; vertical-align: middle">CH₄. кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; vertical-align: middle">H₂S. кг/cутки</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; vertical-align: middle">Add_Emis_1 кг/cутки</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; vertical-align: middle">Add_Emis_2 кг/cутки</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; vertical-align: middle">Add_Emis_3 кг/cутки</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; vertical-align: middle">Add_Emis_4 кг/cутки</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; vertical-align: middle">длит. прев. ч.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; vertical-align: middle">Add_Emis_5 кг/cутки</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; vertical-align: middle">длит. прев. ч.</td>
+
+
+                       
+
+
+                        @*Параметры*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; vertical-align: middle">Давление ДГ, кПа</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; vertical-align: middle">Температура ДГ, °С</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; vertical-align: middle">Скорость ДГ, м³/с</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; vertical-align: middle">Расход ДГ, м³/с, при н.у.</td>
+                       
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>
+                        
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
+
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; vertical-align: middle">О₂ сух, %</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; vertical-align: middle">О₂ вл, %</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; vertical-align: middle">H₂O, %</td>
+                        
+                        
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; vertical-align: middle">Режим</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; vertical-align: middle">ПДК</td>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @if (ReportMonthlyController.reportMonth.tableReportDay.Count > 0)
+                {
+                        <tr  style="font-weight:bold;">
+                            <td style=" padding: 3px; vertical-align: middle;">ПДК / ПДВ </td>
+                            
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CO_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CO_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CO_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CO2_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CO2_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CO2_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NO_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NO_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NO_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NO2_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NO2_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NO2_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NOx_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NOx_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NOx_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.SO2_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.SO2_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.SO2_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Dust_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Dust_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Dust_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CH4_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CH4_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CH4_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.H2S_Conc > 0.0 && @ReportMonthlyController.reportMonth.PDZ.H2S_Conc < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.H2S_Conc} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Conc_1 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Conc_1 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Conc_1} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Conc_2 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Conc_2 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Conc_2} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Conc_3 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Conc_3 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Conc_3} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Conc_4 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Conc_4 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Conc_4} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Conc_5 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Conc_5 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Conc_5} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 3px; vertical-align: middle;"></td>
+
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CO_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CO_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CO_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CO2_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CO2_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CO2_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NO_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NO_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NO_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NO2_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NO2_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NO2_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.NOx_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.NOx_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.NOx_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.SO2_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.SO2_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.SO2_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Dust_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Dust_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Dust_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.CH4_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.CH4_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.CH4_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.H2S_Emis > 0.0 && @ReportMonthlyController.reportMonth.PDZ.H2S_Emis < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.H2S_Emis} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Emis_1 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Emis_1 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Emis_1} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Emis_2 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Emis_2 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Emis_2} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Emis_3 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Emis_3 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Emis_3} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Emis_4 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Emis_4 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Emis_4} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 3px; vertical-align: middle;">@if (@ReportMonthlyController.reportMonth.PDZ.Add_Emis_5 > 0.0 && @ReportMonthlyController.reportMonth.PDZ.Add_Emis_5 < 999999.0) {@ReportMonthlyController.reportMonth.PDZ.Add_Emis_5} else {@ReportMonthlyController.noneValue; } </td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 3px; vertical-align: middle;"></td>
+
+
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; padding: 3px; vertical-align: middle;"></td>
+                            
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; padding: 3px; vertical-align: middle;"></td>
+                            
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; padding: 3px; vertical-align: middle;"></td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; padding: 3px; vertical-align: middle;"></td>
+
+                          </tr>}
+
+                    @foreach (var RepDay in ReportMonthlyController.reportMonth.tableReportDay)
+                {
+                        <tr>
+                                    <td style=" padding: 3px;">@RepDay.Date.ToShortDateString()</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 3px; @if(RepDay.CO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CO_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 3px; @if(RepDay.CO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if(RepDay.CO_Conc_Percent > 0){@RepDay.CO_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 3px; @if(RepDay.CO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 3px; @if(RepDay.CO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.CO2_Conc_Percent > 0){@RepDay.CO2_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 3px; @if(RepDay.NO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NO_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 3px; @if(RepDay.NO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NO_Conc_Percent > 0){@RepDay.NO_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 3px; @if(RepDay.NO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 3px; @if(RepDay.NO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NO2_Conc_Percent > 0){@RepDay.NO2_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 3px; @if(RepDay.NOx_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NOx_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 3px; @if(RepDay.NOx_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NOx_Conc_Percent > 0){@RepDay.NOx_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 3px; @if(RepDay.SO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.SO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 3px; @if(RepDay.SO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.SO2_Conc_Percent > 0){@RepDay.SO2_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 3px; @if(RepDay.Dust_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Dust_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 3px; @if(RepDay.Dust_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Dust_Conc_Percent > 0){@RepDay.Dust_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 3px; @if(RepDay.CH4_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CH4_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 3px; @if(RepDay.CH4_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.CH4_Conc_Percent > 0){@RepDay.CH4_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 3px; @if(RepDay.H2S_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.H2S_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 3px; @if(RepDay.H2S_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.H2S_Conc_Percent > 0){@RepDay.H2S_Conc_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 3px; @if(RepDay.Add_Conc_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Conc_1</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 3px; @if(RepDay.Add_Conc_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Conc_1_Percent > 0){@RepDay.Add_Conc_2_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 3px; @if(RepDay.Add_Conc_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Conc_2</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 3px; @if(RepDay.Add_Conc_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Conc_2_Percent > 0){@RepDay.Add_Conc_2_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 3px; @if(RepDay.Add_Conc_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Conc_3</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 3px; @if(RepDay.Add_Conc_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Conc_3_Percent > 0){@RepDay.Add_Conc_3_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 3px; @if(RepDay.Add_Conc_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Conc_4</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 3px; @if(RepDay.Add_Conc_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Conc_4_Percent > 0){@RepDay.Add_Conc_4_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 3px; @if(RepDay.Add_Conc_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Conc_5</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 3px; @if(RepDay.Add_Conc_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Conc_5_Percent > 0){@RepDay.Add_Conc_5_Percent;}</td>
+
+
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 3px; @if(RepDay.CO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CO_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis;; padding: 3px; @if(RepDay.CO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.CO_Emis_Percent > 0){@RepDay.CO_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 3px; @if(RepDay.CO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 3px; @if(RepDay.CO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.CO2_Emis_Percent > 0){@RepDay.CO2_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 3px; @if(RepDay.NO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NO_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 3px; @if(RepDay.NO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NO_Emis_Percent > 0){@RepDay.NO_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 3px; @if(RepDay.NO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 3px; @if(RepDay.NO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NO2_Emis_Percent > 0){@RepDay.NO2_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 3px; @if(RepDay.NOx_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.NOx_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 3px; @if(RepDay.NOx_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.NOx_Emis_Percent > 0){@RepDay.NOx_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 3px; @if(RepDay.SO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.SO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 3px; @if(RepDay.SO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.SO2_Emis_Percent > 0){@RepDay.SO2_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 3px; @if(RepDay.Dust_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Dust_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 3px; @if(RepDay.Dust_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Dust_Emis_Percent > 0){@RepDay.Dust_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 3px; @if(RepDay.CH4_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.CH4_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 3px; @if(RepDay.CH4_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.CH4_Emis_Percent > 0){@RepDay.CH4_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 3px; @if(RepDay.H2S_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.H2S_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 3px; @if(RepDay.H2S_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.H2S_Emis_Percent > 0){@RepDay.H2S_Emis_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 3px; @if(RepDay.Add_Emis_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Emis_1</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 3px; @if(RepDay.Add_Emis_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Emis_1_Percent > 0){@RepDay.Add_Emis_1_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 3px; @if(RepDay.Add_Emis_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Emis_2</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 3px; @if(RepDay.Add_Emis_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Emis_2_Percent > 0){@RepDay.Add_Emis_2_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 3px; @if(RepDay.Add_Emis_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Emis_3</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 3px; @if(RepDay.Add_Emis_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Emis_3_Percent > 0){@RepDay.Add_Emis_3_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 3px; @if(RepDay.Add_Emis_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Emis_4</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 3px; @if(RepDay.Add_Emis_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Emis_4_Percent > 0){@RepDay.Add_Emis_4_Percent;}</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 3px; @if(RepDay.Add_Emis_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@RepDay.Add_Emis_5</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 3px; @if(RepDay.Add_Emis_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (RepDay.Add_Emis_5_Percent > 0){@RepDay.Add_Emis_5_Percent;}</td>
+
+
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; padding: 3px;">@RepDay.Pressure</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; padding: 3px;">@RepDay.Temperature</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; padding: 3px;">@RepDay.Speed</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; padding: 3px;">@RepDay.Flow</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; padding: 3px;">@RepDay.Temperature_KIP</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; padding: 3px;">@RepDay.Temperature_NOx</td>
+                                    
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; padding: 3px;">@RepDay.O2_Dry</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; padding: 3px;">@RepDay.O2_Wet</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; padding: 3px;">@RepDay.H2O</td>
+                                    
+                                    <td style=" display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; padding: 3px; @ReportMonthlyController.mode_ASK_String_color[Convert.ToInt32(RepDay.Mode_ASK)]">@ReportMonthlyController.mode_ASK_String[Convert.ToInt32(RepDay.Mode_ASK)]</td>
+                                    
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; padding: 3px;">@RepDay.PDZ_Fuel</td>
+
+                         </tr>
+                }
+                </tbody>
+                <tfoot>
+                    <tr class="table-secondary" style="font-weight:bold;">
+                                <td style=" padding: 4px;">Среднее / Сумма </td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.CO_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CO_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CO_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.NO_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NO_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NO_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Conc_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Conc_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Conc_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_1</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_1_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_1_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_1_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_2</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_2_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_2_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_2_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_3</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_3_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_3_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_3_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_4</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_4_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_4_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_4_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_5</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_5_Percent > 0.0){@ReportMonthlyController.exceedColor};">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_5_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Conc_5_Percent;}</td>
+
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.avgTotal_20M.CO_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.CO_Emis&nbspт.</td> @*&nbsp - не разрывной пробел*@
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CO_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CO_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Emis  / @ReportMonthlyController.reportMonth.sumTotal_20M.CO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CO2_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.NO_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.NO_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NO_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NO_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.NO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NO2_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.NOx_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.NOx_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.SO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Emis_Percent > 0){@ReportMonthlyController.reportMonth.avgTotal_20M.SO2_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.Dust_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Emis_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Dust_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.CH4_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Emis_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.CH4_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Emis / @ReportMonthlyController.reportMonth.sumTotal_20M.H2S_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Emis_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Emis_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.H2S_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_1_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_1 / @ReportMonthlyController.reportMonth.sumTotal_20M.Add_Emis_1&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_1_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_1_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_1_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_2_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_2 / @ReportMonthlyController.reportMonth.sumTotal_20M.Add_Emis_2&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_2_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_2_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_2_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_3_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_3 / @ReportMonthlyController.reportMonth.sumTotal_20M.Add_Emis_3&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_3_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_3_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_3_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_4_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_4 / @ReportMonthlyController.reportMonth.sumTotal_20M.Add_Emis_4&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_4_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_4_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_4_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_5_Percent > 0.0){@ReportMonthlyController.exceedColor}">@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_5 / @ReportMonthlyController.reportMonth.sumTotal_20M.Add_Emis_5&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 4px; @if(ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_5_Percent > 0.0){@ReportMonthlyController.exceedColor}">@if (ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_5_Percent < 0){@ReportMonthlyController.reportMonth.avgTotal_20M.Add_Emis_5_Percent;}</td>
+
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Pressure</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Temperature</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Speed</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Flow</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Temperature_KIP</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.Temperature_NOx</td>
+
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.O2_Dry</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.O2_Wet</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; padding: 4px;">@ReportMonthlyController.reportMonth.avgTotal_20M.H2O</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; padding: 4px; @if(@ReportMonthlyController.reportMonth.sumTotal_20M.Mode_ASK > 0.0){@ReportMonthlyController.exceedColor};">@ReportMonthlyController.reportMonth.sumTotal_20M.Mode_ASK ч.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; padding: 4px;">@*@ReportMonthlyController.avgAndTotal_20M.PDZ_Fuel*@</td>
+                    </tr>
+                      
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

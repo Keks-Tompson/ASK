@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ASK.Models.ACCIDENT_LIST">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ACCIDENT_LIST.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASK.Models.ACCIDENT_LOG">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAACAAAAAAAEAAAAAAAAAAAIAAAAAAACAAAAAA=</HashCode>
+      <FileName>Models\ACCIDENT_LOG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASK.Models.AVG_20_MINUTES">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgGAMsAAAAAIAQigAIAgAERQADAOAIBAAhgAkAEAAQ=</HashCode>
+      <FileName>Models\AVG_20_MINUTES.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASK.Models.PDZ">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAMEiACAAIAAAACwDAAAAADQNBIBAUIAABAAEAE=</HashCode>
+      <FileName>Models\PDZ.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
