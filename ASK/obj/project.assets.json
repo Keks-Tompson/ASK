@@ -819,6 +819,24 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "NModbus/3.0.72": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NModbus.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NModbus.dll": {}
+        }
+      },
+      "NModbus4/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/NModbus4.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NModbus4.dll": {}
+        }
+      },
       "Quartz/3.4.0": {
         "type": "package",
         "dependencies": {
@@ -3453,6 +3471,44 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.12.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "NModbus/3.0.72": {
+      "sha512": "OVlIA4G8y5/QZercCg1A6772n0TZ7ag7Pxlw4jJRNqfT5ur1f0qwrjhYKiWS8C67dKX+4S9SEe7WTE9CPwvLrw==",
+      "type": "package",
+      "path": "nmodbus/3.0.72",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/net45/NModbus.dll",
+        "lib/net45/NModbus.xml",
+        "lib/net46/NModbus.dll",
+        "lib/net46/NModbus.xml",
+        "lib/net5.0/NModbus.dll",
+        "lib/net5.0/NModbus.xml",
+        "lib/net6.0/NModbus.dll",
+        "lib/net6.0/NModbus.xml",
+        "lib/netstandard1.3/NModbus.dll",
+        "lib/netstandard1.3/NModbus.xml",
+        "lib/netstandard2.0/NModbus.dll",
+        "lib/netstandard2.0/NModbus.xml",
+        "nmodbus.3.0.72.nupkg.sha512",
+        "nmodbus.nuspec"
+      ]
+    },
+    "NModbus4/2.1.0": {
+      "sha512": "hGoxVFImyP2UC/vyaBjS3ZCLEqn3nqDWOfiePUfSTPpI4EhF4xUe6VnQ5W6m9oFK/6unKAaWQZh89WE+I31Spw==",
+      "type": "package",
+      "path": "nmodbus4/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NModbus4.pdb",
+        "lib/net40/NModbus4.dll",
+        "lib/net40/NModbus4.xml",
+        "nmodbus4.2.1.0.nupkg.sha512",
+        "nmodbus4.nuspec"
       ]
     },
     "Quartz/3.4.0": {
@@ -7671,6 +7727,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 3.1.22",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.22",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.22",
+      "NModbus >= 3.0.72",
+      "NModbus4 >= 2.1.0",
       "Quartz >= 3.4.0",
       "bootstrap >= 5.1.3"
     ]
@@ -7682,11 +7740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj",
+      "projectUniqueName": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
       "projectName": "ASK",
-      "projectPath": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj",
+      "projectPath": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
       "packagesPath": "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\",
-      "outputPath": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\obj\\",
+      "outputPath": "D:\\new ASK\\ASK\\ASK\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7749,6 +7807,14 @@
             "target": "Package",
             "version": "[3.1.22, )"
           },
+          "NModbus": {
+            "target": "Package",
+            "version": "[3.0.72, )"
+          },
+          "NModbus4": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "Quartz": {
             "target": "Package",
             "version": "[3.4.0, )"
@@ -7779,5 +7845,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"NModbus4 2.1.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "NModbus4",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

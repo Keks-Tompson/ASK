@@ -31,7 +31,8 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" >
                     @*<partial name="_LoginPartial" /> *@
                
-                           
+                     
+                    
                     @if (Accaunt.isValid)
                     {
 
@@ -64,6 +65,9 @@
                         
 
                     }
+
+                    
+                      
                     
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -109,18 +113,55 @@
 
                         </li>
 
-                     
 
-                       
+                        
+                        <li class="nav-item" >
+                            <div class="dropdown">
+                                <button style="font-size: 96%;  font-family: Times New Roman" , Times, serif; font-size: 20%;" data-toggle="dropdown" class="navbar btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Доп. (временные)
+                                </button>
+                                <div class="dropdown-menu" style="font-size: 90%;  font-family: Times New Roman" , Calibri, serif; font-size: 20%;">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Current20M" asp-action="CurrentTable20M">Значение тек. 20м.</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="CurrentSensor_4_20" asp-action="CurrentSensor">Значение тек. 4-20мА</a>
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Отчёт за месяц (средн. выбросы при простое)</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Отчёт за месяц (средн. выбросы за сутки)</a>
+                                   @* <div class="dropdown-divider"></div>*@
+                                    @*<a class="dropdown-item" href="#">За год</a>*@
+                                </div>
+                            </div>
 
-                         <li class="nav-item">
-                         <a>                   </a>
                         </li>
 
-                     
 
+                        <li class="nav-item">
+                            <div id="isConnection" style="margin: 4px 0 0 0">
+                                @if (!GlobalStaticSettingsASK.isNotConnection)
+                                {
+                                    <button class="btn btn-danger" type="button">
+                                      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                       &nbspНет связи с ПЛК
+                                    </button>
+                                }
+                            </div> 
+                        </li>
+
+                        <li class="nav-item">
+                        </li>
+
+                        <li class="nav-item">
+                            <div id="Write20M_Now" style="margin: 4px 0 0 0">
+                                @if (GlobalStaticSettingsASK.stopGetSernsorNow)
+                                {
+                                    <button class="btn btn-warning">Идёт запись 20М в БД
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    </button>  
+                                }
+                            </div> 
+                        </li>
                     </ul>
 
+
+                    
 
 
                      
@@ -166,12 +207,96 @@
             </div>
 
 
+   
+
 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
+    @*@RenderSection("Scripts", required: false)*@
+
+
+
+ 
+    
+
+
 </body>
+
+
+
+
+
+
 </html>
+
+
+
+
+ <script type="text/javascript">
+    
+        function Update20M() 
+        {
+            
+           
+               $.ajax({
+                    url: "@Url.Action("Write20M", "Home")",// указываем URL
+                    //url: '../HomeController/Write20M',// указываем URL
+
+                    method: "POST",            // HTTP метод, по умолчанию GET
+                
+
+                    success: function(result) {
+                    
+                        if (result[0]) 
+                        {
+                            $('#Write20M_Now').html(
+                                 '<button class="btn btn-warning">Идёт запись 20М в БД' +
+                                       ' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + 
+                                 '</button>'
+                            );
+                        }
+                        else
+                        {
+                            $('#Write20M_Now').html('');
+                        }
+
+                        if (!result[1]) 
+                        {
+                            $('#isConnection').html(
+                                 '<button class="btn btn-danger" type="button">' +
+                                      '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>' +
+                                       '&nbsp Нет связи с ПЛК' +
+                                    '</button>'
+                            );
+                        }
+                        else
+                        {
+                            $('#isConnection').html('');
+                        }
+
+
+             
+
+                    }      
+               });
+        }
+
+        function Up() {
+            alert("Hello! I am an alert box!");
+        }
+
+
+        setInterval(Update20M, 1000)
+
+ </script>
+
+
+
+
+
+
+

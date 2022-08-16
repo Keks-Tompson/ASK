@@ -77,5 +77,17 @@ namespace ASK.Data.Services
             var dbPDZ = db.PDZ.ToList();
             return dbPDZ.Where(w => w.Date.Year == date.Year && w.Date.Month == date.Date.Month && w.Date.Day == date.Day).Select(s => s).ToList();
         }
+
+        public PDZ FisrsPDZMonth(DateTime date)
+        {
+            var dbPDZ = db.PDZ.ToList();
+            return dbPDZ.First(a => a.Date.Year == date.Year && a.Date.Month == date.Month && a.Current == true);
+        }
+
+        public bool FindPDZDay()
+        {
+            var dbPDZ = db.PDZ.ToList();
+            return dbPDZ.Any(a => a.Date.Year == DateTime.Now.Year && a.Date.Month == DateTime.Now.Month && a.Date.Day == DateTime.Now.Day);
+        }
     }
 }

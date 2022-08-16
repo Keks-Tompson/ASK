@@ -154,55 +154,51 @@ namespace ASK.Controllers.Report
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                //Вытаскиваем ПДЗ на текущие сутки
-                List<PDZ> PDZs = new List<PDZ>();
+                //Вытаскиваем ПДЗ на месяц
+                PDZ pdz = new PDZ();
                 PDZ_Service pdz_Service = new PDZ_Service(db);
-                PDZs = pdz_Service.Get_DayAll_PDZ(yearMonth).OrderBy(w => w.NumberPDZ).ToList(); //Проверить правильность сортировки!
+                pdz = pdz_Service.FisrsPDZMonth(yearMonth);    
 
                 PDZ = new PDZ_Active();
 
-                for (int i = 0; i < PDZs.Count; i++)
-                {
-                    if (PDZs[i].Current == true)
-                    {
+               
 
-                        PDZ.Date = PDZs[i].Date;
-                        PDZ.NumberPDZ = PDZs[i].NumberPDZ;
+                        PDZ.Date = pdz.Date;
+                        PDZ.NumberPDZ = pdz.NumberPDZ;
 
-                        PDZ.CO_Conc = PDZs[i].CO_Conc;
-                        PDZ.CO2_Conc = PDZs[i].CO2_Conc;
-                        PDZ.NO_Conc = PDZs[i].NO_Conc;
-                        PDZ.NO2_Conc = PDZs[i].NO2_Conc;
-                        PDZ.NOx_Conc = PDZs[i].NOx_Conc;
-                        PDZ.SO2_Conc = PDZs[i].SO2_Conc;
-                        PDZ.Dust_Conc = PDZs[i].Dust_Conc;
-                        PDZ.CH4_Conc = PDZs[i].CH4_Conc;
-                        PDZ.H2S_Conc = PDZs[i].H2S_Conc;
-                        PDZ.Add_Conc_1 = PDZs[i].Add_Conc_1;
-                        PDZ.Add_Conc_2 = PDZs[i].Add_Conc_2;
-                        PDZ.Add_Conc_3 = PDZs[i].Add_Conc_3;
-                        PDZ.Add_Conc_4 = PDZs[i].Add_Conc_4;
-                        PDZ.Add_Conc_5 = PDZs[i].Add_Conc_5;
+                        PDZ.CO_Conc = pdz.CO_Conc;
+                        PDZ.CO2_Conc = pdz.CO2_Conc;
+                        PDZ.NO_Conc = pdz.NO_Conc;
+                        PDZ.NO2_Conc = pdz.NO2_Conc;
+                        PDZ.NOx_Conc = pdz.NOx_Conc;
+                        PDZ.SO2_Conc = pdz.SO2_Conc;
+                        PDZ.Dust_Conc = pdz.Dust_Conc;
+                        PDZ.CH4_Conc = pdz.CH4_Conc;
+                        PDZ.H2S_Conc = pdz.H2S_Conc;
+                        PDZ.Add_Conc_1 = pdz.Add_Conc_1;
+                        PDZ.Add_Conc_2 = pdz.Add_Conc_2;
+                        PDZ.Add_Conc_3 = pdz.Add_Conc_3;
+                        PDZ.Add_Conc_4 = pdz.Add_Conc_4;
+                        PDZ.Add_Conc_5 = pdz.Add_Conc_5;
 
-                        PDZ.CO_Emis = PDZs[i].CO_Emis;
-                        PDZ.CO2_Emis = PDZs[i].CO2_Emis;
-                        PDZ.NO_Emis = PDZs[i].NO_Emis;
-                        PDZ.NO2_Emis = PDZs[i].NO2_Emis;
-                        PDZ.NOx_Emis = PDZs[i].NOx_Emis;
-                        PDZ.SO2_Emis = PDZs[i].SO2_Emis;
-                        PDZ.Dust_Emis = PDZs[i].Dust_Emis;
-                        PDZ.CH4_Emis = PDZs[i].CH4_Emis;
-                        PDZ.H2S_Emis = PDZs[i].H2S_Emis;
-                        PDZ.Add_Emis_1 = PDZs[i].Add_Emis_1;
-                        PDZ.Add_Emis_2 = PDZs[i].Add_Emis_2;
-                        PDZ.Add_Emis_3 = PDZs[i].Add_Emis_3;
-                        PDZ.Add_Emis_4 = PDZs[i].Add_Emis_4;
-                        PDZ.Add_Emis_5 = PDZs[i].Add_Emis_5;
+                        PDZ.CO_Emis = pdz.CO_Emis;
+                        PDZ.CO2_Emis = pdz.CO2_Emis;
+                        PDZ.NO_Emis = pdz.NO_Emis;
+                        PDZ.NO2_Emis = pdz.NO2_Emis;
+                        PDZ.NOx_Emis = pdz.NOx_Emis;
+                        PDZ.SO2_Emis = pdz.SO2_Emis;
+                        PDZ.Dust_Emis = pdz.Dust_Emis;
+                        PDZ.CH4_Emis = pdz.CH4_Emis;
+                        PDZ.H2S_Emis = pdz.H2S_Emis;
+                        PDZ.Add_Emis_1 = pdz.Add_Emis_1;
+                        PDZ.Add_Emis_2 = pdz.Add_Emis_2;
+                        PDZ.Add_Emis_3 = pdz.Add_Emis_3;
+                        PDZ.Add_Emis_4 = pdz.Add_Emis_4;
+                        PDZ.Add_Emis_5 = pdz.Add_Emis_5;
 
                         //PDZ[i + 1].Current = PDZs[i].Current;
-                        break;
-                    }
-                }
+                      
+                 
             }
 
 

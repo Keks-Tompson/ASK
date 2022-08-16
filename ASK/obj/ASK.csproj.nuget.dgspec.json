@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj": {}
+    "D:\\new ASK\\ASK\\ASK\\ASK.csproj": {}
   },
   "projects": {
-    "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj": {
+    "D:\\new ASK\\ASK\\ASK\\ASK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj",
+        "projectUniqueName": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
         "projectName": "ASK",
-        "projectPath": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\ASK.csproj",
+        "projectPath": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
         "packagesPath": "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\",
-        "outputPath": "D:\\new ASK\\ASK_CORE_MVC\\Попытка 6 (Scheduling)\\ASK\\ASK\\obj\\",
+        "outputPath": "D:\\new ASK\\ASK\\ASK\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -73,6 +73,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.22, )"
+            },
+            "NModbus": {
+              "target": "Package",
+              "version": "[3.0.72, )"
+            },
+            "NModbus4": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Quartz": {
               "target": "Package",

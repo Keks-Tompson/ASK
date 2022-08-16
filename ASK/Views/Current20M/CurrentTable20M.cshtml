@@ -1,0 +1,133 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using ASK.Controllers.Setting
+
+<div class="container-fluid">
+
+
+   <style>
+        table {}
+        td, th {}
+        th {}
+        tbody tr:bordered
+        {background: #FFDEAD;}
+        tbody tr:hover {
+        background: #FFDEAD; /* Цвет фона при наведении */
+        /*color: #fff; /* Цвет текста при наведении */*/
+   }
+  </style>
+
+
+    <div  style="font-family: Times New Roman" , Times, serif; font-size: 20%;">
+
+        <table class="table table-striped   table-bordered  + text-center  " style="box-shadow: 0 0 1px; font-size: 86%; line-height: 110%;">
+          <thead>
+            <tr class="table-secondary"  style="font-weight:bold; background: #FFDEAD;" >
+                            <td style="vertical-align: middle">Время</td>
+
+                            @*Коонцентрации*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; vertical-align: middle">CO мг/м³, при н.у.</td>   @*display: table-cell/none;*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; vertical-align: middle">CO2 мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; vertical-align: middle">NO мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; vertical-align: middle">NO₂ мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; vertical-align: middle">NOₓ мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; vertical-align: middle">SO₂ мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; vertical-align: middle">Тв.ч. мг/м³, при н.у.</td>                
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; vertical-align: middle">CH₄. мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; vertical-align: middle">H₂S. мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; vertical-align: middle">Add_Conc_1. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; vertical-align: middle">Add_Conc_2. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; vertical-align: middle">Add_Conc_3. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; vertical-align: middle">Add_Conc_4. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; vertical-align: middle">Add_Conc_5. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+
+                            @*Выбросы*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; vertical-align: middle">CO г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; vertical-align: middle">CO₂ г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; vertical-align: middle">NO г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; vertical-align: middle">NO₂ г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; vertical-align: middle">NOₓ г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; vertical-align: middle">SO₂ г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; vertical-align: middle">Тв.ч. г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; vertical-align: middle">CH₄. г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; vertical-align: middle">H₂S. г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; vertical-align: middle">Add_Emis_1. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; vertical-align: middle">Add_Emis_2. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; vertical-align: middle">Add_Emis_3. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; vertical-align: middle">Add_Emis_4. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; vertical-align: middle">Add_Emis_5. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+
+                            @*Параметры*@
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; vertical-align: middle">Давление ДГ, кПа</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; vertical-align: middle">Температура ДГ, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; vertical-align: middle">Скорость ДГ, м³/с</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; vertical-align: middle">Расход ДГ, м³/с, при н.у.</td>                   
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>                   
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; vertical-align: middle">О₂ сух, %</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; vertical-align: middle">О₂ вл, %</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; vertical-align: middle">H₂O, %</td>                               
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; vertical-align: middle">Режим</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; vertical-align: middle">ПДК</td>
+                        </tr>
+          </thead>
+  
+           @foreach (var tableCurrent in GlobalStaticSettingsASK.Array20Ms)
+                        {
+                            <tr>
+                                        <td style=" padding: 3px;">@tableCurrent.Date.Hour:@tableCurrent.Date.Minute:@tableCurrent.Date.Second </td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc; padding: 3px;">@tableCurrent.CO_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc; padding: 3px; ">@tableCurrent.CO2_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc; padding: 3px; ">@tableCurrent.NO_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc; padding: 3px; ">@tableCurrent.NO2_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc; padding: 3px; ">@tableCurrent.NOx_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc; padding: 3px; ">@tableCurrent.SO2_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc; padding: 3px; ">@tableCurrent.Dust_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc; padding: 3px; ">@tableCurrent.CH4_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc; padding: 3px; ">@tableCurrent.H2S_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1; padding: 3px;">@tableCurrent.Add_Conc_1</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2; padding: 3px; ">@tableCurrent.Add_Conc_2</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3; padding: 3px; ">@tableCurrent.Add_Conc_3</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4; padding: 3px; ">@tableCurrent.Add_Conc_4</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5; padding: 3px; ">@tableCurrent.Add_Conc_5</td>
+
+
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis; padding: 3px; ">@tableCurrent.CO_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis; padding: 3px; ">@tableCurrent.CO2_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis; padding: 3px; ">@tableCurrent.NO_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis; padding: 3px; ">@tableCurrent.NO2_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis; padding: 3px;">@tableCurrent.NOx_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis; padding: 3px; ">@tableCurrent.SO2_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis; padding: 3px; ">@tableCurrent.Dust_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis; padding: 3px; ">@tableCurrent.CH4_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis; padding: 3px; ">@tableCurrent.H2S_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1; padding: 3px; ">@tableCurrent.Add_Emis_1</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2; padding: 3px; ">@tableCurrent.Add_Emis_2</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3; padding: 3px; ">@tableCurrent.Add_Emis_3</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4; padding: 3px; ">@tableCurrent.Add_Emis_4</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5; padding: 3px; ">@tableCurrent.Add_Emis_5</td>
+
+
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Pressure; padding: 3px;">@tableCurrent.Pressure</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature; padding: 3px;">@tableCurrent.Temperature</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Speed; padding: 3px;">@tableCurrent.Speed</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Flow; padding: 3px;">@tableCurrent.Flow</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP; padding: 3px;">@tableCurrent.Temperature_KIP</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx; padding: 3px;">@tableCurrent.Temperature_NOx</td>
+                                
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry; padding: 3px;">@tableCurrent.O2_Dry</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet; padding: 3px;">@tableCurrent.O2_Wet</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.H2O; padding: 3px;">@tableCurrent.H2O</td>
+                                
+                                        @*<td style=" display:@GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK; padding: 3px; @ReportDailyController.mode_ASK_String_color[Convert.ToInt32(RepDay.Mode_ASK)]">@ReportDailyController.mode_ASK_String[Convert.ToInt32(RepDay.Mode_ASK)]</td>*@
+                                        @*<td style="display:@GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel; padding: 3px;">@tableCurrent.PDZ_Fuel</td>*@
+
+                             </tr>
+                        }
+
+        </table>
+    </div>
+</div>

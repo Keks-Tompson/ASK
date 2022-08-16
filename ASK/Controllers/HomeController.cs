@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ASK.Controllers.Setting;
 
 namespace ASK.Controllers
 {
@@ -23,6 +24,16 @@ namespace ASK.Controllers
             return View();
         }
 
+
+        public JsonResult Write20M()
+        {
+            bool[] masBoolError = new bool[2];
+
+            masBoolError[0] = GlobalStaticSettingsASK.stopGetSernsorNow;
+            masBoolError[1] = GlobalStaticSettingsASK.isNotConnection;
+
+            return Json(masBoolError);
+        }
 
 
         public IActionResult Privacy()

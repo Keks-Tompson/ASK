@@ -24,7 +24,7 @@ namespace ASK.Controllers
 
 
 
-        public static string exceedColor = "background-color: #f2aaaa96;";      //Цвет выделения при привышении;
+        public static string exceedColor = "background: #f2aaaa96;";      //Цвет выделения при привышении;
         public static string noneValue = "-/-";
         public static string[] mode_ASK_String = new string[3] { "Работа", "Простой", "Останов" };
         public static string[] mode_ASK_String_color = new string[3] { "", "background-color: #f2aaaa96;", "background-color: #FFE4B5" };

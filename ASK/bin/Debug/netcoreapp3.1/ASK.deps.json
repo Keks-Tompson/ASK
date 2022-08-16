@@ -38,6 +38,8 @@
           "Microsoft.AspNetCore.Identity.UI": "3.1.22",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.22",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.22",
+          "NModbus": "3.0.72",
+          "NModbus4": "2.1.0",
           "Quartz": "3.4.0",
           "bootstrap": "5.1.3",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -884,6 +886,28 @@
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NModbus/3.0.72": {
+        "runtime": {
+          "lib/netstandard2.0/NModbus.dll": {
+            "assemblyVersion": "3.0.72.0",
+            "fileVersion": "3.0.72.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NModbus.dll": {}
+        }
+      },
+      "NModbus4/2.1.0": {
+        "runtime": {
+          "lib/net40/NModbus4.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/NModbus4.dll": {}
         }
       },
       "Quartz/3.4.0": {
@@ -3695,6 +3719,20 @@
       "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "path": "newtonsoft.json/12.0.2",
       "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    },
+    "NModbus/3.0.72": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OVlIA4G8y5/QZercCg1A6772n0TZ7ag7Pxlw4jJRNqfT5ur1f0qwrjhYKiWS8C67dKX+4S9SEe7WTE9CPwvLrw==",
+      "path": "nmodbus/3.0.72",
+      "hashPath": "nmodbus.3.0.72.nupkg.sha512"
+    },
+    "NModbus4/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hGoxVFImyP2UC/vyaBjS3ZCLEqn3nqDWOfiePUfSTPpI4EhF4xUe6VnQ5W6m9oFK/6unKAaWQZh89WE+I31Spw==",
+      "path": "nmodbus4/2.1.0",
+      "hashPath": "nmodbus4.2.1.0.nupkg.sha512"
     },
     "Quartz/3.4.0": {
       "type": "package",

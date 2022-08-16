@@ -34,6 +34,10 @@
         </li>
 
         <li class="nav-item" role="presentation">
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#sensorRange" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки датчиков</button>
+        </li>
+
+        <li class="nav-item" role="presentation">
             <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Настройки отчётов Excel</button>
         </li>
     </ul>
@@ -98,67 +102,72 @@
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Conc" name="PDZ_1_CO_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Conc" name="PDZ_1_CO_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                  <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Conc" name="PDZ_1_CO2_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Conc" name="PDZ_1_CO2_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Conc" name="PDZ_1_NO_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Conc" name="PDZ_1_NO_Conc">
+                                            </div>
+
+                                            <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO2_Conc" name="PDZ_1_NO2_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Conc" name="PDZ_1_NOx_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Conc" name="PDZ_1_NOx_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Conc" name="PDZ_1_SO2_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Conc" name="PDZ_1_SO2_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Conc" name="PDZ_1_Dust_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Conc" name="PDZ_1_Dust_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Conc" name="PDZ_1_CH4_Conc">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Conc" name="PDZ_1_CH4_Conc">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Conc" name="PDZ_1_H2S_Conc"> 
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Conc" name="PDZ_1_H2S_Conc"> 
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_1" name="PDZ_1_Add_Conc_1">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_1" name="PDZ_1_Add_Conc_1">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_2" name="PDZ_1_Add_Conc_2">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_2" name="PDZ_1_Add_Conc_2">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_3" name="PDZ_1_Add_Conc_3">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_3" name="PDZ_1_Add_Conc_3">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_4" name="PDZ_1_Add_Conc_4">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_4" name="PDZ_1_Add_Conc_4">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_5" name="PDZ_1_Add_Conc_5">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_5" name="PDZ_1_Add_Conc_5">
                                             </div>
                                         </div>
 
@@ -170,67 +179,72 @@
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Emis" name="PDZ_1_CO_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Emis" name="PDZ_1_CO_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Emis" name="PDZ_1_CO2_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Emis" name="PDZ_1_CO2_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Emis" name="PDZ_1_NO_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Emis" name="PDZ_1_NO_Emis">
+                                            </div>
+
+                                             <div class="input-group mb-1">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NO2_Emis" name="PDZ_1_NO2_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Emis" name="PDZ_1_NOx_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_NOx_Emis" name="PDZ_1_NOx_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Emis" name="PDZ_1_SO2_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_SO2_Emis" name="PDZ_1_SO2_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Emis" name="PDZ_1_Dust_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Emis" name="PDZ_1_Dust_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Emis" name="PDZ_1_CH4_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Emis" name="PDZ_1_CH4_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Emis" name="PDZ_1_H2S_Emis">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Emis" name="PDZ_1_H2S_Emis">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_1" name="PDZ_1_Add_Emis_1">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_1" name="PDZ_1_Add_Emis_1">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_2" name="PDZ_1_Add_Emis_2">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_2" name="PDZ_1_Add_Emis_2">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_3" name="PDZ_1_Add_Emis_3">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_3" name="PDZ_1_Add_Emis_3">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_4" name="PDZ_1_Add_Emis_4">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_4" name="PDZ_1_Add_Emis_4">
                                             </div>
 
                                             <div class="input-group mb-1">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_5" name="PDZ_1_Add_Emis_5">
+                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_5" name="PDZ_1_Add_Emis_5">
                                             </div>
                                         </div>
 
@@ -304,67 +318,72 @@
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Conc" name="PDZ_2_CO_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Conc" name="PDZ_2_CO_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Conc" name="PDZ_2_CO2_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Conc" name="PDZ_2_CO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Conc" name="PDZ_2_NO_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Conc" name="PDZ_2_NO_Conc">
+                                                </div>
+
+                                                 <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO2_Conc" name="PDZ_2_NO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Conc" name="PDZ_2_NOx_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Conc" name="PDZ_2_NOx_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Conc" name="PDZ_2_SO2_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Conc" name="PDZ_2_SO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Conc" name="PDZ_2_Dust_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Conc" name="PDZ_2_Dust_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Conc" name="PDZ_2_CH4_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Conc" name="PDZ_2_CH4_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Conc" name="PDZ_2_H2S_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Conc" name="PDZ_2_H2S_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_1" name="PDZ_2_Add_Conc_1">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_1" name="PDZ_2_Add_Conc_1">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_2" name="PDZ_2_Add_Conc_2">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_2" name="PDZ_2_Add_Conc_2">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_3" name="PDZ_2_Add_Conc_3">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_3" name="PDZ_2_Add_Conc_3">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_4" name="PDZ_2_Add_Conc_4">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_4" name="PDZ_2_Add_Conc_4">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_5" name="PDZ_2_Add_Conc_5">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_5" name="PDZ_2_Add_Conc_5">
                                                 </div>
                                             </div>
 
@@ -376,67 +395,72 @@
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Emis" name="PDZ_2_CO_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO_Emis" name="PDZ_2_CO_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Emis" name="PDZ_2_CO2_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CO2_Emis" name="PDZ_2_CO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Emis" name="PDZ_2_NO_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO_Emis" name="PDZ_2_NO_Emis">
+                                                </div>
+
+                                                 <div class="input-group mb-1">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NO2_Emis" name="PDZ_2_NO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Emis" name="PDZ_2_NOx_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_NOx_Emis" name="PDZ_2_NOx_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Emis" name="PDZ_2_SO2_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_SO2_Emis" name="PDZ_2_SO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Emis" name="PDZ_2_Dust_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Emis" name="PDZ_2_Dust_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Emis" name="PDZ_2_CH4_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Emis" name="PDZ_2_CH4_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Emis" name="PDZ_2_H2S_Emis">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Emis" name="PDZ_2_H2S_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_1" name="PDZ_2_Add_Emis_1">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_1" name="PDZ_2_Add_Emis_1">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_2" name="PDZ_2_Add_Emis_2">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_2" name="PDZ_2_Add_Emis_2">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_3" name="PDZ_2_Add_Emis_3">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_3" name="PDZ_2_Add_Emis_3">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_4" name="PDZ_2_Add_Emis_4">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_4" name="PDZ_2_Add_Emis_4">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                                 <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_5" name="PDZ_2_Add_Emis_5">
+                                                                 <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_5" name="PDZ_2_Add_Emis_5">
                                                 </div>
                                             </div>
 
@@ -504,67 +528,72 @@
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Conc" name="PDZ_3_CO_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Conc" name="PDZ_3_CO_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Conc" name="PDZ_3_CO2_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Conc" name="PDZ_3_CO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Conc" name="PDZ_3_NO_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Conc" name="PDZ_3_NO_Conc">
+                                                </div>
+
+                                                 <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO2_Conc" name="PDZ_3_NO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Conc" name="PDZ_3_NOx_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Conc" name="PDZ_3_NOx_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Conc" name="PDZ_3_SO2_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Conc" name="PDZ_3_SO2_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Conc" name="PDZ_3_Dust_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Conc" name="PDZ_3_Dust_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Conc" name="PDZ_3_CH4_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Conc" name="PDZ_3_CH4_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Conc" name="PDZ_3_H2S_Conc">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Conc" name="PDZ_3_H2S_Conc">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_1" name="PDZ_3_Add_Conc_1">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_1" name="PDZ_3_Add_Conc_1">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_2" name="PDZ_3_Add_Conc_2">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_2" name="PDZ_3_Add_Conc_2">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_3" name="PDZ_3_Add_Conc_3">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_3" name="PDZ_3_Add_Conc_3">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_4" name="PDZ_3_Add_Conc_4">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_4" name="PDZ_3_Add_Conc_4">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_5" name="PDZ_3_Add_Conc_5">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_5" name="PDZ_3_Add_Conc_5">
                                                 </div>
                                             </div>
 
@@ -576,67 +605,72 @@
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Emis" name="PDZ_3_CO_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO_Emis" name="PDZ_3_CO_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Emis" name="PDZ_3_CO2_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CO2_Emis" name="PDZ_3_CO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Emis" name="PDZ_3_NO_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO_Emis" name="PDZ_3_NO_Emis">
+                                                </div>
+
+                                                 <div class="input-group mb-1">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NO2_Emis" name="PDZ_3_NO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Emis" name="PDZ_3_NOx_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_NOx_Emis" name="PDZ_3_NOx_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Emis" name="PDZ_3_SO2_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_SO2_Emis" name="PDZ_3_SO2_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Emis" name="PDZ_3_Dust_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Emis" name="PDZ_3_Dust_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Emis" name="PDZ_3_CH4_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Emis" name="PDZ_3_CH4_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Emis" name="PDZ_3_H2S_Emis">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Emis" name="PDZ_3_H2S_Emis">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_1" name="PDZ_3_Add_Emis_1">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_1" name="PDZ_3_Add_Emis_1">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_2" name="PDZ_3_Add_Emis_2">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_2" name="PDZ_3_Add_Emis_2">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_3" name="PDZ_3_Add_Emis_3">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_3" name="PDZ_3_Add_Emis_3">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_4" name="PDZ_3_Add_Emis_4">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_4" name="PDZ_3_Add_Emis_4">
                                                 </div>
 
                                                 <div class="input-group mb-1">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
-                                                    <input type="number" step="0.01" min="0.01" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_5" name="PDZ_3_Add_Emis_5">
+                                                    <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_5" name="PDZ_3_Add_Emis_5">
                                                 </div>
                                             </div>
 
@@ -783,6 +817,7 @@
                     <div class="form-floating text-center">
                         <textarea class="form-control"  style="font-size: 120%; font-family: Times New Roman; height: 70px" placeholder="Leave a comment here" typeof="text" name="NameASKSystem" id="floatingTextarea1">@GlobalStaticSettingsASK.SettingOptions.NameASKSystem</textarea>
                         <label   style="font-size: 70%" for="floatingTextarea1">Пример - «Автоматизированная система контроля за выбросами загрязняющих веществ в атмосферный воздух.»</label>
+                        @*Html.TextAreaFor(x=>x.a,)*@
                     </div>
                     <br />
 
@@ -1671,6 +1706,549 @@
                     </div>
 
                 </form>
+            </div>
+
+
+            <div class="tab-pane fade" id="sensorRange" role="tabpanel" aria-labelledby="contact-tab">
+                
+                <h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Настройка диапазонов датчиков:</label></h2>  @*&nbsp - не разрывной пробел*@
+               
+
+                <div class="container-fluid"
+                style=" color: #808080;
+                        padding: 10px;
+                        border-radius: 10px;
+                        box-shadow: inset 0 0 2px;
+                        "> 
+
+                    <form method="post">  
+                        <div class="row align-items-start">
+                        
+                                <div class="col">
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CO</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CO" name="SensorRange_Min_CO">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CO" name="SensorRange_Max_CO">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CO₂</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CO2" name="SensorRange_Min_CO2">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CO2" name="SensorRange_Max_CO2">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NO</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NO" name="SensorRange_Min_NO">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NO" name="SensorRange_Max_NO">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NO₂</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NO2" name="SensorRange_Min_NO2">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NO2" name="SensorRange_Max_NO2">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NOx</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NOx" name="SensorRange_Min_NOx">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NOx" name="SensorRange_Max_NOx">
+                                        </div>
+                                    </div>
+                                    
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон SO₂</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_SO2" name="SensorRange_Min_SO2">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_SO2" name="SensorRange_Max_SO2">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон Тв.ч.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Dust" name="SensorRange_Min_Dust">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Dust" name="SensorRange_Max_Dust">
+                                        </div>
+                                    </div>
+
+                                   
+                                </div>
+
+                                <div class="col">  
+                                     <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CH₄</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CH4" name="SensorRange_Min_CH4">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CH4" name="SensorRange_Max_CH4">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон H₂S</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_H2S" name="SensorRange_Min_H2S">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_H2S" name="SensorRange_Max_H2S">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 1</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_1" name="SensorRange_Min_Rezerv_1">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_1" name="SensorRange_Max_Rezerv_1">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 2</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_2" name="SensorRange_Min_Rezerv_2">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_2" name="SensorRange_Max_Rezerv_2">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 3</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_3" name="SensorRange_Min_Rezerv_3">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_3" name="SensorRange_Max_Rezerv_3">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 4</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_4" name="SensorRange_Min_Rezerv_4">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_4" name="SensorRange_Max_Rezerv_4">
+                                        </div>
+                                    </div>
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 5</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_5" name="SensorRange_Min_Rezerv_5">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_5" name="SensorRange_Max_Rezerv_5">
+                                        </div>
+                                    </div>    
+                                </div>
+
+                                
+
+                                <div class="col">
+                                    
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон O₂ вл.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_O2Wet" name="SensorRange_Min_O2_Wet">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_O2Wet" name="SensorRange_Max_O2_Wet">
+                                        </div>
+                                    </div>  
+
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон O₂ сух.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_O2Dry" name="SensorRange_Min_O2_Dry">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_O2Dry" name="SensorRange_Max_O2_Dry">
+                                        </div>
+                                    </div>  
+
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон H₂O</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_H2O" name="SensorRange_Min_H2O">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_H2O" name="SensorRange_Max_H2O">
+                                        </div>
+                                    </div> 
+
+
+
+                                </div>
+
+                                <div class="col">
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон давления ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Pressure" name="SensorRange_Min_Pressure">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Pressure" name="SensorRange_Max_Pressure">
+                                        </div>
+                                    </div>   
+
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature" name="SensorRange_Min_Temperature">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature" name="SensorRange_Max_Temperature">
+                                        </div>
+                                    </div>   
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон скорости ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Speed" name="SensorRange_Min_Speed">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Speed" name="SensorRange_Max_Speed">
+                                        </div>
+                                    </div> 
+                                    
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры КИП</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature_KIP" name="SensorRange_Min_Temperature_KIP">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature_KIP" name="SensorRange_Max_Temperature_KIP">
+                                        </div>
+                                    </div>  
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры NOx</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature_NOx" name="SensorRange_Min_Temperature_NOx">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature_NOx" name="SensorRange_Max_Temperature_NOx">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                        </div>    
+
+
+                        <div class="row" > 
+                                        
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+                            <div class="col">
+                            </div>
+
+
+                            <div class="col">
+                                <input class="btn btn-primary " type="submit" asp-action="SaveSansorRanger" asp-controller="Settings" value="Изменить"/>
+                            </div>
+
+                        </div>
+
+                    </form> 
+                </div>
             </div>
 
 

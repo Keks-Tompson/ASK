@@ -48,7 +48,7 @@ namespace ASK.Controllers
         {
             reportDay = new ReportDay(authData);
 
-            //Add_20M();
+           
             //Add_PDZ();
             //Add_ACCIDENT_LIST();
             //Add_ACCIDENT_LOG();
@@ -165,66 +165,7 @@ namespace ASK.Controllers
 
 
 
-        public void Add_20M()
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                AVG_20_MINUTES_Service avg_20_M_Service = new AVG_20_MINUTES_Service(db);
-                avg_20_M_Service.Create_AVG_20_MINUTES(new AVG_20_MINUTES()
-                {
-                    Date = GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M, // 20.06.2022 18:30:25 - формат
-                    
-
-
-                    Conc_CO = random.Next(0, 700),
-                    Conc_CO2 = 0.0,
-                    Conc_NO = 0.0,
-                    Conc_NO2 = 0.0,
-                    Conc_NOx = random.Next(0, 300),
-                    Conc_SO2 = random.Next(0, 14),
-                    Conc_Dust = random.Next(0, 700),
-                    Conc_CH4 = 0.0,
-                    Conc_H2S = 0.0,
-                    Conc_D1 = 0.0,
-                    Conc_D2 = 0.0,
-                    Conc_D3 = 0.0,
-                    Conc_D4 = 0.0,
-                    Conc_D5 = 0.0,
-
-                    Emis_CO = 1.19,
-                    Emis_CO2 = 0.0,
-                    Emis_NO = 0.054,
-                    Emis_NO2 = random.Next(0, 2),
-                    Emis_NOx = random.Next(0, 3),
-                    Emis_SO2 = random.Next(0, 1),
-                    Emis_CH4 = 0.0,
-                    Emis_H2S = 0.0,
-                    Emis_Dust = random.Next(0, 1),
-                    Emis_D1 = 0.0,
-                    Emis_D2 = 0.0,
-                    Emis_D3 = 0.0,
-                    Emis_D4 = 0.0,
-                    Emis_D5 = 0.0,
-
-                    O2_Wet = random.Next(16, 21),
-                    O2_Dry = random.Next(15, 21),
-                    H2O = 0.0,
-
-                    Pressure = random.Next(90, 99),
-                    Temperature = random.Next(100, 199),
-                    Speed = random.Next(1, 23),
-                    Flow = random.Next(1, 34),
-                    Temperature_KIP = 0.0,
-                    Temperature_NOx = 0.0,
-
-                    Mode_ASK = random.Next(0, 2),
-                    PDZ_Fuel = random.Next(0, 2)
-                });
-                GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M = GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M.AddMinutes(20);
-            }
-
-
-        }
+       
 
 
         public void Add_ACCIDENT_LIST()
@@ -258,52 +199,7 @@ namespace ASK.Controllers
             }
         }
 
-        public void Add_PDZ()
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                PDZ_Service pdz_Service = new PDZ_Service(db);
-                pdz_Service.Create_PDZ(new PDZ()
-                {
-
-                    Date = new DateTime(2022, 07, 26, 00, 19, 03), // 20.06.2022 18:30:25
-
-                    CO_Conc = 409.0,
-                    CO2_Conc = 9999999.0,
-                    NO_Conc = 9999999.0,
-                    NO2_Conc = 9999999.0,
-                    NOx_Conc = 201.0,
-                    SO2_Conc = 9.0,
-                    Dust_Conc = 45.0,
-                    CH4_Conc = 9999999.0,
-                    H2S_Conc = 9999999.0,
-                    Add_Conc_1 = 9999999.0,
-                    Add_Conc_2 = 9999999.0,
-                    Add_Conc_3 = 9999999.0,
-                    Add_Conc_4 = 9999999.0,
-                    Add_Conc_5 = 9999999.0,
-
-                    CO_Emis = 8.897,
-                    CO2_Emis = 9999999.0,
-                    NO_Emis = 9999999.0,
-                    NO2_Emis = 9999999.0,
-                    NOx_Emis = 4.402,
-                    SO2_Emis = 0.206,
-                    CH4_Emis = 9999999.0,
-                    H2S_Emis = 9999999.0,
-                    Dust_Emis = 0.988,
-                    Add_Emis_1 = 9999999.0,
-                    Add_Emis_2 = 9999999.0,
-                    Add_Emis_3 = 9999999.0,
-                    Add_Emis_4 = 9999999.0,
-                    Add_Emis_5 = 9999999.0,
-
-                    NumberPDZ = 1,
-                    Current = true
-
-                });
-            }
-        }
+       
 
 
 
