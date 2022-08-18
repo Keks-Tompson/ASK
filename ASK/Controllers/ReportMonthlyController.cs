@@ -1,5 +1,5 @@
-﻿using ASK.Controllers.Excel;
-using ASK.Controllers.Report;
+﻿using ASK.BLL.Helper.Excel;
+using ASK.BLL.Helper.Report;
 using Microsoft.AspNetCore.Mvc;
 using System;
 

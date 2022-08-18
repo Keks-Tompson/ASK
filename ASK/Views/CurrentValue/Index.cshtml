@@ -12,12 +12,12 @@
 
 
 @*Сохраняем текущую страницу*@
-@using ASK.Controllers.Setting;
+@using ASK.BLL.Helper.Setting;
 @{Accaunt.CurrentPage = "CurrentValue";}
 
 
 @using ASK.Controllers;
-@using ASK.Controllers.Add;
+@using ASK.BLL.Helper
 
 
 @*<meta http-equiv="refresh" content="5"> Обновляем страницу раз в 10 сек*@
@@ -562,7 +562,7 @@
      
     
         setInterval(Update, 1000)
-        setInterval(UpdateChart, 1000)
+        setInterval(UpdateChart, 10000)
         //setInterval(UpdateChart, 1000)
 
     </script>
@@ -772,7 +772,7 @@
                 myChart.update();
 
                 //Проверяеем на переполнение
-                if (myChart.data.labels.length > 400) 
+                if (myChart.data.labels.length > 500) 
                 { 
                     for (var i = 0; i < j; i++) 
                     {

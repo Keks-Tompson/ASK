@@ -1,4 +1,4 @@
-﻿using ASK.Controllers.Setting;
+﻿using ASK.BLL.Helper.Setting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASK.Controllers

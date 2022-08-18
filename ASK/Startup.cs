@@ -1,8 +1,10 @@
-using ASK.Data;
 
+using ASK.DAL;
 using ASK.Workers;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +43,11 @@ namespace ASK
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            
+            //services.AddSingleton<MyMiddleware, MyMiddleware>(); ////middleware
+
+
+
             //services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
             //services.AddTransient<JobFactory>();
             //services.AddScoped<DataJob>();
@@ -48,7 +55,7 @@ namespace ASK
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -66,9 +73,22 @@ namespace ASK
 
             app.UseRouting();
 
+            
+
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+            //app.UseMiddleware<MyMiddleware>();
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await next();
+            //    await context.Response.WriteAsync("Hello World");
+            //    //await midleware.WriteAsync(context);
+            //});
+
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -76,6 +96,12 @@ namespace ASK
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            
+
+            
+
+            
         }
     }
 }

@@ -1,22 +1,18 @@
 ﻿using ASK.Models;
-using ASK.Controllers.Add;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using ASK.Data;
-using ASK.Controllers.Excel;
-using ASK.Data.Interfaces;
-using ASK.Data.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Text;
 using Microsoft.Extensions.Configuration;
-using ASK.Controllers.Setting;
 using OfficeOpenXml.Style;
+using ASK.BLL.Helper.Excel;
+using ASK.BLL.Helper.Report;
 
 namespace ASK.Controllers
 {
@@ -168,36 +164,36 @@ namespace ASK.Controllers
        
 
 
-        public void Add_ACCIDENT_LIST()
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                ACCIDENT_LIST_Service aCCIDENT_LIST_Service = new ACCIDENT_LIST_Service(db);
+        //public void Add_ACCIDENT_LIST()
+        //{
+        //    using (ApplicationDbContext db = new ApplicationDbContext())
+        //    {
+        //        ACCIDENT_LIST_Service aCCIDENT_LIST_Service = new ACCIDENT_LIST_Service(db);
 
-                aCCIDENT_LIST_Service.Create_ACCIDENT_LIST(new ACCIDENT_LIST()
-                {
-                    Accident = "1111111",
-                    is_Error = true
-                });
-            }
-        }
+        //        aCCIDENT_LIST_Service.Create_ACCIDENT_LIST(new ACCIDENT_LIST()
+        //        {
+        //            Accident = "1111111",
+        //            is_Error = true
+        //        });
+        //    }
+        //}
 
 
-        public void Add_ACCIDENT_LOG()
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                ACCIDENT_LOG_Service aCCIDENT_LOG_Service = new ACCIDENT_LOG_Service(db);
+        //public void Add_ACCIDENT_LOG()
+        //{
+        //    using (ApplicationDbContext db = new ApplicationDbContext())
+        //    {
+        //        ACCIDENT_LOG_Service aCCIDENT_LOG_Service = new ACCIDENT_LOG_Service(db);
 
-                aCCIDENT_LOG_Service.Create_ACCIDENT_LOG(new ACCIDENT_LOG()
-                {
-                    Date_Begin = DateTime.Now,
-                    id_accident = 1,
-                    Time_End = DateTime.Now,
-                    Is_Active = true
-                }) ;
-            }
-        }
+        //        aCCIDENT_LOG_Service.Create_ACCIDENT_LOG(new ACCIDENT_LOG()
+        //        {
+        //            Date_Begin = DateTime.Now,
+        //            id_accident = 1,
+        //            Time_End = DateTime.Now,
+        //            Is_Active = true
+        //        }) ;
+        //    }
+        //}
 
        
 

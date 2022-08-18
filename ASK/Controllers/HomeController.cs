@@ -1,4 +1,5 @@
-﻿using ASK.Models;
+﻿using ASK.BLL.Helper.Setting;
+using ASK.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ASK.Controllers.Setting;
+
 
 namespace ASK.Controllers
 {

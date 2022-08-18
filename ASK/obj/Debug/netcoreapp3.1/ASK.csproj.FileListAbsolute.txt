@@ -518,9 +518,6 @@ D:\new ASK\ASK_CORE_MVC\Попытка 6 (Scheduling)\ASK\ASK\bin\Debug\netcorea
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\appsettings.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\libman.json
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\PdzJSON.json
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SettingOptionsJSON.json
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\VisibilityOptions20MJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.StaticWebAssets.xml
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.exe
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.deps.json
@@ -592,7 +589,6 @@ D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.GeneratedMSBuildEditorConfig.edit
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfoInputs.cache
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.AssemblyInfo.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.csproj.CoreCompileInputs.cache
-D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cache
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cache
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorAssemblyInfo.cs
@@ -628,3 +624,14 @@ D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\NModbus.dll
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\NModbus4.dll
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Current20M\CurrentTable20M.cshtml.g.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentSensor_4_20\CurrentSensor.cshtml.g.cs
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.BLL.dll
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.DAL.dll
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Models.dll
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.BLL.pdb
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Models.pdb
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SettingOptionsJSON.json
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\PdzJSON.json
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityOptions20MJSON.json
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SensorRangeJSON.JSON

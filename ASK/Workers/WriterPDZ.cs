@@ -1,4 +1,4 @@
-﻿using ASK.Controllers.Setting;
+﻿using ASK.BLL.Helper.Setting;
 using Quartz;
 using System.Threading.Tasks;
 

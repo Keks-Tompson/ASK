@@ -31,8 +31,12 @@
     ".NETCoreApp,Version=v3.1": {
       "ASK/1.0.0": {
         "dependencies": {
+          "ASK.BLL": "1.0.0",
+          "ASK.DAL": "1.0.0",
           "Chart.js": "3.7.1",
           "EPPlus.Core": "1.5.4",
+          "JetBrains.Annotations": "2022.1.0",
+          "JetBrains.ReSharper.CommandLineTools": "2022.2.1",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Identity.UI": "3.1.22",
@@ -341,6 +345,18 @@
           "lib/netstandard2.0/EPPlus.Core.dll": {}
         }
       },
+      "JetBrains.Annotations/2022.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2022.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      },
+      "JetBrains.ReSharper.CommandLineTools/2022.2.1": {},
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.22": {
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -1817,6 +1833,52 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
+        }
+      },
+      "ASK.BLL/1.0.0": {
+        "dependencies": {
+          "ASK.DAL": "1.0.0",
+          "ASK.Models": "1.0.0",
+          "EPPlus.Core": "1.5.4",
+          "JetBrains.Annotations": "2022.1.0",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
+          "Microsoft.AspNetCore.Identity.UI": "3.1.22",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.22",
+          "NModbus": "3.0.72"
+        },
+        "runtime": {
+          "ASK.BLL.dll": {}
+        },
+        "compile": {
+          "ASK.BLL.dll": {}
+        }
+      },
+      "ASK.DAL/1.0.0": {
+        "dependencies": {
+          "ASK.Models": "1.0.0",
+          "JetBrains.Annotations": "2022.1.0",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
+          "Microsoft.AspNetCore.Identity.UI": "3.1.22",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.22"
+        },
+        "runtime": {
+          "ASK.DAL.dll": {}
+        },
+        "compile": {
+          "ASK.DAL.dll": {}
+        }
+      },
+      "ASK.Models/1.0.0": {
+        "dependencies": {
+          "JetBrains.Annotations": "2022.1.0"
+        },
+        "runtime": {
+          "ASK.Models.dll": {}
+        },
+        "compile": {
+          "ASK.Models.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3426,6 +3488,20 @@
       "path": "epplus.core/1.5.4",
       "hashPath": "epplus.core.1.5.4.nupkg.sha512"
     },
+    "JetBrains.Annotations/2022.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ASfpoFJxiRsC9Xc4TWuPM41Zb/gl64xwfMOhnOZ3RnVWGYIZchjpWQV5zshJgoc/ZxVtgjaF7b577lURj7E6ig==",
+      "path": "jetbrains.annotations/2022.1.0",
+      "hashPath": "jetbrains.annotations.2022.1.0.nupkg.sha512"
+    },
+    "JetBrains.ReSharper.CommandLineTools/2022.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bkZmISfBnRB56loFSyHV7xSCjw3sxaV4qY6kADP46dJAjIvw7TPMij/atyAYhYRVdFBMM0Bv+cvk1ZJCb3mzLQ==",
+      "path": "jetbrains.resharper.commandlinetools/2022.2.1",
+      "hashPath": "jetbrains.resharper.commandlinetools.2022.2.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.22": {
       "type": "package",
       "serviceable": true,
@@ -4412,6 +4488,21 @@
       "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "ASK.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ASK.DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ASK.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ASK.Controllers.Add;
-using ASK.Controllers.Setting;
-using ASK.Controllers.Add.AJAX_Page.CurrentValue;
+
 using System.Collections.Generic;
 using System;
+using ASK.BLL.Helper.AJAX_Page.CurrentValue;
+using ASK.BLL.Helper;
+using ASK.BLL.Helper.Setting;
 
 namespace ASK.Controllers
 {

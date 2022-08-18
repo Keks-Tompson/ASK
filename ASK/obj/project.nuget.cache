@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Lj4u11Vn7lxXZwxqWWC30tJ+bSeaGedS6Ll3Xh+8z6EgrygmAq+l8ZsUpIXMsE5XBADKcDKcUCeUtlLPyDlLoA==",
+  "dgSpecHash": "iGe0hJBkUsR4VHaSBO3v0Y7qw3VcRMDlcbdgVgZlHbFEKxShXFhvfcLKlSFEdS4S9/EqmyMzuUSxOgtV8EI6eA==",
   "success": true,
   "projectFilePath": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\bootstrap\\5.1.3\\bootstrap.5.1.3.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\chart.js\\3.7.1\\chart.js.3.7.1.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\epplus.core\\1.5.4\\epplus.core.1.5.4.nupkg.sha512",
+    "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\jetbrains.annotations\\2022.1.0\\jetbrains.annotations.2022.1.0.nupkg.sha512",
+    "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\jetbrains.resharper.commandlinetools\\2022.2.1\\jetbrains.resharper.commandlinetools.2022.2.1.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.22\\microsoft.aspnetcore.cryptography.internal.3.1.22.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.22\\microsoft.aspnetcore.cryptography.keyderivation.3.1.22.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.22\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.22.nupkg.sha512",

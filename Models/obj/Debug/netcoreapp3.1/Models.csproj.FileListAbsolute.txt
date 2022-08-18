@@ -1,0 +1,10 @@
+D:\new ASK\ASK\Models\bin\Debug\netcoreapp3.1\Models.deps.json
+D:\new ASK\ASK\Models\bin\Debug\netcoreapp3.1\Models.dll
+D:\new ASK\ASK\Models\bin\Debug\netcoreapp3.1\Models.pdb
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.csproj.AssemblyReference.cache
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.dll
+D:\new ASK\ASK\Models\obj\Debug\netcoreapp3.1\Models.pdb

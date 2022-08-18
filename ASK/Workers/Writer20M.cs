@@ -1,11 +1,10 @@
-﻿using ASK.Controllers.Add;
-using ASK.Controllers.Setting;
+﻿
 using Quartz;
 using System;
 using System.Threading.Tasks;
 
-using NModbus;
 using System.Net.Sockets;
+using ASK.BLL.Helper.Setting;
 
 namespace ASK.Workers
 {
