@@ -1,4 +1,5 @@
 ﻿using ASK.BLL.Helper.Setting;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Globalization;
@@ -6,15 +7,17 @@ using System.Threading;
 
 namespace ASK.Controllers
 {
+    [Authorize]
+    //[Authorize(Roles = "Administrator")]
     public class SettingsController : Controller
     {
 
 
         public IActionResult Index()
         {
-            if (!Accaunt.isValid)
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            else
+            //if (!Accaunt.isValid)
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //else
                 return View();
         }
 
@@ -30,18 +33,18 @@ namespace ASK.Controllers
         [HttpPost]
         public IActionResult Index(string NameASKSystem, string NameASK, string NumberASK)
         {
-            if (Accaunt.isValid)
-            {
+            //if (Accaunt.isValid)
+            //{
                 GlobalStaticSettingsASK.SettingOptions.NameASKSystem = NameASKSystem;
                 GlobalStaticSettingsASK.SettingOptions.NameASK = NameASK;
                 GlobalStaticSettingsASK.SettingOptions.NumberASK = NumberASK;
 
                 GlobalStaticSettingsASK.SaveSettingOptionsJSON();
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
 
             return View();
         }
@@ -49,8 +52,8 @@ namespace ASK.Controllers
         [HttpPost]
         public IActionResult PDZ_Set()
         {
-            if (Accaunt.isValid)
-            {
+            //if (Accaunt.isValid)
+            //{
                 if (GlobalStaticSettingsASK.PDZ.UsedNumberFuel == 1)
                     GlobalStaticSettingsASK.PDZ.UsedNumberFuel = 3;
                 else
@@ -59,11 +62,11 @@ namespace ASK.Controllers
                 GlobalStaticSettingsASK.SavePdz_JSON();
 
                 return RedirectToRoute(new { controller = "Settings", action = "Index" });
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
         }
 
 
@@ -180,8 +183,8 @@ namespace ASK.Controllers
             int PDZ_Active
             )
         {
-            if (Accaunt.isValid)
-            {
+            //if (Accaunt.isValid)
+            //{
 
 
 
@@ -290,11 +293,11 @@ namespace ASK.Controllers
 
                 GlobalStaticSettingsASK.SavePdz_JSON();
                 return new NoContentResult();
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
         }
 
 
@@ -331,8 +334,8 @@ namespace ASK.Controllers
                                         double PDZ_1_Add_Emis_5
             )
         {
-            if (Accaunt.isValid)
-            {
+            //if (Accaunt.isValid)
+            //{
                 GlobalStaticSettingsASK.PDZ.PDZ_1_CO_Conc = PDZ_1_CO_Conc;
                 GlobalStaticSettingsASK.PDZ.PDZ_1_CO2_Conc = PDZ_1_CO2_Conc;
                 GlobalStaticSettingsASK.PDZ.PDZ_1_NO_Conc = PDZ_1_NO_Conc;
@@ -369,11 +372,11 @@ namespace ASK.Controllers
 
 
 
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
         }
 
 
@@ -426,8 +429,8 @@ namespace ASK.Controllers
 
                                         )
         {
-            if (Accaunt.isValid)
-            {
+            //if (Accaunt.isValid)
+            //{
                 //Концентрации
                 if (check_CO_Conc) GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc = "table-cell";
                 else GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc = "none";
@@ -562,11 +565,11 @@ namespace ASK.Controllers
                 GlobalStaticSettingsASK.SaveVisibilityOptions20MJSON();
 
                 return new NoContentResult();
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
 
         }
 
@@ -624,8 +627,8 @@ namespace ASK.Controllers
 
             )
         {
-            if(Accaunt.isValid)
-            {
+            //if(Accaunt.isValid)
+            //{
                 GlobalStaticSettingsASK.SensorRange.Min_CO = SensorRange_Min_CO;
                 GlobalStaticSettingsASK.SensorRange.Max_CO = SensorRange_Max_CO;
                 GlobalStaticSettingsASK.SensorRange.Min_CO2 = SensorRange_Min_CO2;
@@ -678,11 +681,11 @@ namespace ASK.Controllers
                 GlobalStaticSettingsASK.SaveSensorRange_JSON();
 
                 return new NoContentResult();
-            }
-            else
-            {
-                return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
+            //}
         }
     }
 }

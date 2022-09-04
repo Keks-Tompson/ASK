@@ -32,12 +32,14 @@
                     @*<partial name="_LoginPartial" /> *@
                
                      
+
+           
                     
-                    @if (Accaunt.isValid)
+                    @if (User.Identity.IsAuthenticated)
                     {
 
 
-                        <form>
+                        <form method="post">
                       
 
                             @*<a class="btn btn-primary" href="#" role="button">Выйти</a>*@
@@ -46,7 +48,7 @@
                             <a class="btn btn-warning"  asp-area="" asp-controller="AlarmList" asp-action="Alarm">Журнал аварий</a>
 
 
-                            <a class="btn btn-primary" type="reset" asp-area="" asp-controller="Users" asp-action="Reboot">Выйти</a>
+                            <input class="btn btn-primary" type="submit" asp-area="" asp-controller="Users" asp-action="Logout" value="Выйти">
                            
                             @*<input type="text" onclick="function(lastButton = @{Accaunt.isValid = false;}){}" />*@
                             <button class="btn btn-info" asp-area="" asp-controller="Settings" asp-action="Index"><img src="~/AppData/image/Accaunt/Account.png" width="23" height="23" alt="Вход выполнен"></button>

@@ -84,14 +84,14 @@
 
 
             <tr>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Есть связь с контроллером</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Есть связь</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Текущие значения выбросов</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Текущие значения</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">В работе, O₂ &#60 20%</td> @*&#60 = <*@
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Нет приближения к ПДЗ</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Превышений нет</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Техническое обслуживание не выполняется</td>
+                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
                 <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>
             </tr>
@@ -563,6 +563,10 @@
     
         setInterval(Update, 1000)
         setInterval(UpdateChart, 10000)
+
+
+       
+
         //setInterval(UpdateChart, 1000)
 
     </script>
@@ -772,18 +776,16 @@
                 myChart.update();
 
                 //Проверяеем на переполнение
-                if (myChart.data.labels.length > 500) 
+                while (myChart.data.labels.length > 700) 
                 { 
                     for (var i = 0; i < j; i++) 
                     {
                         myChart.data.datasets[i].data.shift();
                     }
-                    
-
-                    
                     myChart.data.labels.shift();
+                    myChart.update();
                 }
-                myChart.update();
+                
             }
 
 

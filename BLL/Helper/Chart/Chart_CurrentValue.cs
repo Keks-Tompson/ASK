@@ -4,7 +4,7 @@ using System;
 
 namespace ASK.BLL.Helper.Chart
 {
-    public class Chart_CurrentValue
+    public class Chart_CurrentValue : ICloneable
     {
         static Random rnd = new Random();
 
@@ -32,118 +32,123 @@ namespace ASK.BLL.Helper.Chart
         int rndMin = -2500;
         int rndMax = 2500;
 
-        int rndMaxPredel = 100;
+        int rndMaxPredel = 700;
 
         double MaxPredel = 1000.0;
-        public Chart_CurrentValue Getsimulation()
+        public void Getsimulation()
         {
-            Chart_CurrentValue chartSimulationValue = new Chart_CurrentValue();
 
-            chartSimulationValue.DateString = DateTime.Now.ToLongTimeString();
 
-            double O2 = GlobalStaticSettingsASK.ChartCurrent.O2_Dry + rnd.Next(-50, 50) / 100.0;
+            DateString = DateTime.Now.ToLongTimeString();
+
+            double O2 = GlobalStaticSettingsASK.ChartCurrent.O2_Dry + rnd.Next(-70, 70) / 100.0;
             if (O2 < 1.0)
                 O2 = 1.0;
             if (O2 > 21.0)
                 O2 = 21.0;
 
 
-            chartSimulationValue.CO = GlobalStaticSettingsASK.ChartCurrent.CO * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.CO < 500.0)
+            CO = GlobalStaticSettingsASK.ChartCurrent.CO * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (CO < 500.0)
             {
-                chartSimulationValue.CO = GlobalStaticSettingsASK.ChartCurrent.CO + rnd.Next(0, 100);
+                CO = GlobalStaticSettingsASK.ChartCurrent.CO + rnd.Next(0, 100);
+                if (CO < 0.0)
+                    CO = 0.0;
             }
-            if (chartSimulationValue.CO > 1000.0)
+            if (CO > 1000.0)
             {
-                chartSimulationValue.CO = chartSimulationValue.CO - rnd.Next(0, rndMaxPredel);
-            }
-
-            chartSimulationValue.CO2 = GlobalStaticSettingsASK.ChartCurrent.CO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.CO2 < 0.0)
-            {
-                chartSimulationValue.CO2 = GlobalStaticSettingsASK.ChartCurrent.CO2 + rnd.Next(0, 500) ;
-            }
-            if (chartSimulationValue.CO2 > MaxPredel)
-            {
-                chartSimulationValue.CO2 = chartSimulationValue.CO2 - rnd.Next(0, rndMaxPredel);
+                CO = CO - rnd.Next(0, rndMaxPredel);
             }
 
-            chartSimulationValue.NO = GlobalStaticSettingsASK.ChartCurrent.NO * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.NO < 0.0)
+            CO2 = GlobalStaticSettingsASK.ChartCurrent.CO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (CO2 < 0.0)
             {
-                chartSimulationValue.NO = GlobalStaticSettingsASK.ChartCurrent.NO + rnd.Next(0, 500);
+                CO2 = GlobalStaticSettingsASK.ChartCurrent.CO2 + rnd.Next(0, 500);
+                if (CO2 < 0.0)
+                    CO2 = 0.0;
             }
-            if (chartSimulationValue.NO > MaxPredel)
+            if (CO2 > MaxPredel)
             {
-                chartSimulationValue.NO = chartSimulationValue.NO - rnd.Next(0, rndMaxPredel);
-            }
-
-            chartSimulationValue.NO2 = GlobalStaticSettingsASK.ChartCurrent.NO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.NO2 < 150.0)
-            {
-                chartSimulationValue.NO2 = GlobalStaticSettingsASK.ChartCurrent.NO2 + rnd.Next(0, 500);
-            }
-            if (chartSimulationValue.NO2 > 500.0)
-            {
-                chartSimulationValue.NO2 = chartSimulationValue.NO2 - rnd.Next(0, rndMaxPredel);
+                CO2 = CO2 - rnd.Next(0, rndMaxPredel);
             }
 
-            chartSimulationValue.NOx = GlobalStaticSettingsASK.ChartCurrent.NOx * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.NOx < 0.0)
+            NO = GlobalStaticSettingsASK.ChartCurrent.NO * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (NO < 0.0)
             {
-                chartSimulationValue.NOx = GlobalStaticSettingsASK.ChartCurrent.NOx + rnd.Next(0, 5);
+                NO = GlobalStaticSettingsASK.ChartCurrent.NO + rnd.Next(0, 500);
+                if (NO < 0.0)
+                    NO = 0.0;
             }
-            if (chartSimulationValue.NOx > 50.0)
+            if (NO > MaxPredel)
             {
-                chartSimulationValue.NOx = chartSimulationValue.NOx - rnd.Next(0, 10);
-            }
-
-            chartSimulationValue.SO2 = GlobalStaticSettingsASK.ChartCurrent.SO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.SO2 < 250.0)
-            {
-                chartSimulationValue.SO2 = GlobalStaticSettingsASK.ChartCurrent.SO2 + rnd.Next(0, 100);
-            }
-            if (chartSimulationValue.SO2 > 750.0)
-            {
-                chartSimulationValue.SO2 = chartSimulationValue.SO2 - rnd.Next(0, rndMaxPredel);
+                NO = NO - rnd.Next(0, rndMaxPredel);
             }
 
-            chartSimulationValue.Dust = GlobalStaticSettingsASK.ChartCurrent.Dust * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
-            if (chartSimulationValue.Dust < 80.0)
+            NO2 = GlobalStaticSettingsASK.ChartCurrent.NO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (NO2 < 150.0)
             {
-                chartSimulationValue.Dust = GlobalStaticSettingsASK.ChartCurrent.Dust + rnd.Next(0, 100);
+                NO2 = GlobalStaticSettingsASK.ChartCurrent.NO2 + rnd.Next(0, 500);
+                if (NO2 < 0.0)
+                    NO2 = 0.0;
             }
-            if (chartSimulationValue.Dust > 250.0)
+            if (NO2 > 500.0)
             {
-                chartSimulationValue.Dust = chartSimulationValue.Dust - rnd.Next(0, rndMaxPredel);
+                NO2 = NO2 - rnd.Next(0, rndMaxPredel);
             }
 
+            NOx = GlobalStaticSettingsASK.ChartCurrent.NOx * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (NOx < 0.0)
+            {
+                NOx = GlobalStaticSettingsASK.ChartCurrent.NOx + rnd.Next(0, 5);
+                if (NOx < 0.0)
+                    NOx = 0.0;
+            }
+            if (NOx > 50.0)
+            {
+                NOx = NOx - rnd.Next(0, 10);
+            }
 
+            SO2 = GlobalStaticSettingsASK.ChartCurrent.SO2 * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (SO2 < 250.0)
+            {
+                SO2 = GlobalStaticSettingsASK.ChartCurrent.SO2 + rnd.Next(0, 100);
+                if (SO2 < 0.0)
+                    SO2 = 0.0;
+            }
+            if (SO2 > 750.0)
+            {
+                SO2 = SO2 - rnd.Next(0, rndMaxPredel);
+            }
 
-            chartSimulationValue.CH4 = 0.0;
+            Dust = GlobalStaticSettingsASK.ChartCurrent.Dust * (GlobalStaticSettingsASK.ChartCurrent.O2_Dry / O2) + rnd.Next(rndMin, rndMax) / 100.0;
+            if (Dust < 80.0)
+            {
+                Dust = GlobalStaticSettingsASK.ChartCurrent.Dust + rnd.Next(0, 100);
+                if (Dust < 0.0)
+                    Dust = 0.0;
 
+            }
+            if (Dust > 250.0)
+            {
+                Dust = Dust - rnd.Next(0, 150);
+            }
 
-            chartSimulationValue.H2S = 0.0;
+            CH4 = 0.0;
+            H2S = 0.0;
 
+            Add_Conc_1 = 0.0;
+            Add_Conc_2 = 0.0;
+            Add_Conc_3 = 0.0;
+            Add_Conc_4 = 0.0;
+            Add_Conc_5 = 0.0;
 
-            chartSimulationValue.Add_Conc_1 = 0.0;
+            O2_Wet = O2;
+            O2_Dry = O2;
+        }
 
-
-            chartSimulationValue.Add_Conc_2 = 0.0;
-
-
-            chartSimulationValue.Add_Conc_3 = 0.0;
-
-
-            chartSimulationValue.Add_Conc_4 = 0.0;
-
-
-            chartSimulationValue.Add_Conc_5 = 0.0;
-
-            chartSimulationValue.O2_Wet = O2;
-            chartSimulationValue.O2_Dry = O2;
-
-            return chartSimulationValue;
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

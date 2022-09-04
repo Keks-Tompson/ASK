@@ -2,7 +2,7 @@
 
 namespace ASK.BLL.Helper
 {
-    public class Sensor_4_20
+    public class Sensor_4_20 : ICloneable
     {
         public DateTime Date { get; set; }
 
@@ -32,5 +32,10 @@ namespace ASK.BLL.Helper
 
         public double Temperature_KIP_4_20mA { get; set; }
         public double Temperature_NOx_4_20mA { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

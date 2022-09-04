@@ -635,3 +635,4 @@ D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SettingOptionsJSON.j
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\PdzJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityOptions20MJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SensorRangeJSON.JSON
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs

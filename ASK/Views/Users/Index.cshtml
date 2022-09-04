@@ -1,14 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
+﻿
 @*Сохраняем текущую страницу*@
 @*@using ASK.Controllers.Setting;
 @{Accaunt.CurrentPage = "~/Views/Users/Index.cshtml";}*@
 
+@model LoginViewModel
 
+@{
+    ViewBag.Title = "Auth";
+}
 
 
 
@@ -59,13 +58,14 @@
             <br />
              <form method="post" >
                      <div class="mb-3">
+                         <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger" ></div>
                         <label for="exampleInputEmail1" class="form-label">Пользователь</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="UserName" value="@Model.UserName"> 
                        <br />
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="UserPassword">
                       </div>
                       <div class="text-center">
                      <input class="btn btn-primary btn-lg" style="margin: 0 0 4px 0;" type="submit" value="Войти"/>

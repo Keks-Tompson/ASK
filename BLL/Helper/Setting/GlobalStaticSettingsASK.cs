@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace ASK.BLL.Helper.Setting
 {
-    public  class GlobalStaticSettingsASK
+    public class GlobalStaticSettingsASK
     {
         //Chart
         public static Chart_CurrentValue ChartCurrent { get; set; } = new Chart_CurrentValue();
@@ -36,7 +36,7 @@ namespace ASK.BLL.Helper.Setting
 
 
         public static List<Sensor_4_20> Sensor_4_20s = new List<Sensor_4_20>();     //Будем хранить значение 4-20мА 
-        public static Sensor_4_20 SensorNow { get; set; }                           //Будем хранить текущее значения датчиков (4-20)
+        public static Sensor_4_20 SensorNow { get; set; } = new Sensor_4_20();                        //Будем хранить текущее значения датчиков (4-20)
 
         public static Sensor_4_20 SensorScaledNow { get; set; } = new Sensor_4_20();//Будет хранить текущие значения прямых показаний датчиков 
 
@@ -64,7 +64,7 @@ namespace ASK.BLL.Helper.Setting
 
 
         //Нет связи с плк
-        public static bool isNotConnection = false; 
+        public static bool isNotConnection = false;
 
 
         public static void SaveSettingOptionsJSON()
@@ -176,7 +176,7 @@ namespace ASK.BLL.Helper.Setting
 
         public static async Task Add_20M_Async()
         {
-            
+
 
             stopGetSernsorNow = true; //стопим запись данных в Array20Ms
 
@@ -252,9 +252,6 @@ namespace ASK.BLL.Helper.Setting
 
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-
-
-
                     try
                     {
                         AVG_20_MINUTES_Service avg_20_M_Service = new AVG_20_MINUTES_Service(db);
@@ -263,9 +260,6 @@ namespace ASK.BLL.Helper.Setting
                             Date = DateTime.Now,
 
                             //Временно 
-
-
-
 
                             Conc_CO = new20M.Conc_CO,
                             Conc_CO2 = new20M.Conc_CO2,
@@ -317,13 +311,32 @@ namespace ASK.BLL.Helper.Setting
 
                     }
                     //GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M = GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M.AddMinutes(20);
-
-                    
                 }
             }
             Array20Ms.Clear();
         }
 
+
+        public static async Task DeleteOldSensor_4_20m_Async()
+        {
+            await Task.Run(() => DeleteOldSensor_4_20m());
+        }
+
+
+        public static void DeleteOldSensor_4_20m()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                try
+                {
+                    SENSOR_4_20_10sec_Service Sensors_4_20db = new SENSOR_4_20_10sec_Service(db);
+                    Sensors_4_20db.DeleteOld(DateTime.Now.AddDays(-1));
+                }
+                catch
+                {
+                }
+            }
+        }
 
 
         public static async Task GetNow_ConcEmisAsync()
@@ -336,25 +349,68 @@ namespace ASK.BLL.Helper.Setting
             RunConvertSernsor();
             Normalization_ConcEmis();
 
-            Sensor_4_20s.Add(SensorNow);
+            Sensor_4_20s.Add((Sensor_4_20)SensorNow.Clone());
 
             if (Sensor_4_20s.Count > 999)
                 Sensor_4_20s.RemoveAt(0);
 
             if (!stopGetSernsorNow)
-                Array20Ms.Add(CurrentConcEmis);
+                Array20Ms.Add((Array20M)CurrentConcEmis.Clone());
 
             if (CounterChart > 8)
             {
-                ChartCurrent = ChartCurrent.Getsimulation();
-                if (ChartList.Count > 499)
-                    ChartList.RemoveAt(0);
-
-                ChartList.Add(ChartCurrent);
-
                 CounterChart = 0;
 
+                ChartCurrent.Getsimulation();
+                if (ChartList.Count > 699)
+                    ChartList.RemoveAt(0);
 
+                ChartList.Add((Chart_CurrentValue)ChartCurrent.Clone());
+
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    try
+                    {
+                        SENSOR_4_20_10sec_Service Sensors_4_20db = new SENSOR_4_20_10sec_Service(db);
+                        Sensors_4_20db.Create_SENSOR_4_20_10sec(new SENSOR_4_20_10sec
+                        {
+                            Date = SensorNow.Date,
+
+                            CO = SensorNow.CO_4_20mA,
+                            CO2 = SensorNow.CO2_4_20mA,
+                            NO = SensorNow.NO_4_20mA,
+                            NO2 = SensorNow.NO2_4_20mA,
+                            NOx = SensorNow.NOx_4_20mA,
+                            SO2 = SensorNow.SO2_4_20mA,
+                            Dust = SensorNow.Dust_4_20mA,
+                            CH4 = SensorNow.CH4_4_20mA,
+                            H2S = SensorNow.H2S_4_20mA,
+
+                            Rezerv_1 = SensorNow.Rezerv_1_4_20mA,
+                            Rezerv_2 = SensorNow.Rezerv_2_4_20mA,
+                            Rezerv_3 = SensorNow.Rezerv_3_4_20mA,
+                            Rezerv_4 = SensorNow.Rezerv_4_4_20mA,
+                            Rezerv_5 = SensorNow.Rezerv_5_4_20mA,
+
+                            O2_Wet = SensorNow.O2_Wet_4_20mA,
+                            O2_Dry = SensorNow.O2_Dry_4_20mA,
+                            H2O = SensorNow.H2S_4_20mA,
+
+                            Pressure = SensorNow.Pressure_4_20mA,
+                            Temperature = SensorNow.Temperature_4_20mA,
+                            Speed = SensorNow.Speed_4_20mA,
+
+                            Temperature_KIP = SensorNow.Temperature_KIP_4_20mA,
+                            Temperature_NOx = SensorNow.Temperature_NOx_4_20mA
+                        });
+                    }
+                    catch
+                    {
+
+                    }
+
+
+                }
             }
             else
             {
@@ -376,7 +432,7 @@ namespace ASK.BLL.Helper.Setting
             {
                 List<PDZ> PDZs = new List<PDZ>();
                 PDZ_Service pdz_Service = new PDZ_Service(db);
-                
+
                 if (!pdz_Service.FindPDZDay())
                 {
                     bool buff_IsActive;
@@ -423,7 +479,7 @@ namespace ASK.BLL.Helper.Setting
                         Add_Emis_5 = PDZ.PDZ_1_Add_Emis_5,
 
                         NumberPDZ = PDZ.PDZ_1_Number,
-                        
+
                         Current = buff_IsActive
 
                     });
@@ -527,7 +583,7 @@ namespace ASK.BLL.Helper.Setting
 
         public static void GetSensorNow()
         {
-            SensorNow = new Sensor_4_20();
+
 
             string IpAdres = "192.168.1.153";
 
@@ -539,8 +595,8 @@ namespace ASK.BLL.Helper.Setting
 
                 if (connected.Status == IPStatus.Success)
                 {
-                    
-                isNotConnection = true;
+
+                    isNotConnection = true;
 
                     using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
                     {
@@ -812,12 +868,12 @@ namespace ASK.BLL.Helper.Setting
         }
 
 
-        public static double ScaleRange (double value, double minScale, double maxScale)
+        public static double ScaleRange(double value, double minScale, double maxScale)
         {
             double min = 4.0;
             double max = 20.0;
 
-           
+
 
             if (value <= min)
                 return minScale;
@@ -827,7 +883,7 @@ namespace ASK.BLL.Helper.Setting
 
         public static void RunConvertSernsor()
         {
-            SensorScaledNow = new Sensor_4_20();
+            //SensorScaledNow = new Sensor_4_20();
 
             SensorScaledNow.Date = DateTime.Now;
 
@@ -860,7 +916,7 @@ namespace ASK.BLL.Helper.Setting
 
         public static void Normalization_ConcEmis()
         {
-            CurrentConcEmis = new Array20M();
+            //CurrentConcEmis = new Array20M();
 
             CurrentConcEmis.Date = DateTime.Now;
 

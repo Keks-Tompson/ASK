@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ASK.BLL.Helper
 {
-    public  class Array20M
+    public  class Array20M : ICloneable
     {
         public DateTime Date { get; set; } 
 
@@ -51,5 +51,9 @@ namespace ASK.BLL.Helper
         public  double Temperature_KIP { get; set; }
         public  double Temperature_NOx { get; set; }
 
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

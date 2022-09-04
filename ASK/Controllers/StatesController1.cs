@@ -6,9 +6,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ASK.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASK.Controllers
 {
+    
     public class StatesController : Controller
     {
         private readonly ILogger<HomeController> _logger;

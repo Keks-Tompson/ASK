@@ -1,7 +1,7 @@
 
 using ASK.DAL;
 using ASK.Workers;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,7 +43,16 @@ namespace ASK
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                //options.AccessDeniedPath = new PathString("/Authentication");
+                options.LoginPath = new PathString("/Users");
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                options.SlidingExpiration = false;
+                //options.AccessDeniedPath = "/Authentication/Forbidden/";
+            });
+
             //services.AddSingleton<MyMiddleware, MyMiddleware>(); ////middleware
 
 
@@ -64,7 +73,7 @@ namespace ASK
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Users");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

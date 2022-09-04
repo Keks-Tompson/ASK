@@ -44,6 +44,12 @@ namespace ASK
                 .WithIdentity("Job_WriterPDZ", "Group_3")
                 .Build();
 
+            IJobDetail job_DeleteOld_4_20m = JobBuilder.Create<DeleteOld_4_20m>()
+                .WithIdentity("Job_DeleteOld_4_20m", "Group_4")
+                .Build();
+
+    
+
             // «апустите задание дл€ запуска сейчас, а затем повтор€йте каждые 10 секунд.
             ITrigger trigger_Writer20M = TriggerBuilder.Create()
                 .WithIdentity("Trigger_Writer20M", "Group_1")
@@ -71,6 +77,15 @@ namespace ASK
                     .RepeatForever())
                 .Build();
 
+
+            ITrigger trigger_DeleteOld_4_20m = TriggerBuilder.Create()
+               .WithIdentity("Trigger_DeleteOld_4_20m", "Group_4")
+               .StartNow()
+               .WithSimpleSchedule(x => x
+                   .WithIntervalInHours(24)
+                   .RepeatForever())
+               .Build();
+
             // —кажите кварцу, чтобы запланировать задание, использу€ наш триггер
 
 
@@ -79,6 +94,9 @@ namespace ASK
             await scheduler.ScheduleJob(job_Writer20M, trigger_Writer20M);
 
             await scheduler.ScheduleJob(job_WriterPDZ, trigger_WriterPDZ);
+
+            await scheduler.ScheduleJob(job_DeleteOld_4_20m, trigger_DeleteOld_4_20m);
+
 
             // some sleep to show what's happening
             //await Task.Delay(TimeSpan.FromSeconds(10));
