@@ -1,5 +1,6 @@
 ﻿
 
+using ASK.BLL.Helper.Alarms;
 using ASK.BLL.Helper.Setting;
 
 namespace ASK.BLL.Helper.AJAX_Page.CurrentValue
@@ -21,6 +22,11 @@ namespace ASK.BLL.Helper.AJAX_Page.CurrentValue
         public ColorSensor_Eror Color_Emis { get; set; } = new ColorSensor_Eror();
 
 
+        public string is_NotConnection_Text { get; set; } //Удалить и всё что будет связано заменить на нормальный код
+        public string is_NotConnection_Color { get; set; }//Удалить и всё что будет связано заменить на нормальный код
+
+
+
         public void Update()
         {
             SensorNow = GlobalStaticSettingsASK.SensorNow;
@@ -30,6 +36,17 @@ namespace ASK.BLL.Helper.AJAX_Page.CurrentValue
 
             CurrentConcEmis = GlobalStaticSettingsASK.CurrentConcEmis;
             PDZ_Current_String = GlobalStaticSettingsASK.PDZ_Current_String;
+
+            if (GlobalStaticSettingsASK.globalAlarms.Is_NotConnection)
+            {
+                is_NotConnection_Text = "Отсутствует";
+                is_NotConnection_Color = "background: #f2aaaa96;";
+            }
+            else
+            {
+                is_NotConnection_Text = "Установлена";
+                is_NotConnection_Color = "";
+            }
 
             UpdateConcEmis_Color();
 

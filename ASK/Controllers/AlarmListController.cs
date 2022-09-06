@@ -107,7 +107,7 @@ namespace ASK.Controllers
                         else
                         {
                             buffAlarm.ColorAlarm = "alert-primary";
-                            buffAlarm.ColorTr = "table-success";
+                            buffAlarm.ColorTr = "table-info";
                             buffAlarm.IconAlarm = "#info-fill";
                         }
 

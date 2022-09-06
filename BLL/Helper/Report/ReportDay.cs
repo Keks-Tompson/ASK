@@ -1,4 +1,5 @@
 ﻿
+using ASK.BLL.Interfaces;
 using ASK.BLL.Services;
 using ASK.DAL;
 using ASK.Models;
@@ -24,7 +25,7 @@ namespace ASK.BLL.Helper.Report
 
 
 
-        public ReportDay(DateTime date)
+        public ReportDay(DateTime date/*, IAVG_20_MINUTES avg_20_MINUTES_Service*/)
         {
             tableReportDay = new List<TableReportDay>();
 

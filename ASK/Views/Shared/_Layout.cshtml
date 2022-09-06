@@ -137,7 +137,7 @@
 
                         <li class="nav-item">
                             <div id="isConnection" style="margin: 4px 0 0 0">
-                                @if (!GlobalStaticSettingsASK.isNotConnection)
+                                @if (GlobalStaticSettingsASK.globalAlarms.Is_NotConnection)
                                 {
                                     <button class="btn btn-danger" type="button">
                                       <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -269,7 +269,7 @@
                             $('#Write20M_Now').html('');
                         }
 
-                        if (!result[1]) 
+                        if (result[1]) 
                         {
                             $('#isConnection').html(
                                  '<button class="btn btn-danger" type="button">' +

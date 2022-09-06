@@ -1,4 +1,5 @@
 ﻿using ASK.BLL.Helper.Setting;
+using ASK.BLL.Interfaces;
 using ASK.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,14 +15,19 @@ namespace ASK.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        //private readonly IAVG_20_MINUTES _avg_20_m;
 
-        public HomeController(ILogger<HomeController> logger)
+
+
+        public HomeController(ILogger<HomeController> logger/*, IAVG_20_MINUTES avg_20_m*/)
         {
             _logger = logger;
+            //_avg_20_m = avg_20_m;
         }
 
         public IActionResult Index()
         {
+            //var a = _avg_20_m.Get_All_AVG_20_MINMUTES();
             return View();
         }
 
@@ -31,7 +37,7 @@ namespace ASK.Controllers
             bool[] masBoolError = new bool[2];
 
             masBoolError[0] = GlobalStaticSettingsASK.stopGetSernsorNow;
-            masBoolError[1] = GlobalStaticSettingsASK.isNotConnection;
+            masBoolError[1] = GlobalStaticSettingsASK.globalAlarms.Is_NotConnection;
 
             return Json(masBoolError);
         }

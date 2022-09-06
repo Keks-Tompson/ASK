@@ -25,13 +25,14 @@ namespace ASK.Controllers
             return View();
         }
 
-
+        //public JsonResult GetGlobalAlarm()
+        //{
+        //    return Json(GlobalStaticSettingsASK.globalAlarms);
+        //}
 
         public JsonResult GetCurrentTable()
         {
             currentPageAnalog.Update();
-
-
             return Json(currentPageAnalog);
         }
 

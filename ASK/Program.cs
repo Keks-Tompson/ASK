@@ -48,7 +48,7 @@ namespace ASK
                 .WithIdentity("Job_DeleteOld_4_20m", "Group_4")
                 .Build();
 
-    
+
 
             // Запустите задание для запуска сейчас, а затем повторяйте каждые 10 секунд.
             ITrigger trigger_Writer20M = TriggerBuilder.Create()
@@ -58,6 +58,13 @@ namespace ASK
                     .WithIntervalInMinutes(1)
                     .RepeatForever())
                 .Build();
+
+            //.WithDailyTimeIntervalSchedule(x => x
+            //            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(11, 19))
+            //            .WithIntervalInMinutes(20))
+            //.Build();
+
+
 
             ITrigger trigger_ReaderConcEmisParam = TriggerBuilder.Create()
                 .WithIdentity("Trigger_ReaderConcEmisParam", "Group_2")

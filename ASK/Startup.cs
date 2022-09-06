@@ -1,4 +1,6 @@
 
+using ASK.BLL.Services;
+using ASK.BLL.Interfaces;
 using ASK.DAL;
 using ASK.Workers;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -42,6 +44,7 @@ namespace ASK
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped<IAVG_20_MINUTES , AVG_20_MINUTES_Service>(); //!
             services.AddRazorPages();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>

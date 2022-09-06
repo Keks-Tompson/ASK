@@ -65,16 +65,13 @@
   @*  <h4 class="text-center">Состояние системы ASK </h4>*@
  
 
-    <div style="margin:0 0 0 0">
+    <div id="tableGlobalAlarm" style="margin:0 0 0 0">
         <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;" @*width: 1720px; "*@>
 
 
             <tr style="font-weight:bold; ">
                 <td style="vertical-align: middle">Связь с контроллером</td> @*style="width: 18rem;"class="table-primary"*@
                 <td style="vertical-align: middle">Режим АСК</td>
-                <td style="vertical-align: middle">Режим архевирования выбросов АСК</td>
-                <td style="vertical-align: middle">Режим работы трубы</td>
-                <td style="vertical-align: middle">Приближение к ПДЗ</td>
                 <td style="vertical-align: middle">Превышение ПДЗ</td>
                 <td style="vertical-align: middle">Наличие аварийных состояний АСК</td>
                 <td style="vertical-align: middle">Техобслуживание АСК</td>
@@ -82,21 +79,26 @@
                 <td style="vertical-align: middle">Сигнал пожара</td>
             </tr>
 
-
-            <tr>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Есть связь</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Текущие значения</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">В работе, O₂ &#60 20%</td> @*&#60 = <*@
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Нет приближения к ПДЗ</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Превышений нет</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
-                <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>
-            </tr>
-
-
+            
+            
+                <tr>
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotConnection)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Отсутствует</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Установлена</td>
+                    }
+                
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствуют</td>
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>
+                </tr>
+          
         </table>
     </div>
 
@@ -336,6 +338,7 @@
 
                     success: function(result) {
                         //Table(result.sensorNow.temperature_4_20mA , result.sensorNow.temperature_NOx_4_20mA );
+                        tableGlobalAlarm(result.is_NotConnection_Text, result.is_NotConnection_Color);
                         TableConc(result.visibilityOptions20M, result.currentConcEmis, result.pdZ_Current_String, result.color_Conc);
                         TableEmis(result.visibilityOptions20M, result.currentConcEmis, result.pdZ_Current_String, result.color_Emis);
                         TableAnalog(result.sensorNow, result.sensorScaledNow, result.color_Param, result.visibilityOptions20M);
@@ -348,6 +351,34 @@
 
       
        
+
+
+
+        function tableGlobalAlarm(tx, cl)
+        {
+            $('#tableGlobalAlarm').html(
+                '<table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;">' +
+                    '<tr style="font-weight:bold; ">' +
+                        '<td style="vertical-align: middle">Связь с контроллером</td> ' +
+                        '<td style="vertical-align: middle">Режим АСК</td>' +
+                        '<td style="vertical-align: middle">Превышение ПДЗ</td>' +
+                        '<td style="vertical-align: middle">Наличие аварийных состояний АСК</td>' +
+                        '<td style="vertical-align: middle">Техобслуживание АСК</td>' +
+                        '<td style="vertical-align: middle">Дверь контейнера</td>' +
+                        '<td style="vertical-align: middle">Сигнал пожара</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + cl + '">' + tx + '</td>' +       
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствуют</td>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>' +
+                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>' +
+                    '</tr>'+
+                '</table>'
+            )
+        }
 
         
 

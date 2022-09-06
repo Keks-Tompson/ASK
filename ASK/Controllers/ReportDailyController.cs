@@ -161,22 +161,10 @@ namespace ASK.Controllers
 
 
 
+
+
+
        
-
-
-        //public void Add_ACCIDENT_LIST()
-        //{
-        //    using (ApplicationDbContext db = new ApplicationDbContext())
-        //    {
-        //        ACCIDENT_LIST_Service aCCIDENT_LIST_Service = new ACCIDENT_LIST_Service(db);
-
-        //        aCCIDENT_LIST_Service.Create_ACCIDENT_LIST(new ACCIDENT_LIST()
-        //        {
-        //            Accident = "1111111",
-        //            is_Error = true
-        //        });
-        //    }
-        //}
 
 
         //public void Add_ACCIDENT_LOG()
@@ -195,7 +183,6 @@ namespace ASK.Controllers
         //    }
         //}
 
-       
 
 
 
@@ -214,6 +201,7 @@ namespace ASK.Controllers
 
 
 
-     
+
+
     }
 }

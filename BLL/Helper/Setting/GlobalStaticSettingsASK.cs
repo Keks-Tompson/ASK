@@ -1,4 +1,5 @@
 ﻿
+using ASK.BLL.Helper.Alarms;
 using ASK.BLL.Helper.Chart;
 using ASK.BLL.Services;
 using ASK.DAL;
@@ -64,7 +65,14 @@ namespace ASK.BLL.Helper.Setting
 
 
         //Нет связи с плк
-        public static bool isNotConnection = false;
+        //public static bool isNotConnection = false;
+
+
+        //Аварии
+        //Глобальные аварии
+        public static GlobalAlarm globalAlarms = new GlobalAlarm();  
+        
+
 
 
         public static void SaveSettingOptionsJSON()
@@ -596,7 +604,8 @@ namespace ASK.BLL.Helper.Setting
                 if (connected.Status == IPStatus.Success)
                 {
 
-                    isNotConnection = true;
+                    if (globalAlarms.Is_NotConnection)
+                    globalAlarms.Is_NotConnection = false;
 
                     using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
                     {
@@ -800,7 +809,8 @@ namespace ASK.BLL.Helper.Setting
                 }
                 else
                 {
-                    isNotConnection = false;
+                    if (!globalAlarms.Is_NotConnection)
+                    globalAlarms.Is_NotConnection = true;
 
                     SensorNow.Date = DateTime.Now;
 
@@ -834,7 +844,8 @@ namespace ASK.BLL.Helper.Setting
             }
             catch
             {
-                isNotConnection = false;
+                if(!globalAlarms.Is_NotConnection)
+                globalAlarms.Is_NotConnection = true;
 
                 SensorNow.Date = DateTime.Now;
 
