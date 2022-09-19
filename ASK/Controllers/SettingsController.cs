@@ -11,8 +11,6 @@ namespace ASK.Controllers
     //[Authorize(Roles = "Administrator")]
     public class SettingsController : Controller
     {
-
-
         public IActionResult Index()
         {
             //if (!Accaunt.isValid)
@@ -21,32 +19,32 @@ namespace ASK.Controllers
                 return View();
         }
 
+
+
         public SettingsController()
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");   //Меняем культуры, что бы из вформы можно было получить 
         }                                                                                                           //тип double (c культурой RU разделитель - запятая, а с 
                                                                                                                     //формы идёт точка и при получение double = 0, по этому с
-                                                                                                                    //с культурой en-US разделитель - точка и double конвертируется                                                                                                 
-
 
 
         [HttpPost]
-        public IActionResult Index(string NameASKSystem, string NameASK, string NumberASK)
+        public IActionResult GetNamesettings(string NameASKSystem, string NameASK, string NumberASK)
         {
             //if (Accaunt.isValid)
             //{
-                GlobalStaticSettingsASK.SettingOptions.NameASKSystem = NameASKSystem;
-                GlobalStaticSettingsASK.SettingOptions.NameASK = NameASK;
-                GlobalStaticSettingsASK.SettingOptions.NumberASK = NumberASK;
+            GlobalStaticSettingsASK.SettingOptions.NameASKSystem = NameASKSystem;
+            GlobalStaticSettingsASK.SettingOptions.NameASK = NameASK;
+            GlobalStaticSettingsASK.SettingOptions.NumberASK = NumberASK;
 
-                GlobalStaticSettingsASK.SaveSettingOptionsJSON();
+            GlobalStaticSettingsASK.SaveSettingOptionsJSON();
             //}
             //else
             //{
             //    return RedirectToRoute(new { controller = "CurrentValue", action = "Index" });
             //}
 
-            return View();
+            return new NoContentResult();
         }
 
         [HttpPost]

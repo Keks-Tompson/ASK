@@ -2105,7 +2105,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "ASK.Models": "1.0.0",
           "JetBrains.Annotations": "2022.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
@@ -2117,19 +2116,6 @@
         },
         "runtime": {
           "bin/placeholder/ASK.DAL.dll": {}
-        }
-      },
-      "ASK.Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "JetBrains.Annotations": "2022.1.0"
-        },
-        "compile": {
-          "bin/placeholder/ASK.Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ASK.Models.dll": {}
         }
       }
     }
@@ -9359,17 +9345,11 @@
       "type": "project",
       "path": "../DAL/ASK.DAL.csproj",
       "msbuildProject": "../DAL/ASK.DAL.csproj"
-    },
-    "ASK.Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/ASK.Models.csproj",
-      "msbuildProject": "../Models/ASK.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ASK.DAL >= 1.0.0",
-      "ASK.Models >= 1.0.0",
       "EPPlus.Core >= 1.5.4",
       "JetBrains.Annotations >= 2022.1.0",
       "JetBrains.ReSharper.CommandLineTools >= 2022.2.1",
@@ -9415,9 +9395,6 @@
           "projectReferences": {
             "D:\\new ASK\\ASK\\DAL\\ASK.DAL.csproj": {
               "projectPath": "D:\\new ASK\\ASK\\DAL\\ASK.DAL.csproj"
-            },
-            "D:\\new ASK\\ASK\\Models\\ASK.Models.csproj": {
-              "projectPath": "D:\\new ASK\\ASK\\Models\\ASK.Models.csproj"
             }
           }
         }

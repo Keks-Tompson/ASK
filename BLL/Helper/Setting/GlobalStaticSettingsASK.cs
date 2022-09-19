@@ -1,9 +1,9 @@
-﻿
-using ASK.BLL.Helper.Alarms;
-using ASK.BLL.Helper.Chart;
+﻿using ASK.BLL.Helper.Chart;
+using ASK.BLL.Models;
 using ASK.BLL.Services;
 using ASK.DAL;
-using ASK.Models;
+using ASK.DAL.Models;
+using ASK.DAL.Repository;
 using NModbus;
 using System;
 using System.Collections.Generic;
@@ -24,36 +24,23 @@ namespace ASK.BLL.Helper.Setting
         public static List<Chart_CurrentValue> ChartList { get; set; } = new List<Chart_CurrentValue>();
         public static int CounterChart { get; set; } = 0;
 
-
-
-        public static SettingOptionsJSON SettingOptions { get; set; }
-        public static VisibilityOptions20MJSON VisibilityOptions20M { get; set; }
-        public static PdzJSON PDZ { get; set; }                                     //Все 3 вида топлива ПДЗ 
-        public static PDZ_Active PDZ_Current { get; set; } = new PDZ_Active();      //Текущие ПДЗ в double
-        public static PDZ_String_Active PDZ_Current_String { get; set; } = new PDZ_String_Active();          //Текущие ПДЗ в string (-/-)
-
-
-        public static SensorRangeJSON SensorRange { get; set; }
-
-
-        public static List<Sensor_4_20> Sensor_4_20s = new List<Sensor_4_20>();     //Будем хранить значение 4-20мА 
-        public static Sensor_4_20 SensorNow { get; set; } = new Sensor_4_20();                        //Будем хранить текущее значения датчиков (4-20)
-
-        public static Sensor_4_20 SensorScaledNow { get; set; } = new Sensor_4_20();//Будет хранить текущие значения прямых показаний датчиков 
-
-        public static List<Array20M> Array20Ms { get; set; } = new List<Array20M>();//Текущие значения формируемой 20 минутки
-        public static Array20M CurrentConcEmis { get; set; } = new Array20M();      //Текущие значение концентрацйи и выбросов после приведения
-
-
+        public static SettingOptions_JSON_Model SettingOptions { get; set; }
+        public static VisibilityOptions20M_JSON_Model VisibilityOptions20M { get; set; }
+        public static PDZ_JSON_Model PDZ { get; set; }                                                            //Все 3 вида топлива ПДЗ 
+        public static PDZ_Active_Model PDZ_Current { get; set; } = new PDZ_Active_Model();                        //Текущие ПДЗ в double
+        public static PDZ_String_Active_Model PDZ_Current_String { get; set; } = new PDZ_String_Active_Model();   //Текущие ПДЗ в string (-/-)
+        public static SensorRange_JSON_Model SensorRange { get; set; }
+        public static List<Sensor_4_20_Model> Sensor_4_20s = new List<Sensor_4_20_Model>();                       //Будем хранить значение 4-20мА 
+        public static Sensor_4_20_Model SensorNow { get; set; } = new Sensor_4_20_Model();                        //Будем хранить текущее значения датчиков (4-20)
+        public static Sensor_4_20_Model SensorScaledNow { get; set; } = new Sensor_4_20_Model();                  //Будет хранить текущие значения прямых показаний датчиков 
+        public static List<Array20M_Model> Array20Ms { get; set; } = new List<Array20M_Model>();                  //Текущие значения формируемой 20 минутки
+        public static Array20M_Model CurrentConcEmis { get; set; } = new Array20M_Model();                        //Текущие значение концентрацйи и выбросов после приведения
 
         //Цвета 
-        public static Color ColorExcess { get; set; } = Color.FromArgb(247, 213, 213); //Цвет превышения
-        //public static Color ColorExcess { get; set; } = Color.FromArgb(0, 14, 14, 3); //Цвет превышения
-
-        public static Color ColorHeader1 { get; set; } = Color.FromArgb(255, 230, 168); //Цвет заголовка 1
-        public static Color ColorHeader2 { get; set; } = Color.FromArgb(182, 242, 250); //Цвет заголовка 2
-
-
+        public static Color ColorExcess { get; set; } = Color.FromArgb(247, 213, 213);                      //Цвет превышения
+        //public static Color ColorExcess { get; set; } = Color.FromArgb(0, 14, 14, 3);                     //Цвет превышения
+        public static Color ColorHeader1 { get; set; } = Color.FromArgb(255, 230, 168);                     //Цвет заголовка 1
+        public static Color ColorHeader2 { get; set; } = Color.FromArgb(182, 242, 250);                     //Цвет заголовка 2
 
         public static bool stopGetSernsorNow = false; //Если идёт запись в БД 20М тормозит поток обновления данных, пока запись не запишется; 
 
@@ -61,50 +48,49 @@ namespace ASK.BLL.Helper.Setting
         static Ping ping = new Ping();
         static PingReply connected;
 
-
-
-
         //Нет связи с плк
         //public static bool isNotConnection = false;
 
-
         //Аварии
         //Глобальные аварии
-        public static GlobalAlarm globalAlarms = new GlobalAlarm();  
+        public static GlobalAlarm_Model globalAlarms = new GlobalAlarm_Model();  
         
-
 
 
         public static void SaveSettingOptionsJSON()
         {
             StreamWriter file = File.CreateText("SaveSetting_JSON\\SettingOptionsJSON.json");
-            file.WriteLine(JsonSerializer.Serialize(SettingOptions, typeof(SettingOptionsJSON)));
+            file.WriteLine(JsonSerializer.Serialize(SettingOptions, typeof(SettingOptions_JSON_Model)));
             file.Close();
         }
+
+
 
         public static void SaveVisibilityOptions20MJSON()
         {
             StreamWriter file = File.CreateText("SaveSetting_JSON\\VisibilityOptions20MJSON.json");
-            file.WriteLine(JsonSerializer.Serialize(VisibilityOptions20M, typeof(VisibilityOptions20MJSON)));
+            file.WriteLine(JsonSerializer.Serialize(VisibilityOptions20M, typeof(VisibilityOptions20M_JSON_Model)));
             file.Close();
         }
+
+
 
         public static void SavePdz_JSON()
         {
             StreamWriter file = File.CreateText("SaveSetting_JSON\\PdzJSON.json");
-            file.WriteLine(JsonSerializer.Serialize(PDZ, typeof(PdzJSON)));
+            file.WriteLine(JsonSerializer.Serialize(PDZ, typeof(PDZ_JSON_Model)));
             file.Close();
             GetCurrentPDZ();
         }
 
 
+
         public static void SaveSensorRange_JSON()
         {
             StreamWriter file = File.CreateText("SaveSetting_JSON\\SensorRangeJSON.JSON");
-            file.WriteLine(JsonSerializer.Serialize(SensorRange, typeof(SensorRangeJSON)));
+            file.WriteLine(JsonSerializer.Serialize(SensorRange, typeof(SensorRange_JSON_Model)));
             file.Close();
         }
-
 
 
 
@@ -116,17 +102,14 @@ namespace ASK.BLL.Helper.Setting
             if (File.Exists("SaveSetting_JSON\\SettingOptionsJSON.json")) //Если файл существует
             {
                 string data = File.ReadAllText("SaveSetting_JSON\\SettingOptionsJSON.json");
-                SettingOptions = JsonSerializer.Deserialize<SettingOptionsJSON>(data);
+                SettingOptions = JsonSerializer.Deserialize<SettingOptions_JSON_Model>(data);
             }
             else //не существует
             {
-                SettingOptions = new SettingOptionsJSON();
+                SettingOptions = new SettingOptions_JSON_Model();
 
                 SaveSettingOptionsJSON();
             }
-
-
-
 
 
 
@@ -136,14 +119,15 @@ namespace ASK.BLL.Helper.Setting
             if (File.Exists("SaveSetting_JSON\\VisibilityOptions20MJSON.json")) //Если файл существует
             {
                 string data = File.ReadAllText("SaveSetting_JSON\\VisibilityOptions20MJSON.json");
-                VisibilityOptions20M = JsonSerializer.Deserialize<VisibilityOptions20MJSON>(data);
+                VisibilityOptions20M = JsonSerializer.Deserialize<VisibilityOptions20M_JSON_Model>(data);
             }
             else //не существует
             {
-                VisibilityOptions20M = new VisibilityOptions20MJSON();
+                VisibilityOptions20M = new VisibilityOptions20M_JSON_Model();
 
                 SaveVisibilityOptions20MJSON();
             }
+
 
 
             //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -152,14 +136,15 @@ namespace ASK.BLL.Helper.Setting
             if (File.Exists("SaveSetting_JSON\\PdzJSON.json"))
             {
                 string data = File.ReadAllText("SaveSetting_JSON\\PdzJSON.json");
-                PDZ = JsonSerializer.Deserialize<PdzJSON>(data);
+                PDZ = JsonSerializer.Deserialize<PDZ_JSON_Model>(data);
             }
             else
             {
-                PDZ = new PdzJSON();
+                PDZ = new PDZ_JSON_Model();
                 SavePdz_JSON();
 
             }
+
 
 
             //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -168,45 +153,44 @@ namespace ASK.BLL.Helper.Setting
             if (File.Exists("SaveSetting_JSON\\SensorRangeJSON.JSON"))
             {
                 string data = File.ReadAllText("SaveSetting_JSON\\SensorRangeJSON.JSON");
-                SensorRange = JsonSerializer.Deserialize<SensorRangeJSON>(data);
+                SensorRange = JsonSerializer.Deserialize<SensorRange_JSON_Model>(data);
             }
             else
             {
-                SensorRange = new SensorRangeJSON();
+                SensorRange = new SensorRange_JSON_Model();
                 SaveSensorRange_JSON();
             }
-
             GetCurrentPDZ();
-
             ChartList.Add(new Chart_CurrentValue());
 
+
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var accident_log_Service = new ACCIDENT_LOG_Repository(db);
+                accident_log_Service.StratSystem_ACCIDENT_LOG();
+            }
         }
+
+
 
         public static async Task Add_20M_Async()
         {
-
-
-            stopGetSernsorNow = true; //стопим запись данных в Array20Ms
+            stopGetSernsorNow = true;                   //стопим запись данных в Array20Ms
 
             await Task.Delay(TimeSpan.FromSeconds(1));  //Выжидаем, что бы поток который прошёл успел остановится
-
             await Task.Run(() => Add_20M());
 
-            stopGetSernsorNow = false; //Рарешаем работу записи
+            stopGetSernsorNow = false;                  //Рарешаем работу записи
         }
         public static void Add_20M()
         {
             if (Array20Ms.Count > 0)
             {
-
                 Random random = new Random();
-
                 AVG_20_MINUTES new20M = new AVG_20_MINUTES();
 
                 try
                 {
-
-
                     new20M.Conc_CO = Math.Round(Array20Ms.Average(a => a.CO_Conc), 3);
                     new20M.Conc_CO2 = Math.Round(Array20Ms.Average(a => a.CO2_Conc), 3);
                     new20M.Conc_NO = Math.Round(Array20Ms.Average(a => a.NO_Conc), 3);
@@ -256,19 +240,16 @@ namespace ASK.BLL.Helper.Setting
                 {
 
                 }
-
-
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
                     try
                     {
-                        AVG_20_MINUTES_Service avg_20_M_Service = new AVG_20_MINUTES_Service(db);
+                        AVG_20_MINUTES_Repository avg_20_M_Service = new AVG_20_MINUTES_Repository(db);
                         avg_20_M_Service.Create_AVG_20_MINUTES(new AVG_20_MINUTES()
                         {
                             Date = DateTime.Now,
 
                             //Временно 
-
                             Conc_CO = new20M.Conc_CO,
                             Conc_CO2 = new20M.Conc_CO2,
                             Conc_NO = new20M.Conc_NO,
@@ -325,10 +306,12 @@ namespace ASK.BLL.Helper.Setting
         }
 
 
+
         public static async Task DeleteOldSensor_4_20m_Async()
         {
             await Task.Run(() => DeleteOldSensor_4_20m());
         }
+
 
 
         public static void DeleteOldSensor_4_20m()
@@ -337,33 +320,38 @@ namespace ASK.BLL.Helper.Setting
             {
                 try
                 {
-                    SENSOR_4_20_10sec_Service Sensors_4_20db = new SENSOR_4_20_10sec_Service(db);
+                    SENSOR_4_20_10sec_Repository Sensors_4_20db = new SENSOR_4_20_10sec_Repository(db);
                     Sensors_4_20db.DeleteOld(DateTime.Now.AddDays(-1));
                 }
                 catch
                 {
+
                 }
             }
         }
+
 
 
         public static async Task GetNow_ConcEmisAsync()
         {
             await Task.Run(() => GetNow_ConcEmis());
         }
+
+
+
         public static void GetNow_ConcEmis()
         {
             GetSensorNow();
             RunConvertSernsor();
             Normalization_ConcEmis();
 
-            Sensor_4_20s.Add((Sensor_4_20)SensorNow.Clone());
+            Sensor_4_20s.Add((Sensor_4_20_Model)SensorNow.Clone());
 
             if (Sensor_4_20s.Count > 999)
                 Sensor_4_20s.RemoveAt(0);
 
             if (!stopGetSernsorNow)
-                Array20Ms.Add((Array20M)CurrentConcEmis.Clone());
+                Array20Ms.Add((Array20M_Model)CurrentConcEmis.Clone());
 
             if (CounterChart > 8)
             {
@@ -379,7 +367,7 @@ namespace ASK.BLL.Helper.Setting
                 {
                     try
                     {
-                        SENSOR_4_20_10sec_Service Sensors_4_20db = new SENSOR_4_20_10sec_Service(db);
+                        SENSOR_4_20_10sec_Repository Sensors_4_20db = new SENSOR_4_20_10sec_Repository(db);
                         Sensors_4_20db.Create_SENSOR_4_20_10sec(new SENSOR_4_20_10sec
                         {
                             Date = SensorNow.Date,
@@ -416,8 +404,6 @@ namespace ASK.BLL.Helper.Setting
                     {
 
                     }
-
-
                 }
             }
             else
@@ -432,6 +418,9 @@ namespace ASK.BLL.Helper.Setting
         {
             await Task.Run(() => Add_PDZ());
         }
+
+
+
         public static void Add_PDZ()
         {
             GetCurrentPDZ();
@@ -439,13 +428,11 @@ namespace ASK.BLL.Helper.Setting
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 List<PDZ> PDZs = new List<PDZ>();
-                PDZ_Service pdz_Service = new PDZ_Service(db);
+                PDZ_Repository pdz_Service = new PDZ_Repository(db);
 
                 if (!pdz_Service.FindPDZDay())
                 {
                     bool buff_IsActive;
-
-
 
                     if (PDZ.Is_Active == 1)
                         buff_IsActive = true;
@@ -489,7 +476,6 @@ namespace ASK.BLL.Helper.Setting
                         NumberPDZ = PDZ.PDZ_1_Number,
 
                         Current = buff_IsActive
-
                     });
 
                     if (PDZ.Is_Active == 2)
@@ -534,10 +520,7 @@ namespace ASK.BLL.Helper.Setting
                         NumberPDZ = PDZ.PDZ_2_Number,
 
                         Current = buff_IsActive
-
                     });
-
-
 
                     if (PDZ.Is_Active == 3)
                         buff_IsActive = true;
@@ -581,7 +564,6 @@ namespace ASK.BLL.Helper.Setting
                         NumberPDZ = PDZ.PDZ_3_Number,
 
                         Current = buff_IsActive
-
                     });
                 }
             }
@@ -591,21 +573,25 @@ namespace ASK.BLL.Helper.Setting
 
         public static void GetSensorNow()
         {
-
-
             string IpAdres = "192.168.1.153";
 
             try
             {
-                connected = ping.Send(IpAdres, 900); //Проверяем соедение с таймингом 0.5 сек
+                connected = ping.Send(IpAdres, 500);    //Проверяем соедение с таймингом 0.5 сек
 
-                ushort[] registers; //Будующий масиив считываемых WORD из ПЛК
+                ushort[] registers;                     //Будующий масиив считываемых WORD из ПЛК
 
                 if (connected.Status == IPStatus.Success)
                 {
-
-                    if (globalAlarms.Is_NotConnection)
-                    globalAlarms.Is_NotConnection = false;
+                    if (globalAlarms.Is_NotConnection.Value)
+                    {
+                        using (ApplicationDbContext db = new ApplicationDbContext())
+                        {
+                            var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                            globalAlarm_Services.AlarmLogBuider(false, globalAlarms.Is_NotConnection);
+                        }
+                        globalAlarms.Is_NotConnection.Value = false;
+                    }
 
                     using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
                     {
@@ -613,8 +599,6 @@ namespace ASK.BLL.Helper.Setting
                         {
                             var factory = new ModbusFactory();
                             IModbusMaster master = factory.CreateMaster(client);
-
-
 
                             byte slaveId = 1;
                             ushort startAddress = 32000;
@@ -627,7 +611,6 @@ namespace ASK.BLL.Helper.Setting
                     int j = 1; //Второй байт
 
                     SensorNow.Date = DateTime.Now;
-
 
                     //CO_4-20mA
                     if (!float.IsNaN(NModbus.Utility.ModbusUtility.GetSingle(registers[j], registers[i])))
@@ -804,13 +787,18 @@ namespace ASK.BLL.Helper.Setting
                     {
                         SensorNow.Temperature_NOx_4_20mA = Math.Round((NModbus.Utility.ModbusUtility.GetSingle(registers[j], registers[i]) / 1000), 3);
                     }
-
-
                 }
                 else
                 {
-                    if (!globalAlarms.Is_NotConnection)
-                    globalAlarms.Is_NotConnection = true;
+                    if (!globalAlarms.Is_NotConnection.Value)
+                    {
+                        using (ApplicationDbContext db = new ApplicationDbContext())
+                        {
+                            var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                            globalAlarm_Services.AlarmLogBuider(true, globalAlarms.Is_NotConnection);
+                        }
+                        globalAlarms.Is_NotConnection.Value = true;
+                    }
 
                     SensorNow.Date = DateTime.Now;
 
@@ -844,8 +832,15 @@ namespace ASK.BLL.Helper.Setting
             }
             catch
             {
-                if(!globalAlarms.Is_NotConnection)
-                globalAlarms.Is_NotConnection = true;
+                if (!globalAlarms.Is_NotConnection.Value)
+                {
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                        globalAlarm_Services.AlarmLogBuider(true, globalAlarms.Is_NotConnection);
+                    }
+                    globalAlarms.Is_NotConnection.Value = true;
+                }
 
                 SensorNow.Date = DateTime.Now;
 
@@ -879,18 +874,19 @@ namespace ASK.BLL.Helper.Setting
         }
 
 
+
         public static double ScaleRange(double value, double minScale, double maxScale)
         {
             double min = 4.0;
             double max = 20.0;
-
-
 
             if (value <= min)
                 return minScale;
 
             return Math.Round(minScale + (value - min) / (max - min) * (maxScale - minScale), 3);
         }
+
+
 
         public static void RunConvertSernsor()
         {
@@ -924,6 +920,8 @@ namespace ASK.BLL.Helper.Setting
             SensorScaledNow.Temperature_KIP_4_20mA = ScaleRange(SensorNow.Temperature_KIP_4_20mA, SensorRange.Min_Temperature_KIP, SensorRange.Max_Temperature_KIP);
             SensorScaledNow.Temperature_NOx_4_20mA = ScaleRange(SensorNow.Temperature_NOx_4_20mA, SensorRange.Min_Temperature_NOx, SensorRange.Max_Temperature_NOx);
         }
+
+
 
         public static void Normalization_ConcEmis()
         {
@@ -975,6 +973,7 @@ namespace ASK.BLL.Helper.Setting
         }
 
 
+
         public static void GetCurrentPDZ()
         {
             if (PDZ.Is_Active == 1)
@@ -1009,7 +1008,6 @@ namespace ASK.BLL.Helper.Setting
                 PDZ_Current.Add_Emis_4 = PDZ.PDZ_1_Add_Emis_4;
                 PDZ_Current.Add_Emis_5 = PDZ.PDZ_1_Add_Emis_5;
             }
-
             if (PDZ.Is_Active == 2)
             {
                 PDZ_Current.CO_Conc = PDZ.PDZ_2_CO_Conc;
@@ -1042,7 +1040,6 @@ namespace ASK.BLL.Helper.Setting
                 PDZ_Current.Add_Emis_4 = PDZ.PDZ_2_Add_Emis_4;
                 PDZ_Current.Add_Emis_5 = PDZ.PDZ_2_Add_Emis_5;
             }
-
             if (PDZ.Is_Active == 3)
             {
                 PDZ_Current.CO_Conc = PDZ.PDZ_3_CO_Conc;
@@ -1077,6 +1074,8 @@ namespace ASK.BLL.Helper.Setting
             }
             GetCurrentStringPDZ();
         }
+
+
 
         public static void GetCurrentStringPDZ()
         {
@@ -1220,7 +1219,6 @@ namespace ASK.BLL.Helper.Setting
                 PDZ_Current_String.Add_Emis_5 = PDZ_Current.Add_Emis_5.ToString();
             else
                 PDZ_Current_String.Add_Emis_5 = "-/-";
-
         }
     }
 }

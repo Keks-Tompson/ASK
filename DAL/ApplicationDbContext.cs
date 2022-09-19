@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 using System.IO;
-using ASK.Models;
+using ASK.DAL.Models;
 
 namespace ASK.DAL
 {

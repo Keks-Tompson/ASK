@@ -10,9 +10,7 @@ D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.runtimeconfig.dev.json
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.dll
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.pdb
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.DAL.dll
-D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.Models.dll
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
-D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.Models.pdb
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.csproj.CopyComplete
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.dll
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.pdb

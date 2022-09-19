@@ -627,10 +627,8 @@ D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentSensor_4_20\Curren
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.BLL.dll
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.DAL.dll
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Models.dll
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.BLL.pdb
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.Models.pdb
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SettingOptionsJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\PdzJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityOptions20MJSON.json

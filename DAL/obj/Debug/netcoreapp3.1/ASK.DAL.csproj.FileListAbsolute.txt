@@ -9,9 +9,6 @@ D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.json
 D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.dev.json
 D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.dll
 D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
-D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.Models.dll
-D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.Models.pdb
-D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.csproj.CopyComplete
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.dll
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.pdb
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.genruntimeconfig.cache

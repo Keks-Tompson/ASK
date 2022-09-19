@@ -6,7 +6,7 @@
 
 @*Сохраняем текущую страницу*@
 @using ASK.BLL.Helper.Setting
-@{Accaunt.CurrentPage = "ReportDaily";}
+@*@{Accaunt.CurrentPage = "ReportDaily";}*@
 
 
 <div class="container-fluid row align-items-start" >
@@ -22,7 +22,7 @@
                 /*padding: 10px;*/
                 font-size: 230%;
                 /* width: 375px;*/
-                height 100px;
+                /*height: 100px;*/
                 ">
 
     
@@ -279,7 +279,7 @@
 
             </thead>
             <tbody>
-                @if (ReportDailyController.reportDay.tableReportDay.Count > 0)
+                @if (ReportDailyController.reportDay.TableReport.Count > 0)
                 {
                     <tr  style="font-weight:bold;">
                         <td style=" padding: 3px; vertical-align: middle;">ПДК / ПДВ </td>
@@ -359,7 +359,7 @@
 
                       </tr>}
 
-                @foreach (var RepDay in ReportDailyController.reportDay.tableReportDay)
+                @foreach (var RepDay in ReportDailyController.reportDay.TableReport)
                 {
                     <tr>
                                 <td style=" padding: 3px;">@RepDay.Date.Hour:@RepDay.Date.Minute</td>

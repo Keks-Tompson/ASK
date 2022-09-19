@@ -1838,7 +1838,6 @@
       "ASK.BLL/1.0.0": {
         "dependencies": {
           "ASK.DAL": "1.0.0",
-          "ASK.Models": "1.0.0",
           "EPPlus.Core": "1.5.4",
           "JetBrains.Annotations": "2022.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
@@ -1856,7 +1855,6 @@
       },
       "ASK.DAL/1.0.0": {
         "dependencies": {
-          "ASK.Models": "1.0.0",
           "JetBrains.Annotations": "2022.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
@@ -1868,17 +1866,6 @@
         },
         "compile": {
           "ASK.DAL.dll": {}
-        }
-      },
-      "ASK.Models/1.0.0": {
-        "dependencies": {
-          "JetBrains.Annotations": "2022.1.0"
-        },
-        "runtime": {
-          "ASK.Models.dll": {}
-        },
-        "compile": {
-          "ASK.Models.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4495,11 +4482,6 @@
       "sha512": ""
     },
     "ASK.DAL/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ASK.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

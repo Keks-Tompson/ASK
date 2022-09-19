@@ -1,5 +1,6 @@
-﻿using ASK.BLL.Helper.Excel;
-using ASK.BLL.Helper.Report;
+﻿using ASK.BLL.Interfaces;
+using ASK.BLL.Services;
+using ASK.BLL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -12,24 +13,31 @@ namespace ASK.Controllers
         public static bool[] masYear = new bool[16];
 
         public static DateTime buffauthData = DateTime.Now;
-
         public static DateTime ReportData = DateTime.Now;
 
         public static int defaultMonth;
         public static int defaultYear;
 
-        public static ReportMonth reportMonth;
-
-
-
-
+        public static Report_Model ReportMonth;
 
         public static string exceedColor = "background: #f2aaaa96;";      //Цвет выделения при привышении;
         public static string noneValue = "-/-";
         public static string[] mode_ASK_String = new string[3] { "Работа", "Простой", "Останов" };
         public static string[] mode_ASK_String_color = new string[3] { "", "background-color: #f2aaaa96;", "background-color: #FFE4B5" };
 
-        static string[] month = new string[] {"нулевой", "Январь", "Февраль", "Март" , "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" }; 
+        static string[] month = new string[] {"нулевой", "Январь", "Февраль", "Март" , "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+
+        private readonly IReportMonth _ReportMonth_Services;
+        private readonly IExcelReport _ExcelReport_Services;
+
+
+
+        //Конструктор DI
+        public ReportMonthlyController(IReportMonth ReportMonth_Services, IExcelReport ExcelReport_Services)
+        {
+            _ReportMonth_Services = ReportMonth_Services;
+            _ExcelReport_Services = ExcelReport_Services;
+        }
 
 
 
@@ -49,10 +57,9 @@ namespace ASK.Controllers
 
 
 
-
         public void GetValue()
         {
-            reportMonth = new ReportMonth(new DateTime(defaultYear + 2021, defaultMonth, 1));
+            ReportMonth = _ReportMonth_Services.Generate(new DateTime(defaultYear + 2021, defaultMonth, 1));
         }
 
 
@@ -65,16 +72,11 @@ namespace ASK.Controllers
             defaultMonth = buffauthData.Month;
             defaultYear = buffauthData.Year - 2021;
 
-
             GetValue();
-
 
             return View();
         }
 
-
-
-        
 
 
 
@@ -87,11 +89,9 @@ namespace ASK.Controllers
             ReportData = new DateTime(defaultYear, defaultMonth, 1);
 
             CleareComboBox();
-            
 
             masMonth[defaultMonth] = true;
             masYear[defaultYear] = true;
-
 
             GetValue();
 
@@ -101,10 +101,14 @@ namespace ASK.Controllers
 
 
         public IActionResult ExportToExcel()
-        {
-            //K();
-            return File(ExcelReportMonth.Create(reportMonth, defaultYear, defaultMonth), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Отчёт за " + month[defaultMonth] + " " + (defaultYear + 2021) + ".xlsx");
+        { 
+            var date = new DateTime(defaultYear + 2021, defaultMonth, 1);
+            
+
+            //return File(ExcelReportMonth.Create(ReportMonth, defaultYear, defaultMonth), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Отчёт за " + month[defaultMonth] + " " + (defaultYear + 2021) + ".xlsx");
+            return File(_ExcelReport_Services.GenerateDefaultReport(ReportMonth, date), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Отчёт за " + month[defaultMonth] + " " + (defaultYear + 2021) + ".xlsx");
         }
+
 
 
         //[HttpPost]
@@ -118,6 +122,5 @@ namespace ASK.Controllers
         //    GetValue();
         //    return View();
         //}
-
     }
 }

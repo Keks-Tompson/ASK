@@ -24,11 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL\ASK.DAL.csproj" />
-    <ProjectReference Include="..\Models\ASK.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

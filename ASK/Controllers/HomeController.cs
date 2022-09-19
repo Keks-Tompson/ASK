@@ -1,5 +1,4 @@
 ﻿using ASK.BLL.Helper.Setting;
-using ASK.BLL.Interfaces;
 using ASK.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,6 +26,7 @@ namespace ASK.Controllers
 
         public IActionResult Index()
         {
+            Startup.Method();
             //var a = _avg_20_m.Get_All_AVG_20_MINMUTES();
             return View();
         }
@@ -37,7 +37,7 @@ namespace ASK.Controllers
             bool[] masBoolError = new bool[2];
 
             masBoolError[0] = GlobalStaticSettingsASK.stopGetSernsorNow;
-            masBoolError[1] = GlobalStaticSettingsASK.globalAlarms.Is_NotConnection;
+            masBoolError[1] = GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Value;
 
             return Json(masBoolError);
         }

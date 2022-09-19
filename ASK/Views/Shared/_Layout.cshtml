@@ -1,6 +1,7 @@
 ﻿
 @using ASK.BLL.Helper.Setting
 
+@model LoginViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,17 +61,64 @@
                     else
                     {
 
-                        <a class="btn btn-primary" asp-area="" asp-controller="Users" asp-action="Index">Войти</a>
-                      
-                        <a class="btn btn-warning" style="margin: 0 5px 0 0;" asp-area="" asp-controller="AlarmList" asp-action="Alarm">Журнал аварий</a>
-                     
-                        
+                        @*<a class="btn btn-primary" asp-area="" asp-controller="Users" asp-action="Index">Войти</a>*@
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Войти
+                        </button>
 
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered"  style="width: 1000;">
+                                <div class="modal-content">
+                                    <div class="text-center"
+                                        style=" color: #808080;
+                                                font-size: 200%;
+                                                ">
+                                        <label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Авторизация</label>  @*&nbsp - не разрывной пробел*@
+                                    </div>
+                                         
+                                    <div class="container-fluid" >    
+                                        
+                                        <div class="col">
+                                        </div>
+
+                                        <div class="col"
+                                                style=" color: #808080;
+                                                        pading: 10px;
+                                                        font-size: 130%;
+                                                        ">
+         
+                                            <form method="post" >
+                                                <div class="mb-3">
+                                                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger" ></div>
+                                                    <label for="exampleInputEmail1" class="form-label">Пользователь</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="UserName">
+                                                    
+                                                </div>
+                                                          
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                                                    <input type="password" class="form-control" id="exampleInputPassword1" name="UserPassword">
+                                                </div>
+                                                          
+                                                <div class="text-center">
+                                                    
+                                                    <input class="btn btn-primary btn-lg" asp-controller="Users" asp-action="Index" style="margin: 0 0 4px 0;" type="submit" value="Войти"/>
+                                                </div>
+                                                    @*<button class="text-center" type="submit" class="btn btn-primary">Войти</button>*@
+                                            </form>
+                                        </div>
+
+                                        <div class="col">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="btn btn-warning" style="margin: 0 5px 0 0;" asp-area="" asp-controller="AlarmList" asp-action="Alarm">Журнал аварий</a>
                     }
 
-                    
-                      
-                    
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="States" asp-action="Index">Состояние</a>
@@ -137,7 +185,7 @@
 
                         <li class="nav-item">
                             <div id="isConnection" style="margin: 4px 0 0 0">
-                                @if (GlobalStaticSettingsASK.globalAlarms.Is_NotConnection)
+                                @if (GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Value)
                                 {
                                     <button class="btn btn-danger" type="button">
                                       <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>

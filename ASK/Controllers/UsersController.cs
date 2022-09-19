@@ -126,7 +126,7 @@ namespace ASK.Controllers
             return RedirectToRoute(new { controller = "Settings", action = "Index" });
         }
 
-        private UserViewModel? AuthenticateUser(string username)
+        private UserViewModel AuthenticateUser(string username)
         {
             return UsersController.StaticUsers.FirstOrDefault(model => model.UserName.Equals(username));
         }

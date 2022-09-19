@@ -18,7 +18,7 @@ namespace ASK.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ASK.Models.ACCIDENT_LIST", b =>
+            modelBuilder.Entity("ASK.DAL.Models.ACCIDENT_LIST", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace ASK.DAL.Migrations
                     b.ToTable("ACCIDENT_LIST");
                 });
 
-            modelBuilder.Entity("ASK.Models.ACCIDENT_LOG", b =>
+            modelBuilder.Entity("ASK.DAL.Models.ACCIDENT_LOG", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace ASK.DAL.Migrations
                     b.ToTable("ACCIDENT_LOG");
                 });
 
-            modelBuilder.Entity("ASK.Models.AVG_20_MINUTES", b =>
+            modelBuilder.Entity("ASK.DAL.Models.AVG_20_MINUTES", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -193,7 +193,7 @@ namespace ASK.DAL.Migrations
                     b.ToTable("AVG_20_MINUTE");
                 });
 
-            modelBuilder.Entity("ASK.Models.PDZ", b =>
+            modelBuilder.Entity("ASK.DAL.Models.PDZ", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -298,7 +298,7 @@ namespace ASK.DAL.Migrations
                     b.ToTable("PDZ");
                 });
 
-            modelBuilder.Entity("ASK.Models.SENSOR_4_20_10sec", b =>
+            modelBuilder.Entity("ASK.DAL.Models.SENSOR_4_20_10sec", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
