@@ -18,7 +18,7 @@ namespace ASK.DAL.Repository
     
 
 
-        public void StratSystem_ACCIDENT_LOG() //Уведомление чо система запущена + очистка старых уведомлений
+        public void StratSystem_ACCIDENT_LOG() //Уведомление что система запущена + очистка старых уведомлений
         {
             //var accident = db.ACCIDENT_LOG.Where(f => f.Is_Active == true).ToList();
             foreach (var mas in db.ACCIDENT_LOG)

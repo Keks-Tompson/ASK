@@ -631,6 +631,9 @@ D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.BLL.pdb
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SettingOptionsJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\PdzJSON.json
-D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityOptions20MJSON.json
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\SensorRangeJSON.JSON
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.MvcApplicationPartsAssemblyInfo.cs
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityReportOptionsJSON.json
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\Quartz.Extensions.DependencyInjection.dll
+D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\CalculationSettingJSON.json
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Calculation\Index.cshtml.g.cs

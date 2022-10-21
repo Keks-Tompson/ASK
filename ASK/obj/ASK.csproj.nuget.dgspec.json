@@ -101,7 +101,11 @@
             },
             "Quartz": {
               "target": "Package",
-              "version": "[3.4.0, )"
+              "version": "[3.5.0, )"
+            },
+            "Quartz.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.5.0, )"
             },
             "bootstrap": {
               "target": "Package",

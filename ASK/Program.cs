@@ -1,6 +1,8 @@
 using ASK.Workers;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Quartz;
@@ -17,19 +19,12 @@ namespace ASK
     {
         public static async Task Main(string[] args)
         {
-
-
-
-
             //// Создаём экземпляр планировщика с фабрики
             //StdSchedulerFactory factory = new StdSchedulerFactory();
-
             //IScheduler scheduler = await factory.GetScheduler();
-
 
             //// Запускаем его
             //await scheduler.Start();
-
 
             //// определить задание и привязать его к нашему классу (созданному)
             //IJobDetail job_Writer20M = JobBuilder.Create<Writer20M>()
@@ -49,16 +44,12 @@ namespace ASK
             //    .Build();
 
 
-
-
-
             ////www.quartz-scheduler.net/documentation/quartz-3.x/tutorial/crontriggers.html#example-cron-expressions
             //ITrigger trigger_Writer20M = TriggerBuilder.Create()
             //   .WithIdentity("Trigger_Writer20M", "Group_1")
             //   .WithCronSchedule("0 19,39,59 * * * ?")  //Cron quartz   
             //   .ForJob("Job_Writer20M", "Group_1")
             //   .Build();
-
 
             //// Запустите задание для запуска сейчас, а затем повторяйте каждые 10 секунд.
             //ITrigger trigger_ReaderConcEmisParam = TriggerBuilder.Create()
@@ -69,7 +60,6 @@ namespace ASK
             //        .RepeatForever())
             //    .Build();
 
-
             //ITrigger trigger_WriterPDZ = TriggerBuilder.Create()
             //    .WithIdentity("Trigger_WriterPDZ", "Group_3")
             //    .StartNow()
@@ -77,7 +67,6 @@ namespace ASK
             //        .WithIntervalInHours(1)
             //        .RepeatForever())
             //    .Build();
-
 
             //ITrigger trigger_DeleteOld_4_20m = TriggerBuilder.Create()
             //   .WithIdentity("Trigger_DeleteOld_4_20m", "Group_4")
@@ -88,8 +77,6 @@ namespace ASK
             //   .Build();
 
             //// Скажите кварцу, чтобы запланировать задание, используя наш триггер
-
-
             //await scheduler.ScheduleJob(job_ReaderConcEmisParam, trigger_ReaderConcEmisParam);
 
             //await scheduler.ScheduleJob(job_Writer20M, trigger_Writer20M);
@@ -99,17 +86,34 @@ namespace ASK
             //await scheduler.ScheduleJob(job_DeleteOld_4_20m, trigger_DeleteOld_4_20m);
 
 
-            //// some sleep to show what's happening
-            ////await Task.Delay(TimeSpan.FromSeconds(10));
+            // some sleep to show what's happening
+            //await Task.Delay(TimeSpan.FromSeconds(10));
 
-            ////and last shut down the scheduler when you are ready to close your program
-            ////await scheduler.Shutdown();
+            //and last shut down the scheduler when you are ready to close your program
+            //await scheduler.Shutdown();
 
+
+
+            //Вызываем наши тригеры с DI или без
+            var host = BuildWebHost(args);
+            using (var scope = host.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                try
+                {
+                    DataScheduler.Start(serviceProvider);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
 
 
             CreateHostBuilder(args).Build().Run();
-
         }
+
+
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
@@ -120,9 +124,11 @@ namespace ASK
                 });
 
 
-        
 
-
-        
+        //Нужен для работы DI Quartc.Net
+        public static IWebHost BuildWebHost(string[] args) =>
+          WebHost.CreateDefaultBuilder(args)
+              .UseStartup<Startup>()
+              .Build();
     }
 }

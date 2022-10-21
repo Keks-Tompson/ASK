@@ -6,6 +6,7 @@
 
 @*Сохраняем текущую страницу*@
 @using ASK.BLL.Helper.Setting
+@using ASK.BLL.Models
 @*@{Accaunt.CurrentPage = "~/Views/Settings/Index.cshtml";}*@
 
 
@@ -26,19 +27,23 @@
         </li>
 
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact2" type="button" role="tab" aria-controls="contact2" aria-selected="false">Основные натройки</button>
+            <button class="nav-link"  style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact2" type="button" role="tab" aria-controls="contact2" aria-selected="false">Наименование системы</button>
         </li>
 
         <li class="nav-item" role="presentation">
-            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки видимости</button>
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Видимость компонентов</button>
         </li>
 
         <li class="nav-item" role="presentation">
-            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#sensorRange" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки датчиков</button>
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#sensorRange" type="button" role="tab" aria-controls="profile" aria-selected="false">Датчики</button>
         </li>
 
         <li class="nav-item" role="presentation">
-            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Настройки отчётов Excel</button>
+            <button class="nav-link" asp-controller="ReportDaily" asp-action="Index" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#calculations" type="button" role="tab" aria-controls="calculations" aria-selected="false">Расчёты</button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Excel</button>
         </li>
     </ul>
 
@@ -862,7 +867,7 @@
                                 <div class="col">
                                     <br />
                             @*Чекбокс Концентрации CO*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Conc" id="flexCheckDefault1" checked>
@@ -883,7 +888,7 @@
 
 
                             @*Чекбокс Концентрации CO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Conc" id="flexCheckDefault3" checked>
@@ -905,7 +910,7 @@
 
 
                             @*Чекбокс Концентрации NO*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Conc" id="flexCheckDefault5" checked>
@@ -925,7 +930,7 @@
                             }
 
                             @*Чекбокс Концентрации NO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Conc" id="flexCheckDefault7" checked>
@@ -946,7 +951,7 @@
 
 
                             @*Чекбокс Концентрации NOx*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Conc" id="flexCheckDefault9" checked>
@@ -967,7 +972,7 @@
 
 
                             @*Чекбокс Концентрации SO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Conc" id="flexCheckDefault11" checked>
@@ -987,7 +992,7 @@
                             }
 
                             @*Чекбокс Концентрации Тв.ч.*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Conc" id="flexCheckDefault13" checked>
@@ -1008,7 +1013,7 @@
 
 
                             @*Чекбокс Концентрации CH4*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Conc" id="flexCheckDefault15" checked>
@@ -1029,7 +1034,7 @@
 
 
                             @*Чекбокс Концентрации H2S*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Conc == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Conc" id="flexCheckDefault17" checked>
@@ -1051,7 +1056,7 @@
 
 
                             @*Чекбокс Концентрации Add_Conc_1*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_1 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_1" id="flexCheckDefault19" checked>
@@ -1072,7 +1077,7 @@
 
 
                             @*Чекбокс Концентрации Add_Conc_2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_2 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_2" id="flexCheckDefault21" checked>
@@ -1093,7 +1098,7 @@
 
 
                             @*Чекбокс Концентрации Add_Conc_3*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_3 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_3" id="flexCheckDefault23" checked>
@@ -1115,7 +1120,7 @@
 
 
                             @*Чекбокс Концентрации Add_Conc_4*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_4 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_4" id="flexCheckDefault25" checked>
@@ -1135,7 +1140,7 @@
                             }
 
                             @*Чекбокс Концентрации Add_Conc_5*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Conc_5 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Conc_5" id="flexCheckDefault27" checked>
@@ -1163,7 +1168,7 @@
                                 <div class="col" >   
                                     <br />
                             @*Чекбокс Выбросы CO*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Emis" id="flexCheckDefault29" checked>
@@ -1184,7 +1189,7 @@
 
 
                             @*Чекбокс Выбросы CO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CO2_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Emis" id="flexCheckDefault31" checked>
@@ -1205,7 +1210,7 @@
 
 
                             @*Чекбокс Выбросы NO*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Emis" id="flexCheckDefault33" checked>
@@ -1225,7 +1230,7 @@
                             }
 
                             @*Чекбокс Выбросы NO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NO2_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Emis" id="flexCheckDefault35" checked>
@@ -1246,7 +1251,7 @@
 
 
                             @*Чекбокс Выбросы NOx*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.NOx_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Emis" id="flexCheckDefault37" checked>
@@ -1267,7 +1272,7 @@
 
 
                             @*Чекбокс Выбросы SO2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.SO2_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Emis" id="flexCheckDefault39" checked>
@@ -1287,7 +1292,7 @@
                             }
 
                             @*Чекбокс Выбросы Тв.ч.*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Dust_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault41" checked>
@@ -1308,7 +1313,7 @@
 
 
                             @*Чекбокс Выбросы CH4*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.CH4_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Emis" id="flexCheckDefault43" checked>
@@ -1329,7 +1334,7 @@
 
 
                             @*Чекбокс Выбросы H2S*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2S_Emis == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Emis" id="flexCheckDefault45" checked>
@@ -1351,7 +1356,7 @@
 
 
                             @*Чекбокс Выбросы Add_Conc_1*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_1 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_1" id="flexCheckDefault47" checked>
@@ -1372,7 +1377,7 @@
 
 
                             @*Чекбокс Выбросы Add_Conc_2*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_2 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_2" id="flexCheckDefault49" checked>
@@ -1393,7 +1398,7 @@
 
 
                             @*Чекбокс Выбросы Add_Conc_3*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_3 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_3" id="flexCheckDefault51" checked>
@@ -1415,7 +1420,7 @@
 
 
                             @*Чекбокс Выбросы Add_Conc_4*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_4 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_4" id="flexCheckDefault53" checked>
@@ -1435,7 +1440,7 @@
                             }
 
                             @*Чекбокс Выбросы Add_Conc_5*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Add_Emis_5 == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5 == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Add_Emis_5" id="flexCheckDefault55" checked>
@@ -1462,7 +1467,7 @@
                                 <div class="col" >   
                                     <br />
                             @*Чекбокс Параметр O2_Wet*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.O2_Wet == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Wet" id="flexCheckDefault57" checked>
@@ -1483,7 +1488,7 @@
 
 
                             @*Чекбокс Параметр O2_Dry*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.O2_Dry == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2_Dry" id="flexCheckDefault59" checked>
@@ -1505,7 +1510,7 @@
 
 
                             @*Чекбокс Параметр H2O*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.H2O == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.H2O == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2O" id="flexCheckDefault61" checked>
@@ -1525,7 +1530,7 @@
                             }
 
                             @*Чекбокс Параметр Давление ДГ*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Pressure == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Pressure == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Pressure" id="flexCheckDefault63" checked>
@@ -1546,7 +1551,7 @@
 
 
                             @*Чекбокс Параметр Температура ДГ*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Temperature == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature" id="flexCheckDefault65" checked>
@@ -1568,7 +1573,7 @@
 
 
                             @*Чекбокс Параметр Скорость ДГ*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Speed == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Speed == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Speed" id="flexCheckDefault67" checked>
@@ -1589,7 +1594,7 @@
 
 
                             @*Чекбокс Параметр Расход ДГ*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Flow == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Flow == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Flow" id="flexCheckDefault69" checked>
@@ -1609,7 +1614,7 @@
                             }
 
                             @*Чекбокс Параметр Температура КИП*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_KIP == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_KIP" id="flexCheckDefault71" checked>
@@ -1630,7 +1635,7 @@
 
 
                             @*Чекбокс Параметр Температура NOx*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Temperature_NOx == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_NOx" id="flexCheckDefault73" checked>
@@ -1651,7 +1656,7 @@
 
 
                             @*Чекбокс Параметр Режим работы АСК*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.Mode_ASK == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Mode_ASK" id="flexCheckDefault75" checked>
@@ -1673,7 +1678,7 @@
 
 
                             @*Чекбокс Параметр Вид топлива*@
-                            @if (GlobalStaticSettingsASK.VisibilityOptions20M.PDZ_Fuel == "table-cell")
+                            @if (GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel == "table-cell")
                             {
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_PDZ_Fuel" id="flexCheckDefault77" checked>
@@ -1733,17 +1738,133 @@
                                                 box-shadow: inset 0 0 2px;
                                                 margin: 5px 0 0 0;
                                         ">
+
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif; font-size: 100%;">CO</label> @*&nbsp - не разрывной пробел*@</h5> 
+                                        </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс CO используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CO.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CO_Used" id="check_CO_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_CO_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO_Used" id="check_CO_Used_1">
+                                                                <label class="form-check-label" for="check_CO_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс CO ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CO.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CO_ppm" id="check_CO_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_CO_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_CO_ppm" id="check_CO_ppm_1">
+                                                                <label class="form-check-label"  for="check_CO_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
+                                  
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.CO.Min" name="SensorRange_Min_CO">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.CO.Max" name="SensorRange_Max_CO">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CO</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >CO₂</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс CO2 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CO2.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CO2_Used" id="check_CO2_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_CO2_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CO2_Used" id="check_CO2_Used_1">
+                                                                <label class="form-check-label" for="check_CO2_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс CO2 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CO2.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CO2_ppm" id="check_CO2_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_CO2_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_CO2_ppm" id="check_CO2_ppm_1">
+                                                                <label class="form-check-label"  for="check_CO2_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CO" name="SensorRange_Min_CO">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.CO2.Min" name="SensorRange_Min_CO2">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CO" name="SensorRange_Max_CO">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.CO2.Max" name="SensorRange_Max_CO2">
                                         </div>
                                     </div>
 
@@ -1755,17 +1876,67 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CO₂</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >NO</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс NO используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NO.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NO_Used" id="check_NO_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_NO_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO_Used" id="check_NO_Used_1">
+                                                                <label class="form-check-label" for="check_NO_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс NO ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NO.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NO_ppm" id="check_NO_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_NO_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_NO_ppm" id="check_NO_ppm_1">
+                                                                <label class="form-check-label"  for="check_NO_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CO2" name="SensorRange_Min_CO2">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.NO.Min" name="SensorRange_Min_NO">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CO2" name="SensorRange_Max_CO2">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.NO.Max" name="SensorRange_Max_NO">
                                         </div>
                                     </div>
+
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1775,17 +1946,67 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NO</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >NO₂</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс NO2 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NO2.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NO2_Used" id="check_NO2_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_NO2_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NO2_Used" id="check_NO2_Used_1">
+                                                                <label class="form-check-label" for="check_NO2_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс NO2 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NO2.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NO2_ppm" id="check_NO2_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_NO2_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_NO2_ppm" id="check_NO2_ppm_1">
+                                                                <label class="form-check-label"  for="check_NO2_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NO" name="SensorRange_Min_NO">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.NO2.Min" name="SensorRange_Min_NO2">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NO" name="SensorRange_Max_NO">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.NO2.Max" name="SensorRange_Max_NO2">
                                         </div>
                                     </div>
+
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1795,57 +2016,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NO₂</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >NOx</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс NOx используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NOx.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NOx_Used" id="check_NOx_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_NOx_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_NOx_Used" id="check_NOx_Used_1">
+                                                                <label class="form-check-label" for="check_NOx_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс NOx ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.NOx.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_NOx_ppm" id="check_NOx_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_NOx_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_NOx_ppm" id="check_NOx_ppm_1">
+                                                                <label class="form-check-label"  for="check_NOx_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NO2" name="SensorRange_Min_NO2">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.NOx.Min" name="SensorRange_Min_NOx">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NO2" name="SensorRange_Max_NO2">
-                                        </div>
-                                    </div>
-
-                                    <div style=" color: #808080;
-                                                padding: 5px;
-                                                border-radius: 10px;
-                                                box-shadow: inset 0 0 2px;
-                                                margin: 5px 0 0 0;
-                                        ">
-                                
-                                        <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон NOx</label></h5>  @*&nbsp - не разрывной пробел*@
-                                        </div>
-
-                                        <div class="input-group mb-1">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_NOx" name="SensorRange_Min_NOx">
-                            
-                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_NOx" name="SensorRange_Max_NOx">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.NOx.Max" name="SensorRange_Max_NOx">
                                         </div>
                                     </div>
                                     
-                                    <div style=" color: #808080;
-                                                padding: 5px;
-                                                border-radius: 10px;
-                                                box-shadow: inset 0 0 2px;
-                                                margin: 5px 0 0 0;
-                                        ">
-                                
-                                        <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон SO₂</label></h5>  @*&nbsp - не разрывной пробел*@
-                                        </div>
 
-                                        <div class="input-group mb-1">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_SO2" name="SensorRange_Min_SO2">
-                            
-                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_SO2" name="SensorRange_Max_SO2">
-                                        </div>
-                                    </div>
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1855,20 +2085,136 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон Тв.ч.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >SO₂</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс SO2 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.SO2.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_SO2_Used" id="check_SO2_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_SO2_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_SO2_Used" id="check_SO2_Used_1">
+                                                                <label class="form-check-label" for="check_SO2_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс SO2 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.SO2.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_SO2_ppm" id="check_SO2_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_SO2_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_SO2_ppm" id="check_SO2_ppm_1">
+                                                                <label class="form-check-label"  for="check_SO2_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Dust" name="SensorRange_Min_Dust">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.SO2.Min" name="SensorRange_Min_SO2">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Dust" name="SensorRange_Max_Dust">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.SO2.Max" name="SensorRange_Max_SO2">
                                         </div>
                                     </div>
 
-                                   
+
+
+                                    <div style=" color: #808080;
+                                                padding: 5px;
+                                                border-radius: 10px;
+                                                box-shadow: inset 0 0 2px;
+                                                margin: 5px 0 0 0;
+                                        ">
+                                
+                                        <div>                            
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Тв.ч.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                        </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Dust используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Dust.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Dust_Used" id="check_Dust_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Dust_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Used" id="check_Dust_Used_1">
+                                                                <label class="form-check-label" for="check_Dust_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Dust ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Dust.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Dust_ppm" id="check_Dust_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Dust_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Dust_ppm" id="check_Dust_ppm_1">
+                                                                <label class="form-check-label"  for="check_Dust_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
+
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Dust.Min" name="SensorRange_Min_Dust">
+                            
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Dust.Max" name="SensorRange_Max_Dust">
+                                        </div>
+                                    </div>
                                 </div>
+
+
 
                                 <div class="col">  
                                      <div style=" color: #808080;
@@ -1879,17 +2225,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон CH₄</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >CH₄</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс CH4 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CH4.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CH4_Used" id="check_CH4_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_CH4_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_CH4_Used" id="check_CH4_Used_1">
+                                                                <label class="form-check-label" for="check_CH4_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс CH4 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.CH4.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_CH4_ppm" id="check_CH4_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_CH4_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_CH4_ppm" id="check_CH4_ppm_1">
+                                                                <label class="form-check-label"  for="check_CH4_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_CH4" name="SensorRange_Min_CH4">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.CH4.Min" name="SensorRange_Min_CH4">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_CH4" name="SensorRange_Max_CH4">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.CH4.Max" name="SensorRange_Max_CH4">
                                         </div>
                                     </div>
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1899,18 +2294,67 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон H₂S</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >H₂S</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс H2S используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.H2S.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_H2S_Used" id="check_H2S_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_H2S_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2S_Used" id="check_H2S_Used_1">
+                                                                <label class="form-check-label" for="check_H2S_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс H2S ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.H2S.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_H2S_ppm" id="check_H2S_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_H2S_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_H2S_ppm" id="check_H2S_ppm_1">
+                                                                <label class="form-check-label"  for="check_H2S_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_H2S" name="SensorRange_Min_H2S">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.H2S.Min" name="SensorRange_Min_H2S">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_H2S" name="SensorRange_Max_H2S">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.H2S.Max" name="SensorRange_Max_H2S">
                                         </div>
                                     </div>
                                 </div>
+
+
 
                                 <div class="col">
                                 <div style=" color: #808080;
@@ -1921,17 +2365,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 1</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Резерв 1</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Rezerv_1 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_1_Used" id="check_Rezerv_1_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_1_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Rezerv_1_Used" id="check_Rezerv_1_Used_1">
+                                                                <label class="form-check-label" for="check_Rezerv_1_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Rezerv_1 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_1_ppm" id="check_Rezerv_1_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_1_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Rezerv_1_ppm" id="check_Rezerv_1_ppm_1">
+                                                                <label class="form-check-label"  for="check_Rezerv_1_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_1" name="SensorRange_Min_Rezerv_1">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Min" name="SensorRange_Min_Rezerv_1">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_1" name="SensorRange_Max_Rezerv_1">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Max" name="SensorRange_Max_Rezerv_1">
                                         </div>
                                     </div>
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1941,17 +2434,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 2</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Резерв 2</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Rezerv_2 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_2_Used" id="check_Rezerv_2_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_2_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Rezerv_2_Used" id="check_Rezerv_2_Used_1">
+                                                                <label class="form-check-label" for="check_Rezerv_2_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Rezerv_2 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_2_ppm" id="check_Rezerv_2_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_2_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Rezerv_2_ppm" id="check_Rezerv_2_ppm_1">
+                                                                <label class="form-check-label"  for="check_Rezerv_2_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_2" name="SensorRange_Min_Rezerv_2">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Min" name="SensorRange_Min_Rezerv_2">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_2" name="SensorRange_Max_Rezerv_2">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Max" name="SensorRange_Max_Rezerv_2">
                                         </div>
                                     </div>
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1961,17 +2503,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 3</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Резерв 3</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Rezerv_3 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_3_Used" id="check_Rezerv_3_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_3_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Rezerv_3_Used" id="check_Rezerv_3_Used_1">
+                                                                <label class="form-check-label" for="check_Rezerv_3_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Rezerv_3 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_3_ppm" id="check_Rezerv_3_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_3_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Rezerv_3_ppm" id="check_Rezerv_3_ppm_1">
+                                                                <label class="form-check-label"  for="check_Rezerv_3_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_3" name="SensorRange_Min_Rezerv_3">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Min" name="SensorRange_Min_Rezerv_3">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_3" name="SensorRange_Max_Rezerv_3">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Max" name="SensorRange_Max_Rezerv_3">
                                         </div>
                                     </div>
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -1981,17 +2572,66 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 4</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Резерв 4</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Rezerv_4 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_4_Used" id="check_Rezerv_4_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_4_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Rezerv_4_Used" id="check_Rezerv_4_Used_1">
+                                                                <label class="form-check-label" for="check_Rezerv_4_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Rezerv_4 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_4_ppm" id="check_Rezerv_4_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_4_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Rezerv_4_ppm" id="check_Rezerv_4_ppm_1">
+                                                                <label class="form-check-label"  for="check_Rezerv_4_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_4" name="SensorRange_Min_Rezerv_4">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Min" name="SensorRange_Min_Rezerv_4">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_4" name="SensorRange_Max_Rezerv_4">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Max" name="SensorRange_Max_Rezerv_4">
                                         </div>
                                     </div>
+
+
 
                                     <div style=" color: #808080;
                                                 padding: 5px;
@@ -2001,15 +2641,62 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон резерва 5</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Резерв 5</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Rezerv_5 используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_5_Used" id="check_Rezerv_5_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_5_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Rezerv_5_Used" id="check_Rezerv_5_Used_1">
+                                                                <label class="form-check-label" for="check_Rezerv_5_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                    @*Чекбокс Rezerv_5 ppm*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_ppm)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Rezerv_5_ppm" id="check_Rezerv_5_ppm_1" checked>
+                                                                <label class="form-check-label"  for="check_Rezerv_5_ppm_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox"  value="true" typeof="checkbox" name="check_Rezerv_5_ppm" id="check_Rezerv_5_ppm_1">
+                                                                <label class="form-check-label"  for="check_Rezerv_5_ppm_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    ppm
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Rezerv_5" name="SensorRange_Min_Rezerv_5">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Min" name="SensorRange_Min_Rezerv_5">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Rezerv_5" name="SensorRange_Max_Rezerv_5">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Max" name="SensorRange_Max_Rezerv_5">
                                         </div>
                                     </div>    
                                 </div>
@@ -2026,17 +2713,46 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон O₂ вл.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >O₂ вл.</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс O2Wet используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_O2Wet_Used" id="check_O2Wet_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_O2Wet_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2Wet_Used" id="check_O2Wet_Used_1">
+                                                                <label class="form-check-label" for="check_O2Wet_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_O2Wet" name="SensorRange_Min_O2_Wet">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.O2Wet.Min" name="SensorRange_Min_O2_Wet">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_O2Wet" name="SensorRange_Max_O2_Wet">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.O2Wet.Max" name="SensorRange_Max_O2_Wet">
                                         </div>
                                     </div>  
+
 
 
                                     <div style=" color: #808080;
@@ -2047,17 +2763,46 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон O₂ сух.</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >O₂ сух.</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс O2Dry используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_O2Dry_Used" id="check_O2Dry_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_O2Dry_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_O2Dry_Used" id="check_O2Dry_Used_1">
+                                                                <label class="form-check-label" for="check_O2Dry_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_O2Dry" name="SensorRange_Min_O2_Dry">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.O2Dry.Min" name="SensorRange_Min_O2_Dry">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_O2Dry" name="SensorRange_Max_O2_Dry">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.O2Dry.Max" name="SensorRange_Max_O2_Dry">
                                         </div>
                                     </div>  
+
 
 
                                     <div style=" color: #808080;
@@ -2068,15 +2813,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон H₂O</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >H₂O</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс H2O используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.H2O.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_H2O_Used" id="check_H2O_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_H2O_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_H2O_Used" id="check_H2O_Used_1">
+                                                                <label class="form-check-label" for="check_H2O_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_H2O" name="SensorRange_Min_H2O">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.H2O.Min" name="SensorRange_Min_H2O">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_H2O" name="SensorRange_Max_H2O">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.H2O.Max" name="SensorRange_Max_H2O">
                                         </div>
                                     </div> 
 
@@ -2093,15 +2866,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон давления ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Давление ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Pressure используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Pressure_Used" id="check_Pressure_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Pressure_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Pressure_Used" id="check_Pressure_Used_1">
+                                                                <label class="form-check-label" for="check_Pressure_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Pressure" name="SensorRange_Min_Pressure">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Pressure.Min" name="SensorRange_Min_Pressure">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Pressure" name="SensorRange_Max_Pressure">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Pressure.Max" name="SensorRange_Max_Pressure">
                                         </div>
                                     </div>   
 
@@ -2114,15 +2915,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Температура ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Temperature используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Temperature_Used" id="check_Temperature_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Temperature_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_Used" id="check_Temperature_Used_1">
+                                                                <label class="form-check-label" for="check_Temperature_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature" name="SensorRange_Min_Temperature">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.SensorRange.Temperature.Min" name="SensorRange_Min_Temperature">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature" name="SensorRange_Max_Temperature">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Temperature.Max" name="SensorRange_Max_Temperature">
                                         </div>
                                     </div>   
 
@@ -2134,15 +2963,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон скорости ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Скорость ДГ</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Speed используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Speed.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Speed_Used" id="check_Speed_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Speed_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Speed_Used" id="check_Speed_Used_1">
+                                                                <label class="form-check-label" for="check_Speed_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Speed" name="SensorRange_Min_Speed">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Speed.Min" name="SensorRange_Min_Speed">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Speed" name="SensorRange_Max_Speed">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Speed.Max" name="SensorRange_Max_Speed">
                                         </div>
                                     </div> 
                                     
@@ -2154,15 +3011,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры КИП</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Температура КИП</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Temperature_KIP используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Temperature_KIP_Used" id="check_Temperature_KIP_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Temperature_KIP_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_KIP_Used" id="check_Temperature_KIP_Used_1">
+                                                                <label class="form-check-label" for="check_Temperature_KIP_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature_KIP" name="SensorRange_Min_Temperature_KIP">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Min" name="SensorRange_Min_Temperature_KIP">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature_KIP" name="SensorRange_Max_Temperature_KIP">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Max" name="SensorRange_Max_Temperature_KIP">
                                         </div>
                                     </div>  
 
@@ -2174,15 +3059,43 @@
                                         ">
                                 
                                         <div>                            
-                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Диапазон температуры NOx</label></h5>  @*&nbsp - не разрывной пробел*@
+                                            <h5 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Температура NOx</label></h5>  @*&nbsp - не разрывной пробел*@
                                         </div>
+
+                                        <table class="table" style="color: #808080;">
+                                            <tr style="padding: 1px">
+                                                <td style="padding: 1px;">
+                                                    @*@*Чекбокс Temperature_NOx используется?*@
+                                                    @if (GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Temperature_NOx_Used" id="check_Temperature_NOx_Used_1" checked>
+                                                                <label class="form-check-label"  for="check_Temperature_NOx_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-check col">
+                                                            <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Temperature_NOx_Used" id="check_Temperature_NOx_Used_1">
+                                                                <label class="form-check-label" for="check_Temperature_NOx_Used_1" style="font-size: 95%; margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                                                    Используется
+                                                                </label>
+                                                        </div>
+                                                    }
+                                                </td>
+                                                <td style="padding: 1px;">
+                                                </td>
+                                            </tr>                                            
+                                        </table>
 
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Min</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Min_Temperature_NOx" name="SensorRange_Min_Temperature_NOx">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Min" name="SensorRange_Min_Temperature_NOx">
                             
                                             <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
-                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Max_Temperature_NOx" name="SensorRange_Max_Temperature_NOx">
+                                            <input type="number" step="0.001" min="0.000" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Max" name="SensorRange_Max_Temperature_NOx">
                                         </div>
                                     </div>
 
@@ -2259,6 +3172,261 @@
 
 
             </div>
-        </div>
+
+            <div class="tab-pane fade" id="calculations" role="tabpanel" aria-labelledby="contact-tab">
+                <h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Настройка расчётов концентраций и выбросов</label></h2>  @*&nbsp - не разрывной пробел*@
+                <br />
+
+                <form method="post"> 
+                    
+                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_Normalization)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Normalization" id="Is_Normalization" value="true" checked>
+                                <label class="form-check-label" for="Is_Normalization" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Приводить концентрации к н.у. после газоанализаторов по температуре и давлению. Если не выбрано - считаем, что концентрации уже приведены к н.у..
+                                </label>
+                        </div>
+
+                   @*     <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" style="font-size: 110%;" value="true" typeof="checkbox" name="check_Pressure_Used" id="check_Pressure_Used_1" checked>
+                            <label class="form-check-label"  for="check_Pressure_Used_1" style="margin: 0 0 0 -5px; font-family: Times New Roman , Times, serif;">
+                                 Используется
+                                </label>
+                        </div>*@
+                    }
+                    else
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Normalization" id="Is_Normalization" value="true">
+                                <label class="form-check-label" for="Is_Normalization" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Приводить концентрации к н.у. после газоанализаторов по температуре и давлению. Если не выбрано - считаем, что концентрации уже приведены к н.у..
+                                </label>
+                        </div>
+                    }
+                   
+
+                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_NotO2)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NotO2" id="Is_NotO2" value="true" checked>
+                                <label class="form-check-label" for="Is_NotO2" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Кислород (O₂) не участвует в расчётах, коэфициент избытка кислорода считается равным 1, тем самым кислород (O₂) не учитывается в расчётах.
+                                </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NotO2" id="Is_NotO2" value="true">
+                                <label class="form-check-label" for="Is_NotO2" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                     Кислород (O₂) не участвует в расчётах, коэфициент избытка кислорода считается равным 1, тем самым кислород (O₂) не учитывается в расчётах.
+                                </label>
+                        </div>
+                    }
+
+
+                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_Alpha_O2Wet)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Alpha_O2Wet" id="Is_Alpha_O2Wet" value="true" checked>
+                                <label class="form-check-label" for="Is_Alpha_O2Wet" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Использовать влажный кислород (O₂ влажный) для расчета избытока кислорода (alpha).
+                                </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Alpha_O2Wet" id="Is_Alpha_O2Wet" value="true">
+                                <label class="form-check-label" for="Is_Alpha_O2Wet" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                     Использовать влажный кислород (O₂ влажный) для расчета избытока кислорода (alpha).
+                                </label>
+                        </div>
+                    }
+
+
+                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_NotFlowMeter)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NotFlowMeter" id="Is_NotFlowMeter" value="true" checked>
+                                <label class="form-check-label" for="Is_NotFlowMeter" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Расходомер ДГ отсутсвует, расчёт расхода ДГ происходит расчётным методом по расходомеру топлива (расчёт при сжигании газообразного топлива).
+                                </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NotFlowMeter" id="Is_NotFlowMeter" value="true">
+                                <label class="form-check-label" for="Is_NotFlowMeter" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                     Расходомер ДГ отсутсвует, расчёт расхода ДГ происходит расчётным методом по расходомеру топлива (расчёт при сжигании газообразного топлива).
+                                </label>
+                        </div>
+                    }
+
+                    <br/>
+
+                    <table class="table text-center">
+                        <tr>
+                            <td>
+                                <div class="input-group mb-3">
+                                    
+                                    <label class="input-group-text" for="inputGroupSelect01" style="color: #808080; font-family: Times New Roman , Times, serif; font-size: 85%;">
+                                        За H₂O принимае
+                                    </label>
+
+                                    <select class="form-select" aria-label="" name="typeH2O"  
+                                        style=" color: #808080;
+                                            font-size: 85%;
+                                            white-space: nowrap; 
+                                           
+                                            font-family: Times New Roman , Times, serif;
+                                        ">
+    
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeH2O == TypeH2OConc.Sensor) 
+                                        {
+                                            <option selected value = "0">Датчик</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "0">Датчик</option>
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeH2O == TypeH2OConc.Koeff_H20) 
+                                        {
+                                            <option selected value = "1">Коэффициент</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "1">Коэффициент</option>
+                                        }
+                          
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeH2O == TypeH2OConc.O2Wet_O2Dry) 
+                                        {
+                                            <option selected value = "2">O₂ Вл./O₂ Сух.</option>
+                                        }
+                                        else
+                                        {
+                                            <option  value = "2">O₂ Вл./O₂ Сух.</option>
+                                        }
+
+                                    </select>
+                                    
+
+                                    <label style=" font-family: Times New Roman , Times, serif;">
+                                        <div class="input-group">
+                     
+                                            <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-size: 85%;">
+                                                Коэф. H₂O
+                                            </span>
+                                                <input type="number" step="0.01" min="0.01" max="10.00" class="form-control text-end" value="@GlobalStaticSettingsASK.CalculationSetting.Koeff_H2O" name="koeff_H2O" 
+                                                style=" color: #808080;
+         
+                                                        font-size: 85%;
+                                                        width: 80px;
+                                                    ">
+                                        </div>
+                                    </label>
+
+                                </div>
+                            </td>
+                        
+                            <td>
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupSelect02" style="color: #808080; font-family: Times New Roman , Times, serif; font-size: 85%;">
+                                        Для расчёта NOx используем
+                                    </label>
+ 
+                                    <select class="form-select" aria-label="" name="typeNOx"  
+                                        style=" color: #808080;
+                                            font-size: 85%;
+                                            white-space: nowrap; 
+                                            font-family: Times New Roman , Times, serif;
+                                        ">
+    
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeNOx == TypeNOxConc.OnlyNO) 
+                                        {
+                                            <option selected value = "0">Датчик NO</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "0">Датчик NO</option>
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeNOx == TypeNOxConc.NO_and_NO2) 
+                                        {
+                                            <option selected value = "1">Датчик NO + NO<sub>2</sub></option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "1">Датчик NO + NO2</option>
+                                        }
+                          
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeNOx == TypeNOxConc.Convertor) 
+                                        {
+                                            <option selected value = "2">Датчик NO после конвертора</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "2">Датчик NO после конвертора</option>
+                                        }
+                                    </select>
+
+                                </div>
+
+                                
+                            </td>
+                        
+                            <td>
+                                <div class="input-group mb-3" style="color: #808080; font-family: Times New Roman , Times, serif; font-size: 91%;">
+                           
+                                    <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-size: 92%;">
+                                        Коэффициент избытка кислорода
+                                    </span>
+                                        <input type="number" step="0.01" min="0.01" max="10.00" class="form-control text-end" value="@GlobalStaticSettingsASK.CalculationSetting.Koeff_O2_Normalization" name="koeff_O2_Normalization" 
+                                        style=" color: #808080;
+         
+                                                font-size: 92%;
+                                                width: 70px;
+                                            ">
+
+                                    <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-size: 92%;">
+                                        Диаметр трубы
+                                    </span>
+                                        <input type="number" step="0.01" min="0.01" max="10.00" class="form-control text-end" value="@GlobalStaticSettingsASK.CalculationSetting.PipeDiameter" name="pipeDiameter" 
+                                        style=" color: #808080;
+         
+                                                font-size: 92%;
+                                                width: 70px;
+                                            ">
+
+                                </div>
+                            </td>
+
+                            <td>
+                                <input class="btn btn-primary" style="font-family: Times New Roman , Times, serif; font-size: 82%;" type="submit" asp-action="CalculationSetting" asp-controller="Settings" value="Изменить"/>
+                            </td>
+                        </tr>
+                        
+
+                    </table>
+
+                </form>
+
+                <table class="table table-borderless">
+                    <td align="center">
+                        <a class="btn btn-primary"  asp-area="" asp-controller="Calculation" asp-action="Index" style="font-family: Times New Roman , Times, serif; font-size: 90%;">Просмотреть методику расчётов</a>
+                    </td>
+                </table>
+
+            </div>
+
+    </div>
+
 </div>
 
+
+
+
+                                         

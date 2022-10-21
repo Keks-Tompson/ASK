@@ -6,70 +6,134 @@ namespace ASK.BLL.Models
 {
     public class SensorRange_JSON_Model
     {
-        public double Max_CO { get; set; } = 100.0;
-        public double Min_CO { get; set; } = 0.0;
+        public RangePPM_Model CO { get; set; } = new RangePPM_Model();
+        public RangePPM_Model CO2 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model NO { get; set; } = new RangePPM_Model();
+        public RangePPM_Model NO2 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model NOx { get; set; } = new RangePPM_Model();
+        public RangePPM_Model SO2 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Dust { get; set; } = new RangePPM_Model();
+        public RangePPM_Model CH4 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model H2S { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Rezerv_1 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Rezerv_2 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Rezerv_3 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Rezerv_4 { get; set; } = new RangePPM_Model();
+        public RangePPM_Model Rezerv_5 { get; set; } = new RangePPM_Model();
 
-        public double Max_CO2 { get; set; } = 100.0;
-        public double Min_CO2 { get; set; } = 0.0;
+        public Range_Model O2Wet { get; set; } = new Range_Model();
+        public Range_Model O2Dry { get; set; } = new Range_Model();
+        public Range_Model H2O { get; set; } = new Range_Model();
+        public Range_Model Pressure { get; set; } = new Range_Model();
+        public Range_Model Temperature { get; set; } = new Range_Model();
+        public Range_Model Speed { get; set; } = new Range_Model();
+        public Range_Model Temperature_KIP { get; set; } = new Range_Model();
+        public Range_Model Temperature_NOx { get; set; } = new Range_Model();
 
-        public double Max_NO { get; set; } = 100.0;
-        public double Min_NO { get; set; } = 0.0;
 
-        public double Max_NO2 { get; set; } = 100.0;
-        public double Min_NO2 { get; set; } = 0.0;
+        public SensorRange_JSON_Model()
+        {
+            CO.Max = 100.0;
+            CO.Min = 0.0;
+            CO.Is_Used = false;
+            CO.Is_ppm = false;
 
-        public double Max_NOx { get; set; } = 100.0;
-        public double Min_NOx { get; set; } = 0.0;
+            CO2.Max = 100.0;
+            CO2.Min = 0.0;
+            CO2.Is_Used = false;
+            CO2.Is_ppm = false;
 
-        public double Max_SO2 { get; set; } = 100.0;
-        public double Min_SO2 { get; set; } = 0.0;
+            NO.Max = 100.0;
+            NO.Min = 0.0;
+            NO.Is_Used = false;
+            NO.Is_ppm = false;
 
-        public double Max_Dust { get; set; } = 100.0;
-        public double Min_Dust { get; set; } = 0.0;
+            NO2.Max = 100.0;
+            NO2.Min = 0.0;
+            NO2.Is_ppm = false;
 
-        public double Max_CH4 { get; set; } = 100.0;
-        public double Min_CH4 { get; set; } = 0.0;
+            NOx.Max = 100.0;
+            NOx.Min = 0.0;
+            NOx.Is_Used = false;
+            NOx.Is_ppm = false;
 
-        public double Max_H2S { get; set; } = 100.0;
-        public double Min_H2S { get; set; } = 0.0;
+            SO2.Max = 100.0;
+            SO2.Min = 0.0;
+            SO2.Is_Used = false;
+            SO2.Is_ppm = false;
 
-        public double Max_Rezerv_1 { get; set; } = 100.0;
-        public double Min_Rezerv_1 { get; set; } = 0.0;
+            Dust.Max = 100.0;
+            Dust.Min = 0.0;
+            Dust.Is_Used = false;
+            Dust.Is_ppm = false;
 
-        public double Max_Rezerv_2 { get; set; } = 100.0;
-        public double Min_Rezerv_2 { get; set; } = 0.0;
+            CH4.Max = 100.0;
+            CH4.Min = 0.0;
+            CH4.Is_Used = false;
+            CH4.Is_ppm = false;
 
-        public double Max_Rezerv_3 { get; set; } = 100.0;
-        public double Min_Rezerv_3 { get; set; } = 0.0;
+            H2S.Max = 100.0;
+            H2S.Min = 0.0;
+            H2S.Is_Used = false;
+            H2S.Is_ppm = false;
 
-        public double Max_Rezerv_4 { get; set; } = 100.0;
-        public double Min_Rezerv_4 { get; set; } = 0.0;
+            Rezerv_1.Max = 100.0;
+            Rezerv_1.Min = 0.0;
+            Rezerv_1.Is_Used = false;
+            Rezerv_1.Is_ppm = false;
 
-        public double Max_Rezerv_5 { get; set; } = 100.0;
-        public double Min_Rezerv_5 { get; set; } = 0.0;
+            Rezerv_2.Max = 100.0;
+            Rezerv_2.Min = 0.0;
+            Rezerv_2.Is_Used = false;
+            Rezerv_2.Is_ppm = false;
 
-        public double Max_O2Wet { get; set; } = 100.0;
-        public double Min_O2Wet { get; set; } = 0.0;
+            Rezerv_3.Max = 100.0;
+            Rezerv_3.Min = 0.0;
+            Rezerv_3.Is_Used = false;
+            Rezerv_3.Is_ppm = false;
 
-        public double Max_O2Dry { get; set; } = 100.0;
-        public double Min_O2Dry { get; set; } = 0.0;
+            Rezerv_4.Max = 100.0;
+            Rezerv_4.Min = 0.0;
+            Rezerv_4.Is_Used = false;
+            Rezerv_4.Is_ppm = false;
 
-        public double Max_H2O { get; set; } = 100.0;
-        public double Min_H2O { get; set; } = 0.0;
+            Rezerv_5.Max = 100.0;
+            Rezerv_5.Min = 0.0;
+            Rezerv_5.Is_Used = false;
+            Rezerv_5.Is_ppm = false;
 
-        public double Max_Pressure { get; set; } = 100.0;
-        public double Min_Pressure { get; set; } = 0.0;
 
-        public double Max_Temperature { get; set; } = 200.0;
-        public double Min_Temperature { get; set; } = 0.0;
+            O2Wet.Max = 100.0;
+            O2Wet.Min = 0.0;
+            O2Wet.Is_Used = false;
 
-        public double Max_Speed { get; set; } = 100.0;
-        public double Min_Speed { get; set; } = 0.0;
+            O2Dry.Max = 100.0;
+            O2Dry.Min = 0.0;
+            O2Dry.Is_Used = false;
 
-        public double Max_Temperature_KIP { get; set; } = 100.0;
-        public double Min_Temperature_KIP { get; set; } = 0.0;
+            H2O.Max = 100.0;
+            H2O.Min = 0.0;
+            H2O.Is_Used = false;
 
-        public double Max_Temperature_NOx { get; set; } = 100.0;
-        public double Min_Temperature_NOx { get; set; } = 0.0;
+            Pressure.Max = 100.0;
+            Pressure.Min = 0.0;
+            Pressure.Is_Used = false;
+
+            Temperature.Max = 200.0;
+            Temperature.Min = 0.0;
+            Temperature.Is_Used = false;
+
+            Speed.Max = 100.0;
+            Speed.Min = 0.0;
+            Speed.Is_Used = false;
+
+            Temperature_KIP.Max = 100.0;
+            Temperature_KIP.Min = 0.0;
+            Temperature_KIP.Is_Used = false;
+
+            Temperature_NOx.Max = 100.0;
+            Temperature_NOx.Min = 0.0;
+            Temperature_NOx.Is_Used = false;
+        }
     }
 }

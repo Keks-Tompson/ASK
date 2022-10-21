@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CUIb0wW+2sw8/0XMklX7K8yetwHD5FiimC9cvGWt8/64wc6WaiZNPYmD+fRm88FV/YPye0xMGLDDrHfiKS8wwQ==",
+  "dgSpecHash": "PUvIctYWbcAENYNN0aGhmguDNq7nW0AE3v4BFaWdTgNo8vhUTOvzH0kxECsyFiF4EQLkKM3ralKIQuulCi2hjQ==",
   "success": true,
   "projectFilePath": "D:\\new ASK\\ASK\\ASK\\ASK.csproj",
   "expectedPackageFiles": [
@@ -53,7 +53,8 @@
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\nmodbus\\3.0.72\\nmodbus.3.0.72.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\nmodbus4\\2.1.0\\nmodbus4.2.1.0.nupkg.sha512",
-    "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\quartz\\3.4.0\\quartz.3.4.0.nupkg.sha512",
+    "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\quartz\\3.5.0\\quartz.3.5.0.nupkg.sha512",
+    "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\quartz.extensions.dependencyinjection\\3.5.0\\quartz.extensions.dependencyinjection.3.5.0.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Evgeniy.Sundukov\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

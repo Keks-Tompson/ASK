@@ -201,12 +201,25 @@
                             </div>
                         </li>
 
+                        &nbsp
+
                         <li class="nav-item">
                             <div id="Write20M_Now" style="margin: 4px 0 0 0">
                                 @if (GlobalStaticSettingsASK.stopGetSernsorNow)
                                 {
                                     <button class="btn btn-warning">Идёт запись 20М в БД
                                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    </button>  
+                                }
+                            </div> 
+                        </li>
+                        &nbsp
+                        <li class="nav-item">
+                            <div id="Simulation" style="margin: 4px 0 0 0">
+                                @if (GlobalStaticSettingsASK.is_simulation)
+                                {
+                                    <button class="btn btn-warning">Режим симуляции
+                                        @*<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>*@
                                     </button>  
                                 }
                             </div> 
@@ -321,9 +334,9 @@
                         {
                             $('#isConnection').html(
                                  '<button class="btn btn-danger" type="button">' +
-                                      '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>' +
-                                       '&nbsp Нет связи с ПЛК' +
-                                    '</button>'
+                                    '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>' +
+                                    '&nbsp Нет связи с ПЛК' +
+                                '</button>'
                             );
                         }
                         else
@@ -331,9 +344,21 @@
                             $('#isConnection').html('');
                         }
 
+                        if (result[2]) 
+                        {
+                            $('#Simulation').html(
+                                 '<button class="btn btn-warning">Режим симуляции' +
+                                       //' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + 
+                                 '</button>'
+                            );
+                        }
+                        else
+                        {
+                            $('#Simulation').html('');
+                        }
+
 
              
-
                     }      
                });
         }

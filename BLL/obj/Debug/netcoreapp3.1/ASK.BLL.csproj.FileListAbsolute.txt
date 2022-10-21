@@ -3,7 +3,6 @@ D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.GeneratedMSBuildEditorConfig.
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.AssemblyInfoInputs.cache
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.AssemblyInfo.cs
 D:\new ASK\ASK\BLL\obj\Debug\netcoreapp3.1\ASK.BLL.csproj.CoreCompileInputs.cache
-D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\appsettings.json
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.deps.json
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.runtimeconfig.json
 D:\new ASK\ASK\BLL\bin\Debug\netcoreapp3.1\ASK.BLL.runtimeconfig.dev.json

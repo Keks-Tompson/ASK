@@ -24,23 +24,27 @@ namespace ASK.Controllers
             //_avg_20_m = avg_20_m;
         }
 
+
+
         public IActionResult Index()
         {
-            Startup.Method();
             //var a = _avg_20_m.Get_All_AVG_20_MINMUTES();
             return View();
         }
 
 
+
         public JsonResult Write20M()
         {
-            bool[] masBoolError = new bool[2];
+            bool[] masBoolError = new bool[3];
 
             masBoolError[0] = GlobalStaticSettingsASK.stopGetSernsorNow;
             masBoolError[1] = GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Value;
+            masBoolError[2] = GlobalStaticSettingsASK.is_simulation;
 
             return Json(masBoolError);
         }
+
 
 
         public IActionResult Privacy()
@@ -56,6 +60,7 @@ namespace ASK.Controllers
           
             return View();
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -33,19 +33,19 @@ namespace ASK.BLL.Services
 
 
 
-        public void AlarmLogBuider(bool is_newValue, Alarm_Model alarmName)
+        public void AlarmLogBuider(bool is_newValue, bool is_oldValue, Alarm_Model alarmName)
         {
             if (alarmName.Used) //Если авария используется
             {
-                if (is_newValue != alarmName.Value)
-                {
+                //if (is_newValue != is_oldValue)
+                //{
                     if (is_newValue)
                         _ACCIDENT_LOG_Repository.Begin_ACCIDENT_LOG(alarmName.ID);
                     else
                         _ACCIDENT_LOG_Repository.End_ACCIDENT_LOG(alarmName.ID);
                     
                     //alarmName.Value = is_newValue;
-                }
+                //}
             }
         }
     }

@@ -27,7 +27,7 @@ namespace ASK.BLL.Services
             currentPage.SensorNow = GlobalStaticSettingsASK.SensorNow;
             currentPage.SensorScaledNow = GlobalStaticSettingsASK.SensorScaledNow;
             currentPage.Color_Param = _ColorSensorParametrError_Services.Update();
-            currentPage.VisibilityOptions20M = GlobalStaticSettingsASK.VisibilityOptions20M;
+            currentPage.VisibilityReportOptions = GlobalStaticSettingsASK.VisibilityReportOptions;
 
             currentPage.CurrentConcEmis = GlobalStaticSettingsASK.CurrentConcEmis;
             currentPage.PDZ_Current_String = GlobalStaticSettingsASK.PDZ_Current_String;

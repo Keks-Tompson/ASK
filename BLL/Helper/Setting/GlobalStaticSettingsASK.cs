@@ -19,28 +19,33 @@ namespace ASK.BLL.Helper.Setting
 {
     public class GlobalStaticSettingsASK
     {
+        public static bool is_simulation = true;    //Режим симуляции 4-20 сигналов
+        private static double O2_Last = 1;          //Режим симуляции 4-20 сигналов старый O2
+        private static Random rnd = new Random();   //Режим симуляции 4-20 рандом
+
         //Chart
         public static Chart_CurrentValue ChartCurrent { get; set; } = new Chart_CurrentValue();
         public static List<Chart_CurrentValue> ChartList { get; set; } = new List<Chart_CurrentValue>();
         public static int CounterChart { get; set; } = 0;
 
         public static SettingOptions_JSON_Model SettingOptions { get; set; }
-        public static VisibilityOptions20M_JSON_Model VisibilityOptions20M { get; set; }
-        public static PDZ_JSON_Model PDZ { get; set; }                                                            //Все 3 вида топлива ПДЗ 
-        public static PDZ_Active_Model PDZ_Current { get; set; } = new PDZ_Active_Model();                        //Текущие ПДЗ в double
-        public static PDZ_String_Active_Model PDZ_Current_String { get; set; } = new PDZ_String_Active_Model();   //Текущие ПДЗ в string (-/-)
+        public static VisibilityReportOptions_JSON_Model VisibilityReportOptions { get; set; }
+        public static CalculationSetting_JSON_Model CalculationSetting { get; set; }                            //Хранит параметры/необходимые условия для расчёта концентрацй/выбросов
+        public static PDZ_JSON_Model PDZ { get; set; }                                                          //Все 3 вида топлива ПДЗ 
+        public static PDZ_Active_Model PDZ_Current { get; set; } = new PDZ_Active_Model();                      //Текущие ПДЗ в double
+        public static PDZ_String_Active_Model PDZ_Current_String { get; set; } = new PDZ_String_Active_Model(); //Текущие ПДЗ в string (-/-)
         public static SensorRange_JSON_Model SensorRange { get; set; }
-        public static List<Sensor_4_20_Model> Sensor_4_20s = new List<Sensor_4_20_Model>();                       //Будем хранить значение 4-20мА 
-        public static Sensor_4_20_Model SensorNow { get; set; } = new Sensor_4_20_Model();                        //Будем хранить текущее значения датчиков (4-20)
-        public static Sensor_4_20_Model SensorScaledNow { get; set; } = new Sensor_4_20_Model();                  //Будет хранить текущие значения прямых показаний датчиков 
-        public static List<Array20M_Model> Array20Ms { get; set; } = new List<Array20M_Model>();                  //Текущие значения формируемой 20 минутки
-        public static Array20M_Model CurrentConcEmis { get; set; } = new Array20M_Model();                        //Текущие значение концентрацйи и выбросов после приведения
+        public static List<Sensor_4_20_Model> Sensor_4_20s = new List<Sensor_4_20_Model>();                     //Будем хранить значение 4-20мА 
+        public static Sensor_4_20_Model SensorNow { get; set; } = new Sensor_4_20_Model();                      //Будем хранить текущее значения датчиков (4-20)
+        public static Sensor_4_20_Model SensorScaledNow { get; set; } = new Sensor_4_20_Model();                //Будет хранить текущие значения прямых показаний датчиков 
+        public static List<Array20M_Model> Array20Ms { get; set; } = new List<Array20M_Model>();                //Текущие значения формируемой 20 минутки
+        public static Array20M_Model CurrentConcEmis { get; set; } = new Array20M_Model();                      //Текущие значение концентрацйи и выбросов после приведения
 
         //Цвета 
-        public static Color ColorExcess { get; set; } = Color.FromArgb(247, 213, 213);                      //Цвет превышения
-        //public static Color ColorExcess { get; set; } = Color.FromArgb(0, 14, 14, 3);                     //Цвет превышения
-        public static Color ColorHeader1 { get; set; } = Color.FromArgb(255, 230, 168);                     //Цвет заголовка 1
-        public static Color ColorHeader2 { get; set; } = Color.FromArgb(182, 242, 250);                     //Цвет заголовка 2
+        public static Color ColorExcess { get; set; } = Color.FromArgb(247, 213, 213);                          //Цвет превышения
+        //public static Color ColorExcess { get; set; } = Color.FromArgb(0, 14, 14, 3);                         //Цвет превышения
+        public static Color ColorHeader1 { get; set; } = Color.FromArgb(255, 230, 168);                         //Цвет заголовка 1
+        public static Color ColorHeader2 { get; set; } = Color.FromArgb(182, 242, 250);                         //Цвет заголовка 2
 
         public static bool stopGetSernsorNow = false; //Если идёт запись в БД 20М тормозит поток обновления данных, пока запись не запишется; 
 
@@ -52,8 +57,7 @@ namespace ASK.BLL.Helper.Setting
         //public static bool isNotConnection = false;
 
         //Аварии
-        //Глобальные аварии
-        public static GlobalAlarm_Model globalAlarms = new GlobalAlarm_Model();  
+        public static GlobalAlarm_Model globalAlarms = new GlobalAlarm_Model();                                 //Глобальные аварии
         
 
 
@@ -66,10 +70,19 @@ namespace ASK.BLL.Helper.Setting
 
 
 
-        public static void SaveVisibilityOptions20MJSON()
+        public static void SaveVisibilityReportOptionsJSON()
         {
-            StreamWriter file = File.CreateText("SaveSetting_JSON\\VisibilityOptions20MJSON.json");
-            file.WriteLine(JsonSerializer.Serialize(VisibilityOptions20M, typeof(VisibilityOptions20M_JSON_Model)));
+            StreamWriter file = File.CreateText("SaveSetting_JSON\\VisibilityReportOptionsJSON.json");
+            file.WriteLine(JsonSerializer.Serialize(VisibilityReportOptions, typeof(VisibilityReportOptions_JSON_Model)));
+            file.Close();
+        }
+
+
+
+        public static void SaveCalculationSettingJSON()
+        {
+            StreamWriter file = File.CreateText("SaveSetting_JSON\\CalculationSettingJSON.json");
+            file.WriteLine(JsonSerializer.Serialize(CalculationSetting, typeof(CalculationSetting_JSON_Model)));
             file.Close();
         }
 
@@ -114,18 +127,35 @@ namespace ASK.BLL.Helper.Setting
 
 
             //-------------------------------------------------------------------------------------------------------------------------------------------
-            //                                                  VisibilityOptions20MJSON
+            //                                                  VisibilityReportOptionsJSON
             //-------------------------------------------------------------------------------------------------------------------------------------------
-            if (File.Exists("SaveSetting_JSON\\VisibilityOptions20MJSON.json")) //Если файл существует
+            if (File.Exists("SaveSetting_JSON\\VisibilityReportOptionsJSON.json")) //Если файл существует
             {
-                string data = File.ReadAllText("SaveSetting_JSON\\VisibilityOptions20MJSON.json");
-                VisibilityOptions20M = JsonSerializer.Deserialize<VisibilityOptions20M_JSON_Model>(data);
+                string data = File.ReadAllText("SaveSetting_JSON\\VisibilityReportOptionsJSON.json");
+                VisibilityReportOptions = JsonSerializer.Deserialize<VisibilityReportOptions_JSON_Model>(data);
             }
             else //не существует
             {
-                VisibilityOptions20M = new VisibilityOptions20M_JSON_Model();
+                VisibilityReportOptions = new VisibilityReportOptions_JSON_Model();
 
-                SaveVisibilityOptions20MJSON();
+                SaveVisibilityReportOptionsJSON();
+            }
+
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------
+            //                                                  CalculationSettingJSON
+            //-------------------------------------------------------------------------------------------------------------------------------------------
+            if (File.Exists("SaveSetting_JSON\\CalculationSettingJSON.json")) //Если файл существует
+            {
+                string data = File.ReadAllText("SaveSetting_JSON\\CalculationSettingJSON.json");
+                CalculationSetting = JsonSerializer.Deserialize<CalculationSetting_JSON_Model>(data);
+            }
+            else //не существует
+            {
+                CalculationSetting = new CalculationSetting_JSON_Model();
+
+                SaveCalculationSettingJSON();
             }
 
 
@@ -160,8 +190,7 @@ namespace ASK.BLL.Helper.Setting
                 SensorRange = new SensorRange_JSON_Model();
                 SaveSensorRange_JSON();
             }
-            GetCurrentPDZ();
-            ChartList.Add(new Chart_CurrentValue());
+            
 
 
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -169,6 +198,9 @@ namespace ASK.BLL.Helper.Setting
                 var accident_log_Service = new ACCIDENT_LOG_Repository(db);
                 accident_log_Service.StratSystem_ACCIDENT_LOG();
             }
+
+            GetCurrentPDZ();
+            ChartList.Add(new Chart_CurrentValue()); ///Первая нулевая точка //Потом удалить!
         }
 
 
@@ -299,7 +331,7 @@ namespace ASK.BLL.Helper.Setting
                     {
 
                     }
-                    //GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M = GlobalStaticSettingsASK.VisibilityOptions20M.data_add_20M.AddMinutes(20);
+                    //GlobalStaticSettingsASK.VisibilityReportOptions.data_add_20M = GlobalStaticSettingsASK.VisibilityReportOptions.data_add_20M.AddMinutes(20);
                 }
             }
             Array20Ms.Clear();
@@ -357,9 +389,30 @@ namespace ASK.BLL.Helper.Setting
             {
                 CounterChart = 0;
 
-                ChartCurrent.Getsimulation();
+                //ChartCurrent.Getsimulation();
                 if (ChartList.Count > 699)
                     ChartList.RemoveAt(0);
+
+                //График
+                ChartCurrent.DateString = DateTime.Now.ToLongTimeString();
+
+                ChartCurrent.CO = CurrentConcEmis.CO_Conc;
+                ChartCurrent.CO2 = CurrentConcEmis.CO2_Conc;
+                ChartCurrent.NO = CurrentConcEmis.NO_Conc;
+                ChartCurrent.NO2 = CurrentConcEmis.NO2_Conc;
+                ChartCurrent.NOx = CurrentConcEmis.NOx_Conc;
+                ChartCurrent.SO2 = CurrentConcEmis.SO2_Conc;
+                ChartCurrent.Dust = CurrentConcEmis.Dust_Conc;
+                ChartCurrent.CH4 = CurrentConcEmis.CH4_Conc;
+                ChartCurrent.H2S = CurrentConcEmis.H2S_Conc;
+                ChartCurrent.Add_Conc_1 = CurrentConcEmis.Add_Conc_1;
+                ChartCurrent.Add_Conc_2 = CurrentConcEmis.Add_Conc_2;
+                ChartCurrent.Add_Conc_3 = CurrentConcEmis.Add_Conc_3;
+                ChartCurrent.Add_Conc_4 = CurrentConcEmis.Add_Conc_4;
+                ChartCurrent.Add_Conc_5 = CurrentConcEmis.Add_Conc_5;
+
+                ChartCurrent.O2_Wet = CurrentConcEmis.O2_Wet;
+                ChartCurrent.O2_Dry = CurrentConcEmis.O2_Dry;
 
                 ChartList.Add((Chart_CurrentValue)ChartCurrent.Clone());
 
@@ -575,6 +628,8 @@ namespace ASK.BLL.Helper.Setting
         {
             string IpAdres = "192.168.1.153";
 
+            
+
             try
             {
                 connected = ping.Send(IpAdres, 500);    //Проверяем соедение с таймингом 0.5 сек
@@ -588,7 +643,7 @@ namespace ASK.BLL.Helper.Setting
                         using (ApplicationDbContext db = new ApplicationDbContext())
                         {
                             var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                            globalAlarm_Services.AlarmLogBuider(false, globalAlarms.Is_NotConnection);
+                            globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotConnection);
                         }
                         globalAlarms.Is_NotConnection.Value = false;
                     }
@@ -795,39 +850,73 @@ namespace ASK.BLL.Helper.Setting
                         using (ApplicationDbContext db = new ApplicationDbContext())
                         {
                             var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                            globalAlarm_Services.AlarmLogBuider(true, globalAlarms.Is_NotConnection);
+                            globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
                         }
                         globalAlarms.Is_NotConnection.Value = true;
                     }
 
                     SensorNow.Date = DateTime.Now;
 
-                    SensorNow.CO_4_20mA = 0.0;
-                    SensorNow.CO2_4_20mA = 0.0;
-                    SensorNow.NO_4_20mA = 0.0;
-                    SensorNow.NO2_4_20mA = 0.0;
-                    SensorNow.NOx_4_20mA = 0.0;
-                    SensorNow.SO2_4_20mA = 0.0;
-                    SensorNow.Dust_4_20mA = 0.0;
-                    SensorNow.CH4_4_20mA = 0.0;
-                    SensorNow.H2S_4_20mA = 0.0;
+                    //Режим симуляции
+                    if (is_simulation)
+                    {
+                        SensorNow.CO_4_20mA = Simulation_4_20(SensorNow.CO_4_20mA);
+                        SensorNow.CO2_4_20mA = Simulation_4_20(SensorNow.CO2_4_20mA);
+                        SensorNow.NO_4_20mA = Simulation_4_20(SensorNow.NO_4_20mA);
+                        SensorNow.NO2_4_20mA = Simulation_4_20(SensorNow.NO2_4_20mA);
+                        SensorNow.NOx_4_20mA = Simulation_4_20(SensorNow.NOx_4_20mA);
+                        SensorNow.SO2_4_20mA = Simulation_4_20(SensorNow.SO2_4_20mA);
+                        SensorNow.Dust_4_20mA = Simulation_4_20(SensorNow.Dust_4_20mA);
+                        SensorNow.CH4_4_20mA = Simulation_4_20(SensorNow.CH4_4_20mA);
+                        SensorNow.H2S_4_20mA = Simulation_4_20(SensorNow.H2S_4_20mA);
 
-                    SensorNow.Rezerv_1_4_20mA = 0.0;
-                    SensorNow.Rezerv_2_4_20mA = 0.0;
-                    SensorNow.Rezerv_3_4_20mA = 0.0;
-                    SensorNow.Rezerv_4_4_20mA = 0.0;
-                    SensorNow.Rezerv_5_4_20mA = 0.0;
+                        SensorNow.Rezerv_1_4_20mA = Simulation_4_20(SensorNow.Rezerv_1_4_20mA); 
+                        SensorNow.Rezerv_2_4_20mA = Simulation_4_20(SensorNow.Rezerv_2_4_20mA);
+                        SensorNow.Rezerv_3_4_20mA = Simulation_4_20(SensorNow.Rezerv_3_4_20mA);
+                        SensorNow.Rezerv_4_4_20mA = Simulation_4_20(SensorNow.Rezerv_3_4_20mA);
+                        SensorNow.Rezerv_5_4_20mA = Simulation_4_20(SensorNow.Rezerv_5_4_20mA);
 
-                    SensorNow.O2_Wet_4_20mA = 0.0;
-                    SensorNow.O2_Dry_4_20mA = 0.0;
-                    SensorNow.H2O_4_20mA = 0.0;
+                        SensorNow.O2_Wet_4_20mA = Simulation_4_20(SensorNow.O2_Wet_4_20mA, true);
+                        SensorNow.O2_Dry_4_20mA = SensorNow.O2_Wet_4_20mA;
+                        O2_Last = SensorNow.O2_Wet_4_20mA;
+                        SensorNow.H2O_4_20mA = Simulation_4_20(SensorNow.H2O_4_20mA);
 
-                    SensorNow.Pressure_4_20mA = 0.0;
-                    SensorNow.Temperature_4_20mA = 0.0;
-                    SensorNow.Speed_4_20mA = 0.0;
+                        SensorNow.Pressure_4_20mA = Simulation_4_20(SensorNow.Pressure_4_20mA);
+                        SensorNow.Temperature_4_20mA = Simulation_4_20(SensorNow.Temperature_4_20mA);
+                        SensorNow.Speed_4_20mA = Simulation_4_20(SensorNow.Speed_4_20mA);
 
-                    SensorNow.Temperature_KIP_4_20mA = 0.0;
-                    SensorNow.Temperature_NOx_4_20mA = 0.0;
+                        SensorNow.Temperature_KIP_4_20mA = Simulation_4_20(SensorNow.Temperature_KIP_4_20mA);
+                        SensorNow.Temperature_NOx_4_20mA = Simulation_4_20(SensorNow.Temperature_NOx_4_20mA);
+                    }
+                    else
+                    {
+                        SensorNow.CO_4_20mA = 0.0;
+                        SensorNow.CO2_4_20mA = 0.0;
+                        SensorNow.NO_4_20mA = 0.0;
+                        SensorNow.NO2_4_20mA = 0.0;
+                        SensorNow.NOx_4_20mA = 0.0;
+                        SensorNow.SO2_4_20mA = 0.0;
+                        SensorNow.Dust_4_20mA = 0.0;
+                        SensorNow.CH4_4_20mA = 0.0;
+                        SensorNow.H2S_4_20mA = 0.0;
+
+                        SensorNow.Rezerv_1_4_20mA = 0.0;
+                        SensorNow.Rezerv_2_4_20mA = 0.0;
+                        SensorNow.Rezerv_3_4_20mA = 0.0;
+                        SensorNow.Rezerv_4_4_20mA = 0.0;
+                        SensorNow.Rezerv_5_4_20mA = 0.0;
+
+                        SensorNow.O2_Wet_4_20mA = 0.0;
+                        SensorNow.O2_Dry_4_20mA = 0.0;
+                        SensorNow.H2O_4_20mA = 0.0;
+
+                        SensorNow.Pressure_4_20mA = 0.0;
+                        SensorNow.Temperature_4_20mA = 0.0;
+                        SensorNow.Speed_4_20mA = 0.0;
+
+                        SensorNow.Temperature_KIP_4_20mA = 0.0;
+                        SensorNow.Temperature_NOx_4_20mA = 0.0;
+                    }
                 }
             }
             catch
@@ -837,7 +926,7 @@ namespace ASK.BLL.Helper.Setting
                     using (ApplicationDbContext db = new ApplicationDbContext())
                     {
                         var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                        globalAlarm_Services.AlarmLogBuider(true, globalAlarms.Is_NotConnection);
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
                     }
                     globalAlarms.Is_NotConnection.Value = true;
                 }
@@ -875,18 +964,50 @@ namespace ASK.BLL.Helper.Setting
 
 
 
-        public static double ScaleRange(double value, double minScale, double maxScale)
+        public static double ScaleRange(double value, Range_Model range)
         {
             double min = 4.0;
             double max = 20.0;
 
             if (value <= min)
-                return minScale;
+                return range.Min;
 
-            return Math.Round(minScale + (value - min) / (max - min) * (maxScale - minScale), 3);
+            return Math.Round(range.Min + (value - min) / (max - min) * (range.Max - range.Min), 3);
         }
 
 
+        //Симуляция 4-20
+        public static double Simulation_4_20(double valueNow, bool O2 = false)
+        {
+            double min = 3.7;
+            double max = 20.4;
+
+            int rndMin = -250;
+            int rndMax = 250;
+
+            if(O2_Last < 1)
+                O2_Last = 1;
+
+            double newValue;
+
+            if (O2)
+                newValue = valueNow + rnd.Next(rndMin, rndMax) / 1000.0;
+            else
+                newValue = valueNow /** (GlobalStaticSettingsASK.SensorNow.O2_Wet_4_20mA / O2_Last)*/ + rnd.Next(rndMin, rndMax) / 10000.0;
+
+            if (newValue < min)
+            {
+                newValue = newValue + rnd.Next(0, 100) / 10;
+                //if (CO < 0.0)
+                //    CO = 0.0;
+            }
+            if (newValue > max)
+            {
+                newValue = newValue - rnd.Next(0, 70)/10;
+            }
+
+            return Math.Round(newValue, 3);
+        }
 
         public static void RunConvertSernsor()
         {
@@ -894,70 +1015,134 @@ namespace ASK.BLL.Helper.Setting
 
             SensorScaledNow.Date = DateTime.Now;
 
-            SensorScaledNow.CO_4_20mA = ScaleRange(SensorNow.CO_4_20mA, SensorRange.Min_CO, SensorRange.Max_CO);
-            SensorScaledNow.CO2_4_20mA = ScaleRange(SensorNow.CO2_4_20mA, SensorRange.Min_CO2, SensorRange.Max_CO2);
-            SensorScaledNow.NO_4_20mA = ScaleRange(SensorNow.NO_4_20mA, SensorRange.Min_NO, SensorRange.Max_NO);
-            SensorScaledNow.NO2_4_20mA = ScaleRange(SensorNow.NO2_4_20mA, SensorRange.Min_NO2, SensorRange.Max_NO2);
-            SensorScaledNow.NOx_4_20mA = ScaleRange(SensorNow.NOx_4_20mA, SensorRange.Min_NOx, SensorRange.Max_NOx);
-            SensorScaledNow.SO2_4_20mA = ScaleRange(SensorNow.SO2_4_20mA, SensorRange.Min_SO2, SensorRange.Max_SO2);
-            SensorScaledNow.Dust_4_20mA = ScaleRange(SensorNow.Dust_4_20mA, SensorRange.Min_Dust, SensorRange.Max_Dust);
-            SensorScaledNow.CH4_4_20mA = ScaleRange(SensorNow.CH4_4_20mA, SensorRange.Min_CH4, SensorRange.Max_CH4);
-            SensorScaledNow.H2S_4_20mA = ScaleRange(SensorNow.H2S_4_20mA, SensorRange.Min_H2S, SensorRange.Max_H2S);
-            SensorScaledNow.Rezerv_1_4_20mA = ScaleRange(SensorNow.Rezerv_1_4_20mA, SensorRange.Min_Rezerv_1, SensorRange.Max_Rezerv_1);
-            SensorScaledNow.Rezerv_2_4_20mA = ScaleRange(SensorNow.Rezerv_2_4_20mA, SensorRange.Min_Rezerv_2, SensorRange.Max_Rezerv_2);
-            SensorScaledNow.Rezerv_3_4_20mA = ScaleRange(SensorNow.Rezerv_3_4_20mA, SensorRange.Min_Rezerv_3, SensorRange.Max_Rezerv_3);
-            SensorScaledNow.Rezerv_4_4_20mA = ScaleRange(SensorNow.Rezerv_4_4_20mA, SensorRange.Min_Rezerv_4, SensorRange.Max_Rezerv_4);
-            SensorScaledNow.Rezerv_5_4_20mA = ScaleRange(SensorNow.Rezerv_5_4_20mA, SensorRange.Min_Rezerv_5, SensorRange.Max_Rezerv_5);
+            SensorScaledNow.CO_4_20mA = ScaleRange(SensorNow.CO_4_20mA, SensorRange.CO);
+            SensorScaledNow.CO2_4_20mA = ScaleRange(SensorNow.CO2_4_20mA, SensorRange.CO2);
+            SensorScaledNow.NO_4_20mA = ScaleRange(SensorNow.NO_4_20mA, SensorRange.NO);
+            SensorScaledNow.NO2_4_20mA = ScaleRange(SensorNow.NO2_4_20mA, SensorRange.NO2);
+            SensorScaledNow.NOx_4_20mA = ScaleRange(SensorNow.NOx_4_20mA, SensorRange.NOx);
+            SensorScaledNow.SO2_4_20mA = ScaleRange(SensorNow.SO2_4_20mA, SensorRange.SO2);
+            SensorScaledNow.Dust_4_20mA = ScaleRange(SensorNow.Dust_4_20mA, SensorRange.Dust);
+            SensorScaledNow.CH4_4_20mA = ScaleRange(SensorNow.CH4_4_20mA, SensorRange.CH4);
+            SensorScaledNow.H2S_4_20mA = ScaleRange(SensorNow.H2S_4_20mA, SensorRange.H2S);
+            SensorScaledNow.Rezerv_1_4_20mA = ScaleRange(SensorNow.Rezerv_1_4_20mA, SensorRange.Rezerv_1);
+            SensorScaledNow.Rezerv_2_4_20mA = ScaleRange(SensorNow.Rezerv_2_4_20mA, SensorRange.Rezerv_2);
+            SensorScaledNow.Rezerv_3_4_20mA = ScaleRange(SensorNow.Rezerv_3_4_20mA, SensorRange.Rezerv_3);
+            SensorScaledNow.Rezerv_4_4_20mA = ScaleRange(SensorNow.Rezerv_4_4_20mA, SensorRange.Rezerv_4);
+            SensorScaledNow.Rezerv_5_4_20mA = ScaleRange(SensorNow.Rezerv_5_4_20mA, SensorRange.Rezerv_5);
 
-            SensorScaledNow.O2_Wet_4_20mA = ScaleRange(SensorNow.O2_Wet_4_20mA, SensorRange.Min_O2Wet, SensorRange.Max_O2Wet);
-            SensorScaledNow.O2_Dry_4_20mA = ScaleRange(SensorNow.O2_Dry_4_20mA, SensorRange.Min_O2Dry, SensorRange.Max_O2Dry);
-            SensorScaledNow.H2O_4_20mA = ScaleRange(SensorNow.H2O_4_20mA, SensorRange.Min_H2O, SensorRange.Max_H2O);
+            SensorScaledNow.O2_Wet_4_20mA = ScaleRange(SensorNow.O2_Wet_4_20mA, SensorRange.O2Wet);
+            SensorScaledNow.O2_Dry_4_20mA = ScaleRange(SensorNow.O2_Dry_4_20mA, SensorRange.O2Dry);
+            SensorScaledNow.H2O_4_20mA = ScaleRange(SensorNow.H2O_4_20mA, SensorRange.H2O);
 
-            SensorScaledNow.Pressure_4_20mA = ScaleRange(SensorNow.Pressure_4_20mA, SensorRange.Min_Pressure, SensorRange.Max_Pressure);
-            SensorScaledNow.Temperature_4_20mA = ScaleRange(SensorNow.Temperature_4_20mA, SensorRange.Min_Temperature, SensorRange.Max_Temperature);
-            SensorScaledNow.Speed_4_20mA = ScaleRange(SensorNow.Speed_4_20mA, SensorRange.Min_Speed, SensorRange.Max_Speed);
+            SensorScaledNow.Pressure_4_20mA = ScaleRange(SensorNow.Pressure_4_20mA, SensorRange.Pressure);
+            SensorScaledNow.Temperature_4_20mA = ScaleRange(SensorNow.Temperature_4_20mA, SensorRange.Temperature);
+            SensorScaledNow.Speed_4_20mA = ScaleRange(SensorNow.Speed_4_20mA, SensorRange.Speed);
 
-            SensorScaledNow.Temperature_KIP_4_20mA = ScaleRange(SensorNow.Temperature_KIP_4_20mA, SensorRange.Min_Temperature_KIP, SensorRange.Max_Temperature_KIP);
-            SensorScaledNow.Temperature_NOx_4_20mA = ScaleRange(SensorNow.Temperature_NOx_4_20mA, SensorRange.Min_Temperature_NOx, SensorRange.Max_Temperature_NOx);
+            SensorScaledNow.Temperature_KIP_4_20mA = ScaleRange(SensorNow.Temperature_KIP_4_20mA, SensorRange.Temperature_KIP);
+            SensorScaledNow.Temperature_NOx_4_20mA = ScaleRange(SensorNow.Temperature_NOx_4_20mA, SensorRange.Temperature_NOx);
+
         }
 
 
 
         public static void Normalization_ConcEmis()
         {
+            Calculation_Services calculat = new Calculation_Services();
+
             //CurrentConcEmis = new Array20M();
 
             CurrentConcEmis.Date = DateTime.Now;
 
-            CurrentConcEmis.CO_Conc = 0.0;
-            CurrentConcEmis.CO2_Conc = 0.0;
-            CurrentConcEmis.NO_Conc = 0.0;
-            CurrentConcEmis.NO2_Conc = 0.0;
-            CurrentConcEmis.NOx_Conc = 0.0;
-            CurrentConcEmis.SO2_Conc = 0.0;
-            CurrentConcEmis.Dust_Conc = 0.0;
-            CurrentConcEmis.CH4_Conc = 0.0;
-            CurrentConcEmis.H2S_Conc = 0.0;
-            CurrentConcEmis.Add_Conc_1 = 0.0;
-            CurrentConcEmis.Add_Conc_2 = 0.0;
-            CurrentConcEmis.Add_Conc_3 = 0.0;
-            CurrentConcEmis.Add_Conc_4 = 0.0;
-            CurrentConcEmis.Add_Conc_5 = 0.0;
+            int d = 2;
 
-            CurrentConcEmis.CO_Emis = 0.0;
-            CurrentConcEmis.CO2_Emis = 0.0;
-            CurrentConcEmis.NO_Emis = 0.0;
-            CurrentConcEmis.NO2_Emis = 0.0;
-            CurrentConcEmis.NOx_Emis = 0.0;
-            CurrentConcEmis.SO2_Emis = 0.0;
-            CurrentConcEmis.Dust_Emis = 0.0;
-            CurrentConcEmis.CH4_Emis = 0.0;
-            CurrentConcEmis.H2S_Emis = 0.0;
-            CurrentConcEmis.Add_Emis_1 = 0.0;
-            CurrentConcEmis.Add_Emis_2 = 0.0;
-            CurrentConcEmis.Add_Emis_3 = 0.0;
-            CurrentConcEmis.Add_Emis_4 = 0.0;
-            CurrentConcEmis.Add_Emis_5 = 0.0;
+            if (SensorRange.CO.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.CO_4_20mA, SensorRange.CO.Is_ppm, 1.14);
+                CurrentConcEmis.CO_Conc = cal.C;
+                CurrentConcEmis.CO_Emis = cal.M;
+            }
+
+            if (SensorRange.CO2.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.CO2_4_20mA, SensorRange.CO2.Is_ppm, 1.98);
+                CurrentConcEmis.CO2_Conc = cal.C;
+                CurrentConcEmis.CO2_Emis = cal.M;
+            }
+
+            //Эксклюзивный расчёт для NO, NO2, NOx
+            if (SensorRange.NO.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.NO_4_20mA, SensorRange.NO.Is_ppm, 1.34);
+                CurrentConcEmis.NOx_Conc = cal.C_NOx;
+                CurrentConcEmis.NOx_Emis = cal.M_NOx;
+                CurrentConcEmis.NO_Conc = cal.C_NO;
+                CurrentConcEmis.NO_Emis = cal.M_NO;
+                CurrentConcEmis.NO2_Conc = cal.C_NO2;
+                CurrentConcEmis.NO2_Emis = cal.M_NO2;
+            }
+
+            if (SensorRange.SO2.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.SO2_4_20mA, SensorRange.SO2.Is_ppm, 2.92);
+                CurrentConcEmis.SO2_Conc = cal.C;
+                CurrentConcEmis.SO2_Emis = cal.M;
+            }
+
+            if (SensorRange.Dust.Is_Used || !(CalculationSetting.TypeDust == TypeDustConc.None)) //!!!Проверить!!!
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Dust_4_20mA, SensorRange.Dust.Is_ppm, 1);
+                CurrentConcEmis.Dust_Conc = cal.C_Dust;
+                CurrentConcEmis.Dust_Emis = cal.M_Dust;
+            }
+
+            if (SensorRange.CH4.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.CH4_4_20mA, SensorRange.CH4.Is_ppm, 0.65);
+                CurrentConcEmis.CH4_Conc = cal.C;
+                CurrentConcEmis.CH4_Emis = cal.M;
+            }
+
+            if (SensorRange.H2S.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.H2S_4_20mA, SensorRange.H2S.Is_ppm, 1.36);
+                CurrentConcEmis.H2S_Conc = cal.C;
+                CurrentConcEmis.H2S_Emis = cal.M;
+            }
+
+            if (SensorRange.Rezerv_1.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Rezerv_1_4_20mA, SensorRange.Rezerv_1.Is_ppm, 1.0);
+                CurrentConcEmis.Add_Conc_1 = cal.C;
+                CurrentConcEmis.Add_Emis_1 = cal.M;
+            }
+
+            if (SensorRange.Rezerv_2.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Rezerv_2_4_20mA, SensorRange.Rezerv_2.Is_ppm, 1.0);
+                CurrentConcEmis.Add_Conc_2 = cal.C;
+                CurrentConcEmis.Add_Emis_2 = cal.M;
+            }
+
+            if (SensorRange.Rezerv_3.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Rezerv_3_4_20mA, SensorRange.Rezerv_3.Is_ppm, 1.0);
+                CurrentConcEmis.Add_Conc_3 = cal.C;
+                CurrentConcEmis.Add_Emis_3 = cal.M;
+            }
+
+            if (SensorRange.Rezerv_4.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Rezerv_4_4_20mA, SensorRange.Rezerv_4.Is_ppm, 1.0);
+                CurrentConcEmis.Add_Conc_4 = cal.C;
+                CurrentConcEmis.Add_Emis_4 = cal.M;
+            }
+
+            if (SensorRange.Rezerv_5.Is_Used)
+            {
+                var cal = calculat.Count(CalculationSetting, SensorScaledNow.Rezerv_5_4_20mA, SensorRange.Rezerv_5.Is_ppm, 1.0);
+                CurrentConcEmis.Add_Conc_5 = cal.C;
+                CurrentConcEmis.Add_Emis_5 = cal.M;
+            }
 
             CurrentConcEmis.O2_Wet = SensorScaledNow.O2_Wet_4_20mA;
             CurrentConcEmis.O2_Dry = SensorScaledNow.O2_Dry_4_20mA;

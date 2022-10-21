@@ -25,8 +25,8 @@ namespace ASK.BLL.Helper.Chart
         public double Add_Conc_4 { get; set; } = 0.0;
         public double Add_Conc_5 { get; set; } = 0.0;
 
-        public double O2_Wet { get; set; } = 15.00;
-        public double O2_Dry { get; set; } = 15.00;
+        public double O2_Wet { get; set; } = 0.0; // 15.00;
+        public double O2_Dry { get; set; } = 0.0; //15.00;
 
 
         int rndMin = -2500;
