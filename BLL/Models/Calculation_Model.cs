@@ -19,6 +19,7 @@ namespace ASK.BLL.Models
         public double a { get; set; }
         public double a_O2 { get; set; }
         public double a_cast { get; set; } = GlobalStaticSettingsASK.CalculationSetting.Koeff_O2_Normalization;
+        public double Dust_a_cast { get; set; } = GlobalStaticSettingsASK.CalculationSetting.Koeff_O2_Normalization;
         public double V { get; set; }
         public double k { get; set; }
         public double Pb_Pi { get; set; }
@@ -38,7 +39,7 @@ namespace ASK.BLL.Models
         public double M_NO2 { get; set; }
         public double M_Dust { get; set; }
         public double I { get; set; }
-        public double Izm_NO { get; set; } = GlobalStaticSettingsASK.SensorScaledNow.NO2_4_20mA;
+        public double Izm_NO { get; set; } = GlobalStaticSettingsASK.SensorScaledNow.NO_4_20mA;
         public double Izm_NO2 { get; set; } = GlobalStaticSettingsASK.SensorScaledNow.NO2_4_20mA;
         public double Izm_Dust { get; set; } = GlobalStaticSettingsASK.SensorScaledNow.Dust_4_20mA;
         public double rNO{ get; set; } = 1.34;
@@ -50,7 +51,11 @@ namespace ASK.BLL.Models
         public double B { get; set; }
         public double Vdry1_4 { get; set; } = 12.37;
         public double Normalization { get; set; } = 1.0;
-        public double Dust_T { get; set; }
+        public double Normalization_Dust { get; set; } = 1.0;
         public double Dust_E { get; set; }
+        public double Dust_Op { get; set; } = GlobalStaticSettingsASK.SensorScaledNow.Dust_4_20mA;
+        public double Dust_k { get; set; } = 1;
+        public double Dust_a { get; set; } = 1;
+        public double Dust_DF { get; set; } = GlobalStaticSettingsASK.CalculationSetting.Dust_DF;
     }
 }

@@ -48,7 +48,27 @@
                                 </label>
                         </div>
                     }
-                   
+
+
+                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_Normalization_H2O)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Normalization_H2O" id="Is_Normalization_H2O" value="true" checked>
+                                <label class="form-check-label" for="Is_Normalization_H2O" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Приводить концентрации к коэффициенту влажности (H₂O) после газоанализаторов. Если не выбрано - считаем, что концентрации уже осушены и влага отсутствует.
+                                </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_Normalization_H2O" id="Is_Normalization_H2O" value="true">
+                                <label class="form-check-label" for="Is_Normalization_H2O" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                    Приводить концентрации к коэффициенту влажности (H₂O) после газоанализаторов. Если не выбрано - считаем, что концентрации уже осушены и влага отсутствует.
+                                </label>
+                        </div>
+                    }
+                 
 
                     @if (GlobalStaticSettingsASK.CalculationSetting.Is_NotO2)
                     {
@@ -174,6 +194,152 @@
                                     </label>
 
                                 </div>
+
+                                <div class="input-group mb-3">
+                                    
+                                    <label class="input-group-text" for="inputGroupSelect01" style="color: #808080; font-family: Times New Roman , Times, serif; font-size: 85%;">
+                                        Пылемер
+                                    </label>
+
+                                    <select class="form-select" aria-label="" name="typeDust"  
+                                        style=" color: #808080;
+                                            font-size: 85%;
+                                            white-space: nowrap; 
+                                           
+                                            font-family: Times New Roman , Times, serif;
+                                        ">
+    
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeDust == TypeDustConc.None) 
+                                        {
+                                            <option selected value = "0">Отсутствует</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "0">Отсутствует</option>
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeDust == TypeDustConc.Ecomer) 
+                                        {
+                                            <option selected value = "3">Экомер</option>
+                                        }
+                                        else
+                                        {
+                                            <option  value = "3">Экомер</option>
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeDust == TypeDustConc.DustHunter) 
+                                        {
+                                            <option selected value = "1">DustHunter</option>
+                                        }
+                                        else
+                                        {
+                                            <option value = "1">DustHunter</option>
+                                        }
+                          
+                                        @if(GlobalStaticSettingsASK.CalculationSetting.TypeDust == TypeDustConc.CodelACEMT) 
+                                        {
+                                            <option selected value = "2">CODEL</option>
+                                        }
+                                        else
+                                        {
+                                            <option  value = "2">CODEL</option>
+                                        }
+
+                                        
+
+                                    </select>
+                                    
+
+                                    <label style=" font-family: Times New Roman , Times, serif;">
+                                        <div class="input-group">
+                     
+                                            <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-size: 85%;">
+                                               Коэф. DF
+                                            </span>
+                                                <input type="number" step="0.01" min="0.00" max="9999.99" class="form-control text-end" value="@GlobalStaticSettingsASK.CalculationSetting.Dust_DF" name="dust_DF" 
+                                                style=" color: #808080;
+         
+                                                        font-size: 85%;
+                                                        width: 100px;
+                                                    ">
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="text-start" 
+                                    style=" color: #808080;
+                                           
+                                            /*border-radius: 10px;*/
+                                            /*box-shadow: 0 0 10px;*/
+                                            /*box-shadow: inset 0 0 3px;*/
+                                            /*line-height: 1;*/
+                                            /*margin: 0 -23px 0 0;*/
+                                            /*padding: 10px;*/
+                                            font-size: 90%;
+                                            font-family: Times New Roman , Times, serif;
+                                            /* width: 375px;*/
+                                            /*height 100px;*/
+                                        ">
+                                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_NormalizationDust)
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NormalizationDust" id="Is_NormalizationDust" value="true" checked>
+                                                <label class="form-check-label" for="Is_NormalizationDust" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Приводить тв. ч. к н.у. по температуре и давлению. 
+                                                </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NormalizationDust" id="Is_NormalizationDust" value="true">
+                                                <label class="form-check-label" for="Is_NormalizationDust" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Приводить тв. ч. к н.у. по температуре и давлению. 
+                                                </label>
+                                        </div>
+                                    }
+
+
+                                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_NormalizationDust_H2O)
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NormalizationDust_H2O" id="Is_NormalizationDust_H2O" value="true" checked>
+                                                <label class="form-check-label" for="Is_NormalizationDust_H2O" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Приводить тв. ч. к коэффициенту влажности (H₂O). 
+                                                </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_NormalizationDust_H2O" id="Is_NormalizationDust_H2O" value="true">
+                                                <label class="form-check-label" for="Is_NormalizationDust_H2O" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Приводить тв. ч. к коэффициенту влажности (H₂O). 
+                                                </label>
+                                        </div>
+                                    }
+
+
+                                    @if (GlobalStaticSettingsASK.CalculationSetting.Is_O2Dust)
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_O2Dust" id="Is_O2Dust" value="true" checked>
+                                                <label class="form-check-label" for="Is_O2Dust" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Кислород (O₂) участвует в расчётах тв.ч.. 
+                                                </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" typeof="checkbox" name="is_O2Dust" id="Is_O2Dust" value="true">
+                                                <label class="form-check-label" for="Is_O2Dust" style="font-size: 105%; font-family: Times New Roman , Times, serif;">
+                                                    Кислород (O₂) участвует в расчётах тв.ч.. 
+                                                </label>
+                                        </div>
+                                    }
+                                </div>
+
                             </td>
                         
                             <td>
@@ -246,12 +412,20 @@
                                             ">
 
                                 </div>
+
+                                <br />
+                                <br />
+                                <br />
+
+                                <input class="btn btn-primary" style="font-family: Times New Roman , Times, serif; font-size: 85%; margin: 13px 0 0 0; float: right;" type="submit" asp-action="CalculationSetting" asp-controller="Settings" value="Изменить"/>
+
                             </td>
 
                             <td>
-                                <input class="btn btn-primary" style="font-family: Times New Roman , Times, serif; font-size: 82%;" type="submit" asp-action="CalculationSetting" asp-controller="Settings" value="Изменить"/>
+                                <br />
                             </td>
                         </tr>
+
                         
 
                     </table>
@@ -260,27 +434,150 @@
 
 
 
+                @*Модальное окно с расчётами*@
+                
+                <table class="table table-borderess">
+                    <tr>
+                        <td align="center">
+                            <div>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="font-size: 95%; margin: -12px 0 0 0;">
+                                   Просмотреть&nbspрасчёты
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
+                
 
+                <style>
+                    textarea {
+                      width:100%;
+                      height:100%;
+                    }
+                    .modal-custom {
+                      max-width: 1700px;
+                      width: 100%;
+                      padding: 0;
+                      
+                    }
+                    .modal-content-custom {
+                      height: 100%;
+                      min-height:100%;
+                      border-radius: 0;
+                    }
+                    .modal-body {
+                      height: 100%;
+                    }
+                </style>
 
+                <!-- Modal -->
+                <div class="modal fade editForm" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="editFormLabel">
+                  <div class="modal-dialog modal-custom " role="document" >
+                    <div class="modal-content modal-content-custom">
+                      <div class="modal-header text-center">
+                          <center>
+                        <h4 class="modal-title w-100" id="exampleModalLabel">Расчёты выбросов и концентраций</h4>
+                        </center>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        
 
-
-
-
-
-                <table class="table text-center" style="table-layout: fixed; color: #808080;" >
+                          <table class="table text-center" style="table-layout: fixed; color: #808080;" >
                     <tr>
                         <td></td>
                         <td></td>
                     </tr>
                     
                     <tr>
-                         <td>
-                            <label style="font-size: 140%;">Методика расчётов - концентраций и выбросов</label>
+                        <td>
+                            <label style="font-size: 140%;">Методика расчётов</label>
                         </td>
 
-                         <td>
-                             <label style="font-size: 140%;">Расчёты онлайн</label>
+                        <td>
+                            <form method="post">
+                                
+                                <label style="font-size: 140%;">Расчёты онлайн&nbsp</label>
+
+                                <label>
+                                    <select class="form-select" aria-label="" name="number" 
+                                        style=" color: #808080;
+                                                font-size: 90%;
+
+                                                font-family: Times New Roman , Times, serif;
+                                    ">
+
+                                        @if(GlobalStaticSettingsASK.SensorRange.CO.Is_Used)
+                                        {
+                                            @if(GlobalStaticSettingsASK.CalculationSetting.TypeViews == TypeCalulationViews.CO) 
+                                            {
+                                                <option selected value = "0">CO</option>
+                                            }
+                                            else
+                                            {
+                                                <option value = "0">CO</option>
+                                            }
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.SensorRange.CO2.Is_Used)
+                                        {
+                                            @if(GlobalStaticSettingsASK.CalculationSetting.TypeViews == TypeCalulationViews.CO2) 
+                                            {
+                                                <option selected value = "1">CO₂</option>
+                                            }
+                                            else
+                                            {
+                                                <option value = "1">CO₂</option>
+                                            }
+                                        }
+                                            
+                                        @if(GlobalStaticSettingsASK.SensorRange.SO2.Is_Used)
+                                        {
+                                            @if(GlobalStaticSettingsASK.CalculationSetting.TypeViews == TypeCalulationViews.SO2) 
+                                            {
+                                                <option selected value = "2">SO₂</option>
+                                            }
+                                            else
+                                            {
+                                                <option value = "2">SO₂</option>
+                                            }
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.SensorRange.CH4.Is_Used)
+                                        {
+                                            @if(GlobalStaticSettingsASK.CalculationSetting.TypeViews == TypeCalulationViews.CH4) 
+                                            {
+                                                <option selected value = "3">CH₄</option>
+                                            }
+                                            else
+                                            {
+                                                <option value = "3">CH₄</option>
+                                            }
+                                        }
+
+                                        @if(GlobalStaticSettingsASK.SensorRange.H2S.Is_Used)
+                                        {
+                                            @if(GlobalStaticSettingsASK.CalculationSetting.TypeViews == TypeCalulationViews.H2S) 
+                                            {
+                                                <option selected value = "4">H₂S</option>
+                                            }
+                                            else
+                                            {
+                                                <option value = "4">H₂S</option>
+                                            }
+                                        }
+                                    </select>
+                                </label>
+
+                                <label id="btn_calculate_views">
+                                    <input class="btn btn-primary" aria-pressed="false" style=" font-family: Times New Roman , Times, serif; font-size: 85%;" type="submit" asp-action="ViewsUpdate" asp-controller="Calculation" value="Просмотреть"/>
+                                </label>
+                              
+
+
+                            </form>
+
                         </td>
                     </tr>
                     
@@ -354,6 +651,8 @@
                                                     </table>
                                                 </label>
 
+
+                                               
                                                 @if(!GlobalStaticSettingsASK.CalculationSetting.Is_NotO2)
                                                 {
                                                     <label>
@@ -1441,10 +1740,150 @@
 
                     </tr>
 
-                </table>
-                <table id="tableGlobalAlarm">
+                    <tr>
+                         <td>
+                            <label style="font-size: 140%;">Методика расчета твёрдых частиц</label>
+                        </td>
+
+                         <td>
+                            <label style="font-size: 140%;">Расчет твёрдых частиц онлайн</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @*Методика расчета твёрдых частиц*@
+                            <div id="culculation_Dust">
+                                @if( GlobalStaticSettingsASK.CalculationSetting.TypeDust != 0 && !GlobalStaticSettingsASK.SensorRange.Dust.Is_Used)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="font-size: 97%; padding: 2px;">      
+                                        <h4>ВНИМАНИЕ!</h4>
+
+                                        Расчёт твердых частиц невозможен! 
+                                        <br>
+                                                   
+                                        Датчик твердых частиц отключен, проверьте настройку датчиков!
+                                 
+                                    </div>
+                                }
+
+                                @switch (GlobalStaticSettingsASK.CalculationSetting.TypeDust)
+                                {
+                                    case TypeDustConc.None:
+                                        <div class="alert alert-warning" role="alert" style="font-size: 97%; padding: 2px;">
+                                            <div>
+                                                Расчет твердых частиц отключен.
+                                            </div>
+
+                                        </div>
+                                        break;
+
+
+                                    case TypeDustConc.DustHunter:
+                                        <label>C<sub>тв.ч.</sub> = C<sub>izm</sub> </label>
+                                    
+                                        <div class="text-start">
+                                            C<sub>izm</sub> – Измеренные твердые частицы в мг/м<sup>3</sup> (DustHunter).
+                                        </div>
+                                   
+                                        <label>
+                                            M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>
+                                        </label>
+                                        break;
+
+
+                                    case TypeDustConc.Ecomer:
+                                   
+                                        <label>
+                                            C<sub>тв.ч.</sub> = k<sub>1</sub> ∙ E<sup>2</sup> + k<sub>2</sub> ∙ E + k<sub>3</sub>
+                                        </label>
+
+                                        <div class="text-start">
+                                            E – Оптическая плотность, Б (ЭКОМЕР).
+                                            <br>
+                                            k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub> – поправочные коэффициенты.
+                                        </div>
+
+                                        <label>
+                                            M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>
+                                        </label>
+                                        break;
+
+
+                                    case TypeDustConc.CodelACEMT:
+                                                                       
+                                        <table align="center">
+                                            <tr>
+                                                <td rowspan="2">
+                                                    E = lg <label style="font-size: 150%;">(</label>
+                                                </td>
+
+                                                <td style="border-bottom:solid 1px" align="center">
+                                                    1
+                                                </td>
+
+                                                <td rowspan="2">
+                                                    <label style="font-size: 150%;">)</label>
+                                                </td>
+                                            </tr>
+
+                                            <tr>            
+                                                <td align="center">
+                                                    T
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <div class="text-start">
+                                            T – Расчетный коэффициент пропускания с пылемера (CODEl).
+                                            <br>
+                                            E – Оптическая плотность, Б.
+                                        </div>
+
+                                        <label>
+                                            C<sub>тв.ч.</sub> = k<sub>1</sub> ∙ E<sup>2</sup> + k<sub>2</sub> ∙ E + k<sub>3</sub>
+                                        </label>
+
+                                        <div class="text-start">
+                                            k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub> – поправочные коэффициенты.
+                                        </div>
+
+                                        <label>
+                                            M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>
+                                        </label>
+                                        break;
+                                }
+                            </div>
+                        </td>
+                        
+                        <td>
+                            @*Расчет твёрдых частиц онлайн*@
+                            <div id="culculation_DustConc">
+
+                            </div>
+                        </td>
+                    </tr>
 
                 </table>
+
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+                
 </div>
 
 
@@ -1499,11 +1938,35 @@
     { 
         if (!cs.is_NotO2) 
         {
-            $('#UpdateCalculation').append(
-                    '<table align="center">' +
+            if(!cs.is_Normalization_H2O)
+            {
+                $('#UpdateCalculation').append(
+                        '<table align="center">' +
+                            '<tr>' +
+                                '<td rowspan="2">' +
+                                    'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup>&nbsp∙&nbsp' +
+                                '</td>' +
+                        
+                                '<td style="border-bottom:solid 1px" align="center">' +
+                                    'α' +
+                                '</td>' +
+                            '</tr>' +
+
+                            '<tr>' +            
+                                '<td>' +
+                                    cs.koeff_O2_Normalization +
+                                '</td>' +
+                            '</tr>' +
+                        '</table>'
+                )
+            }
+            else
+            {
+                $('#UpdateCalculation').append(
+                '<table align="center">' +
                         '<tr>' +
                             '<td rowspan="2">' +
-                                'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup>&nbsp∙&nbsp' +
+                                'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> : k &nbsp∙&nbsp' +
                             '</td>' +
                         
                             '<td style="border-bottom:solid 1px" align="center">' +
@@ -1517,14 +1980,26 @@
                             '</td>' +
                         '</tr>' +
                     '</table>'
-            )
+                    )
+            }
         }
         else
         {
-            $('#UpdateCalculation').append(
-                    '<div>' +
-                        'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup>' 
-            )
+            if(!cs.is_Normalization_H2O)
+            {
+                $('#UpdateCalculation').append(
+                        '<div>' +
+                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup>' 
+                )
+            }
+            else
+            {
+                $('#UpdateCalculation').append(
+                        '<div>' +
+                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> : k' 
+                )
+
+            }
         }
 
         $('#UpdateCalculation').append(  
@@ -1538,65 +2013,140 @@
     {
         if (!cs.is_NotO2) 
         {
-            $('#UpdateCalculation').append(
-                        '<label>' +
-                            '<table align="center">' +
-                                '<tr>' +
-                                    '<td rowspan="2">' +
-                                        'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
-                                    '</td>' +
+            if(!cs.is_Normalization_H2O)
+            {
+                $('#UpdateCalculation').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        '(273 + t<sub>g</sub>) ∙ 101.3' +
-                                    '</td>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                        '</td>' +
 
-                                    '<td rowspan="2">' +
-                                        '&nbsp∙&nbsp' +
-                                    '</td>' +
+                                        '<td rowspan="2">' +
+                                            '&nbsp∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        'α' +
-                                    '</td>' +
-                                '</tr>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            'α' +
+                                        '</td>' +
+                                    '</tr>' +
 
-                                '<tr>' +
-                                    '<td>' +
-                                        '273 ∙ P<sub>a</sub>' +
-                                    '</td>' +
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ P<sub>a</sub>' +
+                                        '</td>' +
 
-                                    '<td>' +
-                                        cs.koeff_O2_Normalization +
-                                    '</td>' +
-                                '</tr>' +
-                            '</table>' +
-                        '</label>' +
-                    '</div>'
-            )
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
+            else
+            {
+                $('#UpdateCalculation').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                        '</td>' +
+
+                                        '<td rowspan="2">' +
+                                            '&nbsp: k ∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            'α' +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ P<sub>a</sub>' +
+                                        '</td>' +
+
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
         }
         else
         {
-            $('#UpdateCalculation').append(
-                    '<div class="text-center">' +
-                        '<label>' +
-                            '<table align="center">' +
-                                '<tr>' +
-                                    '<td rowspan="2">' +
-                                        'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
-                                    '</td>' +
+            if(!cs.is_Normalization_H2O)
+            {
+                $('#UpdateCalculation').append(
+                        '<div class="text-center">' +
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        '(273 + t<sub>g</sub>) ∙ 101.3' +
-                                    '</td>' +
-                                '</tr>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                        '</td>' +
+                                    '</tr>' +
 
-                                '<tr>' +            
-                                    '<td>' +
-                                        '273 ∙ P<sub>a</sub>' +
-                                    '</td>' +
-                                '</tr>' +
-                            '</table>' +
-                        '</label>' 
-            )
+                                    '<tr>' +            
+                                        '<td>' +
+                                            '273 ∙ P<sub>a</sub>' +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' 
+                )
+            }
+            else
+            {
+                $('#UpdateCalculation').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>j</sub> = C<sub>j</sub><sup>izm</sup> ∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                        '</td>' +
+
+                                        '<td rowspan="2">' +
+                                            '&nbsp: k' +
+                                        '</td>' +
+
+                                    '</tr>' +
+
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ P<sub>a</sub>' +
+                                        '</td>' +
+
+                                       
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
         }
 
         $('#UpdateCalculation').append(
@@ -2809,9 +3359,9 @@
 
   //Онлайн значания
   function tableGlobalAlarmConc(cs, sr, cm) {
-    console.log(cs)
-    console.log(sr)
-    console.log(cm)
+    //console.log(cs)
+    //console.log(sr)
+    //console.log(cm)
 
 
 
@@ -2835,32 +3385,67 @@
     { 
         if (!cs.is_NotO2) 
         {
-            $('#UpdateCalculationConc').append(
-                    '<table align="center">' +
-                        '<tr>' +
-                            '<td rowspan="2">' +
-                                + cm.c + ' = ' + cm.cizm + '&nbsp∙&nbsp' +
-                            '</td>' +
+            if (!cs.is_Normalization_H2O) 
+            { 
+                $('#UpdateCalculationConc').append(
+                        '<table align="center">' +
+                            '<tr>' +
+                                '<td rowspan="2">' +
+                                    + cm.c + ' = ' + cm.cizm + '&nbsp∙&nbsp' +
+                                '</td>' +
                         
-                            '<td style="border-bottom:solid 1px" align="center">' +
-                                + cm.a +
-                            '</td>' +
-                        '</tr>' +
+                                '<td style="border-bottom:solid 1px" align="center">' +
+                                    + cm.a +
+                                '</td>' +
+                            '</tr>' +
 
-                        '<tr>' +            
-                            '<td>' +
-                                cs.koeff_O2_Normalization +
-                            '</td>' +
-                        '</tr>' +
-                    '</table>'
-            )
+                            '<tr>' +            
+                                '<td>' +
+                                    cs.koeff_O2_Normalization +
+                                '</td>' +
+                            '</tr>' +
+                        '</table>'
+                )
+            }
+            else
+            {
+                $('#UpdateCalculationConc').append(
+                        '<table align="center">' +
+                            '<tr>' +
+                                '<td rowspan="2">' +
+                                    + cm.c + ' = ' + cm.cizm + ' : ' + cm.k + '&nbsp∙&nbsp' +
+                                '</td>' +
+                        
+                                '<td style="border-bottom:solid 1px" align="center">' +
+                                    + cm.a +
+                                '</td>' +
+                            '</tr>' +
+
+                            '<tr>' +            
+                                '<td>' +
+                                    cs.koeff_O2_Normalization +
+                                '</td>' +
+                            '</tr>' +
+                        '</table>'
+                )
+            }
         }
         else
         {
-            $('#UpdateCalculationConc').append(
-                    '<div>' +
-                        + cm.c + ' = ' + cm.cizm 
-            )
+            if (!cs.is_Normalization_H2O) 
+            { 
+                $('#UpdateCalculationConc').append(
+                        '<div>' +
+                            + cm.c + ' = ' + cm.cizm 
+                )
+            }
+            else
+            {
+                $('#UpdateCalculationConc').append(
+                        '<div>' +
+                            + cm.c + ' = ' + cm.cizm + ' : ' + cm.k
+                )
+            }
         }
 
         $('#UpdateCalculationConc').append(  
@@ -2874,65 +3459,139 @@
     {
         if (!cs.is_NotO2) 
         {
-            $('#UpdateCalculationConc').append(
-                        '<label>' +
-                            '<table align="center">' +
-                                '<tr>' +
-                                    '<td rowspan="2">' +
-                                        + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
-                                    '</td>' +
+            if (!cs.is_Normalization_H2O) 
+            { 
+                $('#UpdateCalculationConc').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        '(273 + ' + cm.tg + ') ∙ 101.3' +
-                                    '</td>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                        '</td>' +
 
-                                    '<td rowspan="2">' +
-                                        '&nbsp∙&nbsp' +
-                                    '</td>' +
+                                        '<td rowspan="2">' +
+                                            '&nbsp∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        + cm.a +
-                                    '</td>' +
-                                '</tr>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            + cm.a +
+                                        '</td>' +
+                                    '</tr>' +
 
-                                '<tr>' +
-                                    '<td>' +
-                                        '273 ∙ ' + cm.pa +
-                                    '</td>' +
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ ' + cm.pa +
+                                        '</td>' +
 
-                                    '<td>' +
-                                        cs.koeff_O2_Normalization +
-                                    '</td>' +
-                                '</tr>' +
-                            '</table>' +
-                        '</label>' +
-                    '</div>'
-            )
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
+            else
+            {
+                $('#UpdateCalculationConc').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                        '</td>' +
+
+                                        '<td rowspan="2">' +
+                                            '&nbsp: ' + cm.k + '&nbsp∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            + cm.a +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ ' + cm.pa +
+                                        '</td>' +
+
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
         }
         else
         {
-            $('#UpdateCalculationConc').append(
-                    '<div class="text-center">' +
-                        '<label>' +
-                            '<table align="center">' +
-                                '<tr>' +
-                                    '<td rowspan="2">' +
-                                        + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
-                                    '</td>' +
+            if (!cs.is_Normalization_H2O) 
+            { 
+                $('#UpdateCalculationConc').append(
+                        '<div class="text-center">' +
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
+                                        '</td>' +
 
-                                    '<td style="border-bottom:solid 1px" align="center">' +
-                                        '(273 + ' + cm.tg + ') ∙ 101.3' +
-                                    '</td>' +
-                                '</tr>' +
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                        '</td>' +
+                                    '</tr>' +
 
-                                '<tr>' +            
-                                    '<td>' +
-                                        '273 ∙ ' + cm.pa +
-                                    '</td>' +
-                                '</tr>' +
-                            '</table>' +
-                        '</label>' 
-            )
+                                    '<tr>' +            
+                                        '<td>' +
+                                            '273 ∙ ' + cm.pa +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' 
+                )
+
+            }
+            else
+            {
+                $('#UpdateCalculationConc').append(
+                            '<label>' +
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            + cm.c + ' = ' + cm.cizm + ' ∙&nbsp' +
+                                        '</td>' +
+
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                        '</td>' +
+
+                                        '<td rowspan="2">' +
+                                            '&nbsp: ' + cm.k + 
+                                        '</td>' +
+
+                                    '</tr>' +
+
+                                    '<tr>' +
+                                        '<td>' +
+                                            '273 ∙ ' + cm.pa +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>' +
+                            '</label>' +
+                        '</div>'
+                )
+            }
         }
 
         $('#UpdateCalculationConc').append(
@@ -3503,11 +4162,11 @@
                     '<table align="center">' +
                         '<tr>' +
                             '<td rowspan="2">' +
-                                'C<sub>NOx</sub> = ' + cm.i_NO + ' ∙ ' + cm.rNO2 + ' ∙&nbsp' +
+                               + cm.c_NOx + ' = ' + cm.izm_NO + ' ∙ ' + cm.rNO2 + ' ∙&nbsp' +
                             '</td>' +
 
                             '<td style="border-bottom:solid 1px" align="center">' +
-                                'α' +
+                                + cm.a +
                             '</td>' +
                         '</tr>' +
 
@@ -3529,7 +4188,7 @@
             {
                 $('#culculation_NOxConc').append(
                     '<div class="text-center">' +
-                        'C<sub>NOx</sub> = I<sub>NO</sub> ∙ ρ<sub>NO<sub>2</sub></sub>' +
+                        + cm.c_NOx + ' = ' + cm.izm_NO + ' ∙ ' + cm.rNO2 +
                     '</table>' +
 
                     '<div class="text-start">' +
@@ -3547,21 +4206,21 @@
                     '<table align="center">' +
                         '<tr>' +
                             '<td rowspan="2">' +
-                                'C<sub>NOx</sub> =&nbsp' +
+                                + cm.c_NOx + ' =&nbsp' +
                             '</td>' +
 
                             '<td style="border-bottom:solid 1px" align="center">' +
-                                'I<sub>NO</sub>' +
+                                + cm.izm_NO +
                             '</td>' +
 
                             '<td rowspan="2">' +
-                                '&nbsp∙ ρ<sub>NO<sub>2</sub></sub>' +
+                                '&nbsp∙ ' + cm.rNO2 +
                             '</td>' +
                         '</tr>' +
 
                         '<tr>' +
                             '<td align="center">' +
-                                'ρ<sub>NO</sub>' +
+                                + cm.rNO +
                             '</td>' +
                         '</tr>' +
                     '</table>' +
@@ -3579,7 +4238,7 @@
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'α' +
+                                    + cm.a +
                                 '</td>' +
                             '</tr>' +
 
@@ -3606,17 +4265,17 @@
 
         $('#culculation_NOxConc').append(
             '<label>' +
-                'M<sub>NOx</sub> = c<sub>NOx</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup> ' +
+                + cm.m_NOx + ' = ' + cm.c_NOx + ' ∙ ' + cm.vdry +' ∙ 10<sup>-3</sup> ' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO</sub> = M<sub>NOx</sub> ∙ 0.13 ' +
+                + cm.m_NO + ' = ' + cm.m_NOx + ' ∙ 0.13 ' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO<sub>2</sub></sub> = M<sub>NOx</sub> ∙ 0.8' +
+                + cm.m_NO2 + ' = ' + cm.m_NOx + ' ∙ 0.8' +
             '</label>'
         )
     }
@@ -3652,11 +4311,11 @@
                     '<table align="center">' +
                         '<tr>' +
                             '<td rowspan="2">' +
-                                'C<sub>NOx</sub> = I<sub>NO</sub> ∙ 1.05 ∙ ρ<sub>NO<sub>2</sub></sub> ∙&nbsp' +
+                                + cm.c_NOx + ' = ' + cm.izm_NO + ' ∙ 1.05 ∙ ' + cm.rNO2 + ' ∙&nbsp' +
                             '</td>' +
 
                             '<td style="border-bottom:solid 1px" align="center">' +
-                                    'α' +
+                                    + cm.a +
                             '</td>' +
                         '</tr>' +
 
@@ -3677,7 +4336,7 @@
             else
             {
                 $('#culculation_NOxConc').append(
-                    'C<sub>NOx</sub> = I<sub>NO</sub> ∙ 1.05 ∙ ρ<sub>NO<sub>2</sub></sub>' +
+                    + cm.c_NOx + ' = ' + cm.izm_NO + ' ∙ 1.05 ∙ ' + cm.rNO2 +
                    
 
                     '<div class="text-start">' +
@@ -3695,21 +4354,21 @@
                     '<table align="center">' +
                         '<tr>' +
                             '<td rowspan="2">' +
-                                'C<sub>NOx</sub> =&nbsp' +
+                                + cm.c_NOx + ' =&nbsp' +
                             '</td>' +
 
                             '<td style="border-bottom:solid 1px" align="center">' +
-                                'I<sub>NO</sub>' +
+                                + cm.izm_NO +
                            '</td>' +
 
                             '<td rowspan="2">' +
-                                '&nbsp∙ 1.05 ∙ ρ<sub>NO<sub>2</sub></sub>' +
+                                '&nbsp∙ 1.05 ∙ ' + cm.rNO2 +
                             '</td>' +
                         '</tr>' +
 
                         '<tr>' + 
                             '<td align="center">' +
-                                'ρ<sub>NO</sub>' +
+                                + cm.rNO +
                             '</td>' +
                         '</tr>' +
                     '</table>' +
@@ -3727,7 +4386,7 @@
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'α' +
+                                    + cm.a +
                                 '</td>' +
                             '</tr>' +
 
@@ -3754,17 +4413,17 @@
 
         $('#culculation_NOxConc').append(
             '<label>' +
-                'M<sub>NOx</sub> = C<sub>NOx</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                + cm.m_NOx + ' = ' + cm.c_NOx + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO</sub> = C<sub>NO</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                + cm.m_NO + ' = ' + cm.c_NO + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO<sub>2</sub></sub> = M<sub>NOx</sub> ∙ 0.8' +
+                + cm.m_NO + ' = ' + cm.m_NOx + ' ∙ 0.8' +
             '</label>'
         )                       
     }
@@ -3848,11 +4507,11 @@
                         '<table align="center">' +
                             '<tr>' +
                                 '<td rowspan="2">' +
-                                    'C<sub>NOx</sub> = (I<sub>NO</sub> + I<sub>NO<sub>2</sub></sub>) ∙ ρ<sub>NO<sub>2</sub></sub> ∙&nbsp' +
+                                    + cm.c_NOx + ' = (' + cm.izm_NO + ' + ' + cm.izm_NO2 + ') ∙ ' + cm.rNO2 + ' ∙&nbsp' +
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'α' +
+                                    + cm.a +
                                 '</td>' +
                             '</tr>' +
 
@@ -3867,7 +4526,7 @@
                 else
                 {
                     $('#culculation_NOxConc').append(
-                        'C<sub>NOx</sub> = (I<sub>NO</sub> + I<sub>NO<sub>2</sub></sub>) ∙ ρ<sub>NO<sub>2</sub></sub>'
+                        + cm.c_NOx + ' = (' + cm.izm_NO + ' + ' + cm.izm_NO2 + ') ∙ ' + cm.rNO2
                     )
                 }
 
@@ -3898,21 +4557,21 @@
                         '<table align="center">' +
                             '<tr>' +
                                 '<td rowspan="2">' +
-                                    'C<sub>NOx</sub> =&nbsp<label style="font-size: 150%;">(</label>&nbspI<sub>NO</sub> +&nbsp' +
+                                     + cm.c_NOx + ' =&nbsp<label style="font-size: 150%;">(</label>&nbsp' + cm.izm_NO + ' +&nbsp' +
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'I<sub>NO<sub>2</sub></sub>' +
+                                    + cm.izm_NO2 +
                                 '</td>' +
 
                                 '<td rowspan="2">' +
-                                    '&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ρ<sub>NO<sub>2</sub></sub>' +
+                                    '&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ' + cm.rNO2 + '</sub></sub>' +
                                 '</td>' +
                             '</tr>' +
 
                             '<tr>' +   
                                 '<td align="center">' +
-                                    'ρ<sub>NO<sub>2</sub></sub>' +
+                                    + cm.rNO2 +
                                 '</td>' +
                             '</tr>' +
                         '</table>' +
@@ -3930,7 +4589,7 @@
                                     '</td>' + 
 
                                     '<td style="border-bottom:solid 1px" align="center">' + 
-                                        'α' + 
+                                        + cm.a + 
                                     '</td>' + 
                                 '</tr>' + 
 
@@ -3964,17 +4623,17 @@
                         '<table align="center">' +
                             '<tr>' +
                                 '<td rowspan="2" style"padding: 0px">' +
-                                    'C<sub>NOx</sub> =&nbsp<label style="font-size: 150%;">(</label>&nbsp ' +
+                                    + cm.c_NOx + ' =&nbsp<label style="font-size: 150%;">(</label>&nbsp ' +
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'I<sub>NO</sub>' +
+                                    + cm.izm_NO +
                                 '</td>' +                 
                             '</tr>' +
 
                             '<tr>' +
                                 '<td align="center">' +
-                                    'ρ<sub>NO</sub>' +
+                                    + cm.rNO +
                                 '</td>' +
                             '</tr>' +
                         '</table>' +
@@ -3988,17 +4647,17 @@
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'I<sub>NO<sub>2</sub></sub>' +
+                                    + cm.izm_NO2 +
                                 '</td>' +
 
                                 '<td rowspan="2">' +
-                                    '&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ρ<sub>NO<sub>2</sub></sub>' +
+                                    '&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ' + cm.rNO2 + '</sub></sub>' +
                                 '</td>' +
                             '</tr>' +
 
                             '<tr>' +   
                                 '<td align="center">' +
-                                    'ρ<sub>NO<sub>2</sub></sub>' +
+                                    + cm.rNO2 +
                                 '</td>' +
                                                            
                             '</tr>' +
@@ -4017,7 +4676,7 @@
                                     '</td>' +
 
                                     '<td style="border-bottom:solid 1px" align="center">' +
-                                        'α' +
+                                        + cm.a +
                                     '</td>' +
                                 '</tr>' +
 
@@ -4063,21 +4722,21 @@
                         '<table align="center">' +
                             '<tr>' +
                                 '<td rowspan="2">' +
-                                    'C<sub>NOx</sub> =&nbsp<label style="font-size: 150%;">(&nbsp' +
+                                    + cm.c_NOx + ' =&nbsp<label style="font-size: 150%;">(&nbsp' +
                                 '</td>' +
 
                                 '<td style="border-bottom:solid 1px" align="center">' +
-                                    'I<sub>NO</sub>' +
+                                    + cm.izm_NO +
                                 '</td>' +
 
                                 '<td rowspan="2">' +
-                                    '&nbsp+ I<sub>NO<sub>2</sub></sub>&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ρ<sub>NO<sub>2</sub></sub>' +
+                                    '&nbsp ' + cm.izm_NO2 + '&nbsp<label style="font-size: 150%;">)</label>&nbsp∙ ' + cm.rNO2 +
                                 '</td>' +
                             '</tr>' +
 
                             '<tr>' +          
                                 '<td align="center">' +
-                                    'ρ<sub>NO</sub>' +
+                                    + cm.rNO +
                                 '</td>' +
                             '</tr>' +
                         '</table>' +
@@ -4095,7 +4754,7 @@
                                     '</td>' +
                             
                                     '<td style="border-bottom:solid 1px" align="center">' +
-                                        'α' +
+                                        + cm.a +
                                     '</td>' +  
                                 '</tr>' +
 
@@ -4125,21 +4784,1674 @@
 
         $('#culculation_NOxConc').append(
             '<label>' +
-                'M<sub>NOx</sub> = C<sub>NOx</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                + cm.m_NOx + ' = ' + cm.c_NOx + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO</sub> = C<sub>NO</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                + cm.m_NO + ' = ' + cm.c_NO + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
             '</label>' +
 
             '<br>' +
             '<label>' +
-                'M<sub>NO<sub>2</sub></sub> = C<sub>NO<sub>2</sub></sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                + cm.m_NO2 + ' = ' + cm.c_NO2 + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
             '</label>'
         )
+
+         
                                
     }
+
+  
+    //Dust
+    $('#culculation_Dust').html(' ')
+
+    if(cs.typeDust != 0 && !sr.dust.is_Used)
+    {
+        $('#culculation_Dust').append(
+            '<div class="alert alert-danger" role="alert" style="font-size: 97%; padding: 2px;">' +      
+                '<h4>ВНИМАНИЕ!</h4>' + 
+
+                'Расчёт твердых частиц невозможен! ' + 
+                '<br>' + 
+                                                   
+                'Датчик твердых частиц отключен, проверьте настройку датчиков!        ' + 
+            '</div>'
+        )
+    }
+    
+
+    switch (cs.typeDust)
+    {
+        //Отсутствует
+        case 0:
+            $('#culculation_Dust').append(
+                '<div class="alert alert-warning" role="alert" style="font-size: 97%; padding: 2px;">' +
+                    '<div>' +
+                        'Расчет твердых частиц отключен.' +
+                    '</div>' +
+                '</div>'
+            )
+            break;
+
+        //DustHunter
+        case 1:
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>тв.ч.</sub> = C<sub>izm</sub>&nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            'α' +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        'C<sub>тв.ч.</sub> = C<sub>izm</sub> : k &nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        'α' +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub> : k' +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_Dust').append(  
+                                '<div class="text-start">' +
+                                    'C<sub>izm</sub> – измеренные твердые частицы в мг/м<sup>3</sup> (DustHunter).' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub> ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub> ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub> ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = C<sub>izm</sub> ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k' +
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+                $('#culculation_Dust').append(
+                            '<div class="text-start">' +
+                                'C<sub>izm</sub> – измеренные твердые частицы в мг/м<sup>3</sup> (DustHunter).' +
+                                '<br>' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_Dust').append(
+        
+                '<label>' +
+                    'M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+
+            break;
+
+        //Экомер
+        case 3:
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>тв.ч.</sub> =DF ∙ E &nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            'α' +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        'C<sub>тв.ч.</sub> = DF ∙ E : k &nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        'α' +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = DF ∙ E ' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = DF ∙ E : k' +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_Dust').append(  
+                                '<div class="text-start">' +
+                                    'DF – поправочный коэффициент.' +
+                                    '<br>' + 
+                                    'E – экстинция (оптическая плотность) с пылемера, Б (Экомер).' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k' +
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+        
+
+                $('#culculation_Dust').append(
+                            '<div class="text-start">' +
+                                'DF – поправочный коэффициент.' +
+                                '<br>' +
+                                'E – экстинция (оптическая плотность) с пылемера, Б (Экомер).' +
+                                '<br>' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_Dust').append(
+        
+                '<label>' +
+                    'M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+            break;
+
+        //Codel
+        case 2:
+            $('#culculation_Dust').append(                                             
+                '<table align="center">' +
+                    '<tr>' +
+                        '<td rowspan="2">' +
+                            'E = ln <label style="font-size: 150%;">(</label>' +
+                        '</td>' +
+
+                        '<td style="border-bottom:solid 1px" align="center">' +
+                            '100' +
+                        '</td>' +
+
+                        '<td rowspan="2">' +
+                            '<label style="font-size: 150%;">)</label>' +
+                        '</td>' +
+                    '</tr>' +
+
+                    '<tr>' +
+                        '<td align="center">' +
+                            '100 - O<sub>p</sub>' +
+                        '</td>' +
+                    '</tr>' +
+                '</table>' +
+
+                '<div class="text-start">' +
+                    'O<sub>p</sub> – опациты (зачернение) c пылемера, %. (CODEl).' +
+                    '<br>' +
+                    'E – экстинция (оптическая плотность), Б.' +
+                '</div>' 
+            )
+
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            'C<sub>тв.ч.</sub> =DF ∙ E &nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            'α' +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        'C<sub>тв.ч.</sub> = DF ∙ E : k &nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        'α' +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = DF ∙ E ' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                '<div>' +
+                                    'C<sub>тв.ч.</sub> = DF ∙ E : k' +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_Dust').append(  
+                                '<div class="text-start">' +
+                                    'DF – поправочный коэффициент.' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    'α' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_Dust').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_Dust').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    'C<sub>тв.ч.</sub> = DF ∙ E ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + t<sub>g</sub>) ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: k' +
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ P<sub>a</sub>' +
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+                $('#culculation_Dust').append(
+                            '<div class="text-start">' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_Dust').append(
+        
+                '<label>' +
+                    'M<sub>тв.ч.</sub> = C<sub>тв.ч.</sub> ∙ V<sub>dry</sub> ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+
+        break;
+    }
+
+    //Dust Онлайн
+    $('#culculation_DustConc').html(' ')
+
+    if(cs.typeDust != 0 && !sr.dust.is_Used)
+    {
+        $('#culculation_DustConc').append(
+            '<div class="alert alert-danger" role="alert" style="font-size: 97%; padding: 2px;">' +      
+                '<h4>ВНИМАНИЕ!</h4>' + 
+
+                'Расчёт твердых частиц невозможен! ' + 
+                '<br>' + 
+                                                   
+                'Датчик твердых частиц отключен, проверьте настройку датчиков!        ' + 
+            '</div>'
+        )
+    }
+    
+
+    switch (cs.typeDust)
+    {
+        //Отсутствует
+        case 0:
+            $('#culculation_DustConc').append(
+                '<div class="alert alert-warning" role="alert" style="font-size: 97%; padding: 2px;">' +
+                    '<div>' +
+                        'Расчет твердых частиц отключен.' +
+                    '</div>' +
+                '</div>'
+            )
+            break;
+
+        //DustHunter
+        case 1:
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            + cm.c_Dust + '&nbsp=&nbsp' + cm.izm_Dust + '&nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            cm.a +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        cm.c_Dust + '&nbsp=&nbsp'+ cm.izm_Dust +'&nbsp:&nbsp ' + cm.dust_k + '&nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        cm.a +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                     cm.c_Dust + '&nbsp=&nbsp'+ cm.izm_Dust
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                    cm.c_Dust + '&nbsp=&nbsp' + cm.izm_Dust + '&nbsp:&nbsp' + cm.dust_k +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_DustConc').append(  
+                                '<div class="text-start">' +
+                                    'C<sub>izm</sub> – измеренные твердые частицы в мг/м<sup>3</sup> (DustHunter).' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + '&nbsp=&nbsp' + cm.izm_Dust + '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.izm_Dust + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa + 
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.izm_Dust + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg +  ') ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.izm_Dust + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k + 
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa + 
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+                $('#culculation_DustConc').append(
+                            '<div class="text-start">' +
+                                'C<sub>izm</sub> – измеренные твердые частицы в мг/м<sup>3</sup> (DustHunter).' +
+                                '<br>' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_DustConc').append(
+        
+                '<label>' +
+                    cm.m_Dust + ' = ' + cm.c_Dust +  ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+
+            break;
+
+        //Экомер
+        case 3:
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' &nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            cm.a +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' : ' + cm.dust_k + '&nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        cm.a +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' : ' + cm.dust_k +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_DustConc').append(  
+                                '<div class="text-start">' +
+                                    'DF – поправочный коэффициент.' +
+                                    '<br>' + 
+                                    'E – экстинция (оптическая плотность) с пылемера, Б (Экомер).' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                   cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k +
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+        
+
+                $('#culculation_DustConc').append(
+                            '<div class="text-start">' +
+                                'DF – поправочный коэффициент.' +
+                                '<br>' +
+                                'E – экстинция (оптическая плотность) с пылемера, Б (Экомер).' +
+                                '<br>' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_DustConc').append(
+        
+                '<label>' +
+                    cm.m_Dust + ' = ' + cm.c_Dust + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+            break;
+
+        //Codel
+        case 2:
+            $('#culculation_DustConc').append(                                             
+                '<table align="center">' +
+                    '<tr>' +
+                        '<td rowspan="2">' +
+                            cm.dust_E + ' = ln <label style="font-size: 150%;">(</label>' +
+                        '</td>' +
+
+                        '<td style="border-bottom:solid 1px" align="center">' +
+                            '100' +
+                        '</td>' +
+
+                        '<td rowspan="2">' +
+                            '<label style="font-size: 150%;">)</label>' +
+                        '</td>' +
+                    '</tr>' +
+
+                    '<tr>' +
+                        '<td align="center">' +
+                            '100 - ' + cm.dust_Op +
+                        '</td>' +
+                    '</tr>' +
+                '</table>' +
+
+                '<div class="text-start">' +
+                    'O<sub>p</sub> – опациты (зачернение) c пылемера, %. (CODEl).' +
+                    '<br>' +
+                    'E – экстинция (оптическая плотность), Б.' +
+                '</div>' 
+            )
+
+            if (!cs.is_NormalizationDust) 
+            { 
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<table align="center">' +
+                                    '<tr>' +
+                                        '<td rowspan="2">' +
+                                            cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' &nbsp∙&nbsp' +
+                                        '</td>' +
+                        
+                                        '<td style="border-bottom:solid 1px" align="center">' +
+                                            cm.a +
+                                        '</td>' +
+                                    '</tr>' +
+
+                                    '<tr>' +            
+                                        '<td>' +
+                                            cs.koeff_O2_Normalization +
+                                        '</td>' +
+                                    '</tr>' +
+                                '</table>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                        '<table align="center">' +
+                                '<tr>' +
+                                    '<td rowspan="2">' +
+                                        cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' : ' + cm.dust_k + ' &nbsp∙&nbsp' +
+                                    '</td>' +
+                        
+                                    '<td style="border-bottom:solid 1px" align="center">' +
+                                        cm.a +
+                                    '</td>' +
+                                '</tr>' +
+
+                                '<tr>' +            
+                                    '<td>' +
+                                        cs.koeff_O2_Normalization +
+                                    '</td>' +
+                                '</tr>' +
+                            '</table>' +
+
+                            '<div class="text-start"> ' +
+                                'k – коэффициент влажности (H₂O).' +
+                            '</div>'
+                            )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div>' +
+                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' : ' + cm.dust_k +
+
+                                    '<div class="text-start"> ' +
+                                        'k – коэффициент влажности (H₂O).' +
+                                    '</div>'
+                        )
+
+                    }
+                }
+
+                $('#culculation_DustConc').append(  
+                                '<div class="text-start">' +
+                                    'DF – поправочный коэффициент.' +
+                                '</div>' +
+                            '</div>'
+                )
+            }
+            else 
+            {
+                if (cs.is_O2Dust) 
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>'
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    cm.a +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                                '<td>' +
+                                                    cs.koeff_O2_Normalization +
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                 '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+                else
+                {
+                    if(!cs.is_NormalizationDust_H2O)
+                    {
+                        $('#culculation_DustConc').append(
+                                '<div class="text-center">' +
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+                                            '</tr>' +
+
+                                            '<tr>' +            
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa + 
+                                                '</td>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' 
+                        )
+                    }
+                    else
+                    {
+                        $('#culculation_DustConc').append(
+                                    '<label>' +
+                                        '<table align="center">' +
+                                            '<tr>' +
+                                                '<td rowspan="2">' +
+                                                    cm.c_Dust  + ' = ' + cm.dust_DF + ' ∙ ' + cm.dust_E + ' ∙&nbsp' +
+                                                '</td>' +
+
+                                                '<td style="border-bottom:solid 1px" align="center">' +
+                                                    '(273 + ' + cm.tg + ') ∙ 101.3' +
+                                                '</td>' +
+
+                                                '<td rowspan="2">' +
+                                                    '&nbsp: ' + cm.dust_k +
+                                                '</td>' +
+
+                                            '</tr>' +
+
+                                            '<tr>' +
+                                                '<td>' +
+                                                    '273 ∙ ' + cm.pa +
+                                                '</td>' +
+
+                                       
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</label>' +
+                                '</div>' +
+
+                                '<div class="text-start"> ' +
+                                    'k – коэффициент влажности (H₂O).' +
+                                '</div>'
+                        )
+                    }
+                }
+
+                $('#culculation_DustConc').append(
+                            '<div class="text-start">' +
+                                'P<sub>a</sub> – абсолютное давление ДГ, кПа.' +
+                                '<br />' +
+                                't<sub>g</sub> – абсолютная температура уходящих ДГ, °C.' +
+                            '</div>'
+                )
+            }
+
+             $('#culculation_DustConc').append(
+        
+                '<label>' +
+                    cm.m_Dust + '= ' + cm.c_Dust + ' ∙ ' + cm.vdry + ' ∙ 10<sup>-3</sup>' +
+                '</label>'
+            )
+        break;
+    }
+
+
+
   }
 
     

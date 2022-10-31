@@ -13,6 +13,8 @@ namespace ASK.BLL.Services
         public Calculation_Model Count(CalculationSetting_JSON_Model calculationSetting, double sensorNow, bool is_ppm, double r_ppm = 1)
         {
             Calculation_Model calculation = new Calculation_Model();
+            double С_k = 1;
+            double Dust_k = 1;
 
             //Нет выбросов
             if (GlobalStaticSettingsASK.globalAlarms.Is_NotProcess.Value)
@@ -94,7 +96,7 @@ namespace ASK.BLL.Services
                         calculation.V = Math.Round(calculation.Sfg * calculation.S_section, 3);
 
                         calculation.Pb_Pi = Math.Round(calculation.Pa, 3);
-                        calculation.Vdry = Math.Round((calculation.V * calculation.a_cast * calculation.k * calculation.Pb_Pi) / (calculation.a * (273 + calculation.tg) * 101.3), 3);
+                        calculation.Vdry = Math.Round((calculation.V * calculation.a_cast * calculation.k * 273 * calculation.Pb_Pi) / (calculation.a * (273 + calculation.tg) * 101.3), 3);
                     }
 
                     //Приводить концентрации к н.у.
@@ -178,7 +180,7 @@ namespace ASK.BLL.Services
                                         calculation.C_NO = Math.Round(calculation.Izm_NO * (calculation.a / calculation.a_cast), 3);
                                         calculation.C_NO2 = Math.Round(calculation.Izm_NO2 * calculation.rNO2 * (calculation.a / calculation.a_cast), 3);
 
-                                        calculation.M = Math.Round(calculation.C_NOx * calculation.Vdry * 0.001, 3);
+                                        calculation.M_NOx = Math.Round(calculation.C_NOx * calculation.Vdry * 0.001, 3);
                                         calculation.M_NO = Math.Round(calculation.C_NO * calculation.Vdry * 0.001, 3);
                                         calculation.M_NO2 = Math.Round(calculation.C_NO2 * calculation.Vdry * 0.001, 3);
                                     }
@@ -208,7 +210,7 @@ namespace ASK.BLL.Services
                                 {
                                     calculation.C_NOx = Math.Round((calculation.Izm_NO / calculation.rNO) * calculation.rNO2 * (calculation.a / calculation.a_cast), 3);
 
-                                    calculation.M = Math.Round(calculation.C_NOx * calculation.Vdry * 0.001, 3);
+                                    calculation.M_NOx = Math.Round(calculation.C_NOx * calculation.Vdry * 0.001, 3);
                                     calculation.M_NO = Math.Round(calculation.M_NOx * 0.13, 3);
                                     calculation.M_NO2 = Math.Round(calculation.M_NOx * 0.8, 3);
                                 }
@@ -220,38 +222,54 @@ namespace ASK.BLL.Services
                         //Рассчитывем пыль?
                         //if(is_dust)
                         //{
+                            if(GlobalStaticSettingsASK.CalculationSetting.Is_NormalizationDust_H2O) //если нужно приводить пыль к по влаге 
+                                calculation.Dust_k = calculation.k;
+
+                            if(GlobalStaticSettingsASK.CalculationSetting.Is_O2Dust)                //если нужно приводить пыль к по кислороду
+                                calculation.Dust_a = calculation.a;
+                            else
+                                calculation.Dust_a_cast = 1;
+
+                            if (calculationSetting.Is_NormalizationDust)                            //Приводить gskm  к н.у.
+                                calculation.Normalization_Dust = Math.Round(((273 + calculation.tg) * 101.3) / (273 * calculation.Pa), 3);
+                  
+
+
                             switch (calculationSetting.TypeDust)
                             {
                                 case TypeDustConc.DustHunter:
-                                    //calculation.Cizm = sensorNow;
-                                    //Считаем, что поле пылемера DustHunter приходит концентрация пыли при н.у.         !!!Уточнить!!!
-                                    calculation.C_Dust = calculation.Izm_Dust;
+                                    calculation.C_Dust = Math.Round(calculation.Izm_Dust * calculation.Normalization_Dust / calculation.Dust_k * (calculation.Dust_a / calculation.Dust_a_cast), 3);
                                     
                                     calculation.M_Dust = Math.Round(calculation.C_Dust * calculation.Vdry * 0.001, 3);
                                     break;
 
                                 case TypeDustConc.CodelACEMT:
-                                    calculation.Dust_T = calculation.Izm_Dust;
-                                    calculation.Dust_E = Math.Log(1/calculation.Dust_T);
+                                    calculation.Dust_E = Math.Round(Math.Log10(100/(100 - calculation.Dust_Op)), 3);
+                                    calculation.C_Dust = Math.Round(calculation.Dust_DF * calculation.Dust_E * calculation.Normalization_Dust / calculation.Dust_k * (calculation.Dust_a / calculation.Dust_a_cast), 3);
 
-                                    calculation.C_Dust = Math.Round(calculationSetting.Dust_k1 * calculation.Dust_E * calculation.Dust_E + calculationSetting.Dust_k2 * calculation.Dust_E + calculationSetting.Dust_k3, 3);
-                                    
                                     calculation.M_Dust = Math.Round(calculation.C_Dust * calculation.Vdry * 0.001, 3);
                                     break;
 
                                 case TypeDustConc.Ecomer:
-                                    calculation.Dust_E = calculation.Izm_Dust;
 
-                                    calculation.C_Dust = Math.Round(calculationSetting.Dust_k1 * calculation.Dust_E * calculation.Dust_E + calculationSetting.Dust_k2 * calculation.Dust_E + calculationSetting.Dust_k3, 3);
-                                    
-                                    calculation.M_Dust = Math.Round(calculation.C * calculation.Vdry * 0.001, 3);
+                                    calculation.Dust_E = calculation.Izm_Dust;
+                                    calculation.C_Dust = Math.Round(calculation.Dust_DF * calculation.Dust_E * calculation.Normalization_Dust / calculation.Dust_k * (calculation.Dust_a / calculation.Dust_a_cast), 3);
+
+                                    calculation.M_Dust = Math.Round(calculation.C_Dust * calculation.Vdry * 0.001, 3);
                                     break;
                             }
                         //}
                         //else
                         //{
+
+                            
+                            if(GlobalStaticSettingsASK.CalculationSetting.Is_Normalization_H2O) //если нужно приводить по влаге концентрация
+                                С_k = calculation.k;
+
+                            //Ситуация где к = 0 ? 
+
                             calculation.Cizm = sensorNow;
-                            calculation.C = Math.Round(calculation.Cizm * calculation.r * calculation.Normalization * (calculation.a / calculation.a_cast), 3);
+                            calculation.C = Math.Round((calculation.Cizm * calculation.r * calculation.Normalization) /С_k * (calculation.a / calculation.a_cast), 3);
 
                             calculation.M = Math.Round(calculation.C * calculation.Vdry * 0.001, 3);
                         //}

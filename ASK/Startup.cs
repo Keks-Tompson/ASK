@@ -71,7 +71,7 @@ namespace ASK
             {
                 //options.AccessDeniedPath = new PathString("/Authentication");
                 options.LoginPath = new PathString("/Users");
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 options.SlidingExpiration = false;
                 //options.AccessDeniedPath = "/Authentication/Forbidden/";
             });

@@ -632,7 +632,7 @@ namespace ASK.BLL.Helper.Setting
 
             try
             {
-                connected = ping.Send(IpAdres, 500);    //Проверяем соедение с таймингом 0.5 сек
+                connected = ping.Send(IpAdres, 1000);    //Проверяем соедение с таймингом 0.5 сек
 
                 ushort[] registers;                     //Будующий масиив считываемых WORD из ПЛК
 
@@ -1053,7 +1053,19 @@ namespace ASK.BLL.Helper.Setting
 
             CurrentConcEmis.Date = DateTime.Now;
 
-            int d = 2;
+
+            CurrentConcEmis.O2_Wet = SensorScaledNow.O2_Wet_4_20mA;
+            CurrentConcEmis.O2_Dry = SensorScaledNow.O2_Dry_4_20mA;
+            CurrentConcEmis.H2O = SensorScaledNow.H2O_4_20mA;
+
+            CurrentConcEmis.Pressure = SensorScaledNow.Pressure_4_20mA;
+            CurrentConcEmis.Temperature = SensorScaledNow.Temperature_4_20mA;
+            CurrentConcEmis.Speed = SensorScaledNow.Speed_4_20mA;
+            CurrentConcEmis.Flow = 0.0;
+
+            CurrentConcEmis.Temperature_KIP = SensorScaledNow.Temperature_KIP_4_20mA;
+            CurrentConcEmis.Temperature_NOx = SensorScaledNow.Temperature_NOx_4_20mA;
+
 
             if (SensorRange.CO.Is_Used)
             {
@@ -1143,18 +1155,6 @@ namespace ASK.BLL.Helper.Setting
                 CurrentConcEmis.Add_Conc_5 = cal.C;
                 CurrentConcEmis.Add_Emis_5 = cal.M;
             }
-
-            CurrentConcEmis.O2_Wet = SensorScaledNow.O2_Wet_4_20mA;
-            CurrentConcEmis.O2_Dry = SensorScaledNow.O2_Dry_4_20mA;
-            CurrentConcEmis.H2O = SensorScaledNow.H2O_4_20mA;
-
-            CurrentConcEmis.Pressure = SensorScaledNow.Pressure_4_20mA;
-            CurrentConcEmis.Temperature = SensorScaledNow.Temperature_4_20mA;
-            CurrentConcEmis.Speed = SensorScaledNow.Speed_4_20mA;
-            CurrentConcEmis.Flow = 0.0;
-
-            CurrentConcEmis.Temperature_KIP = SensorScaledNow.Temperature_KIP_4_20mA;
-            CurrentConcEmis.Temperature_NOx = SensorScaledNow.Temperature_NOx_4_20mA;
         }
 
 

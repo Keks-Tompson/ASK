@@ -38,8 +38,12 @@
             <button class="nav-link" style="font-size: 130%; font-family: Times New Roman;" id="profile-tab" data-bs-toggle="tab" data-bs-target="#sensorRange" type="button" role="tab" aria-controls="profile" aria-selected="false">Датчики</button>
         </li>
 
-        <li class="nav-item" role="presentation">
+        @*<li class="nav-item" role="presentation">
             <button class="nav-link" asp-controller="ReportDaily" asp-action="Index" style="font-size: 130%; font-family: Times New Roman;" id="contact-tab" data-bs-toggle="tab" data-bs-target="#calculations" type="button" role="tab" aria-controls="calculations" aria-selected="false">Расчёты</button>
+        </li>*@
+
+        <li class="nav-item" role="presentation">
+            <a class="nav-link"  asp-controller="Calculation" asp-action="Index" style="font-size: 130%; font-family: Times New Roman;" >Расчёты</a>
         </li>
 
         <li class="nav-item" role="presentation">

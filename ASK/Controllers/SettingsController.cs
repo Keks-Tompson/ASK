@@ -766,19 +766,30 @@ namespace ASK.Controllers
         [HttpPost]
         public IActionResult CalculationSetting(    //Настройки расчётов
                                                     bool is_Normalization,
+                                                    bool is_Normalization_H2O,
+                                                    bool is_NormalizationDust,
+                                                    bool is_NormalizationDust_H2O,
                                                     bool is_NotO2,
+                                                    bool is_O2Dust,
                                                     bool is_Alpha_O2Wet,
                                                     bool is_NotFlowMeter,
                                         
                                                     int typeH2O,
                                                     double koeff_H2O,
                                                     int typeNOx,
+                                                    int typeDust,
                                                     double koeff_O2_Normalization,
-                                                    double pipeDiameter
+                                                    double pipeDiameter,
+                                                    double dust_DF
+
                                                 )
         {
             GlobalStaticSettingsASK.CalculationSetting.Is_Normalization = is_Normalization;
+            GlobalStaticSettingsASK.CalculationSetting.Is_NormalizationDust = is_NormalizationDust;
+            GlobalStaticSettingsASK.CalculationSetting.Is_Normalization_H2O = is_Normalization_H2O;
+            GlobalStaticSettingsASK.CalculationSetting.Is_NormalizationDust_H2O = is_NormalizationDust_H2O;
             GlobalStaticSettingsASK.CalculationSetting.Is_NotO2 = is_NotO2;
+            GlobalStaticSettingsASK.CalculationSetting.Is_O2Dust = is_O2Dust;
             GlobalStaticSettingsASK.CalculationSetting.Is_Alpha_O2Wet = is_Alpha_O2Wet;
             GlobalStaticSettingsASK.CalculationSetting.Is_NotFlowMeter = is_NotFlowMeter;
 
@@ -787,9 +798,10 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.CalculationSetting.TypeNOx = (TypeNOxConc)typeNOx;
             GlobalStaticSettingsASK.CalculationSetting.Koeff_O2_Normalization = koeff_O2_Normalization;
             GlobalStaticSettingsASK.CalculationSetting.PipeDiameter = pipeDiameter;
+            
+            GlobalStaticSettingsASK.CalculationSetting.TypeDust = (TypeDustConc)typeDust;
+            GlobalStaticSettingsASK.CalculationSetting.Dust_DF = dust_DF;
 
-            GlobalStaticSettingsASK.CalculationSetting.TypeDust = TypeDustConc.DustHunter; //Изменить!!!! Что бы изменялась с формы!
- 
             GlobalStaticSettingsASK.SaveCalculationSettingJSON();
 
             return new NoContentResult();
