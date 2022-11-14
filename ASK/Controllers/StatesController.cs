@@ -29,5 +29,23 @@ namespace ASK.Controllers
         {
             return View();
         }
+
+
+
+        //передаём таблицу текущих глобальных аварий
+        [HttpGet]
+        public ActionResult _GlobalAlarmTable(string Value)
+        {
+
+            return PartialView("_GlobalAlarmTable");
+        }
+
+
+        //передаём таблицу текущих аналогов с прямыми значениями
+        [HttpGet]
+        public ActionResult _CurrentAnalogTable(string Value)
+        {
+            return PartialView("_CurrentAnalogTable");
+        }
     }
 }

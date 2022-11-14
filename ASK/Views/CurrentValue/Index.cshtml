@@ -28,9 +28,13 @@
           /*  background: #fffffC;*/
             border-radius: 0px;
   /*          box-shadow: 0 0 10px;*/
-          /*  box-shadow: inset 0 0 5px;*/
+          /*  box-shadow: inset 0 0 15px;*/
+
+           /* border-radius: 10px;
+            box-shadow: 0 1px 7px;*/
+
             line-height: 1;
-            margin: 0 0 0 0;
+            margin: 0 0 10px 0;
             padding: 10px;
             font-size: 94%;
             font-family: Times New Roman" , Times, serif; font-size: 20%;">
@@ -48,13 +52,18 @@
 
 </div>
 
+
+
+
 <div class="container-fluid"
      style=" color: #808080;
-            padding: 10px;
+         
           /*  background: #fffffC;*/
             border-radius: 0px;
        /*     box-shadow: 0 0 5px;*/
-          /*  box-shadow: inset 0 0 5px;*/
+          /*  box-shadow: inset 0 -4 10px;*/
+          /*  border-radius: 10px;
+            box-shadow: 0 -1px 7px;*/
             line-height: 1;
             margin: 0 0 0 0;
             padding: 10px;
@@ -62,263 +71,31 @@
             font-family: Times New Roman" , Times, serif; font-size: 20%;">
 
 
-  @*  <h4 class="text-center">Состояние системы ASK </h4>*@
- 
 
+    @*таблица глобальных аварий системы*@
     <div id="tableGlobalAlarm" style="margin:0 0 0 0">
-        <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;" @*width: 1720px; "*@>
-
-
-            <tr style="font-weight:bold; ">
-                <td style="vertical-align: middle">Связь с контроллером</td> @*style="width: 18rem;"class="table-primary"*@
-                <td style="vertical-align: middle">Режим АСК</td>
-                <td style="vertical-align: middle">Превышение ПДЗ</td>
-                <td style="vertical-align: middle">Наличие аварийных состояний АСК</td>
-                <td style="vertical-align: middle">Техобслуживание АСК</td>
-                <td style="vertical-align: middle">Дверь контейнера</td>
-                <td style="vertical-align: middle">Сигнал пожара</td>
-            </tr>
-
-            
-            
-                <tr>
-                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Value)
-                    {
-                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Отсутствует</td>
-                    }
-                    else
-                    {
-                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Установлена</td>
-                    }
-                
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствуют</td>
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
-                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>
-                </tr>
-          
-        </table>
+        @Html.Partial("~/Views/States/_GlobalAlarmTable.cshtml")
     </div>
 
-    
- 
 
     @*Таблица Концентраций*@
-    <div id="tableConc" style="margin: 0 0 0 0">
-        <table class="table table-bordered  border-white table-secondary + text-center " style="  box-shadow: 0 0 1px; table-layout: fixed;">
-            <tr style="font-weight:bold; ">
-                <td style="width: 160px; vertical-align: middle; ">Компонент</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle">CO <br /> <font style" size="2">мг/м³, при н.у.*</font> </td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle">CO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle">NO <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle">NO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle">NOₓ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle">SO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle">Тв. ч. <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle">CH₄ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Резерв 1 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle">Резерв 2 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle">Резерв 3 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle">Резерв 4 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle">Резерв 5 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle">Расход ДГ (расчетный) <br /> <font style" size="2">(м³/c, при н.у.*)</font></td>
-            </tr>
-            <tr>
-                <td style="vertical-align: middle; ">Концентрации</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CO">@GlobalStaticSettingsASK.CurrentConcEmis.CO_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CO2">@GlobalStaticSettingsASK.CurrentConcEmis.CO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NO">@GlobalStaticSettingsASK.CurrentConcEmis.NO_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NO2">@GlobalStaticSettingsASK.CurrentConcEmis.NO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NOx">@GlobalStaticSettingsASK.CurrentConcEmis.NOx_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.SO2">@GlobalStaticSettingsASK.CurrentConcEmis.SO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Dust">@GlobalStaticSettingsASK.CurrentConcEmis.Dust_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CH4">@GlobalStaticSettingsASK.CurrentConcEmis.CH4_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.H2S">@GlobalStaticSettingsASK.CurrentConcEmis.H2S_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_1">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_1</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_2">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_2</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_3">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_3</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_4">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_4</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_5">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_5</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.CurrentConcEmis.Flow</td>
-            </tr>
-            <tr>
-                <td style="vertical-align: middle; ">ПДК</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NOx_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.SO2_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Dust_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CH4_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.H2S_Conc</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_1</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_2</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_3</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_4</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_5</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">-/-</td>
-            </tr>
-        </table>
+    <div id="currentConcTable" style="margin: 0 0 0 0">
+        @Html.Partial("~/Views/CurrentValue/_CurrentConcTable.cshtml")
     </div>
 
 
     @*Таблица выбросов*@
-    <div id="tableEmis" style="margin: 0 0 0 0">
-        <table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed" @*width: 1720px; "*@>
-            <tr style="font-weight:bold; ">
-                <td style="width: 160px; vertical-align: middle; ">Компонент</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; vertical-align: middle">CO <br /> <font style" size="2">(г/с) </font> </td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; vertical-align: middle">CO₂ <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; vertical-align: middle">NO <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; vertical-align: middle">NO₂ <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; vertical-align: middle">NOₓ <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; vertical-align: middle">SO₂ <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; vertical-align: middle">Тв. ч. <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; vertical-align: middle">CH₄ <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle">H₂S <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle">Резерв 1 <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; vertical-align: middle">Резерв 2 <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; vertical-align: middle">Резерв 3 <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; vertical-align: middle">Резерв 4 <br /> <font style" size="2">(г/с)</font></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; vertical-align: middle">Резерв 5 <br /> <font style" size="2">(г/с)</font></td>
-            </tr>
-
-            <tr>
-                <td style="vertical-align: middle; ">Выбросы</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.CO">@GlobalStaticSettingsASK.CurrentConcEmis.CO_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.CO2">@GlobalStaticSettingsASK.CurrentConcEmis.CO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.NO">@GlobalStaticSettingsASK.CurrentConcEmis.NO_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.NO2">@GlobalStaticSettingsASK.CurrentConcEmis.NO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.NOx">@GlobalStaticSettingsASK.CurrentConcEmis.NOx_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.SO2">@GlobalStaticSettingsASK.CurrentConcEmis.SO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Dust">@GlobalStaticSettingsASK.CurrentConcEmis.Dust_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.CH4">@GlobalStaticSettingsASK.CurrentConcEmis.CH4_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.H2S">@GlobalStaticSettingsASK.CurrentConcEmis.H2S_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Rezerv_1">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Emis_1</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Rezerv_2">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Emis_2</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Rezerv_3">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Emis_3</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Rezerv_4">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Emis_4</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Emis.Rezerv_5">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Emis_5</td>
-            </tr>
-            <tr>
-                <td style="vertical-align: middle; ">ПДВ</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NOx_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.SO2_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Dust_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CH4_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.H2S_Emis</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Emis_1</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Emis_2</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Emis_3</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Emis_4</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Emis_5</td>
-            </tr>
-        </table>
+    <div id="currentEmisTable" style="margin: 0 0 0 0">
+        @Html.Partial("~/Views/CurrentValue/_CurrentEmisTable.cshtml")
     </div>
+
+
 
     @*Аналоговые датчики*@
-    <div id="tableAnalog" style="margin: 0 0 0 0">
-        <table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed" @*width: 1720px; "*@>
-            <tr style="font-weight:bold; ">
-                <td style="width: 160px; vertical-align: middle; ">Датчики (аналог.)</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.CO;">CO</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.CO2;">CO₂</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.NO;">NO</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.NO2;">NO₂</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.NOx;">NOx</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.SO2;">SO₂</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Dust;">Тв. ч.</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.CH4;">CH₄</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.H2S;">H₂S</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_1;">Резерв 1</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_2;">Резерв 2</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_3;">Резерв 3</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_4;">Резерв 4</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_5;">Резерв 5</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_Wet;">O₂(вл.)</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_Dry;">O₂(сух.)</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.H2O;">H₂O</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Pressure;">Давление ДГ</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature;">Температура ДГ </td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Speed;">Скорость ДГ</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_KIP;">Давление воздуха КИП</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_NOx;">Температура конверора NOₓ</td>
-            </tr>
-            <tr>
-                <td style="vertical-align: middle; ">Показания</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.CO_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.CO2_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.NO_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.NO2_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.NOx_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.SO2_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Dust_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.CH4_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.H2S_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_1_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_2_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_3_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_4_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_5_4_20mA мг/м³</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_Wet_4_20mA %</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_Dry_4_20mA %</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.H2O_4_20mA %</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Pressure_4_20mA кПА</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_4_20mA °C</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Speed_4_20mA м³/с</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_KIP_4_20mA °C</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_NOx_4_20mA °C</td>
-            </tr>
-            <tr>
-                <td style="vertical-align: middle; ">4-20 mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.CO">@GlobalStaticSettingsASK.SensorNow.CO_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.CO2">@GlobalStaticSettingsASK.SensorNow.CO2_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.NO">@GlobalStaticSettingsASK.SensorNow.NO_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.NO2">@GlobalStaticSettingsASK.SensorNow.NO2_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.NOx">@GlobalStaticSettingsASK.SensorNow.NOx_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.SO2">@GlobalStaticSettingsASK.SensorNow.SO2_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Dust">@GlobalStaticSettingsASK.SensorNow.Dust_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.CH4">@GlobalStaticSettingsASK.SensorNow.CH4_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.H2S">@GlobalStaticSettingsASK.SensorNow.H2S_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_1">@GlobalStaticSettingsASK.SensorNow.Rezerv_1_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_2">@GlobalStaticSettingsASK.SensorNow.Rezerv_2_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_3">@GlobalStaticSettingsASK.SensorNow.Rezerv_3_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_4">@GlobalStaticSettingsASK.SensorNow.Rezerv_4_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_5">@GlobalStaticSettingsASK.SensorNow.Rezerv_5_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_Wet">@GlobalStaticSettingsASK.SensorNow.O2_Wet_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_Dry">@GlobalStaticSettingsASK.SensorNow.O2_Dry_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.H2O">@GlobalStaticSettingsASK.SensorNow.H2O_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Pressure">@GlobalStaticSettingsASK.SensorNow.Pressure_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.Temperature_4_20mA</div></td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Speed">@GlobalStaticSettingsASK.SensorNow.Speed_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_KIP">@GlobalStaticSettingsASK.SensorNow.Temperature_KIP_4_20mA</td>
-                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_NOx">@GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA</td>
-            </tr>
-        </table>
+    <div id="currentAnalogTable" style="margin: 0 0 0 0">
+        @Html.Partial("~/Views/CurrentValue/_CurrentAnalogTable.cshtml")
     </div>
-  </div>
-
-  <div>
-
-
-  </div>
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
@@ -329,277 +106,53 @@
   
     <script type="text/javascript">
     
-        function Update() 
+        //Вызываем заготовленные представления, рендарим их и обновляем
+        
+        //Глобальные аварии
+        function GlobalAlarmTable()
         {
-               $.ajax({
-                    url: '@Url.Action("GetCurrentTable")',// указываем URL
-                    method: "POST",            // HTTP метод, по умолчанию GET
-                
-
-                    success: function(result) {
-                        //Table(result.sensorNow.temperature_4_20mA , result.sensorNow.temperature_NOx_4_20mA );
-                        tableGlobalAlarm(result.is_NotConnection_Text, result.is_NotConnection_Color);
-                        TableConc(result.visibilityReportOptions, result.currentConcEmis, result.pdZ_Current_String, result.color_Conc);
-                        TableEmis(result.visibilityReportOptions, result.currentConcEmis, result.pdZ_Current_String, result.color_Emis);
-                        TableAnalog(result.sensorNow, result.sensorScaledNow, result.color_Param, result.visibilityReportOptions);
-                        //$('#chart').html('<canvas  id="line" style="  width: 1000px;  height: 130px;"></canvas>');
-                        //Graphix();
-                    }      
-                });
+             $('#tableGlobalAlarm').load('States/_GlobalAlarmTable');
         }
 
+        //Концентрации
+        function CurrentConcTable() 
+        { 
+            $('#currentConcTable').load('CurrentValue/_CurrentConcTable');
+        }
 
-      
+        //Выбросы
+        function CurrentEmisTable() 
+        { 
+            $('#currentEmisTable').load('CurrentValue/_CurrentEmisTable');
+        }
+
+        //Аналоги + прямые значения
+        function CurrentAnalogTable() 
+        { 
+            $('#currentAnalogTable').load('CurrentValue/_CurrentAnalogTable');
+        }
+
        
-
-
-
-        function tableGlobalAlarm(tx, cl)
-        {
-            $('#tableGlobalAlarm').html(
-                '<table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;">' +
-                    '<tr style="font-weight:bold; ">' +
-                        '<td style="vertical-align: middle">Связь с контроллером</td> ' +
-                        '<td style="vertical-align: middle">Режим АСК</td>' +
-                        '<td style="vertical-align: middle">Превышение ПДЗ</td>' +
-                        '<td style="vertical-align: middle">Наличие аварийных состояний АСК</td>' +
-                        '<td style="vertical-align: middle">Техобслуживание АСК</td>' +
-                        '<td style="vertical-align: middle">Дверь контейнера</td>' +
-                        '<td style="vertical-align: middle">Сигнал пожара</td>' +
-                    '</tr>' +
-                    '<tr>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + cl + '">' + tx + '</td>' +       
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствуют</td>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>' +
-                        '<td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствует</td>' +
-                    '</tr>'+
-                '</table>'
-            )
-        }
-
-        
-
-         //function Table (CarId, name) {
-         //   $('#owner-table').html('<tr><td>' + CarId + '</td><td>' + name + '</td></tr>');
-         //}
-
-        function TableConc(visibilityReportOptions, currentConcEmis, pDZ_Current_String, color_Conc)
-        {
-            $('#tableConc').html(
-                '<table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed">' +
-            '<tr style="font-weight:bold; ">' +
-                '<td style="width: 160px; vertical-align: middle; ">Компонент</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Conc + '; vertical-align: middle">CO <br /> <font style" size="2">мг/м³, при н.у.*</font> </td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Conc + '; vertical-align: middle">CO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Conc + '; vertical-align: middle">NO <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Conc + '; vertical-align: middle">NO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.NOx_Conc + '; vertical-align: middle">NOₓ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Conc + '; vertical-align: middle">SO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Conc + '; vertical-align: middle">Тв. ч. <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Conc + '; vertical-align: middle">CH₄ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Conc + '; vertical-align: middle">H₂S <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_1 + '; vertical-align: middle">Резерв 1 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_2 + '; vertical-align: middle">Резерв 2 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_3 + '; vertical-align: middle">Резерв 3 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_4 + '; vertical-align: middle">Резерв 4 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_5 + '; vertical-align: middle">Резерв 5 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>' +
-                '<td style="display:' + visibilityReportOptions.flow + ';vertical-align: middle">Расход ДГ (расчетный) <br /> <font style" size="2">(м³/c, при н.у.*)</font></td>' +
-            '</tr>' +
-            '<tr>' +
-                '<td style="vertical-align: middle; ">Концентрации</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.co + '">' + currentConcEmis.cO_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.cO2 + '">' + currentConcEmis.cO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.no + '">' + currentConcEmis.nO_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.nO2 + '">' + currentConcEmis.nO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nOx_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.nOx + '">' + currentConcEmis.nOx_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.sO2 + '">' + currentConcEmis.sO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.dust + '">' + currentConcEmis.dust_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.cH4 + '">' + currentConcEmis.cH4_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.h2S + '">' + currentConcEmis.h2S_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_1 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.rezerv_1 + '">' + currentConcEmis.add_Conc_1 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_2 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.rezerv_2 + '">' + currentConcEmis.add_Conc_2 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_3 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.rezerv_3 + '">' + currentConcEmis.add_Conc_3 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_4 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.rezerv_4 + '">' + currentConcEmis.add_Conc_4 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_5 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Conc.rezerv_5 + '">' + currentConcEmis.add_Conc_5 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.flow + ';vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + currentConcEmis.flow + '</td>' +
-            '</tr>' +
-            '<tr>' +
-                '<td style="vertical-align: middle; ">ПДК</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cO_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nO_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nOx_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nOx_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.sO2_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.dust_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cH4_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Conc + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.h2S_Conc + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_1 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Conc_1 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_2 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Conc_2 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_3 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Conc_3 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_4 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Conc_4 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Conc_5 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Conc_5 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.flow + ';vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">-/-</td>' +
-            '</tr>'
-            )
-        }
-        
-
-        function TableEmis(visibilityReportOptions, currentConcEmis, pDZ_Current_String, color_Emis)
-        {
-            $('#tableEmis').html(
-                '<table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed">' +
-                '<tr style="font-weight:bold; ">' +
-                '<td style="width: 160px; vertical-align: middle; ">Компонент</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Emis + '; vertical-align: middle">CO <br /> <font style" size="2">(г/с) </font> </td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Emis + '; vertical-align: middle">CO₂ <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Emis + '; vertical-align: middle">NO <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Emis + '; vertical-align: middle">NO₂ <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.NOx_Emis + '; vertical-align: middle">NOₓ <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Emis + '; vertical-align: middle">SO₂ <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Emis + '; vertical-align: middle">Тв. ч. <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Emis + '; vertical-align: middle">CH₄ <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Emis + '; vertical-align: middle">H₂S <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_1 + '; vertical-align: middle">Резерв 1 <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_2 + '; vertical-align: middle">Резерв 2 <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_3 + '; vertical-align: middle">Резерв 3 <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_4 + '; vertical-align: middle">Резерв 4 <br /> <font style" size="2">(г/с)</font></td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_5 + '; vertical-align: middle">Резерв 5 <br /> <font style" size="2">(г/с)</font></td>' +
-            '</tr>' +
-            '<tr>' +
-                '<td style="vertical-align: middle; ">Выбросы</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.co + '">' + currentConcEmis.cO_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.cO2 + '">' + currentConcEmis.cO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.no + '">' + currentConcEmis.nO_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.nO2 + '">' + currentConcEmis.nO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nOx_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.nOx + '">' + currentConcEmis.nOx_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.sO2 + '">' + currentConcEmis.sO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.dust + '">' + currentConcEmis.dust_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.cH4 + '">' + currentConcEmis.cH4_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.h2S + '">' + currentConcEmis.h2S_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_1 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.rezerv_1 + '">' + currentConcEmis.add_Emis_1 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_2 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.rezerv_2 + '">' + currentConcEmis.add_Emis_2 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_3 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.rezerv_3 + '">' + currentConcEmis.add_Emis_3 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_4 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.rezerv_4 + '">' + currentConcEmis.add_Emis_4 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_5 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;' + color_Emis.rezerv_5 + '">' + currentConcEmis.add_Emis_5 + '</td>' +
-            '</tr>' +
-            '<tr>' +
-                '<td style="vertical-align: middle; ">ПДВ</td>' +
-                '<td style="display:' + visibilityReportOptions.cO_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cO_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nO_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.nOx_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.nOx_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.sO2_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.sO2_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.dust_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.dust_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.cH4_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.cH4_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.h2S_Emis + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.h2S_Emis + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_1 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Emis_1 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_2 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Emis_2 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_3 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Emis_3 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_4 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Emis_4 + '</td>' +
-                '<td style="display:' + visibilityReportOptions.add_Emis_5 + '; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">' + pDZ_Current_String.add_Emis_5 + '</td>' +
-            '</tr>'
-            )
-        }
-
-
-
-        function TableAnalog(sensorNow, sensorScaledNow, color_Param, visibilityReportOptions) {
-            $('#tableAnalog').html(
-                '<table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed">' +
-                '<tr style="font-weight:bold; ">'+
-                '<td style="width: 160px; vertical-align: middle; ">Датчики (аналог.)</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.co +';">CO</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO2_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.cO2 +';">CO₂</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.no +'">NO</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO2_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.nO2 +'">NO₂</td>'+
-                '<td style="display:'+ visibilityReportOptions.nOx_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.nOx +'">NOx</td>'+
-                '<td style="display:'+ visibilityReportOptions.sO2_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.sO2 +'">SO₂</td>'+
-                '<td style="display:'+ visibilityReportOptions.dust_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.dust +'">Тв. ч.</td>'+
-                '<td style="display:'+ visibilityReportOptions.cH4_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.cH4 +'">CH₄</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2S_Conc +'; padding: 1px; vertical-align: middle;'+  color_Param.h2S +'">H₂S</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_1 +'; padding: 1px; vertical-align: middle;'+  color_Param.rezerv_1 +'">Резерв 1</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_2 +'; padding: 1px; vertical-align: middle;'+  color_Param.rezerv_2 +'">Резерв 2</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_3 +'; padding: 1px; vertical-align: middle;'+  color_Param.rezerv_3 +'">Резерв 3</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_4 +'; padding: 1px; vertical-align: middle;'+  color_Param.rezerv_4 +'">Резерв 4</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_5 +'; padding: 1px; vertical-align: middle;'+  color_Param.rezerv_5 +'">Резерв 5</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Wet +'; padding: 1px; vertical-align: middle;'+  color_Param.o2_Wet +'">O₂(вл.)</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Dry +'; padding: 1px; vertical-align: middle;'+  color_Param.o2_Dry +'">O₂(сух.)</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2O +'; padding: 1px; vertical-align: middle;'+  color_Param.h2O +'">H₂O</td>'+
-                '<td style="display:'+ visibilityReportOptions.pressure +'; padding: 1px; vertical-align: middle;'+  color_Param.pressure +'">Давление ДГ</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature +'; padding: 1px; vertical-align: middle;'+  color_Param.temperature +'">Температура ДГ </td>'+
-                '<td style="display:'+ visibilityReportOptions.speed+'; padding : 1px; vertical-align: middle;'+  color_Param.speed +'">Скорость ДГ</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_KIP +'; padding: 1px; vertical-align: middle;'+  color_Param.temperature_KIP +'">Давление воздуха КИП</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_NOx +'; padding: 1px; vertical-align: middle;'+  color_Param.temperature_NOx +'">Температура конверора NOₓ</td>'+
-            '</tr>'+
-            '<tr>'+
-                '<td style="vertical-align: middle; ">Показания</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.cO_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.cO2_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.nO_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.nO2_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.nOx_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.nOx_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.sO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.sO2_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.dust_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.dust_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.cH4_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.cH4_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2S_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.h2S_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_1 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.rezerv_1_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_2 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.rezerv_2_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_3 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.rezerv_3_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_4 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.rezerv_4_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_5 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.rezerv_5_4_20mA +' мг/м³</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Wet +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.o2_Wet_4_20mA +' %</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Dry +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.o2_Dry_4_20mA +' %</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2O +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.h2O_4_20mA +' %</td>'+
-                '<td style="display:'+ visibilityReportOptions.pressure +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.pressure_4_20mA +' кПА</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.temperature_4_20mA +' °C</td>'+
-                '<td style="display:'+ visibilityReportOptions.speed +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.speed_4_20mA +' м³/с</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_KIP +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.temperature_KIP_4_20mA +' °C</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_NOx +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">'+ sensorScaledNow.temperature_NOx_4_20mA +' °C</td>'+
-            '</tr>'+
-            '<tr>'+
-                '<td style="vertical-align: middle; ">4-20 mA</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.co +'">'+ sensorNow.cO_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.cO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.cO2 +'">'+ sensorNow.cO2_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.no +'">'+ sensorNow.nO_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.nO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.nO2 +'">'+ sensorNow.nO2_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.nOx_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.nOx +'">'+ sensorNow.nOx_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.sO2_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.sO2 +'">'+ sensorNow.sO2_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.dust_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.dust +'">'+ sensorNow.dust_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.cH4_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.cH4 +'">'+ sensorNow.cH4_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2S_Conc +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.h2S +'">'+ sensorNow.h2S_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_1 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.rezerv_1 +'">'+ sensorNow.rezerv_1_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_2 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.rezerv_2 +'">'+ sensorNow.rezerv_2_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_3 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.rezerv_3 +'">'+ sensorNow.rezerv_3_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_4 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.rezerv_4 +'">'+ sensorNow.rezerv_4_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.add_Conc_5 +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.rezerv_5 +'">'+ sensorNow.rezerv_5_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Wet +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.o2_Wet +'">'+ sensorNow.o2_Wet_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.o2_Dry +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.o2_Dry +'">'+ sensorNow.o2_Dry_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.h2O +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.h2O +'">'+ sensorNow.h2O_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.pressure +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.pressure +'">'+ sensorNow.pressure_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.temperature +'">'+ sensorNow.temperature_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.speed +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.speed +'">'+ sensorNow.speed_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_KIP +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.temperature_KIP +'">'+ sensorNow.temperature_KIP_4_20mA +'</td>'+
-                '<td style="display:'+ visibilityReportOptions.temperature_NOx +'; padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;'+  color_Param.temperature_NOx +'">'+ sensorNow.temperature_NOx_4_20mA +'</td>'+
-            '</tr>'+
-        '</table>'
-            );
-         }
+      
 
      
-    
-        setInterval(Update, 1000)
+        //setInterval(UpdateChart, 1000)
+        //setInterval(Update, 1000)
+
+        //График
         setInterval(UpdateChart, 10000)
 
+        //Глобальные аварии
+        setInterval(GlobalAlarmTable, 1000)
 
+        //Концентрации
+        setInterval(CurrentConcTable, 1000)
        
+        //Выбросы
+        setInterval(CurrentEmisTable, 1000)
 
-        //setInterval(UpdateChart, 1000)
-
+        //Аналоги + прямые значения
+        setInterval(CurrentAnalogTable, 1000)
     </script>
 }
 

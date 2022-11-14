@@ -597,7 +597,6 @@ D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\staticwebassets\ASK.StaticWebAssets.x
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.input.cache
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.TagHelpers.output.cache
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\ASK.RazorCoreGenerate.cache
-D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\AlarmList\Alarm.cshtml.g.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Charts\Index.cshtml.g.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\Index.cshtml.g.cs
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
@@ -637,3 +636,10 @@ D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\VisibilityReportOpti
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\Quartz.Extensions.DependencyInjection.dll
 D:\new ASK\ASK\ASK\bin\Debug\netcoreapp3.1\SaveSetting_JSON\CalculationSettingJSON.json
 D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\Calculation\Index.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\_CurrentConcTable.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\_CurrentEmisTable.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\CurrentValue\_CurrentAnalogTable.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\_GlobalAlarmTable.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\States\_CurrentAnalogTable.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\AlarmList\_CurrentAlarmList.cshtml.g.cs
+D:\new ASK\ASK\ASK\obj\Debug\netcoreapp3.1\Razor\Views\AlarmList\Index.cshtml.g.cs

@@ -1,0 +1,349 @@
+﻿@using ASK.BLL.Helper.Setting;
+
+@using ASK.Controllers;
+@using ASK.BLL.Helper;
+
+
+ <table  class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px; table-layout: fixed" @*width: 1720px; "*@>
+
+
+    <tr style="font-weight:bold; ">
+
+        <td rowspan="2" style="vertical-align: middle">Состояние аналоговых сигналов датчиков (4-20 мА):</td> @*style="width: 18rem;"class="table-primary"*@
+                
+        @if(@GlobalStaticSettingsASK.SensorRange.CO.Is_Used) 
+        {
+            <td style="vertical-align: middle;">CO</td>
+        }
+
+        @if(@GlobalStaticSettingsASK.SensorRange.CO2.Is_Used)
+        {
+            <td style="vertical-align: middle">CO₂</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.NO.Is_Used)
+        {
+            <td style="vertical-align: middle">NO</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.NO2.Is_Used)
+        {
+            <td style="vertical-align: middle">NO₂</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.NOx.Is_Used)
+        {
+            <td style="vertical-align: middle">NOx</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.SO2.Is_Used)
+        {
+            <td style="vertical-align: middle">SO₂</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Dust.Is_Used)
+        {
+            <td style="vertical-align: middle">Тв.ч.</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.CH4.Is_Used)
+        {
+            <td style="vertical-align: middle">CH₄</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.H2S.Is_Used)
+        {
+            <td style="vertical-align: middle">H₂S</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
+        {
+            <td style="vertical-align: middle">Rezerv_1</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used)
+        {
+            <td style="vertical-align: middle">Rezerv_2</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used)
+        {
+            <td style="vertical-align: middle">Rezerv_3</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used)
+        {
+            <td style="vertical-align: middle">Rezerv_4</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used)
+        {
+            <td style="vertical-align: middle">Rezerv_5</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used)
+        {
+            <td style="vertical-align: middle">O₂(сух.)</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used)
+        {
+            <td style="vertical-align: middle">O₂(вл.)</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.H2O.Is_Used)
+        {
+            <td style="vertical-align: middle">H₂O</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used)
+        {
+            <td style="vertical-align: middle">Давление ДГ</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура ДГ</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Speed.Is_Used)
+        {
+            <td style="vertical-align: middle">Скорость ДГ</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура КИП</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура конвертра NOₓ</td>
+        }
+    </tr>
+
+
+            <tr>
+                @if(@GlobalStaticSettingsASK.SensorRange.CO.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.CO.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.CO2.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.CO2.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }    
+        
+                @if(@GlobalStaticSettingsASK.SensorRange.NO.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.NO.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+              
+                @if(@GlobalStaticSettingsASK.SensorRange.NO2.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.NO2.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+                
+                @if(@GlobalStaticSettingsASK.SensorRange.NOx.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.NOx.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.SO2.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.SO2.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+                
+                @if(@GlobalStaticSettingsASK.SensorRange.Dust.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Dust.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.CH4.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.CH4.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+           
+                @if(@GlobalStaticSettingsASK.SensorRange.H2S.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.H2S.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+                
+                @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_1.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_2.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_3.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_4.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_5.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.O2_Wet.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.O2_Dry.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.H2O.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.H2O.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Pressure.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+                
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+                
+                @if(@GlobalStaticSettingsASK.SensorRange.Speed.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Speed.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_KIP.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_NOx.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+            </tr>
+
+
+        </table>

@@ -9,5 +9,6 @@ namespace ASK.BLL.Models
         public double Min { get; set; }
         public double Max { get; set; }
         public bool Is_Used { get; set; }
+        public mA_Model mA { get; set; } = new mA_Model();
     }
 }

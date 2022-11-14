@@ -1,0 +1,36 @@
+﻿@using ASK.BLL.Helper.Setting
+@using ASK.Controllers
+
+<table class="table table-sm table-bordered table-secondary">
+      <thead>
+        <tr >
+          <th   class="text-center table-secondary" width="1px" scope="col">#</th>
+          <th class="text-center" width="105px" scope="col">Дата</th>
+          <th class="text-center" width="1px" scope="col"></th>
+          <th class="text-center" scope="col">Сообщение аварии</th>
+          <th class="text-center" width="120px" scope="col">Начало</th>
+          <th class="text-center" width="120px" scope="col">Конец</th>
+        </tr>
+      </thead>
+      <tbody>
+            @for(int i = 0; i < AlarmListController.alarmList.Count; i++)
+            {
+                <tr  class="@AlarmListController.alarmList[i].ColorTr" >
+                    <th class="text-center table-secondary" width="1px" style=" padding: 2px;" scope="col">@i</th>
+                    <th class="text-center" scope="row" style=" padding: 2px;"> @AlarmListController.alarmList[i].timeBegin.ToShortDateString()</th>
+                    <td class="text-center" style=" padding: 2px;">  <svg class="bi flex-shrink-0 @AlarmListController.alarmList[i].ColorAlarm" width="22" height="22" role="img" aria-label="Warning:"><use xlink:href="@AlarmListController.alarmList[i].IconAlarm"/></svg></td>
+                    <td style=" padding: 2px;">&nbsp @AlarmListController.alarmList[i].Accident</td>
+                    <td class="fw-bold text-center" style=" padding: 2px;"> @AlarmListController.alarmList[i].timeBegin.ToLongTimeString()</td>
+                    
+                    @if(AlarmListController.alarmList[i].Is_Active == true)
+                    {
+                        <td class="fw-bold text-center" style=" padding: 2px;">-/-</td>
+                    }
+                    else
+                    {
+                        <td class="fw-bold text-center" style=" padding: 2px;">@AlarmListController.alarmList[i].timeEnd.ToLongTimeString()</td>
+                    }
+                </tr>
+            }
+      </tbody>
+</table>

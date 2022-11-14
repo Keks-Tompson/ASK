@@ -1,13 +1,17 @@
-﻿using ASK.BLL.Helper;
-using ASK.BLL.Interfaces;
-using ASK.BLL.Services;
-using ASK.BLL.Models;
-using ASK.DAL;
-using ASK.DAL.Models;
-using ASK.DAL.Repository;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
+using ASK.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using ASK.BLL.Models;
+using ASK.BLL.Interfaces;
 
 namespace ASK.Controllers
 {
@@ -28,7 +32,7 @@ namespace ASK.Controllers
 
 
 
-        public IActionResult Alarm()
+        public IActionResult Index()
         {
             allAlarm = false;
             alarmList = _IAlarmLog.CreateAlarmLog(allAlarm);
@@ -44,13 +48,13 @@ namespace ASK.Controllers
             allAlarm = false;
             alarmList = _IAlarmLog.CreateAlarmLog(allAlarm);
 
-            return RedirectToRoute(new { controller = "AlarmList", action = "Alarm" });
+            return RedirectToRoute(new { controller = "AlarmList", action = "Index" });
         }
 
 
 
         [HttpPost]
-        public IActionResult Alarm(bool b1)
+        public IActionResult Index(bool b1)
         {
             allAlarm = true;
             alarmList = _IAlarmLog.CreateAlarmLog(allAlarm);
@@ -58,5 +62,26 @@ namespace ASK.Controllers
             return View();
 
         }
+
+
+
+
+    
+        [HttpGet]
+        public ActionResult _CurrentAlarmList(string Value)
+        {
+            if (allAlarm)
+            {
+                return new NoContentResult();
+            }
+            else
+            {
+                alarmList = _IAlarmLog.CreateAlarmLog(allAlarm);
+
+                return PartialView("_CurrentAlarmList");
+            }
+        }
+
+
     }
 }

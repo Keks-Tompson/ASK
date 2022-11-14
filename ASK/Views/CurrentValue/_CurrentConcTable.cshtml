@@ -1,0 +1,62 @@
+﻿@using ASK.BLL.Helper.Setting;
+
+@using ASK.Controllers;
+@using ASK.BLL.Helper;
+
+
+        <table class="table table-bordered  border-white table-secondary + text-center " style="  box-shadow: 0 0 1px; table-layout: fixed;">
+            <tr style="font-weight:bold; ">
+                <td style="width: 160px; vertical-align: middle; ">Компонент</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle">CO <br /> <font style" size="2">мг/м³, при н.у.*</font> </td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle">CO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle">NO <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle">NO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle">NOₓ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle">SO₂ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle">Тв. ч. <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle">CH₄ <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Резерв 1 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle">Резерв 2 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle">Резерв 3 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle">Резерв 4 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle">Резерв 5 <br /> <font style" size="2">мг/м³, при н.у.*</font></td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle">Расход ДГ (расчетный) <br /> <font style" size="2">(м³/c, при н.у.*)</font></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">Концентрации</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CO">@GlobalStaticSettingsASK.CurrentConcEmis.CO_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CO2">@GlobalStaticSettingsASK.CurrentConcEmis.CO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NO">@GlobalStaticSettingsASK.CurrentConcEmis.NO_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NO2">@GlobalStaticSettingsASK.CurrentConcEmis.NO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.NOx">@GlobalStaticSettingsASK.CurrentConcEmis.NOx_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.SO2">@GlobalStaticSettingsASK.CurrentConcEmis.SO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Dust">@GlobalStaticSettingsASK.CurrentConcEmis.Dust_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.CH4">@GlobalStaticSettingsASK.CurrentConcEmis.CH4_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.H2S">@GlobalStaticSettingsASK.CurrentConcEmis.H2S_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_1">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_1</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_2">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_2</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_3">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_3</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_4">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_4</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Conc.Rezerv_5">@GlobalStaticSettingsASK.CurrentConcEmis.Add_Conc_5</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.CurrentConcEmis.Flow</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle; ">ПДК</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.NOx_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.SO2_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Dust_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.CH4_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.H2S_Conc</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_1</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_2</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_3</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_4</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">@GlobalStaticSettingsASK.PDZ_Current_String.Add_Conc_5</td>
+                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">-/-</td>
+            </tr>
+        </table>

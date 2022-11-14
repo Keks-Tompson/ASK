@@ -1,0 +1,143 @@
+﻿@using ASK.BLL.Helper.Setting;
+
+
+@using ASK.Controllers;
+@using ASK.BLL.Helper;   
+ 
+
+        <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;" @*width: 1720px; "*@>
+            
+            <tr style="font-weight:bold; ">
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Is_Used)
+                {
+                    <td style="vertical-align: middle">Связь с контроллером</td> @*style="width: 18rem;"class="table-primary"*@
+                }
+                
+                <td style="vertical-align: middle">Режим АСК</td>
+                <td style="vertical-align: middle">Превышение ПДЗ</td>
+                <td style="vertical-align: middle">Наличие аварийных состояний</td>
+                
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Maintenance.Is_Used)
+                {
+                    <td style="vertical-align: middle">Техобслуживание АСК</td>
+                }
+
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_OpenDoor.Is_Used)
+                {
+                    <td style="vertical-align: middle">Дверь контейнера</td>
+                }
+
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Fire.Is_Used)
+                {
+                    <td style="vertical-align: middle">Сигнал пожара</td>
+                }
+            </tr>
+
+            
+            
+            <tr>
+                @*Есть связь с ПЛК?*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Is_Used)
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotConnection.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Отсутствует</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Установлена</td>
+                    }
+                }
+
+                @*Режим АСК*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Stop.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В простое</td>
+                }
+                else
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_NotProcess.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Нет выбросов</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px ">АСК в работе</td>
+                    }
+                }
+
+                @*Превышение ПДЗ*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Excess.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Есть превышение</td>
+                }
+                else
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_Approximation.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Есть приближение</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Отсутствуют</td>
+                    }
+                }
+
+                @*Наличие аварийных состояний*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Error.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Есть авария</td>
+                }
+                else
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_Info.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Есть информ. сообщение</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Без аварий</td>
+                    }
+                }
+                
+                @*Техническое обслуживание*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Maintenance.Is_Used)
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_Maintenance.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Выполняется</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Не выполняется</td>
+                    }
+                }
+
+                @*Дверь контейнера*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_OpenDoor.Is_Used)
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_OpenDoor.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Открыта</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">Закрыта</td>
+                    }
+                }
+
+                @*Сигнал пожара*@
+                @if (@GlobalStaticSettingsASK.globalAlarms.Is_Fire.Is_Used)
+                {
+                    @if (@GlobalStaticSettingsASK.globalAlarms.Is_Fire.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Пожар!</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Отсутствует</td>
+                    }
+                }
+
+            </tr>
+        </table>

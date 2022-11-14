@@ -9,6 +9,9 @@ namespace ASK.BLL.Models
     {
         public ColorSensorParametrError_Model Color_Param { get; set; } = new ColorSensorParametrError_Model();
         public VisibilityReportOptions_JSON_Model VisibilityReportOptions { get; set; } = new VisibilityReportOptions_JSON_Model();
+        public VisibilityReportOptions_JSON_Model VisibilitySensorOptions { get; set; } = new VisibilityReportOptions_JSON_Model();
+
+        public GlobalAlarm_Model GlobalAlarm { get; set; } = new GlobalAlarm_Model();
 
         public Sensor_4_20_Model SensorNow { get; set; } = new Sensor_4_20_Model();
         public Sensor_4_20_Model SensorScaledNow { get; set; } = new Sensor_4_20_Model();

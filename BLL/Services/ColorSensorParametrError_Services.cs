@@ -65,6 +65,11 @@ namespace ASK.BLL.Services
             if (GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA < mA_Min)
                 color_Param.Temperature_NOx = "background: #f2aaaa96;";
 
+            
+
+            
+
+
             return color_Param;
         }
     }

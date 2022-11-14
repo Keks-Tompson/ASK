@@ -35,7 +35,7 @@ namespace ASK.BLL.Services
 
         public void AlarmLogBuider(bool is_newValue, bool is_oldValue, Alarm_Model alarmName)
         {
-            if (alarmName.Used) //Если авария используется
+            if (alarmName.Is_Used) //Если авария используется
             {
                 //if (is_newValue != is_oldValue)
                 //{

@@ -19,6 +19,9 @@ namespace ASK.BLL.Helper.Setting
 {
     public class GlobalStaticSettingsASK
     {
+        static int delayedStart = 0;                //Отложенный старт для записис аварий в БД
+
+
         public static bool is_simulation = true;    //Режим симуляции 4-20 сигналов
         private static double O2_Last = 1;          //Режим симуляции 4-20 сигналов старый O2
         private static Random rnd = new Random();   //Режим симуляции 4-20 рандом
@@ -58,7 +61,7 @@ namespace ASK.BLL.Helper.Setting
 
         //Аварии
         public static GlobalAlarm_Model globalAlarms = new GlobalAlarm_Model();                                 //Глобальные аварии
-        
+        public static AllAlarm_Model allAlarm = new AllAlarm_Model();                                           //Все остальные варии будут хранится тут          
 
 
         public static void SaveSettingOptionsJSON()
@@ -103,6 +106,8 @@ namespace ASK.BLL.Helper.Setting
             StreamWriter file = File.CreateText("SaveSetting_JSON\\SensorRangeJSON.JSON");
             file.WriteLine(JsonSerializer.Serialize(SensorRange, typeof(SensorRange_JSON_Model)));
             file.Close();
+
+            UpdateVisibilityAlarm();
         }
 
 
@@ -190,8 +195,8 @@ namespace ASK.BLL.Helper.Setting
                 SensorRange = new SensorRange_JSON_Model();
                 SaveSensorRange_JSON();
             }
-            
 
+            UpdateVisibilityAlarm();
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
@@ -201,6 +206,65 @@ namespace ASK.BLL.Helper.Setting
 
             GetCurrentPDZ();
             ChartList.Add(new Chart_CurrentValue()); ///Первая нулевая точка //Потом удалить!
+        }
+
+
+
+        //Обновляем используемые аварии
+        public static void UpdateVisibilityAlarm()
+        {
+            if (SensorRange.CO.Is_Used)
+                allAlarm.SensorAlarm.CO.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.CO.Is_Used = false;
+
+
+            if (SensorRange.CO2.Is_Used)
+                allAlarm.SensorAlarm.CO2.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.CO2.Is_Used = false;
+
+
+            if (SensorRange.NO.Is_Used)
+                allAlarm.SensorAlarm.NO.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.NO.Is_Used = false;
+
+
+            if (SensorRange.NO2.Is_Used)
+                allAlarm.SensorAlarm.NO2.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.NO2.Is_Used = false;
+
+
+            if (SensorRange.NOx.Is_Used)
+                allAlarm.SensorAlarm.NOx.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.NOx.Is_Used = false;
+
+
+            if (SensorRange.SO2.Is_Used)
+                allAlarm.SensorAlarm.SO2.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.SO2.Is_Used = false;
+
+
+            if (SensorRange.Dust.Is_Used)
+                allAlarm.SensorAlarm.Dust.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.Dust.Is_Used = false;
+
+
+            if (SensorRange.CH4.Is_Used)
+                allAlarm.SensorAlarm.CH4.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.CH4.Is_Used = false;
+
+
+            if (SensorRange.H2S.Is_Used)
+                allAlarm.SensorAlarm.H2S.Is_Used = true;
+            else
+                allAlarm.SensorAlarm.H2S.Is_Used = false;
         }
 
 
@@ -264,8 +328,15 @@ namespace ASK.BLL.Helper.Setting
                     new20M.Temperature_KIP = Math.Round(Array20Ms.Average(a => a.Temperature_KIP), 3);
                     new20M.Temperature_NOx = Math.Round(Array20Ms.Average(a => a.Temperature_NOx), 3);
 
-                    new20M.Mode_ASK = random.Next(0, 3);
-                    new20M.PDZ_Fuel = random.Next(0, 1);
+                    if (globalAlarms.Is_Stop.Is_Used) new20M.Mode_ASK = 1;
+                    else
+                    {
+                        if (globalAlarms.Is_NotProcess.Is_Used) 
+                            new20M.Mode_ASK = 2;
+                        else
+                            new20M.Mode_ASK = 0;
+                    }
+                    new20M.PDZ_Fuel = PDZ.Is_Active;
 
                 }
                 catch
@@ -376,6 +447,11 @@ namespace ASK.BLL.Helper.Setting
             GetSensorNow();
             RunConvertSernsor();
             Normalization_ConcEmis();
+
+            if (delayedStart > 0)
+                ChekSensorBreak();
+            else
+                delayedStart++;
 
             Sensor_4_20s.Add((Sensor_4_20_Model)SensorNow.Clone());
 
@@ -632,7 +708,7 @@ namespace ASK.BLL.Helper.Setting
 
             try
             {
-                connected = ping.Send(IpAdres, 1000);    //Проверяем соедение с таймингом 0.5 сек
+                connected = ping.Send(IpAdres, 10);    //Проверяем соедение с таймингом 0.5 сек
 
                 ushort[] registers;                     //Будующий масиив считываемых WORD из ПЛК
 
@@ -964,10 +1040,759 @@ namespace ASK.BLL.Helper.Setting
 
 
 
+        //Проверяем датчики на обрыв
+        public static void ChekSensorBreak() //Оптимизировать весь процесс с нуля! Есть проблемы!
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+
+                //Обрыв датчиков
+                if (SensorRange.CO.Is_Used)
+                    if (SensorNow.CO_4_20mA < SensorRange.CO.mA.Min || SensorNow.CO_4_20mA > SensorRange.CO.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.CO.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CO);
+
+                            allAlarm.SensorAlarm.CO.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.CO.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CO);
+
+                            allAlarm.SensorAlarm.CO.Value = false;
+                        }
+                    }
+
+                if (SensorRange.CO2.Is_Used)
+                    if (SensorNow.CO2_4_20mA < SensorRange.CO2.mA.Min || SensorNow.CO2_4_20mA > SensorRange.CO2.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.CO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CO2);
+
+                            allAlarm.SensorAlarm.CO2.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.CO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CO);
+
+                            allAlarm.SensorAlarm.CO2.Value = false;
+                        }
+                    }
+
+                if (SensorRange.NO.Is_Used)
+                    if (SensorNow.NO_4_20mA < SensorRange.NO.mA.Min || SensorNow.NO_4_20mA > SensorRange.NO.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.NO.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NO);
+
+                            allAlarm.SensorAlarm.NO.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.NO.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NO);
+
+                            allAlarm.SensorAlarm.NO.Value = false;
+                        }
+                    }
+
+                if (SensorRange.NO2.Is_Used)
+                    if (SensorNow.NO2_4_20mA < SensorRange.NO2.mA.Min || SensorNow.NO2_4_20mA > SensorRange.NO2.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.NO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NO2);
+
+                            allAlarm.SensorAlarm.NO2.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.NO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NO2);
+
+                            allAlarm.SensorAlarm.NO2.Value = false;
+                        }
+                    }
+
+                if (SensorRange.NOx.Is_Used)
+                    if (SensorNow.NOx_4_20mA < SensorRange.NOx.mA.Min || SensorNow.NOx_4_20mA > SensorRange.NOx.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.NOx.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NOx);
+
+                            allAlarm.SensorAlarm.NOx.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.NOx.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NOx);
+
+                            allAlarm.SensorAlarm.NOx.Value = false;
+                        }
+                    }
+
+                if (SensorRange.SO2.Is_Used)
+                    if (SensorNow.SO2_4_20mA < SensorRange.SO2.mA.Min || SensorNow.SO2_4_20mA > SensorRange.SO2.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.SO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.SO2);
+
+                            allAlarm.SensorAlarm.SO2.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.SO2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.SO2);
+
+                            allAlarm.SensorAlarm.SO2.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Dust.Is_Used)
+                    if (SensorNow.Dust_4_20mA < SensorRange.Dust.mA.Min || SensorNow.Dust_4_20mA > SensorRange.Dust.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Dust.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Dust);
+
+                            allAlarm.SensorAlarm.Dust.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Dust.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Dust);
+
+                            allAlarm.SensorAlarm.Dust.Value = false;
+                        }
+                    }
+
+                if (SensorRange.CH4.Is_Used)
+                    if (SensorNow.CH4_4_20mA < SensorRange.CH4.mA.Min || SensorNow.CH4_4_20mA > SensorRange.CH4.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.CH4.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CH4);
+
+                            allAlarm.SensorAlarm.CH4.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.CH4.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CH4);
+
+                            allAlarm.SensorAlarm.CH4.Value = false;
+                        }
+                    }
+
+                if (SensorRange.H2S.Is_Used)
+                    if (SensorNow.H2S_4_20mA < SensorRange.H2S.mA.Min || SensorNow.H2S_4_20mA > SensorRange.H2S.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.H2S.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.H2S);
+
+                            allAlarm.SensorAlarm.H2S.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.H2S.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.H2S);
+
+                            allAlarm.SensorAlarm.H2S.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Rezerv_1.Is_Used)
+                    if (SensorNow.Rezerv_1_4_20mA < SensorRange.Rezerv_1.mA.Min || SensorNow.Rezerv_1_4_20mA > SensorRange.Rezerv_1.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Rezerv_1.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_1);
+
+                            allAlarm.SensorAlarm.Rezerv_1.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Rezerv_1.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_1);
+
+                            allAlarm.SensorAlarm.Rezerv_1.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Rezerv_2.Is_Used)
+                    if (SensorNow.Rezerv_2_4_20mA < SensorRange.Rezerv_2.mA.Min || SensorNow.Rezerv_2_4_20mA > SensorRange.Rezerv_2.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Rezerv_2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_2);
+
+                            allAlarm.SensorAlarm.Rezerv_2.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Rezerv_2.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_2);
+
+                            allAlarm.SensorAlarm.Rezerv_2.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Rezerv_3.Is_Used)
+                    if (SensorNow.Rezerv_3_4_20mA < SensorRange.Rezerv_3.mA.Min || SensorNow.Rezerv_3_4_20mA > SensorRange.Rezerv_3.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Rezerv_3.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_3);
+
+                            allAlarm.SensorAlarm.Rezerv_3.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Rezerv_3.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_3);
+
+                            allAlarm.SensorAlarm.Rezerv_3.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Rezerv_4.Is_Used)
+                    if (SensorNow.Rezerv_4_4_20mA < SensorRange.Rezerv_4.mA.Min || SensorNow.Rezerv_4_4_20mA > SensorRange.Rezerv_4.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Rezerv_4.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_4);
+
+                            allAlarm.SensorAlarm.Rezerv_4.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Rezerv_4.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_4);
+
+                            allAlarm.SensorAlarm.Rezerv_4.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Rezerv_5.Is_Used)
+                    if (SensorNow.Rezerv_5_4_20mA < SensorRange.Rezerv_5.mA.Min || SensorNow.Rezerv_5_4_20mA > SensorRange.Rezerv_5.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Rezerv_5.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_5);
+
+                            allAlarm.SensorAlarm.Rezerv_5.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Rezerv_5.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_5);
+
+                            allAlarm.SensorAlarm.Rezerv_5.Value = false;
+                        }
+                    }
+
+                if (SensorRange.O2Wet.Is_Used)
+                    if (SensorNow.O2_Wet_4_20mA < SensorRange.O2Wet.mA.Min || SensorNow.O2_Wet_4_20mA > SensorRange.O2Wet.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.O2_Wet.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.O2_Wet);
+
+                            allAlarm.SensorAlarm.O2_Wet.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.O2_Wet.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.O2_Wet);
+
+                            allAlarm.SensorAlarm.O2_Wet.Value = false;
+                        }
+                    }
+
+                if (SensorRange.O2Dry.Is_Used)
+                    if (SensorNow.O2_Dry_4_20mA < SensorRange.O2Dry.mA.Min || SensorNow.O2_Dry_4_20mA > SensorRange.O2Dry.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.O2_Dry.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.O2_Dry);
+
+                            allAlarm.SensorAlarm.O2_Dry.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.O2_Dry.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.O2_Dry);
+
+                            allAlarm.SensorAlarm.O2_Dry.Value = false;
+                        }
+                    }
+
+                if (SensorRange.H2O.Is_Used)
+                    if (SensorNow.H2O_4_20mA < SensorRange.H2O.mA.Min || SensorNow.H2O_4_20mA > SensorRange.H2O.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.H2O.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.H2O);
+
+                            allAlarm.SensorAlarm.H2O.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.H2O.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.H2O);
+
+                            allAlarm.SensorAlarm.H2O.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Pressure.Is_Used)
+                    if (SensorNow.Pressure_4_20mA < SensorRange.Pressure.mA.Min || SensorNow.Pressure_4_20mA > SensorRange.Pressure.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Pressure.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Pressure);
+
+                            allAlarm.SensorAlarm.Pressure.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Pressure.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Pressure);
+
+                            allAlarm.SensorAlarm.Pressure.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Speed.Is_Used)
+                    if (SensorNow.Speed_4_20mA < SensorRange.Speed.mA.Min || SensorNow.Speed_4_20mA > SensorRange.Speed.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Speed.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Speed);
+
+                            allAlarm.SensorAlarm.Speed.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Speed.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Speed);
+
+                            allAlarm.SensorAlarm.Speed.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Temperature.Is_Used)
+                    if (SensorNow.Temperature_4_20mA < SensorRange.Temperature.mA.Min || SensorNow.Temperature_4_20mA > SensorRange.Temperature.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Temperature.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature);
+
+                            allAlarm.SensorAlarm.Temperature.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Temperature.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature);
+
+                            allAlarm.SensorAlarm.Temperature.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Temperature_KIP.Is_Used)
+                    if (SensorNow.Temperature_KIP_4_20mA < SensorRange.Temperature_KIP.mA.Min || SensorNow.Temperature_KIP_4_20mA > SensorRange.Temperature_KIP.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Temperature_KIP.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature_KIP);
+
+                            allAlarm.SensorAlarm.Temperature_KIP.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Temperature_KIP.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature_KIP);
+
+                            allAlarm.SensorAlarm.Temperature_KIP.Value = false;
+                        }
+                    }
+
+                if (SensorRange.Temperature_NOx.Is_Used)
+                    if (SensorNow.Temperature_NOx_4_20mA < SensorRange.Temperature_NOx.mA.Min || SensorNow.Temperature_NOx_4_20mA > SensorRange.Temperature_NOx.mA.Max)
+                    {
+                        if (!allAlarm.SensorAlarm.Temperature_NOx.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature_NOx);
+
+                            allAlarm.SensorAlarm.Temperature_NOx.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (allAlarm.SensorAlarm.Temperature_NOx.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature_NOx);
+
+                            allAlarm.SensorAlarm.Temperature_NOx.Value = false;
+                        }
+                    }
+
+
+
+
+                //Глобальные аварии и уведомления
+
+                //Общая авария
+                if ((allAlarm.SensorAlarm.CO.Value && allAlarm.SensorAlarm.CO.Is_Critical) ||
+                    (allAlarm.SensorAlarm.CO2.Value && allAlarm.SensorAlarm.CO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NO.Value && allAlarm.SensorAlarm.NO.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NO2.Value && allAlarm.SensorAlarm.NO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NOx.Value && allAlarm.SensorAlarm.NOx.Is_Critical) ||
+                    (allAlarm.SensorAlarm.SO2.Value && allAlarm.SensorAlarm.SO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Dust.Value && allAlarm.SensorAlarm.Dust.Is_Critical) ||
+                    (allAlarm.SensorAlarm.CH4.Value && allAlarm.SensorAlarm.CH4.Is_Critical) ||
+                    (allAlarm.SensorAlarm.H2S.Value && allAlarm.SensorAlarm.H2S.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_1.Value && allAlarm.SensorAlarm.Rezerv_1.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_2.Value && allAlarm.SensorAlarm.Rezerv_2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_3.Value && allAlarm.SensorAlarm.Rezerv_3.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_4.Value && allAlarm.SensorAlarm.Rezerv_4.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_5.Value && allAlarm.SensorAlarm.Rezerv_5.Is_Critical) ||
+                    (allAlarm.SensorAlarm.O2_Wet.Value && allAlarm.SensorAlarm.O2_Wet.Is_Critical) ||
+                    (allAlarm.SensorAlarm.O2_Dry.Value && allAlarm.SensorAlarm.O2_Dry.Is_Critical) ||
+                    (allAlarm.SensorAlarm.H2O.Value && allAlarm.SensorAlarm.H2O.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Pressure.Value && allAlarm.SensorAlarm.Pressure.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature.Value && allAlarm.SensorAlarm.Temperature.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Speed.Value && allAlarm.SensorAlarm.Speed.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature_KIP.Value && allAlarm.SensorAlarm.Temperature_KIP.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature_NOx.Value && allAlarm.SensorAlarm.Temperature_NOx.Is_Critical))
+                {
+                    if (!globalAlarms.Is_Error.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Error.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Error.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Error.Value = false;
+                    }
+                }
+
+
+                //Информационное сообщение
+                if ((allAlarm.SensorAlarm.CO.Value && !allAlarm.SensorAlarm.CO.Is_Critical) ||
+                    (allAlarm.SensorAlarm.CO2.Value && !allAlarm.SensorAlarm.CO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NO.Value && !allAlarm.SensorAlarm.NO.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NO2.Value && !allAlarm.SensorAlarm.NO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.NOx.Value && !allAlarm.SensorAlarm.NOx.Is_Critical) ||
+                    (allAlarm.SensorAlarm.SO2.Value && !allAlarm.SensorAlarm.SO2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Dust.Value && !allAlarm.SensorAlarm.Dust.Is_Critical) ||
+                    (allAlarm.SensorAlarm.CH4.Value && !allAlarm.SensorAlarm.CH4.Is_Critical) ||
+                    (allAlarm.SensorAlarm.H2S.Value && !allAlarm.SensorAlarm.H2S.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_1.Value && !allAlarm.SensorAlarm.Rezerv_1.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_2.Value && !allAlarm.SensorAlarm.Rezerv_2.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_3.Value && !allAlarm.SensorAlarm.Rezerv_3.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_4.Value && !allAlarm.SensorAlarm.Rezerv_4.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Rezerv_5.Value && !allAlarm.SensorAlarm.Rezerv_5.Is_Critical) ||
+                    (allAlarm.SensorAlarm.O2_Wet.Value && !allAlarm.SensorAlarm.O2_Wet.Is_Critical) ||
+                    (allAlarm.SensorAlarm.O2_Dry.Value && !allAlarm.SensorAlarm.O2_Dry.Is_Critical) ||
+                    (allAlarm.SensorAlarm.H2O.Value && !allAlarm.SensorAlarm.H2O.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Pressure.Value && !allAlarm.SensorAlarm.Pressure.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature.Value && !allAlarm.SensorAlarm.Temperature.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Speed.Value && !allAlarm.SensorAlarm.Speed.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature_KIP.Value && !allAlarm.SensorAlarm.Temperature_KIP.Is_Critical) ||
+                    (allAlarm.SensorAlarm.Temperature_NOx.Value && !allAlarm.SensorAlarm.Temperature_NOx.Is_Critical))
+                {
+                    if (!globalAlarms.Is_Info.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Info.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Info.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Info.Value = false;
+                    }
+                }
+
+
+                //Простой  //Условия простоя (на данный момент, есть авария - ппростой)
+                if (globalAlarms.Is_Error.Value)
+                {
+                    if (!globalAlarms.Is_Stop.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Stop);
+
+                        globalAlarms.Is_Stop.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Stop.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Stop);
+
+                        globalAlarms.Is_Stop.Value = false;
+                    }
+                }
+
+
+
+
+                //Нет выбросов  //Пока смотрим только по кислороду (сухому, если нет сухого по влажн)
+                if (SensorRange.O2Dry.Is_Used)
+                {
+                    if (CurrentConcEmis.O2_Dry >= 20.0 && !globalAlarms.Is_Stop.Value && !allAlarm.SensorAlarm.O2_Dry.Value)
+                    {
+                        if (!globalAlarms.Is_NotProcess.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotProcess);
+
+                            globalAlarms.Is_NotProcess.Value = true;
+                        }
+                    }
+                    else
+                    {
+                        if (globalAlarms.Is_NotProcess.Value)
+                        {
+                            globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotProcess);
+
+                            globalAlarms.Is_NotProcess.Value = false;
+                        }
+                    }
+                }
+                else
+                {
+                    if (SensorRange.O2Wet.Is_Used)
+                    {
+                        if (CurrentConcEmis.O2_Wet >= 20.0 && !globalAlarms.Is_Stop.Value && !allAlarm.SensorAlarm.O2_Wet.Value)
+                        {
+                            if (!globalAlarms.Is_NotProcess.Value)
+                            {
+                                globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotProcess);
+
+                                globalAlarms.Is_NotProcess.Value = true;
+                            }
+                        }
+                        else
+                        {
+                            if (globalAlarms.Is_NotProcess.Value)
+                            {
+                                globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotProcess);
+
+                                globalAlarms.Is_NotProcess.Value = false;
+                            }
+                        }
+                    }
+                }
+
+
+
+                //превышение  //Превышение ПДК
+                if (CurrentConcEmis.CO_Conc > PDZ_Current.CO_Conc || CurrentConcEmis.CO_Emis > PDZ_Current.CO_Emis ||
+                    CurrentConcEmis.CO2_Conc > PDZ_Current.CO2_Conc || CurrentConcEmis.CO2_Emis > PDZ_Current.CO2_Emis ||
+                    CurrentConcEmis.NO_Conc > PDZ_Current.NO_Conc || CurrentConcEmis.NO_Emis > PDZ_Current.NO_Emis ||
+                    CurrentConcEmis.NO2_Conc > PDZ_Current.NO2_Conc || CurrentConcEmis.NO2_Emis > PDZ_Current.NO2_Emis ||
+                    CurrentConcEmis.NOx_Conc > PDZ_Current.NOx_Conc || CurrentConcEmis.NOx_Emis > PDZ_Current.NOx_Emis ||
+                    CurrentConcEmis.Dust_Conc > PDZ_Current.Dust_Conc || CurrentConcEmis.Dust_Emis > PDZ_Current.Dust_Emis ||
+                    CurrentConcEmis.CH4_Conc > PDZ_Current.CH4_Conc || CurrentConcEmis.CH4_Emis > PDZ_Current.CH4_Emis ||
+                    CurrentConcEmis.H2S_Conc > PDZ_Current.H2S_Conc || CurrentConcEmis.H2S_Emis > PDZ_Current.H2S_Emis ||
+                    CurrentConcEmis.Add_Conc_1 > PDZ_Current.Add_Conc_1 || CurrentConcEmis.Add_Emis_1 > PDZ_Current.Add_Emis_1 ||
+                    CurrentConcEmis.Add_Conc_2 > PDZ_Current.Add_Conc_2 || CurrentConcEmis.Add_Emis_2 > PDZ_Current.Add_Emis_2 ||
+                    CurrentConcEmis.Add_Conc_3 > PDZ_Current.Add_Conc_3 || CurrentConcEmis.Add_Emis_3 > PDZ_Current.Add_Emis_3 ||
+                    CurrentConcEmis.Add_Conc_4 > PDZ_Current.Add_Conc_4 || CurrentConcEmis.Add_Emis_4 > PDZ_Current.Add_Emis_4 ||
+                    CurrentConcEmis.Add_Conc_5 > PDZ_Current.Add_Conc_5 || CurrentConcEmis.Add_Emis_5 > PDZ_Current.Add_Emis_5)
+                {
+
+                    if (!globalAlarms.Is_Excess.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Excess);
+
+                        globalAlarms.Is_Excess.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Excess.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Excess);
+
+                        globalAlarms.Is_Excess.Value = false;
+                    }
+                }
+
+
+
+                //Приближение 
+                double approximation = 0.8; //Завести отделбную переменную"!
+                if (CurrentConcEmis.CO_Conc > PDZ_Current.CO_Conc * approximation       && CurrentConcEmis.CO_Conc < PDZ_Current.CO_Conc        || CurrentConcEmis.CO_Emis > PDZ_Current.CO_Emis * approximation        && CurrentConcEmis.CO_Emis < PDZ_Current.CO_Emis ||
+                    CurrentConcEmis.CO2_Conc > PDZ_Current.CO2_Conc * approximation     && CurrentConcEmis.CO2_Conc < PDZ_Current.CO2_Conc      || CurrentConcEmis.CO2_Emis > PDZ_Current.CO2_Emis * approximation      && CurrentConcEmis.CO2_Emis < PDZ_Current.CO2_Emis ||
+                    CurrentConcEmis.NO_Conc > PDZ_Current.NO_Conc * approximation       && CurrentConcEmis.NO_Conc < PDZ_Current.NO_Conc        || CurrentConcEmis.NO_Emis > PDZ_Current.NO_Emis * approximation        && CurrentConcEmis.NO_Emis < PDZ_Current.NO_Emis ||
+                    CurrentConcEmis.NO2_Conc > PDZ_Current.NO2_Conc * approximation     && CurrentConcEmis.NO2_Conc < PDZ_Current.NO2_Conc      || CurrentConcEmis.NO2_Emis > PDZ_Current.NO2_Emis * approximation      && CurrentConcEmis.NO2_Emis < PDZ_Current.NO2_Emis ||
+                    CurrentConcEmis.NOx_Conc > PDZ_Current.NOx_Conc * approximation     && CurrentConcEmis.NOx_Conc < PDZ_Current.NOx_Conc      || CurrentConcEmis.NOx_Emis > PDZ_Current.NOx_Emis * approximation      && CurrentConcEmis.NOx_Emis < PDZ_Current.NOx_Emis ||
+                    CurrentConcEmis.Dust_Conc > PDZ_Current.Dust_Conc * approximation   && CurrentConcEmis.Dust_Conc < PDZ_Current.Dust_Conc    || CurrentConcEmis.Dust_Emis > PDZ_Current.Dust_Emis * approximation    && CurrentConcEmis.Dust_Emis < PDZ_Current.Dust_Emis ||
+                    CurrentConcEmis.CH4_Conc > PDZ_Current.CH4_Conc * approximation     && CurrentConcEmis.CH4_Conc < PDZ_Current.CH4_Conc      || CurrentConcEmis.CH4_Emis > PDZ_Current.CH4_Emis * approximation      && CurrentConcEmis.CH4_Emis < PDZ_Current.CH4_Emis ||
+                    CurrentConcEmis.H2S_Conc > PDZ_Current.H2S_Conc * approximation     && CurrentConcEmis.H2S_Conc < PDZ_Current.H2S_Conc      || CurrentConcEmis.H2S_Emis > PDZ_Current.H2S_Emis * approximation      && CurrentConcEmis.H2S_Emis < PDZ_Current.H2S_Emis ||
+                    CurrentConcEmis.Add_Conc_1 > PDZ_Current.Add_Conc_1 * approximation && CurrentConcEmis.Add_Conc_1 < PDZ_Current.Add_Conc_1  || CurrentConcEmis.Add_Emis_1 > PDZ_Current.Add_Emis_1 * approximation  && CurrentConcEmis.Add_Emis_1 < PDZ_Current.Add_Emis_1 ||
+                    CurrentConcEmis.Add_Conc_2 > PDZ_Current.Add_Conc_2 * approximation && CurrentConcEmis.Add_Conc_2 < PDZ_Current.Add_Conc_2  || CurrentConcEmis.Add_Emis_2 > PDZ_Current.Add_Emis_2 * approximation  && CurrentConcEmis.Add_Emis_2 < PDZ_Current.Add_Emis_2 ||
+                    CurrentConcEmis.Add_Conc_3 > PDZ_Current.Add_Conc_3 * approximation && CurrentConcEmis.Add_Conc_3 < PDZ_Current.Add_Conc_3  || CurrentConcEmis.Add_Emis_3 > PDZ_Current.Add_Emis_3 * approximation  && CurrentConcEmis.Add_Emis_3 < PDZ_Current.Add_Emis_3 ||
+                    CurrentConcEmis.Add_Conc_4 > PDZ_Current.Add_Conc_4 * approximation && CurrentConcEmis.Add_Conc_4 < PDZ_Current.Add_Conc_4  || CurrentConcEmis.Add_Emis_4 > PDZ_Current.Add_Emis_4 * approximation  && CurrentConcEmis.Add_Emis_4 < PDZ_Current.Add_Emis_4 ||
+                    CurrentConcEmis.Add_Conc_5 > PDZ_Current.Add_Conc_5 * approximation && CurrentConcEmis.Add_Conc_5 < PDZ_Current.Add_Conc_5  || CurrentConcEmis.Add_Emis_5 > PDZ_Current.Add_Emis_5 * approximation  && CurrentConcEmis.Add_Emis_5 < PDZ_Current.Add_Emis_5)
+                {
+
+                    if (!globalAlarms.Is_Approximation.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Approximation);
+
+                        globalAlarms.Is_Approximation.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Approximation.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Approximation);
+
+                        globalAlarms.Is_Approximation.Value = false;
+                    }
+                }
+
+
+
+                //Техническое обслуживание
+                if (false)
+                {
+                    if (!globalAlarms.Is_Maintenance.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Maintenance.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Maintenance.Value)
+                    {
+                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
+
+                        globalAlarms.Is_Maintenance.Value = false;
+                    }
+                }
+
+
+
+                //Дверь контейнера
+                if (false)
+                {
+                    if (!globalAlarms.Is_OpenDoor.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_OpenDoor);
+
+                        globalAlarms.Is_OpenDoor.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_OpenDoor.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_OpenDoor);
+
+                        globalAlarms.Is_OpenDoor.Value = false;
+                    }
+                }
+
+
+
+
+                //Сигнал пожара
+                if (false)
+                {
+                    if (!globalAlarms.Is_Fire.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Fire);
+
+                        globalAlarms.Is_Fire.Value = true;
+                    }
+                }
+                else
+                {
+                    if (globalAlarms.Is_Fire.Value)
+                    {
+                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Fire);
+
+                        globalAlarms.Is_Fire.Value = false;
+                    }
+                }
+            }
+        }
+
+
+
         public static double ScaleRange(double value, Range_Model range)
         {
-            double min = 4.0;
-            double max = 20.0;
+            double min = 4;  //4
+            double max = 20;  //20
 
             if (value <= min)
                 return range.Min;
@@ -979,8 +1804,8 @@ namespace ASK.BLL.Helper.Setting
         //Симуляция 4-20
         public static double Simulation_4_20(double valueNow, bool O2 = false)
         {
-            double min = 3.7;
-            double max = 20.4;
+            double min = 3.4;
+            double max = 20.6;
 
             int rndMin = -250;
             int rndMax = 250;

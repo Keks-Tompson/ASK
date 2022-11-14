@@ -64,7 +64,7 @@ namespace ASK.Workers
                 .WithIdentity("Trigger_ReaderConcEmisParam", "Group_2")
                 .StartNow()
                 .WithSimpleSchedule(x => x
-                    .WithIntervalInSeconds(1)
+                    .WithIntervalInSeconds(2)
                     .RepeatForever())
                 .Build();
 

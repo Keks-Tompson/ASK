@@ -29,8 +29,19 @@ namespace ASK.BLL.Services
                 if (GlobalStaticSettingsASK.globalAlarms.Is_Stop.Value)
                 {
                     //нужно подставить значения при простое
-                    calculation.M = 1.1;
-                    calculation.C = 1.1;
+                    
+                    calculation.C = 100.0;
+                    calculation.C_NO = 80.0;
+                    calculation.C_NO2 = 60.0;
+                    calculation.C_NOx = 40.0;
+                    calculation.C_Dust = 20.0;
+
+
+                    calculation.M = 0.123;
+                    calculation.M_NO = 0.123;
+                    calculation.M_NO2 = 0.123;
+                    calculation.M_NOx = 0.123;
+                    calculation.M_Dust = 0.123;
                 }
                 else
                 {

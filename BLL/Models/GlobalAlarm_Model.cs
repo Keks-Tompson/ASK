@@ -23,34 +23,34 @@ namespace ASK.BLL.Models
         public GlobalAlarm_Model()
         {
             Is_NotConnection.ID = 1;
-            Is_NotConnection.Used = true;
+            Is_NotConnection.Is_Used = true;
 
             Is_Stop.ID = 2;
-            Is_Stop.Used = true;
+            Is_Stop.Is_Used = true;
 
             Is_NotProcess.ID = 3;
-            Is_NotProcess.Used = true;
+            Is_NotProcess.Is_Used = true;
 
             Is_Excess.ID = 4;
-            Is_Excess.Used = true;
+            Is_Excess.Is_Used = true;
 
             Is_Approximation.ID = 5;
-            Is_Approximation.Used = true;
+            Is_Approximation.Is_Used = true;
 
             Is_Error.ID = 6;
-            Is_Error.Used = true;
+            Is_Error.Is_Used = true;
 
             Is_Info.ID = 7;
-            Is_Info.Used = true;
+            Is_Info.Is_Used = true;
 
             Is_Maintenance.ID = 8;
-            Is_Maintenance.Used = true;
+            Is_Maintenance.Is_Used = true;
 
             Is_OpenDoor.ID = 9;
-            Is_OpenDoor.Used = true;
+            Is_OpenDoor.Is_Used = true;
 
             Is_Fire.ID = 10;
-            Is_Fire.Used = true;
+            Is_Fire.Is_Used = true;
         }
     }
 }

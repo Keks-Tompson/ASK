@@ -29,6 +29,8 @@ namespace ASK.BLL.Services
             currentPage.Color_Param = _ColorSensorParametrError_Services.Update();
             currentPage.VisibilityReportOptions = GlobalStaticSettingsASK.VisibilityReportOptions;
 
+            currentPage.GlobalAlarm = GlobalStaticSettingsASK.globalAlarms;
+
             currentPage.CurrentConcEmis = GlobalStaticSettingsASK.CurrentConcEmis;
             currentPage.PDZ_Current_String = GlobalStaticSettingsASK.PDZ_Current_String;
 
@@ -159,6 +161,140 @@ namespace ASK.BLL.Services
                 currentPage.Color_Emis.Rezerv_5 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Rezerv_5 = null;
+
+
+            //Видимость датчиков на странице "Текущее значения"  - колхоз, но за то минимальная скорость отрисовки (Исправить) // использовать другой класс!!
+            //CO
+            if (GlobalStaticSettingsASK.SensorRange.CO.Is_Used)
+                currentPage.VisibilitySensorOptions.CO_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.CO_Conc = "none";
+
+            //CO2
+            if (GlobalStaticSettingsASK.SensorRange.CO2.Is_Used)
+                currentPage.VisibilitySensorOptions.CO2_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.CO2_Conc = "none";
+
+            //NO
+            if (GlobalStaticSettingsASK.SensorRange.NO.Is_Used)
+                currentPage.VisibilitySensorOptions.NO_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.NO_Conc = "none";
+
+            //NO2
+            if (GlobalStaticSettingsASK.SensorRange.NO2.Is_Used)
+                currentPage.VisibilitySensorOptions.NO2_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.NO2_Conc = "none";
+
+            //NOx
+            if (GlobalStaticSettingsASK.SensorRange.NOx.Is_Used)
+                currentPage.VisibilitySensorOptions.NOx_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.NOx_Conc = "none";
+
+            //SO2
+            if (GlobalStaticSettingsASK.SensorRange.SO2.Is_Used)
+                currentPage.VisibilitySensorOptions.SO2_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.SO2_Conc = "none";
+
+            //Dust
+            if (GlobalStaticSettingsASK.SensorRange.Dust.Is_Used)
+                currentPage.VisibilitySensorOptions.Dust_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Dust_Conc = "none";
+
+            //CH4
+            if (GlobalStaticSettingsASK.SensorRange.CH4.Is_Used)
+                currentPage.VisibilitySensorOptions.CH4_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.CH4_Conc = "none";
+
+            //H2S
+            if (GlobalStaticSettingsASK.SensorRange.H2S.Is_Used)
+                currentPage.VisibilitySensorOptions.H2S_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.H2S_Conc = "none";
+
+            //Rezerv_1
+            if (GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
+                currentPage.VisibilitySensorOptions.Add_Conc_1 = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Add_Conc_1 = "none";
+
+            //Rezerv_2
+            if (GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used)
+                currentPage.VisibilitySensorOptions.Add_Conc_2 = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Add_Conc_2 = "none";
+
+            //Rezerv_3
+            if (GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used)
+                currentPage.VisibilitySensorOptions.Add_Conc_3 = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Add_Conc_3 = "none";
+
+            //Rezerv_4
+            if (GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used)
+                currentPage.VisibilitySensorOptions.Add_Conc_4 = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Add_Conc_4 = "none";
+
+            //Rezerv_5
+            if (GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used)
+                currentPage.VisibilitySensorOptions.Add_Conc_5 = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Add_Conc_5 = "none";
+
+            //O2_Wet
+            if (GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used)
+                currentPage.VisibilitySensorOptions.O2_Wet = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.O2_Wet = "none";
+
+            //O2_Dry
+            if (GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used)
+                currentPage.VisibilitySensorOptions.O2_Dry = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.O2_Dry = "none";
+            
+            //H2O
+            if (GlobalStaticSettingsASK.SensorRange.H2O.Is_Used)
+                currentPage.VisibilitySensorOptions.H2O = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.H2O = "none";
+
+            //P
+            if (GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used)
+                currentPage.VisibilitySensorOptions.Pressure = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Pressure = "none";
+
+            //T
+            if (GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature = "none";
+
+            //S
+            if (GlobalStaticSettingsASK.SensorRange.Speed.Is_Used)
+                currentPage.VisibilitySensorOptions.Speed = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Speed = "none";
+
+            //T_Kip
+            if (GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature_KIP = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature_KIP = "none";
+
+            //T_NOx
+            if (GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature_NOx = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature_NOx = "none";
 
             return currentPage;
         }
