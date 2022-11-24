@@ -6,7 +6,7 @@ namespace ASK.BLL.Models
 {
     public class SensorAlarm_Model
     {
-        public bool Is_Used { get; set; } = true;                                 //Испоьзуется ли аварии сенсоров
+        public bool Is_Used { get; set; } = true;                                 //Испоьзуются ли аварии сенсоров
 
         public Alarm_Model CO { get; set; } = new Alarm_Model();                  //Обрыв CO
         public Alarm_Model CO2 { get; set; } = new Alarm_Model();                 //Обрыв CO2

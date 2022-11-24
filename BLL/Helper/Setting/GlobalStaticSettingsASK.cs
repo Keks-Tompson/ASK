@@ -21,6 +21,7 @@ namespace ASK.BLL.Helper.Setting
     {
         static int delayedStart = 0;                //Отложенный старт для записис аварий в БД
 
+        static double approximation = 0.8;          //Завести отделбную переменную"! ?//Порог приближения
 
         public static bool is_simulation = true;    //Режим симуляции 4-20 сигналов
         private static double O2_Last = 1;          //Режим симуляции 4-20 сигналов старый O2
@@ -62,7 +63,8 @@ namespace ASK.BLL.Helper.Setting
         //Аварии
         public static GlobalAlarm_Model globalAlarms = new GlobalAlarm_Model();                                 //Глобальные аварии
         public static AllAlarm_Model allAlarm = new AllAlarm_Model();                                           //Все остальные варии будут хранится тут          
-
+        public static List<Alarm_Model> alarmList = new List<Alarm_Model>();                                    //Список провереямых аварий (именно дискретных) для журнала аварий
+        public static List<Alarm_Model> alarmList_Delegate = new List<Alarm_Model>();                            //Список проаеряемых аварий (именно высчитываемых) для журнала аварий
 
         public static void SaveSettingOptionsJSON()
         {
@@ -205,7 +207,9 @@ namespace ASK.BLL.Helper.Setting
             }
 
             GetCurrentPDZ();
-            ChartList.Add(new Chart_CurrentValue()); ///Первая нулевая точка //Потом удалить!
+            ChartList.Add(new Chart_CurrentValue());    //Первая нулевая точка //Потом удалить!
+
+            ChekActiveAlarms();                         //Заполняем делегаты в авариях котороые высчитываются
         }
 
 
@@ -328,10 +332,10 @@ namespace ASK.BLL.Helper.Setting
                     new20M.Temperature_KIP = Math.Round(Array20Ms.Average(a => a.Temperature_KIP), 3);
                     new20M.Temperature_NOx = Math.Round(Array20Ms.Average(a => a.Temperature_NOx), 3);
 
-                    if (globalAlarms.Is_Stop.Is_Used) new20M.Mode_ASK = 1;
+                    if (globalAlarms.Is_Stop.Value) new20M.Mode_ASK = 1;
                     else
                     {
-                        if (globalAlarms.Is_NotProcess.Is_Used) 
+                        if (globalAlarms.Is_NotProcess.Value) 
                             new20M.Mode_ASK = 2;
                         else
                             new20M.Mode_ASK = 0;
@@ -449,7 +453,8 @@ namespace ASK.BLL.Helper.Setting
             Normalization_ConcEmis();
 
             if (delayedStart > 0)
-                ChekSensorBreak();
+                //ChekSensorBreak();
+                UpdateAlarmList();
             else
                 delayedStart++;
 
@@ -461,7 +466,7 @@ namespace ASK.BLL.Helper.Setting
             if (!stopGetSernsorNow)
                 Array20Ms.Add((Array20M_Model)CurrentConcEmis.Clone());
 
-            if (CounterChart > 8)
+            if (CounterChart > 3) //Важная настройка, зависит от скорости проса ПЛК (1 сек - 8, 2 сек - 3 = частата записи 10 сек тогда и обновл. знач. графика)
             {
                 CounterChart = 0;
 
@@ -714,15 +719,17 @@ namespace ASK.BLL.Helper.Setting
 
                 if (connected.Status == IPStatus.Success)
                 {
-                    if (globalAlarms.Is_NotConnection.Value)
-                    {
-                        using (ApplicationDbContext db = new ApplicationDbContext())
-                        {
-                            var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                            globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotConnection);
-                        }
-                        globalAlarms.Is_NotConnection.Value = false;
-                    }
+                    //if (globalAlarms.Is_NotConnection.Value)
+                    //{
+                    //    using (ApplicationDbContext db = new ApplicationDbContext())
+                    //    {
+                    //        var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                    //        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotConnection);
+                    //    }
+                    //    globalAlarms.Is_NotConnection.Value = false;
+                    //}
+
+                    globalAlarms.Is_NotConnection.New_Value = false;
 
                     using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
                     {
@@ -921,15 +928,17 @@ namespace ASK.BLL.Helper.Setting
                 }
                 else
                 {
-                    if (!globalAlarms.Is_NotConnection.Value)
-                    {
-                        using (ApplicationDbContext db = new ApplicationDbContext())
-                        {
-                            var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                            globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
-                        }
-                        globalAlarms.Is_NotConnection.Value = true;
-                    }
+                    //if (!globalAlarms.Is_NotConnection.Value)
+                    //{
+                    //    using (ApplicationDbContext db = new ApplicationDbContext())
+                    //    {
+                    //        var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                    //        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
+                    //    }
+                    //    globalAlarms.Is_NotConnection.Value = true;
+                    //}
+
+                    globalAlarms.Is_NotConnection.New_Value = true;
 
                     SensorNow.Date = DateTime.Now;
 
@@ -997,15 +1006,17 @@ namespace ASK.BLL.Helper.Setting
             }
             catch
             {
-                if (!globalAlarms.Is_NotConnection.Value)
-                {
-                    using (ApplicationDbContext db = new ApplicationDbContext())
-                    {
-                        var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
-                    }
-                    globalAlarms.Is_NotConnection.Value = true;
-                }
+                //if (!globalAlarms.Is_NotConnection.Value)
+                //{
+                //    using (ApplicationDbContext db = new ApplicationDbContext())
+                //    {
+                //        var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+                //        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotConnection);
+                //    }
+                //    globalAlarms.Is_NotConnection.Value = true;
+                //}
+
+                globalAlarms.Is_NotConnection.New_Value = true;
 
                 SensorNow.Date = DateTime.Now;
 
@@ -1040,460 +1051,191 @@ namespace ASK.BLL.Helper.Setting
 
 
 
-        //Проверяем датчики на обрыв
-        public static void ChekSensorBreak() //Оптимизировать весь процесс с нуля! Есть проблемы!
+        //Проверяем какие аварии нам необходимо отслеживать (проверяется только при изменении натроек и при запуске приложения)
+        public static void ChekActiveAlarms() //Оптимизировать весь процесс с нуля! Есть проблемы! //1 попытка оптимизации есть
         {
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            //Обрыв датчиков
+            //CO обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.CO.CheckState = () =>
             {
-                var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
-
-                //Обрыв датчиков
-                if (SensorRange.CO.Is_Used)
-                    if (SensorNow.CO_4_20mA < SensorRange.CO.mA.Min || SensorNow.CO_4_20mA > SensorRange.CO.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.CO.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CO);
-
-                            allAlarm.SensorAlarm.CO.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.CO.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CO);
-
-                            allAlarm.SensorAlarm.CO.Value = false;
-                        }
-                    }
-
-                if (SensorRange.CO2.Is_Used)
-                    if (SensorNow.CO2_4_20mA < SensorRange.CO2.mA.Min || SensorNow.CO2_4_20mA > SensorRange.CO2.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.CO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CO2);
-
-                            allAlarm.SensorAlarm.CO2.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.CO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CO);
-
-                            allAlarm.SensorAlarm.CO2.Value = false;
-                        }
-                    }
-
-                if (SensorRange.NO.Is_Used)
-                    if (SensorNow.NO_4_20mA < SensorRange.NO.mA.Min || SensorNow.NO_4_20mA > SensorRange.NO.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.NO.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NO);
-
-                            allAlarm.SensorAlarm.NO.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.NO.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NO);
-
-                            allAlarm.SensorAlarm.NO.Value = false;
-                        }
-                    }
-
-                if (SensorRange.NO2.Is_Used)
-                    if (SensorNow.NO2_4_20mA < SensorRange.NO2.mA.Min || SensorNow.NO2_4_20mA > SensorRange.NO2.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.NO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NO2);
-
-                            allAlarm.SensorAlarm.NO2.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.NO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NO2);
-
-                            allAlarm.SensorAlarm.NO2.Value = false;
-                        }
-                    }
-
-                if (SensorRange.NOx.Is_Used)
-                    if (SensorNow.NOx_4_20mA < SensorRange.NOx.mA.Min || SensorNow.NOx_4_20mA > SensorRange.NOx.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.NOx.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.NOx);
-
-                            allAlarm.SensorAlarm.NOx.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.NOx.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.NOx);
-
-                            allAlarm.SensorAlarm.NOx.Value = false;
-                        }
-                    }
-
-                if (SensorRange.SO2.Is_Used)
-                    if (SensorNow.SO2_4_20mA < SensorRange.SO2.mA.Min || SensorNow.SO2_4_20mA > SensorRange.SO2.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.SO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.SO2);
-
-                            allAlarm.SensorAlarm.SO2.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.SO2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.SO2);
-
-                            allAlarm.SensorAlarm.SO2.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Dust.Is_Used)
-                    if (SensorNow.Dust_4_20mA < SensorRange.Dust.mA.Min || SensorNow.Dust_4_20mA > SensorRange.Dust.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Dust.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Dust);
-
-                            allAlarm.SensorAlarm.Dust.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Dust.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Dust);
-
-                            allAlarm.SensorAlarm.Dust.Value = false;
-                        }
-                    }
-
-                if (SensorRange.CH4.Is_Used)
-                    if (SensorNow.CH4_4_20mA < SensorRange.CH4.mA.Min || SensorNow.CH4_4_20mA > SensorRange.CH4.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.CH4.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.CH4);
-
-                            allAlarm.SensorAlarm.CH4.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.CH4.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.CH4);
-
-                            allAlarm.SensorAlarm.CH4.Value = false;
-                        }
-                    }
-
-                if (SensorRange.H2S.Is_Used)
-                    if (SensorNow.H2S_4_20mA < SensorRange.H2S.mA.Min || SensorNow.H2S_4_20mA > SensorRange.H2S.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.H2S.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.H2S);
-
-                            allAlarm.SensorAlarm.H2S.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.H2S.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.H2S);
-
-                            allAlarm.SensorAlarm.H2S.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Rezerv_1.Is_Used)
-                    if (SensorNow.Rezerv_1_4_20mA < SensorRange.Rezerv_1.mA.Min || SensorNow.Rezerv_1_4_20mA > SensorRange.Rezerv_1.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Rezerv_1.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_1);
-
-                            allAlarm.SensorAlarm.Rezerv_1.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Rezerv_1.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_1);
-
-                            allAlarm.SensorAlarm.Rezerv_1.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Rezerv_2.Is_Used)
-                    if (SensorNow.Rezerv_2_4_20mA < SensorRange.Rezerv_2.mA.Min || SensorNow.Rezerv_2_4_20mA > SensorRange.Rezerv_2.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Rezerv_2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_2);
-
-                            allAlarm.SensorAlarm.Rezerv_2.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Rezerv_2.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_2);
-
-                            allAlarm.SensorAlarm.Rezerv_2.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Rezerv_3.Is_Used)
-                    if (SensorNow.Rezerv_3_4_20mA < SensorRange.Rezerv_3.mA.Min || SensorNow.Rezerv_3_4_20mA > SensorRange.Rezerv_3.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Rezerv_3.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_3);
-
-                            allAlarm.SensorAlarm.Rezerv_3.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Rezerv_3.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_3);
-
-                            allAlarm.SensorAlarm.Rezerv_3.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Rezerv_4.Is_Used)
-                    if (SensorNow.Rezerv_4_4_20mA < SensorRange.Rezerv_4.mA.Min || SensorNow.Rezerv_4_4_20mA > SensorRange.Rezerv_4.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Rezerv_4.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_4);
-
-                            allAlarm.SensorAlarm.Rezerv_4.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Rezerv_4.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_4);
-
-                            allAlarm.SensorAlarm.Rezerv_4.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Rezerv_5.Is_Used)
-                    if (SensorNow.Rezerv_5_4_20mA < SensorRange.Rezerv_5.mA.Min || SensorNow.Rezerv_5_4_20mA > SensorRange.Rezerv_5.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Rezerv_5.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Rezerv_5);
-
-                            allAlarm.SensorAlarm.Rezerv_5.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Rezerv_5.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Rezerv_5);
-
-                            allAlarm.SensorAlarm.Rezerv_5.Value = false;
-                        }
-                    }
-
-                if (SensorRange.O2Wet.Is_Used)
-                    if (SensorNow.O2_Wet_4_20mA < SensorRange.O2Wet.mA.Min || SensorNow.O2_Wet_4_20mA > SensorRange.O2Wet.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.O2_Wet.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.O2_Wet);
-
-                            allAlarm.SensorAlarm.O2_Wet.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.O2_Wet.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.O2_Wet);
-
-                            allAlarm.SensorAlarm.O2_Wet.Value = false;
-                        }
-                    }
-
-                if (SensorRange.O2Dry.Is_Used)
-                    if (SensorNow.O2_Dry_4_20mA < SensorRange.O2Dry.mA.Min || SensorNow.O2_Dry_4_20mA > SensorRange.O2Dry.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.O2_Dry.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.O2_Dry);
-
-                            allAlarm.SensorAlarm.O2_Dry.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.O2_Dry.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.O2_Dry);
-
-                            allAlarm.SensorAlarm.O2_Dry.Value = false;
-                        }
-                    }
-
-                if (SensorRange.H2O.Is_Used)
-                    if (SensorNow.H2O_4_20mA < SensorRange.H2O.mA.Min || SensorNow.H2O_4_20mA > SensorRange.H2O.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.H2O.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.H2O);
-
-                            allAlarm.SensorAlarm.H2O.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.H2O.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.H2O);
-
-                            allAlarm.SensorAlarm.H2O.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Pressure.Is_Used)
-                    if (SensorNow.Pressure_4_20mA < SensorRange.Pressure.mA.Min || SensorNow.Pressure_4_20mA > SensorRange.Pressure.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Pressure.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Pressure);
-
-                            allAlarm.SensorAlarm.Pressure.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Pressure.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Pressure);
-
-                            allAlarm.SensorAlarm.Pressure.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Speed.Is_Used)
-                    if (SensorNow.Speed_4_20mA < SensorRange.Speed.mA.Min || SensorNow.Speed_4_20mA > SensorRange.Speed.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Speed.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Speed);
-
-                            allAlarm.SensorAlarm.Speed.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Speed.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Speed);
-
-                            allAlarm.SensorAlarm.Speed.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Temperature.Is_Used)
-                    if (SensorNow.Temperature_4_20mA < SensorRange.Temperature.mA.Min || SensorNow.Temperature_4_20mA > SensorRange.Temperature.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Temperature.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature);
-
-                            allAlarm.SensorAlarm.Temperature.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Temperature.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature);
-
-                            allAlarm.SensorAlarm.Temperature.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Temperature_KIP.Is_Used)
-                    if (SensorNow.Temperature_KIP_4_20mA < SensorRange.Temperature_KIP.mA.Min || SensorNow.Temperature_KIP_4_20mA > SensorRange.Temperature_KIP.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Temperature_KIP.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature_KIP);
-
-                            allAlarm.SensorAlarm.Temperature_KIP.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Temperature_KIP.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature_KIP);
-
-                            allAlarm.SensorAlarm.Temperature_KIP.Value = false;
-                        }
-                    }
-
-                if (SensorRange.Temperature_NOx.Is_Used)
-                    if (SensorNow.Temperature_NOx_4_20mA < SensorRange.Temperature_NOx.mA.Min || SensorNow.Temperature_NOx_4_20mA > SensorRange.Temperature_NOx.mA.Max)
-                    {
-                        if (!allAlarm.SensorAlarm.Temperature_NOx.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, allAlarm.SensorAlarm.Temperature_NOx);
-
-                            allAlarm.SensorAlarm.Temperature_NOx.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (allAlarm.SensorAlarm.Temperature_NOx.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, allAlarm.SensorAlarm.Temperature_NOx);
-
-                            allAlarm.SensorAlarm.Temperature_NOx.Value = false;
-                        }
-                    }
-
-
-
-
-                //Глобальные аварии и уведомления
-
-                //Общая авария
+                if (SensorNow.CO_4_20mA < SensorRange.CO.mA.Min || SensorNow.CO_4_20mA > SensorRange.CO.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //CO2 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.CO2.CheckState = () =>
+            {
+                if (SensorNow.CO2_4_20mA < SensorRange.CO2.mA.Min || SensorNow.CO2_4_20mA > SensorRange.CO2.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //NO обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.NO.CheckState = () =>
+            {
+                if (SensorNow.NO_4_20mA < SensorRange.NO.mA.Min || SensorNow.NO_4_20mA > SensorRange.NO.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //NO2 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.NO2.CheckState = () =>
+            {
+                if (SensorNow.NO2_4_20mA < SensorRange.NO2.mA.Min || SensorNow.NO2_4_20mA > SensorRange.NO2.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //NOx обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.NOx.CheckState = () =>
+            {
+                if (SensorNow.NOx_4_20mA < SensorRange.NOx.mA.Min || SensorNow.NOx_4_20mA > SensorRange.NOx.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //SO2 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.SO2.CheckState = () =>
+            {
+                if (SensorNow.SO2_4_20mA < SensorRange.SO2.mA.Min || SensorNow.SO2_4_20mA > SensorRange.SO2.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Dust обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Dust.CheckState = () =>
+            {
+                if (SensorNow.Dust_4_20mA < SensorRange.Dust.mA.Min || SensorNow.Dust_4_20mA > SensorRange.Dust.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //CH4 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.CH4.CheckState = () =>
+            {
+                if (SensorNow.CH4_4_20mA < SensorRange.CH4.mA.Min || SensorNow.CH4_4_20mA > SensorRange.CH4.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //H2S обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.H2S.CheckState = () =>
+            {
+                if (SensorNow.H2S_4_20mA < SensorRange.H2S.mA.Min || SensorNow.H2S_4_20mA > SensorRange.H2S.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Rezerv_1 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Rezerv_1.CheckState = () =>
+            {
+                if (SensorNow.Rezerv_1_4_20mA < SensorRange.Rezerv_1.mA.Min || SensorNow.Rezerv_1_4_20mA > SensorRange.Rezerv_1.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Rezerv_2 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Rezerv_2.CheckState = () =>
+            {
+                if (SensorNow.Rezerv_2_4_20mA < SensorRange.Rezerv_2.mA.Min || SensorNow.Rezerv_2_4_20mA > SensorRange.Rezerv_2.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Rezerv_3 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Rezerv_3.CheckState = () =>
+            {
+                if (SensorNow.Rezerv_3_4_20mA < SensorRange.Rezerv_3.mA.Min || SensorNow.Rezerv_3_4_20mA > SensorRange.Rezerv_3.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Rezerv_4 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Rezerv_4.CheckState = () =>
+            {
+                if (SensorNow.Rezerv_4_4_20mA < SensorRange.Rezerv_4.mA.Min || SensorNow.Rezerv_4_4_20mA > SensorRange.Rezerv_4.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Rezerv_5 обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Rezerv_5.CheckState = () =>
+            {
+                if (SensorNow.Rezerv_5_4_20mA < SensorRange.Rezerv_5.mA.Min || SensorNow.Rezerv_5_4_20mA > SensorRange.Rezerv_5.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //O2_Wet обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.O2_Wet.CheckState = () =>
+            {
+                if (SensorNow.O2_Wet_4_20mA < SensorRange.O2Wet.mA.Min || SensorNow.O2_Wet_4_20mA > SensorRange.O2Wet.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //O2_Dry обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.O2_Dry.CheckState = () =>
+            {
+                if (SensorNow.O2_Dry_4_20mA < SensorRange.O2Dry.mA.Min || SensorNow.O2_Dry_4_20mA > SensorRange.O2Dry.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //H2O обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.H2O.CheckState = () =>
+            {
+                if (SensorNow.H2O_4_20mA < SensorRange.H2O.mA.Min || SensorNow.H2O_4_20mA > SensorRange.H2O.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Pressure обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Pressure.CheckState = () =>
+            {
+                if (SensorNow.Pressure_4_20mA < SensorRange.Pressure.mA.Min || SensorNow.Pressure_4_20mA > SensorRange.Pressure.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Speed обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Speed.CheckState = () =>
+            {
+                if (SensorNow.Speed_4_20mA < SensorRange.Speed.mA.Min || SensorNow.Speed_4_20mA > SensorRange.Speed.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Temperature обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Temperature.CheckState = () =>
+            {
+                if (SensorNow.Temperature_4_20mA < SensorRange.Temperature.mA.Min || SensorNow.Temperature_4_20mA > SensorRange.Temperature.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Temperature KIP обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Temperature_KIP.CheckState = () =>
+            {
+                if (SensorNow.Temperature_KIP_4_20mA < SensorRange.Temperature_KIP.mA.Min || SensorNow.Temperature_KIP_4_20mA > SensorRange.Temperature_KIP.mA.Max)
+                    return true;
+                return false;
+            };
+
+            //Temperature NOx обрыв, создаём анонимный метод и помещаем в делегат
+            allAlarm.SensorAlarm.Temperature_NOx.CheckState = () =>
+            {
+                if (SensorNow.Temperature_NOx_4_20mA < SensorRange.Temperature_NOx.mA.Min || SensorNow.Temperature_NOx_4_20mA > SensorRange.Temperature_NOx.mA.Max)
+                    return true;
+                return false;
+            };
+
+
+            //Глобальные аварии и уведомления
+            //Общая авария
+            globalAlarms.Is_Error.CheckState = () =>
+            {
                 if ((allAlarm.SensorAlarm.CO.Value && allAlarm.SensorAlarm.CO.Is_Critical) ||
                     (allAlarm.SensorAlarm.CO2.Value && allAlarm.SensorAlarm.CO2.Is_Critical) ||
                     (allAlarm.SensorAlarm.NO.Value && allAlarm.SensorAlarm.NO.Is_Critical) ||
@@ -1516,26 +1258,13 @@ namespace ASK.BLL.Helper.Setting
                     (allAlarm.SensorAlarm.Speed.Value && allAlarm.SensorAlarm.Speed.Is_Critical) ||
                     (allAlarm.SensorAlarm.Temperature_KIP.Value && allAlarm.SensorAlarm.Temperature_KIP.Is_Critical) ||
                     (allAlarm.SensorAlarm.Temperature_NOx.Value && allAlarm.SensorAlarm.Temperature_NOx.Is_Critical))
-                {
-                    if (!globalAlarms.Is_Error.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
+                    return true;
+                return false;
+            };
 
-                        globalAlarms.Is_Error.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Error.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
-
-                        globalAlarms.Is_Error.Value = false;
-                    }
-                }
-
-
-                //Информационное сообщение
+            //Информационное сообщение
+            globalAlarms.Is_Info.CheckState = () =>
+            {
                 if ((allAlarm.SensorAlarm.CO.Value && !allAlarm.SensorAlarm.CO.Is_Critical) ||
                     (allAlarm.SensorAlarm.CO2.Value && !allAlarm.SensorAlarm.CO2.Is_Critical) ||
                     (allAlarm.SensorAlarm.NO.Value && !allAlarm.SensorAlarm.NO.Is_Critical) ||
@@ -1558,98 +1287,42 @@ namespace ASK.BLL.Helper.Setting
                     (allAlarm.SensorAlarm.Speed.Value && !allAlarm.SensorAlarm.Speed.Is_Critical) ||
                     (allAlarm.SensorAlarm.Temperature_KIP.Value && !allAlarm.SensorAlarm.Temperature_KIP.Is_Critical) ||
                     (allAlarm.SensorAlarm.Temperature_NOx.Value && !allAlarm.SensorAlarm.Temperature_NOx.Is_Critical))
-                {
-                    if (!globalAlarms.Is_Info.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
+                    return true;
+                return false;
+            };
 
-                        globalAlarms.Is_Info.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Info.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
-
-                        globalAlarms.Is_Info.Value = false;
-                    }
-                }
-
-
-                //Простой  //Условия простоя (на данный момент, есть авария - ппростой)
+            //Простой  //Условия простоя (на данный момент, есть авария - ппростой)
+            globalAlarms.Is_Stop.CheckState = () =>
+            {
                 if (globalAlarms.Is_Error.Value)
-                {
-                    if (!globalAlarms.Is_Stop.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Stop);
+                    return true;
+                return false;
+            };
 
-                        globalAlarms.Is_Stop.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Stop.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Stop);
-
-                        globalAlarms.Is_Stop.Value = false;
-                    }
-                }
-
-
-
-
-                //Нет выбросов  //Пока смотрим только по кислороду (сухому, если нет сухого по влажн)
+            //Нет выбросов  //Пока смотрим только по кислороду (сухому, если нет сухого по влажн)
+            globalAlarms.Is_NotProcess.CheckState = () =>
+            {
                 if (SensorRange.O2Dry.Is_Used)
                 {
                     if (CurrentConcEmis.O2_Dry >= 20.0 && !globalAlarms.Is_Stop.Value && !allAlarm.SensorAlarm.O2_Dry.Value)
-                    {
-                        if (!globalAlarms.Is_NotProcess.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotProcess);
-
-                            globalAlarms.Is_NotProcess.Value = true;
-                        }
-                    }
-                    else
-                    {
-                        if (globalAlarms.Is_NotProcess.Value)
-                        {
-                            globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotProcess);
-
-                            globalAlarms.Is_NotProcess.Value = false;
-                        }
-                    }
+                        return true;
+                    return false;
                 }
                 else
                 {
                     if (SensorRange.O2Wet.Is_Used)
                     {
                         if (CurrentConcEmis.O2_Wet >= 20.0 && !globalAlarms.Is_Stop.Value && !allAlarm.SensorAlarm.O2_Wet.Value)
-                        {
-                            if (!globalAlarms.Is_NotProcess.Value)
-                            {
-                                globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_NotProcess);
-
-                                globalAlarms.Is_NotProcess.Value = true;
-                            }
-                        }
-                        else
-                        {
-                            if (globalAlarms.Is_NotProcess.Value)
-                            {
-                                globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_NotProcess);
-
-                                globalAlarms.Is_NotProcess.Value = false;
-                            }
-                        }
+                            return true;
+                        return false;
                     }
+                    return false; //Датчики кислородов не используются
                 }
+            };
 
-
-
-                //превышение  //Превышение ПДК
+            //Превышение  //Превышение ПДЗ
+            globalAlarms.Is_Excess.CheckState = () =>
+            {
                 if (CurrentConcEmis.CO_Conc > PDZ_Current.CO_Conc || CurrentConcEmis.CO_Emis > PDZ_Current.CO_Emis ||
                     CurrentConcEmis.CO2_Conc > PDZ_Current.CO2_Conc || CurrentConcEmis.CO2_Emis > PDZ_Current.CO2_Emis ||
                     CurrentConcEmis.NO_Conc > PDZ_Current.NO_Conc || CurrentConcEmis.NO_Emis > PDZ_Current.NO_Emis ||
@@ -1663,125 +1336,137 @@ namespace ASK.BLL.Helper.Setting
                     CurrentConcEmis.Add_Conc_3 > PDZ_Current.Add_Conc_3 || CurrentConcEmis.Add_Emis_3 > PDZ_Current.Add_Emis_3 ||
                     CurrentConcEmis.Add_Conc_4 > PDZ_Current.Add_Conc_4 || CurrentConcEmis.Add_Emis_4 > PDZ_Current.Add_Emis_4 ||
                     CurrentConcEmis.Add_Conc_5 > PDZ_Current.Add_Conc_5 || CurrentConcEmis.Add_Emis_5 > PDZ_Current.Add_Emis_5)
+                    return true;
+                return false;
+            };
+
+            //Приближение 
+            globalAlarms.Is_Approximation.CheckState = () =>
+            {
+                // approximation = 0.8; // Приближение //Завести отделбную переменную"!
+                if (CurrentConcEmis.CO_Conc > PDZ_Current.CO_Conc * approximation && CurrentConcEmis.CO_Conc < PDZ_Current.CO_Conc || CurrentConcEmis.CO_Emis > PDZ_Current.CO_Emis * approximation && CurrentConcEmis.CO_Emis < PDZ_Current.CO_Emis ||
+                    CurrentConcEmis.CO2_Conc > PDZ_Current.CO2_Conc * approximation && CurrentConcEmis.CO2_Conc < PDZ_Current.CO2_Conc || CurrentConcEmis.CO2_Emis > PDZ_Current.CO2_Emis * approximation && CurrentConcEmis.CO2_Emis < PDZ_Current.CO2_Emis ||
+                    CurrentConcEmis.NO_Conc > PDZ_Current.NO_Conc * approximation && CurrentConcEmis.NO_Conc < PDZ_Current.NO_Conc || CurrentConcEmis.NO_Emis > PDZ_Current.NO_Emis * approximation && CurrentConcEmis.NO_Emis < PDZ_Current.NO_Emis ||
+                    CurrentConcEmis.NO2_Conc > PDZ_Current.NO2_Conc * approximation && CurrentConcEmis.NO2_Conc < PDZ_Current.NO2_Conc || CurrentConcEmis.NO2_Emis > PDZ_Current.NO2_Emis * approximation && CurrentConcEmis.NO2_Emis < PDZ_Current.NO2_Emis ||
+                    CurrentConcEmis.NOx_Conc > PDZ_Current.NOx_Conc * approximation && CurrentConcEmis.NOx_Conc < PDZ_Current.NOx_Conc || CurrentConcEmis.NOx_Emis > PDZ_Current.NOx_Emis * approximation && CurrentConcEmis.NOx_Emis < PDZ_Current.NOx_Emis ||
+                    CurrentConcEmis.Dust_Conc > PDZ_Current.Dust_Conc * approximation && CurrentConcEmis.Dust_Conc < PDZ_Current.Dust_Conc || CurrentConcEmis.Dust_Emis > PDZ_Current.Dust_Emis * approximation && CurrentConcEmis.Dust_Emis < PDZ_Current.Dust_Emis ||
+                    CurrentConcEmis.CH4_Conc > PDZ_Current.CH4_Conc * approximation && CurrentConcEmis.CH4_Conc < PDZ_Current.CH4_Conc || CurrentConcEmis.CH4_Emis > PDZ_Current.CH4_Emis * approximation && CurrentConcEmis.CH4_Emis < PDZ_Current.CH4_Emis ||
+                    CurrentConcEmis.H2S_Conc > PDZ_Current.H2S_Conc * approximation && CurrentConcEmis.H2S_Conc < PDZ_Current.H2S_Conc || CurrentConcEmis.H2S_Emis > PDZ_Current.H2S_Emis * approximation && CurrentConcEmis.H2S_Emis < PDZ_Current.H2S_Emis ||
+                    CurrentConcEmis.Add_Conc_1 > PDZ_Current.Add_Conc_1 * approximation && CurrentConcEmis.Add_Conc_1 < PDZ_Current.Add_Conc_1 || CurrentConcEmis.Add_Emis_1 > PDZ_Current.Add_Emis_1 * approximation && CurrentConcEmis.Add_Emis_1 < PDZ_Current.Add_Emis_1 ||
+                    CurrentConcEmis.Add_Conc_2 > PDZ_Current.Add_Conc_2 * approximation && CurrentConcEmis.Add_Conc_2 < PDZ_Current.Add_Conc_2 || CurrentConcEmis.Add_Emis_2 > PDZ_Current.Add_Emis_2 * approximation && CurrentConcEmis.Add_Emis_2 < PDZ_Current.Add_Emis_2 ||
+                    CurrentConcEmis.Add_Conc_3 > PDZ_Current.Add_Conc_3 * approximation && CurrentConcEmis.Add_Conc_3 < PDZ_Current.Add_Conc_3 || CurrentConcEmis.Add_Emis_3 > PDZ_Current.Add_Emis_3 * approximation && CurrentConcEmis.Add_Emis_3 < PDZ_Current.Add_Emis_3 ||
+                    CurrentConcEmis.Add_Conc_4 > PDZ_Current.Add_Conc_4 * approximation && CurrentConcEmis.Add_Conc_4 < PDZ_Current.Add_Conc_4 || CurrentConcEmis.Add_Emis_4 > PDZ_Current.Add_Emis_4 * approximation && CurrentConcEmis.Add_Emis_4 < PDZ_Current.Add_Emis_4 ||
+                    CurrentConcEmis.Add_Conc_5 > PDZ_Current.Add_Conc_5 * approximation && CurrentConcEmis.Add_Conc_5 < PDZ_Current.Add_Conc_5 || CurrentConcEmis.Add_Emis_5 > PDZ_Current.Add_Emis_5 * approximation && CurrentConcEmis.Add_Emis_5 < PDZ_Current.Add_Emis_5)
+                    return true;
+                return false;
+            };
+
+            //Техническое обслуживание
+            globalAlarms.Is_Maintenance.CheckState = () =>
+            {
+                if (false) //Отключено
+                    return true;
+                return false;
+            };
+
+            //Дверь контейнера
+            globalAlarms.Is_OpenDoor.CheckState = () =>
+            {
+                if (false)  //Отключено
+                    return true;
+                return false;
+            };
+
+            //Сигнал пожара
+            globalAlarms.Is_Fire.CheckState = () =>
+            {
+                if (false) //Отключено
+                    return true;
+                return false;
+            };
+
+            CreatActiveAlarmList(); //Проверяем какие аварии будут задействованы
+        }
+
+
+
+        //На данный момент создаём 2 массива, с активными авариями: список обычными дискретами и список с авариями которые поределяем в процессе (проверяется только при изменении натроек и при запуске приложения)
+        public static void CreatActiveAlarmList()
+        {
+            alarmList_Delegate.Clear();
+            alarmList.Clear();
+
+            //Аварии с делегатами
+            //Обрывы датчиков
+            if (allAlarm.SensorAlarm.CO.Is_Used && SensorRange.CO.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.CO);
+            if (allAlarm.SensorAlarm.CO2.Is_Used && SensorRange.CO2.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.CO2);
+            if (allAlarm.SensorAlarm.NO.Is_Used && SensorRange.NO.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.NO);
+            if (allAlarm.SensorAlarm.NO2.Is_Used && SensorRange.NO2.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.NO2);
+            if (allAlarm.SensorAlarm.NOx.Is_Used && SensorRange.NOx.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.NOx);
+            if (allAlarm.SensorAlarm.SO2.Is_Used && SensorRange.SO2.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.SO2);
+            if (allAlarm.SensorAlarm.Dust.Is_Used && SensorRange.Dust.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Dust);
+            if (allAlarm.SensorAlarm.CH4.Is_Used && SensorRange.CH4.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.CH4);
+            if (allAlarm.SensorAlarm.H2S.Is_Used && SensorRange.H2S.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.H2S);
+
+            if (allAlarm.SensorAlarm.Rezerv_1.Is_Used && SensorRange.Rezerv_1.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Rezerv_1);
+            if (allAlarm.SensorAlarm.Rezerv_2.Is_Used && SensorRange.Rezerv_2.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Rezerv_2);
+            if (allAlarm.SensorAlarm.Rezerv_3.Is_Used && SensorRange.Rezerv_3.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Rezerv_3);
+            if (allAlarm.SensorAlarm.Rezerv_4.Is_Used && SensorRange.Rezerv_4.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Rezerv_4);
+            if (allAlarm.SensorAlarm.Rezerv_5.Is_Used && SensorRange.Rezerv_5.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Rezerv_5);
+
+            if (allAlarm.SensorAlarm.O2_Wet.Is_Used && SensorRange.O2Wet.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.O2_Wet);
+            if (allAlarm.SensorAlarm.O2_Dry.Is_Used && SensorRange.O2Dry.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.O2_Dry);
+            if (allAlarm.SensorAlarm.H2O.Is_Used && SensorRange.H2O.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.H2O);
+
+            if (allAlarm.SensorAlarm.Pressure.Is_Used && SensorRange.Pressure.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Pressure);
+            if (allAlarm.SensorAlarm.Temperature.Is_Used && SensorRange.Temperature.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Temperature);
+            if (allAlarm.SensorAlarm.Speed.Is_Used && SensorRange.Speed.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Speed);
+            if (allAlarm.SensorAlarm.Temperature_KIP.Is_Used && SensorRange.Temperature_KIP.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Temperature_KIP);
+            if (allAlarm.SensorAlarm.Temperature_NOx.Is_Used && SensorRange.Temperature_NOx.Is_Used) alarmList_Delegate.Add(allAlarm.SensorAlarm.Temperature_NOx);
+
+            //Общие
+            if (globalAlarms.Is_Stop.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Stop);
+            if (globalAlarms.Is_NotProcess.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_NotProcess);
+            if (globalAlarms.Is_Excess.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Excess);
+            if (globalAlarms.Is_Approximation.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Approximation);
+            //if (globalAlarms.Is_Error.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Error);
+            //if (globalAlarms.Is_Info.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Info);
+            if (globalAlarms.Is_Maintenance.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Maintenance);
+            if (globalAlarms.Is_OpenDoor.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_OpenDoor);
+            if (globalAlarms.Is_Fire.Is_Used) alarmList_Delegate.Add(globalAlarms.Is_Fire);
+
+
+
+            //Аварии без делегатов
+            //Общие 
+            if (globalAlarms.Is_NotConnection.Is_Used) alarmList.Add(globalAlarms.Is_NotConnection);
+        }
+
+
+        //Данные используемых аварий
+        public static void UpdateAlarmList()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var globalAlarm_Services = new GlobalAlarm_Services(new ACCIDENT_LOG_Repository(db));
+            
+                //Аварии с делегатами
+                for (int i=0; i < alarmList_Delegate.Count; i++)
                 {
+                    alarmList_Delegate[i].New_Value = alarmList_Delegate[i].CheckState();
 
-                    if (!globalAlarms.Is_Excess.Value)
+                    if (alarmList_Delegate[i].Value != alarmList_Delegate[i].New_Value)
                     {
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Excess);
-
-                        globalAlarms.Is_Excess.Value = true;
+                        globalAlarm_Services.AlarmLogBuiderNew(alarmList_Delegate[i]);
                     }
                 }
-                else
+
+                //Аварии без делегатов
+                for (int i = 0; i < alarmList.Count; i++)
                 {
-                    if (globalAlarms.Is_Excess.Value)
+                    if (alarmList[i].Value != alarmList[i].New_Value)
                     {
-                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Excess);
-
-                        globalAlarms.Is_Excess.Value = false;
-                    }
-                }
-
-
-
-                //Приближение 
-                double approximation = 0.8; //Завести отделбную переменную"!
-                if (CurrentConcEmis.CO_Conc > PDZ_Current.CO_Conc * approximation       && CurrentConcEmis.CO_Conc < PDZ_Current.CO_Conc        || CurrentConcEmis.CO_Emis > PDZ_Current.CO_Emis * approximation        && CurrentConcEmis.CO_Emis < PDZ_Current.CO_Emis ||
-                    CurrentConcEmis.CO2_Conc > PDZ_Current.CO2_Conc * approximation     && CurrentConcEmis.CO2_Conc < PDZ_Current.CO2_Conc      || CurrentConcEmis.CO2_Emis > PDZ_Current.CO2_Emis * approximation      && CurrentConcEmis.CO2_Emis < PDZ_Current.CO2_Emis ||
-                    CurrentConcEmis.NO_Conc > PDZ_Current.NO_Conc * approximation       && CurrentConcEmis.NO_Conc < PDZ_Current.NO_Conc        || CurrentConcEmis.NO_Emis > PDZ_Current.NO_Emis * approximation        && CurrentConcEmis.NO_Emis < PDZ_Current.NO_Emis ||
-                    CurrentConcEmis.NO2_Conc > PDZ_Current.NO2_Conc * approximation     && CurrentConcEmis.NO2_Conc < PDZ_Current.NO2_Conc      || CurrentConcEmis.NO2_Emis > PDZ_Current.NO2_Emis * approximation      && CurrentConcEmis.NO2_Emis < PDZ_Current.NO2_Emis ||
-                    CurrentConcEmis.NOx_Conc > PDZ_Current.NOx_Conc * approximation     && CurrentConcEmis.NOx_Conc < PDZ_Current.NOx_Conc      || CurrentConcEmis.NOx_Emis > PDZ_Current.NOx_Emis * approximation      && CurrentConcEmis.NOx_Emis < PDZ_Current.NOx_Emis ||
-                    CurrentConcEmis.Dust_Conc > PDZ_Current.Dust_Conc * approximation   && CurrentConcEmis.Dust_Conc < PDZ_Current.Dust_Conc    || CurrentConcEmis.Dust_Emis > PDZ_Current.Dust_Emis * approximation    && CurrentConcEmis.Dust_Emis < PDZ_Current.Dust_Emis ||
-                    CurrentConcEmis.CH4_Conc > PDZ_Current.CH4_Conc * approximation     && CurrentConcEmis.CH4_Conc < PDZ_Current.CH4_Conc      || CurrentConcEmis.CH4_Emis > PDZ_Current.CH4_Emis * approximation      && CurrentConcEmis.CH4_Emis < PDZ_Current.CH4_Emis ||
-                    CurrentConcEmis.H2S_Conc > PDZ_Current.H2S_Conc * approximation     && CurrentConcEmis.H2S_Conc < PDZ_Current.H2S_Conc      || CurrentConcEmis.H2S_Emis > PDZ_Current.H2S_Emis * approximation      && CurrentConcEmis.H2S_Emis < PDZ_Current.H2S_Emis ||
-                    CurrentConcEmis.Add_Conc_1 > PDZ_Current.Add_Conc_1 * approximation && CurrentConcEmis.Add_Conc_1 < PDZ_Current.Add_Conc_1  || CurrentConcEmis.Add_Emis_1 > PDZ_Current.Add_Emis_1 * approximation  && CurrentConcEmis.Add_Emis_1 < PDZ_Current.Add_Emis_1 ||
-                    CurrentConcEmis.Add_Conc_2 > PDZ_Current.Add_Conc_2 * approximation && CurrentConcEmis.Add_Conc_2 < PDZ_Current.Add_Conc_2  || CurrentConcEmis.Add_Emis_2 > PDZ_Current.Add_Emis_2 * approximation  && CurrentConcEmis.Add_Emis_2 < PDZ_Current.Add_Emis_2 ||
-                    CurrentConcEmis.Add_Conc_3 > PDZ_Current.Add_Conc_3 * approximation && CurrentConcEmis.Add_Conc_3 < PDZ_Current.Add_Conc_3  || CurrentConcEmis.Add_Emis_3 > PDZ_Current.Add_Emis_3 * approximation  && CurrentConcEmis.Add_Emis_3 < PDZ_Current.Add_Emis_3 ||
-                    CurrentConcEmis.Add_Conc_4 > PDZ_Current.Add_Conc_4 * approximation && CurrentConcEmis.Add_Conc_4 < PDZ_Current.Add_Conc_4  || CurrentConcEmis.Add_Emis_4 > PDZ_Current.Add_Emis_4 * approximation  && CurrentConcEmis.Add_Emis_4 < PDZ_Current.Add_Emis_4 ||
-                    CurrentConcEmis.Add_Conc_5 > PDZ_Current.Add_Conc_5 * approximation && CurrentConcEmis.Add_Conc_5 < PDZ_Current.Add_Conc_5  || CurrentConcEmis.Add_Emis_5 > PDZ_Current.Add_Emis_5 * approximation  && CurrentConcEmis.Add_Emis_5 < PDZ_Current.Add_Emis_5)
-                {
-
-                    if (!globalAlarms.Is_Approximation.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Approximation);
-
-                        globalAlarms.Is_Approximation.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Approximation.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Approximation);
-
-                        globalAlarms.Is_Approximation.Value = false;
-                    }
-                }
-
-
-
-                //Техническое обслуживание
-                if (false)
-                {
-                    if (!globalAlarms.Is_Maintenance.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Error);
-
-                        globalAlarms.Is_Maintenance.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Maintenance.Value)
-                    {
-                        //globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Error);
-
-                        globalAlarms.Is_Maintenance.Value = false;
-                    }
-                }
-
-
-
-                //Дверь контейнера
-                if (false)
-                {
-                    if (!globalAlarms.Is_OpenDoor.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_OpenDoor);
-
-                        globalAlarms.Is_OpenDoor.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_OpenDoor.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_OpenDoor);
-
-                        globalAlarms.Is_OpenDoor.Value = false;
-                    }
-                }
-
-
-
-
-                //Сигнал пожара
-                if (false)
-                {
-                    if (!globalAlarms.Is_Fire.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(true, false, globalAlarms.Is_Fire);
-
-                        globalAlarms.Is_Fire.Value = true;
-                    }
-                }
-                else
-                {
-                    if (globalAlarms.Is_Fire.Value)
-                    {
-                        globalAlarm_Services.AlarmLogBuider(false, true, globalAlarms.Is_Fire);
-
-                        globalAlarms.Is_Fire.Value = false;
+                        globalAlarm_Services.AlarmLogBuiderNew(alarmList[i]);
                     }
                 }
             }

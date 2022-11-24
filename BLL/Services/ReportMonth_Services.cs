@@ -318,6 +318,45 @@ namespace ASK.BLL.Services
             reportMonth.sumTotal_20M.Add_Conc_4 = 0.0;
             reportMonth.sumTotal_20M.Add_Conc_5 = 0.0;
 
+
+
+
+
+
+            //Интересные вещи происходят,получаю хорошие (3 знака после запятой) значения лишь сумирую их и выскакивает от 6 знаков после запятой
+            //Концентрации длит. прев.
+            reportMonth.avgTotal_20M.CO_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.CO_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.CO2_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.CO2_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.NOx_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.NOx_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.SO2_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.SO2_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.Dust_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.Dust_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.CH4_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.CH4_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.H2S_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.H2S_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Conc_1_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_1_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Conc_2_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_2_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Conc_3_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_3_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Conc_4_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_4_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Conc_5_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_5_Percent, 3);
+
+            //Выбросы длит. прев.
+            reportMonth.avgTotal_20M.CO_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.CO_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.CO2_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.CO2_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.NO_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.NO_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.NOx_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.NOx_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.NO2_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.NO2_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.SO2_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.SO2_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.Dust_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.Dust_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.CH4_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.CH4_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.H2S_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.H2S_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Emis_1_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_1_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Emis_2_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_2_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Emis_3_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_3_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Emis_4_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_4_Percent, 3);
+            reportMonth.avgTotal_20M.Add_Emis_5_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_5_Percent, 3);
+
+
+
+
             return reportMonth;
         }
     }

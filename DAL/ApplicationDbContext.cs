@@ -16,6 +16,7 @@ namespace ASK.DAL
         public static DbContextOptionsBuilder<ApplicationDbContext> optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
         public static Microsoft.EntityFrameworkCore.DbContextOptions<ASK.DAL.ApplicationDbContext> options = optionsBuilder
+                //.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=ASK_SIMATEK;Trusted_Connection=True;MultipleActiveResultSets=true")
                 .UseSqlServer(@"Server=MNS1-212N;Database=ASK_SIMATEK;Trusted_Connection=True;MultipleActiveResultSets=true")
                 //.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ASK_SIMATEK;Trusted_Connection=True;MultipleActiveResultSets=true")
                 .Options;

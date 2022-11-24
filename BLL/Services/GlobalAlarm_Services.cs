@@ -48,5 +48,21 @@ namespace ASK.BLL.Services
                 //}
             }
         }
+
+
+
+        /// <summary>
+        /// Обновлённый метод который сам всё делает
+        /// </summary>
+        /// <param name="alarmName"></param>
+        public void AlarmLogBuiderNew(Alarm_Model alarm)
+        {
+            if (alarm.New_Value)
+                _ACCIDENT_LOG_Repository.Begin_ACCIDENT_LOG(alarm.ID);
+            else
+                _ACCIDENT_LOG_Repository.End_ACCIDENT_LOG(alarm.ID);
+
+            alarm.Value = alarm.New_Value;
+        }
     }
 }

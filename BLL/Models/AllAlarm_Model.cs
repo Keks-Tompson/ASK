@@ -7,7 +7,11 @@ namespace ASK.BLL.Models
 {
     public class AllAlarm_Model
     {
-        public SensorAlarm_Model SensorAlarm { get; set; } = new SensorAlarm_Model();
+        public SensorAlarm_Model SensorAlarm { get; set; } = new SensorAlarm_Model();       //Аварии обырывов датчиков
+
+        public GasAnalyzer_Model GasAnalyzer { get; set; } = new GasAnalyzer_Model();       //Аварии Газоанализаторов
+
+
 
     }
 }

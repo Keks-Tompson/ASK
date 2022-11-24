@@ -8,8 +8,13 @@ namespace ASK.BLL.Models
     {
         public int ID { get; set; } = 100;
         public bool Value { get; set; } = false;
+        public bool New_Value { get; set; } = false;
         public bool Is_Used { get; set; } = false;
         public bool Is_Info { get; set; } = false;
         public bool Is_Critical { get; set; } = false;
+
+
+        public delegate bool CheckState_Delegate();
+        public CheckState_Delegate CheckState;    
     }
 }
