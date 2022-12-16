@@ -19,6 +19,7 @@ namespace ASK.DAL.Models
         public double Conc_Dust { get; set; }
         public double Conc_CH4 { get; set; }
         public double Conc_H2S { get; set; }
+        public double Conc_NH3 { get; set; }
         public double Conc_D1 { get; set; }
         public double Conc_D2 { get; set; }
         public double Conc_D3 { get; set; }
@@ -34,6 +35,7 @@ namespace ASK.DAL.Models
         public double Emis_CH4 { get; set; }
         public double Emis_H2S { get; set; }
         public double Emis_Dust { get; set; }
+        public double Emis_NH3 { get; set; }
         public double Emis_D1 { get; set; }
         public double Emis_D2 { get; set; }
         public double Emis_D3 { get; set; }
@@ -48,9 +50,16 @@ namespace ASK.DAL.Models
         public double Temperature { get; set; }
         public double Speed { get; set; }
         public double Flow { get; set; }
+
+        public double Pressure_KIP { get; set; }
+        public double Temperature_Room { get; set; }
+        public double Temperature_PGS { get; set; }
         public double Temperature_KIP { get; set; }
         public double Temperature_NOx { get; set; }
-        
+        public double Temperature_Point_Dew { get; set; }   //Температруа точки росы воздуха КИП
+        public double O2_Room { get; set; }                 //Кислород в помщенеии
+        public double O2_PGS { get; set; }                  //Кислород в помщенеии ПГС
+
         public int Mode_ASK { get; set; }
         public int PDZ_Fuel { get; set; } = 0;
 

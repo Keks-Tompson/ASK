@@ -11,7 +11,6 @@ namespace ASK.BLL.Models
 
         public GasAnalyzer_Model GasAnalyzer { get; set; } = new GasAnalyzer_Model();       //Аварии Газоанализаторов
 
-
-
+        public ASK10626_Alarms ASK10626 { get; set; } = new ASK10626_Alarms();              //Аварии для проекта 10626
     }
 }

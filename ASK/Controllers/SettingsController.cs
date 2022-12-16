@@ -84,6 +84,7 @@ namespace ASK.Controllers
             double PDZ_1_Dust_Conc,
             double PDZ_1_CH4_Conc,
             double PDZ_1_H2S_Conc,
+            double PDZ_1_NH3_Conc,
             double PDZ_1_Add_Conc_1,
             double PDZ_1_Add_Conc_2,
             double PDZ_1_Add_Conc_3,
@@ -99,6 +100,7 @@ namespace ASK.Controllers
             double PDZ_1_Dust_Emis,
             double PDZ_1_CH4_Emis,
             double PDZ_1_H2S_Emis,
+            double PDZ_1_NH3_Emis,
             double PDZ_1_Add_Emis_1,
             double PDZ_1_Add_Emis_2,
             double PDZ_1_Add_Emis_3,
@@ -119,6 +121,7 @@ namespace ASK.Controllers
             double PDZ_2_Dust_Conc,
             double PDZ_2_CH4_Conc,
             double PDZ_2_H2S_Conc,
+            double PDZ_2_NH3_Conc,
             double PDZ_2_Add_Conc_1,
             double PDZ_2_Add_Conc_2,
             double PDZ_2_Add_Conc_3,
@@ -134,6 +137,7 @@ namespace ASK.Controllers
             double PDZ_2_Dust_Emis,
             double PDZ_2_CH4_Emis,
             double PDZ_2_H2S_Emis,
+            double PDZ_2_NH3_Emis,
             double PDZ_2_Add_Emis_1,
             double PDZ_2_Add_Emis_2,
             double PDZ_2_Add_Emis_3,
@@ -153,6 +157,7 @@ namespace ASK.Controllers
             double PDZ_3_Dust_Conc,
             double PDZ_3_CH4_Conc,
             double PDZ_3_H2S_Conc,
+            double PDZ_3_NH3_Conc,
             double PDZ_3_Add_Conc_1,
             double PDZ_3_Add_Conc_2,
             double PDZ_3_Add_Conc_3,
@@ -168,6 +173,7 @@ namespace ASK.Controllers
             double PDZ_3_Dust_Emis,
             double PDZ_3_CH4_Emis,
             double PDZ_3_H2S_Emis,
+            double PDZ_3_NH3_Emis,
             double PDZ_3_Add_Emis_1,
             double PDZ_3_Add_Emis_2,
             double PDZ_3_Add_Emis_3,
@@ -196,6 +202,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Conc = PDZ_1_Dust_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Conc = PDZ_1_CH4_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Conc = PDZ_1_H2S_Conc;
+            GlobalStaticSettingsASK.PDZ.PDZ_1_NH3_Conc = PDZ_1_NH3_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_1 = PDZ_1_Add_Conc_1;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_2 = PDZ_1_Add_Conc_2;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_3 = PDZ_1_Add_Conc_3;
@@ -211,6 +218,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Emis = PDZ_1_Dust_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Emis = PDZ_1_CH4_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Emis = PDZ_1_H2S_Emis;
+            GlobalStaticSettingsASK.PDZ.PDZ_1_NH3_Emis = PDZ_1_NH3_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_1 = PDZ_1_Add_Emis_1;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_2 = PDZ_1_Add_Emis_2;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_3 = PDZ_1_Add_Emis_3;
@@ -230,6 +238,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Conc = PDZ_2_Dust_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Conc = PDZ_2_CH4_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Conc = PDZ_2_H2S_Conc;
+            GlobalStaticSettingsASK.PDZ.PDZ_2_NH3_Conc = PDZ_2_NH3_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_1 = PDZ_2_Add_Conc_1;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_2 = PDZ_2_Add_Conc_2;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Conc_3 = PDZ_2_Add_Conc_3;
@@ -245,6 +254,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_2_Dust_Emis = PDZ_2_Dust_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_2_CH4_Emis = PDZ_2_CH4_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_2_H2S_Emis = PDZ_2_H2S_Emis;
+            GlobalStaticSettingsASK.PDZ.PDZ_2_NH3_Emis = PDZ_2_NH3_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_1 = PDZ_2_Add_Emis_1;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_2 = PDZ_2_Add_Emis_2;
             GlobalStaticSettingsASK.PDZ.PDZ_2_Add_Emis_3 = PDZ_2_Add_Emis_3;
@@ -264,6 +274,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Conc = PDZ_3_Dust_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Conc = PDZ_3_CH4_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Conc = PDZ_3_H2S_Conc;
+            GlobalStaticSettingsASK.PDZ.PDZ_3_NH3_Conc = PDZ_3_NH3_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_1 = PDZ_3_Add_Conc_1;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_2 = PDZ_3_Add_Conc_2;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Conc_3 = PDZ_3_Add_Conc_3;
@@ -279,6 +290,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_3_Dust_Emis = PDZ_3_Dust_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_3_CH4_Emis = PDZ_3_CH4_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_3_H2S_Emis = PDZ_3_H2S_Emis;
+            GlobalStaticSettingsASK.PDZ.PDZ_3_NH3_Emis = PDZ_3_NH3_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_1 = PDZ_3_Add_Emis_1;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_2 = PDZ_3_Add_Emis_2;
             GlobalStaticSettingsASK.PDZ.PDZ_3_Add_Emis_3 = PDZ_3_Add_Emis_3;
@@ -309,6 +321,7 @@ namespace ASK.Controllers
                                         double PDZ_1_Dust_Conc,
                                         double PDZ_1_CH4_Conc,
                                         double PDZ_1_H2S_Conc,
+                                        double PDZ_1_NH3_Conc,
                                         double PDZ_1_Add_Conc_1,
                                         double PDZ_1_Add_Conc_2,
                                         double PDZ_1_Add_Conc_3,
@@ -324,6 +337,7 @@ namespace ASK.Controllers
                                         double PDZ_1_Dust_Emis,
                                         double PDZ_1_CH4_Emis,
                                         double PDZ_1_H2S_Emis,
+                                        double PDZ_1_NH3_Emis,
                                         double PDZ_1_Add_Emis_1,
                                         double PDZ_1_Add_Emis_2,
                                         double PDZ_1_Add_Emis_3,
@@ -342,6 +356,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Conc = PDZ_1_Dust_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Conc = PDZ_1_CH4_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Conc = PDZ_1_H2S_Conc;
+            GlobalStaticSettingsASK.PDZ.PDZ_1_NH3_Conc = PDZ_1_NH3_Conc;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_1 = PDZ_1_Add_Conc_1;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_2 = PDZ_1_Add_Conc_2;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Conc_3 = PDZ_1_Add_Conc_3;
@@ -357,6 +372,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.PDZ.PDZ_1_Dust_Emis = PDZ_1_Dust_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_CH4_Emis = PDZ_1_CH4_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_H2S_Emis = PDZ_1_H2S_Emis;
+            GlobalStaticSettingsASK.PDZ.PDZ_1_NH3_Emis = PDZ_1_NH3_Emis;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_1 = PDZ_1_Add_Emis_1;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_2 = PDZ_1_Add_Emis_2;
             GlobalStaticSettingsASK.PDZ.PDZ_1_Add_Emis_3 = PDZ_1_Add_Emis_3;
@@ -389,6 +405,7 @@ namespace ASK.Controllers
                                         bool check_Dust_Conc,
                                         bool check_CH4_Conc,
                                         bool check_H2S_Conc,
+                                        bool check_NH3_Conc,
                                         bool check_Add_Conc_1,
                                         bool check_Add_Conc_2,
                                         bool check_Add_Conc_3,
@@ -405,6 +422,7 @@ namespace ASK.Controllers
                                         bool check_Dust_Emis,
                                         bool check_CH4_Emis,
                                         bool check_H2S_Emis,
+                                        bool check_NH3_Emis,
                                         bool check_Add_Emis_1,
                                         bool check_Add_Emis_2,
                                         bool check_Add_Emis_3,
@@ -415,12 +433,21 @@ namespace ASK.Controllers
                                         bool check_O2_Wet,
                                         bool check_O2_Dry,
                                         bool check_H2O,
+                                        
                                         bool check_Pressure,
                                         bool check_Temperature,
                                         bool check_Speed,
                                         bool check_Flow,
+                                        
                                         bool check_Temperature_KIP,
                                         bool check_Temperature_NOx,
+                                        bool check_Pressure_KIP,
+                                        bool check_Temperature_Point_Dew,
+                                        bool check_Temperature_Room,
+                                        bool check_Temperature_PGS,
+                                        bool check_O2_Room,
+                                        bool check_O2_PGS,
+
                                         bool check_Mode_ASK,
                                         bool check_PDZ_Fuel
 
@@ -455,6 +482,9 @@ namespace ASK.Controllers
 
             if (check_H2S_Conc) GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc = "none";
+
+            if (check_NH3_Conc) GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc = "none";
 
             if (check_Add_Conc_1) GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1 = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1 = "none";
@@ -500,6 +530,9 @@ namespace ASK.Controllers
 
             if (check_H2S_Emis) GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis = "none";
+            
+            if (check_NH3_Emis) GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis = "none";
 
             if (check_Add_Emis_1) GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1 = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1 = "none";
@@ -531,6 +564,7 @@ namespace ASK.Controllers
             if (check_H2O) GlobalStaticSettingsASK.VisibilityReportOptions.H2O = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.H2O = "none";
 
+            
             if (check_Pressure) GlobalStaticSettingsASK.VisibilityReportOptions.Pressure = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Pressure = "none";
 
@@ -543,11 +577,31 @@ namespace ASK.Controllers
             if (check_Flow) GlobalStaticSettingsASK.VisibilityReportOptions.Flow = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Flow = "none";
 
+            
             if (check_Temperature_KIP) GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP = "none";
 
             if (check_Temperature_NOx) GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx = "none";
+
+            if (check_Pressure_KIP) GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP = "none";
+
+            if (check_Temperature_Point_Dew) GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew = "none";
+
+            if (check_Temperature_Room) GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room = "none";
+
+            if (check_Temperature_PGS) GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS = "none";
+
+            if (check_O2_Room) GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room = "none";
+
+            if (check_O2_PGS) GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS = "table-cell";
+            else GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS = "none";
+
 
             if (check_Mode_ASK) GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK = "table-cell";
             else GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK = "none";
@@ -591,6 +645,8 @@ namespace ASK.Controllers
                                                 double SensorRange_Max_CH4,
                                                 double SensorRange_Min_H2S,
                                                 double SensorRange_Max_H2S,
+                                                double SensorRange_Min_NH3,
+                                                double SensorRange_Max_NH3,
 
                                                 double SensorRange_Min_Rezerv_1,
                                                 double SensorRange_Max_Rezerv_1,
@@ -621,6 +677,18 @@ namespace ASK.Controllers
                                                 double SensorRange_Max_Temperature_KIP,
                                                 double SensorRange_Min_Temperature_NOx,
                                                 double SensorRange_Max_Temperature_NOx,
+                                                double SensorRange_Min_Pressure_KIP,
+                                                double SensorRange_Max_Pressure_KIP,
+                                                double SensorRange_Min_Temperature_Point_Dew,
+                                                double SensorRange_Max_Temperature_Point_Dew,
+                                                double SensorRange_Min_Temperature_Room,
+                                                double SensorRange_Max_Temperature_Room,
+                                                double SensorRange_Min_Temperature_PGS,
+                                                double SensorRange_Max_Temperature_PGS,
+                                                double SensorRange_Min_O2_Room,
+                                                double SensorRange_Max_O2_Room,
+                                                double SensorRange_Min_O2_PGS,
+                                                double SensorRange_Max_O2_PGS,
 
                                                 //Датчики
                                                 bool check_CO_Used,
@@ -632,6 +700,7 @@ namespace ASK.Controllers
                                                 bool check_Dust_Used,
                                                 bool check_CH4_Used,
                                                 bool check_H2S_Used,
+                                                bool check_NH3_Used,
                                                 bool check_Rezerv_1_Used,
                                                 bool check_Rezerv_2_Used,
                                                 bool check_Rezerv_3_Used,
@@ -644,8 +713,15 @@ namespace ASK.Controllers
                                                 bool check_Pressure_Used,
                                                 bool check_Temperature_Used,
                                                 bool check_Speed_Used,
+                                                
                                                 bool check_Temperature_KIP_Used,
                                                 bool check_Temperature_NOx_Used,
+                                                bool check_Pressure_KIP_Used,
+                                                bool check_Temperature_Point_Dew_Used,
+                                                bool check_Temperature_Room_Used,
+                                                bool check_Temperature_PGS_Used,
+                                                bool check_O2_Room_Used,
+                                                bool check_O2_PGS_Used,
 
                                                 bool check_CO_ppm,
                                                 bool check_CO2_ppm,
@@ -656,6 +732,7 @@ namespace ASK.Controllers
                                                 bool check_Dust_ppm,
                                                 bool check_CH4_ppm,
                                                 bool check_H2S_ppm,
+                                                bool check_NH3_ppm,
                                                 bool check_Rezerv_1_ppm,
                                                 bool check_Rezerv_2_ppm,
                                                 bool check_Rezerv_3_ppm,
@@ -684,6 +761,8 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.SensorRange.CH4.Max = SensorRange_Max_CH4;
             GlobalStaticSettingsASK.SensorRange.H2S.Min = SensorRange_Min_H2S;
             GlobalStaticSettingsASK.SensorRange.H2S.Max = SensorRange_Max_H2S;
+            GlobalStaticSettingsASK.SensorRange.NH3.Min = SensorRange_Min_NH3;
+            GlobalStaticSettingsASK.SensorRange.NH3.Max = SensorRange_Max_NH3;
 
             GlobalStaticSettingsASK.SensorRange.Rezerv_1.Min = SensorRange_Min_Rezerv_1;
             GlobalStaticSettingsASK.SensorRange.Rezerv_1.Max = SensorRange_Max_Rezerv_1;
@@ -709,10 +788,24 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.SensorRange.Temperature.Max = SensorRange_Max_Temperature;
             GlobalStaticSettingsASK.SensorRange.Speed.Min = SensorRange_Min_Speed;
             GlobalStaticSettingsASK.SensorRange.Speed.Max = SensorRange_Max_Speed;
+            
             GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Min = SensorRange_Min_Temperature_KIP;
             GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Max = SensorRange_Max_Temperature_KIP;
             GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Min = SensorRange_Min_Temperature_NOx;
             GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Max = SensorRange_Max_Temperature_NOx;
+            GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Min = SensorRange_Min_Pressure_KIP;
+            GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Max = SensorRange_Max_Pressure_KIP;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Min = SensorRange_Min_Temperature_Point_Dew;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Max = SensorRange_Max_Temperature_Point_Dew;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Room.Min = SensorRange_Min_Temperature_Room;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Room.Max = SensorRange_Max_Temperature_Room;
+            GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Min = SensorRange_Min_Temperature_PGS;
+            GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Max = SensorRange_Max_Temperature_PGS;
+            GlobalStaticSettingsASK.SensorRange.O2_Room.Min = SensorRange_Min_O2_Room;
+            GlobalStaticSettingsASK.SensorRange.O2_Room.Max = SensorRange_Max_O2_Room;
+            GlobalStaticSettingsASK.SensorRange.O2_PGS.Min = SensorRange_Min_O2_PGS;
+            GlobalStaticSettingsASK.SensorRange.O2_PGS.Max = SensorRange_Max_O2_PGS;
+
 
             GlobalStaticSettingsASK.SensorRange.CO.Is_Used = check_CO_Used;
             GlobalStaticSettingsASK.SensorRange.CO2.Is_Used = check_CO2_Used;
@@ -723,6 +816,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.SensorRange.Dust.Is_Used = check_Dust_Used;
             GlobalStaticSettingsASK.SensorRange.CH4.Is_Used = check_CH4_Used;
             GlobalStaticSettingsASK.SensorRange.H2S.Is_Used = check_H2S_Used;
+            GlobalStaticSettingsASK.SensorRange.NH3.Is_Used = check_NH3_Used;
             GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used = check_Rezerv_1_Used;
             GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used = check_Rezerv_2_Used;
             GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used = check_Rezerv_3_Used;
@@ -735,8 +829,15 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used = check_Pressure_Used;
             GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used = check_Temperature_Used;
             GlobalStaticSettingsASK.SensorRange.Speed.Is_Used = check_Speed_Used;
+
             GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used = check_Temperature_KIP_Used;
             GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used = check_Temperature_NOx_Used;
+            GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used = check_Pressure_KIP_Used;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used = check_Temperature_Point_Dew_Used;
+            GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used = check_Temperature_Room_Used;
+            GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used = check_Temperature_PGS_Used;
+            GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used = check_O2_Room_Used;
+            GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used = check_O2_PGS_Used;
 
             GlobalStaticSettingsASK.SensorRange.CO.Is_ppm = check_CO_ppm;
             GlobalStaticSettingsASK.SensorRange.CO2.Is_ppm = check_CO2_ppm;
@@ -747,6 +848,7 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.SensorRange.Dust.Is_ppm = check_Dust_ppm;
             GlobalStaticSettingsASK.SensorRange.CH4.Is_ppm = check_CH4_ppm;
             GlobalStaticSettingsASK.SensorRange.H2S.Is_ppm = check_H2S_ppm;
+            GlobalStaticSettingsASK.SensorRange.NH3.Is_ppm = check_NH3_ppm;
             GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_ppm = check_Rezerv_1_ppm;
             GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_ppm = check_Rezerv_2_ppm;
             GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_ppm = check_Rezerv_3_ppm;
@@ -803,6 +905,172 @@ namespace ASK.Controllers
             GlobalStaticSettingsASK.CalculationSetting.Dust_DF = dust_DF;
 
             GlobalStaticSettingsASK.SaveCalculationSettingJSON();
+
+            return new NoContentResult();
+        }
+
+
+        [HttpPost]
+        public IActionResult EmisStop(    //Выбросы в простое
+                                                    int EmisStopType,
+
+                                                    double EmisStop_Manual_CO,
+                                                    double EmisStop_Manual_CO2,
+                                                    double EmisStop_Manual_NO,
+                                                    double EmisStop_Manual_NO2,
+                                                    double EmisStop_Manual_NOx,
+                                                    double EmisStop_Manual_SO2,
+                                                    double EmisStop_Manual_Dust,
+                                                    double EmisStop_Manual_CH4,
+                                                    double EmisStop_Manual_H2S,
+                                                    double EmisStop_Manual_NH3,
+                                                    double EmisStop_Manual_Add_1,
+                                                    double EmisStop_Manual_Add_2,
+                                                    double EmisStop_Manual_Add_3,
+                                                    double EmisStop_Manual_Add_4,
+                                                    double EmisStop_Manual_Add_5,
+
+                                                    int EmisStop_Day
+                                                )
+        {
+            if (EmisStopType == 1)
+            {
+                GlobalStaticSettingsASK.emis_IsStop.isAuto = true;
+            }
+            else
+            {
+                GlobalStaticSettingsASK.emis_IsStop.isAuto = false;
+            }
+
+            GlobalStaticSettingsASK.emis_IsStop.CO_Manual = EmisStop_Manual_CO;
+            GlobalStaticSettingsASK.emis_IsStop.CO_Manual = EmisStop_Manual_CO2;
+            GlobalStaticSettingsASK.emis_IsStop.NO_Manual = EmisStop_Manual_NO;
+            GlobalStaticSettingsASK.emis_IsStop.NO2_Manual = EmisStop_Manual_NO2;
+            GlobalStaticSettingsASK.emis_IsStop.NOx_Manual = EmisStop_Manual_NOx;
+            GlobalStaticSettingsASK.emis_IsStop.SO2_Manual = EmisStop_Manual_SO2;
+            GlobalStaticSettingsASK.emis_IsStop.Dust_Manual = EmisStop_Manual_Dust;
+            GlobalStaticSettingsASK.emis_IsStop.CH4_Manual = EmisStop_Manual_CH4;
+            GlobalStaticSettingsASK.emis_IsStop.H2S_Manual = EmisStop_Manual_H2S;
+            GlobalStaticSettingsASK.emis_IsStop.NH3_Manual = EmisStop_Manual_NH3;
+            GlobalStaticSettingsASK.emis_IsStop.Rezerv_1_Manual = EmisStop_Manual_Add_1;
+            GlobalStaticSettingsASK.emis_IsStop.Rezerv_2_Manual = EmisStop_Manual_Add_2;
+            GlobalStaticSettingsASK.emis_IsStop.Rezerv_3_Manual = EmisStop_Manual_Add_3;
+            GlobalStaticSettingsASK.emis_IsStop.Rezerv_4_Manual = EmisStop_Manual_Add_4;
+            GlobalStaticSettingsASK.emis_IsStop.Rezerv_5_Manual = EmisStop_Manual_Add_5;
+
+            GlobalStaticSettingsASK.emis_IsStop.Day = EmisStop_Day;
+
+
+
+            GlobalStaticSettingsASK.SaveEmis_IsStop_JSON();
+
+            return new NoContentResult();
+        }
+
+
+        [HttpPost]
+        public IActionResult Q1()
+        {
+            if (GlobalStaticSettingsASK.Open_Valve_Ventilation)
+                GlobalStaticSettingsASK.Open_Valve_Ventilation = false;
+            else
+                GlobalStaticSettingsASK.Open_Valve_Ventilation = true;
+            
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+
+        [HttpPost]
+        public IActionResult Q2()
+        {
+            if (GlobalStaticSettingsASK.Pusk_Fan_Ventilation)
+                GlobalStaticSettingsASK.Pusk_Fan_Ventilation = false;
+            else
+                GlobalStaticSettingsASK.Pusk_Fan_Ventilation = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Q3()
+        {
+            if (GlobalStaticSettingsASK.Open_Heater_Ventilation)
+                GlobalStaticSettingsASK.Open_Heater_Ventilation = false;
+            else
+                GlobalStaticSettingsASK.Open_Heater_Ventilation = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult Q4()
+        {
+            if (GlobalStaticSettingsASK.Close_Valve_Sample)
+                GlobalStaticSettingsASK.Close_Valve_Sample = false;
+            else
+                GlobalStaticSettingsASK.Close_Valve_Sample = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult Q5()
+        {
+            if (GlobalStaticSettingsASK.Purge_Probe)
+                GlobalStaticSettingsASK.Purge_Probe = false;
+            else
+                GlobalStaticSettingsASK.Purge_Probe = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult Q6()
+        {
+            if (GlobalStaticSettingsASK.Calibration_Zero_Analyzer)
+                GlobalStaticSettingsASK.Calibration_Zero_Analyzer = false;
+            else
+                GlobalStaticSettingsASK.Calibration_Zero_Analyzer = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult Q7()
+        {
+            if (GlobalStaticSettingsASK.Siren_Gassed)
+                GlobalStaticSettingsASK.Siren_Gassed = false;
+            else
+                GlobalStaticSettingsASK.Siren_Gassed = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult Q32() //НЕ DQ бит отвечающий за включение вентилатора
+        {
+            if (GlobalStaticSettingsASK.RUN_VENTILATION)
+                GlobalStaticSettingsASK.RUN_VENTILATION = false;
+            else
+                GlobalStaticSettingsASK.RUN_VENTILATION = true;
+
+            GlobalStaticSettingsASK.Is_WritePLC = true;
 
             return new NoContentResult();
         }

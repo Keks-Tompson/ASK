@@ -1,0 +1,492 @@
+﻿
+
+@using ASK.Controllers
+
+
+
+@*Сохраняем текущую страницу*@
+@using ASK.BLL.Helper.Setting;
+@*@{Accaunt.CurrentPage = "ReportMonthly";}*@
+
+
+
+
+
+<div class="container-fluid row align-items-start" >
+     
+
+      <div class="col"
+            style=" color: #808080;
+                padding: 10px;
+                border-radius: 10px;
+                /* box-shadow: 0 0 10px;*/
+                box-shadow: inset 0 0 5px;
+                line-height: 1;
+                /*margin: 0 -23px 0 0;*/
+                /*padding: 10px;*/
+                font-size: 230%;
+                /* width: 375px;*/
+                /*height: 100px;*/
+                ">
+            
+    
+
+  
+            <label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Отчёт&nbspза&nbspгод</label>  @*&nbsp - не разрывной пробел*@
+           
+
+
+
+
+    </div>
+    
+    
+   
+     
+        
+        <div class="col">
+         </div>
+         
+         <div class="col">     
+         </div>
+         
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+         <div class="col">
+         </div>
+
+       
+
+        
+        
+      
+
+
+         <div class="col"
+    style=" color: #808080;
+             padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 10px;
+       /*     box-shadow: 0 0 10px;*/
+            box-shadow: inset 0 0 10px;
+            line-height: 1;
+            margin: 0 10px 0 0;
+           /* padding: 10px;*/
+            font-size: 170%;
+            /*width: 340px;*/
+            /*height 60px;*/
+            white-space: nowrap; 
+            ">
+
+    
+
+      
+            
+          
+            
+            @*<label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" >Отчёт за сутки</label> *@
+
+            @*<label style="font-family: Times New Roman" , Times, serif; font-size: 20%;" for="start" > на:</label> *@
+
+            <form method="post" >
+           
+
+                  <label>
+
+            <select class="form-select" aria-label="" name="month"  
+                style=" color: #808080;
+         
+                    font-size: 68%;
+                    width: 130px;
+                 /* height 60px;*/
+                    white-space: nowrap; 
+                ">
+               
+                @*Нужно придумать лучше спопоб выбора текущего месяца*@
+                    @if (ReportAnnualController.masMonth[1]) {<option selected value = "1">Январь</option>}
+                        else {<option value = "1">Январь</option>}
+
+                    @if (ReportAnnualController.masMonth[2]) {<option selected value = "2">Февраль</option>}
+                        else {<option value = "2">Февраль</option>}
+                     
+                    @if (ReportAnnualController.masMonth[3]) {<option selected value = "3">Март</option>}
+                        else {<option value = "3">Март</option>}
+
+                    @if (ReportAnnualController.masMonth[4]) {<option selected value = "4">Апрель</option>}
+                        else {<option value = "4">Апрель</option>}
+
+                    @if (ReportAnnualController.masMonth[5]) {<option selected value = "5">Май</option>}
+                        else {<option value = "5">Май</option>}
+
+                    @if (ReportAnnualController.masMonth[6]){<option selected value = "6">Июнь</option>}
+                        else {<option value = "6">Июнь</option>}
+
+                    @if (ReportAnnualController.masMonth[7]) {<option selected value = "7">Июль</option>}
+                        else {<option value = "7">Июль</option>}
+
+                    @if (ReportAnnualController.masMonth[8]) {<option selected value = "8">Август</option>}
+                        else {<option value = "8">Август</option>}
+
+                    @if (ReportAnnualController.masMonth[9]) {<option selected value = "9">Сентябрь</option>}
+                        else {<option value = "9">Сентябрь</option>}
+
+                    @if (ReportAnnualController.masMonth[10]) {<option selected value = "10">Октябрь</option>}
+                        else {<option value = "10">Октябрь</option>}
+
+                    @if (ReportAnnualController.masMonth[11]) {<option selected value = "11">Ноябрь</option>}
+                        else {<option value = "11">Ноябрь</option>}
+
+                    @if (ReportAnnualController.masMonth[12]) {<option selected value = "12">Декабрь</option>}
+                        else {<option value = "12">Декабрь</option>}
+            </select>
+            </label>
+
+
+                <label>
+            <select class="form-select" aria-label="" name="year" 
+                style=" color: #808080;
+         
+                    font-size: 68%;
+                    width: 90px;
+                 /* height 60px;*/
+                    white-space: nowrap; 
+                ">
+
+                @*Нужно придумать лучше спопоб выбора текущего года*@
+                    @if (ReportAnnualController.masYear[1]) {<option selected value = "1">2022</option>}
+                        else {<option value = "1">2022</option>}
+
+                    @if (ReportAnnualController.masYear[2]) {<option selected value = "2">2023</option>}
+                        else {<option value = "2">2023</option>}
+                     
+                    @if (ReportAnnualController.masYear[3]) {<option selected value = "3">2024</option>}
+                        else {<option value = "3">2024</option>}
+
+                    @if (ReportAnnualController.masYear[4]) {<option selected value = "4">2025</option>}
+                        else {<option value = "4">2025</option>}
+
+                    @if (ReportAnnualController.masYear[5]) {<option selected value = "5">2026</option>}
+                        else {<option value = "5">2026</option>}
+
+                    @if (ReportAnnualController.masYear[6]) {<option selected value = "6">2027</option>}
+                        else {<option value = "6">2027</option>}
+
+                    @if (ReportAnnualController.masYear[7]) {<option selected value = "7">2028</option>}
+                        else {<option value = "7">2028</option>}
+
+                    @if (ReportAnnualController.masYear[8]) {<option selected value = "8">2029</option>}
+                        else {<option value = "8">2029</option>}
+
+                    @if (ReportAnnualController.masYear[9]) {<option selected value = "9">2030</option>}
+                        else {<option value = "9">2030</option>}
+
+                    @if (ReportAnnualController.masYear[10]) {<option selected value = "10">2031</option>}
+                        else {<option value = "10">2031</option>}
+
+                    @if (ReportAnnualController.masYear[11]) {<option selected value = "11">2032</option>}
+                        else {<option value = "11">2032</option>}
+
+                    @if (ReportAnnualController.masYear[12]) {<option selected value = "12">2033</option>}
+                        else {<option value = "12">2033</option>}
+
+                    @if (ReportAnnualController.masYear[13]) {<option selected value = "13">2034</option>}
+                        else {<option value = "13">2034</option>}
+
+                    @if (ReportAnnualController.masYear[14]) {<option selected value = "14">2035</option>}
+                        else {<option value = "14">2035</option>}
+
+            </select>
+            </label>
+           
+            <input class="btn btn-primary" style="margin: 0 0 4px 0;" type="submit" value="Сформировать"/>
+
+            </form>
+
+     
+
+
+
+    </div>
+            
+
+ 
+     
+
+    <div class="col"
+    style=" color: #808080;
+             padding: 10px;
+          /*  background: #fffffC;*/
+            border-radius: 10px;
+       /*     box-shadow: 0 0 10px;*/
+            box-shadow: inset 0 0 10px;
+            line-height: 1;
+            margin: 0 -23px 0 0;
+           /* padding: 10px;*/
+            font-size: 170%;
+            /*width: 380px;*/
+            /*height 60px;*/
+            white-space: nowrap; 
+            ">
+
+         <a asp-action="ExportToExcel" asp-controller="ReportAnnual" class="btn btn-success"  style="margin: 0 0 4px 0;"> 
+            Сохраниь в Excel
+         </a>
+
+            @* <a asp-action="ImportToExcel" asp-controller="ReportDailys" class="btn btn-primary">
+            Import from Excel
+            </a>*@
+
+                @*  <a asp-action="Add_20M" asp-controller="c " class="btn btn-success"  style="margin: 0 0 4px 0;"> 
+            Добавить строчку в БД
+         </a>*@
+        </div>
+      
+    
+   
+
+</div>
+
+
+<br />
+
+<div class="container-fluid">
+
+
+   <style>
+        table {}
+        td, th {}
+        th {}
+        tbody tr:bordered
+        {background: #FFDEAD;}
+        tbody tr:hover {
+        background: #FFDEAD; /* Цвет фона при наведении */
+        /*color: #fff; /* Цвет текста при наведении */
+   }
+      </style>
+
+
+        <div  style="font-family: Times New Roman" , Times, serif; font-size: 20%;">
+            <table   class="table table-striped   table-bordered  + text-center  " style="  box-shadow: 0 0 1px; font-size: 86%; line-height: 110%;">
+                <thead>
+                    <tr class="table-secondary"  style="font-weight:bold; background: #FFDEAD;" >
+                        <td style="vertical-align: middle">Дата</td>
+                        
+                        @*Коонцентрации*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; vertical-align: middle">CO мг/м³, при н.у.</td>   @*display: table-cell/none;*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; vertical-align: middle">CO2 мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; vertical-align: middle">NO мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; vertical-align: middle">NO₂ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; vertical-align: middle">NOₓ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; vertical-align: middle">SO₂ мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle">Тв.ч. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle">CH₄. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; vertical-align: middle">NH₃. мг/м³, при н.у.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Add_Conc_1. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle">Add_Conc_2. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle">Add_Conc_3. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; vertical-align: middle">Add_Conc_4. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; vertical-align: middle">Add_Conc_5. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+
+                        @*Выбросы*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; vertical-align: middle">CO, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; vertical-align: middle">CO₂, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; vertical-align: middle">NO, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; vertical-align: middle">NO₂, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; vertical-align: middle">NOₓ, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; vertical-align: middle">SO₂, т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; vertical-align: middle">Тв.ч., т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; vertical-align: middle">CH₄., т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle">H₂S., т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; vertical-align: middle">NH₃., т.</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle">Add_Emis_1, т.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; vertical-align: middle">Add_Emis_2, т.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; vertical-align: middle">Add_Emis_3, т.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; vertical-align: middle">Add_Emis_4, т.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; vertical-align: middle">Add_Emis_5, т.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
+
+
+                       
+
+
+                        @*Параметры*@
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; vertical-align: middle">Давление ДГ, кПа</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; vertical-align: middle">Температура ДГ, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; vertical-align: middle">Скорость ДГ, м³/с</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle">Расход ДГ, м³/с, при н.у.</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; vertical-align: middle">О₂ сух, %</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; vertical-align: middle">О₂ вл, %</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; vertical-align: middle">H₂O, %</td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; vertical-align: middle">Давление воздуха КИП, кПа</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; vertical-align: middle">Температура точки росы воздуха КИП, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; vertical-align: middle">Температура в измер. помещении, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; vertical-align: middle">Температура в помещении ПГС, °С</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; vertical-align: middle">O₂ в измер. помещении, %</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; vertical-align: middle">O₂ в помещении ПГС, %</td>
+                       
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; vertical-align: middle">Простой, % (месяц)</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; vertical-align: middle">Простой, % (год)</td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; vertical-align: middle">Простой,% <br />(с нач. года)</td>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                   
+
+                    @foreach (var RepDay in ReportAnnualController.ReportMonth.TableReport)
+                {
+                        <tr>
+                                    <td style=" padding: 3px;">@RepDay.Date.ToShortDateString()</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; padding: 3px;">@RepDay.CO_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; padding: 3px;">@RepDay.CO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; padding: 3px;">@RepDay.NO_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; padding: 3px;">@RepDay.NO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; padding: 3px;">@RepDay.NOx_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; padding: 3px;">@RepDay.SO2_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 3px;">@RepDay.Dust_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 3px;">@RepDay.CH4_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px;">@RepDay.H2S_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px;">@RepDay.NH3_Conc</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px;">@RepDay.Add_Conc_1</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px;">@RepDay.Add_Conc_2</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 3px;">@RepDay.Add_Conc_3</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; padding: 3px;">@RepDay.Add_Conc_4</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; padding: 3px;">@RepDay.Add_Conc_5</td>
+
+
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; padding: 3px;">@RepDay.CO_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; padding: 3px;">@RepDay.CO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; padding: 3px;">@RepDay.NO_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; padding: 3px;">@RepDay.NO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; padding: 3px;">@RepDay.NOx_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; padding: 3px;">@RepDay.SO2_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; padding: 3px;">@RepDay.Dust_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 3px;">@RepDay.CH4_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px;">@RepDay.H2S_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px;">@RepDay.NH3_Emis</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px;">@RepDay.Add_Emis_1</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 3px;">@RepDay.Add_Emis_2</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; padding: 3px;">@RepDay.Add_Emis_3</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; padding: 3px;">@RepDay.Add_Emis_4</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; padding: 3px;">@RepDay.Add_Emis_5</td>
+
+
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 3px;">@RepDay.Pressure</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 3px;">@RepDay.Temperature</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 3px;">@RepDay.Speed</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 3px;">@RepDay.Flow</td>
+                                    
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 3px;">@RepDay.O2_Dry</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 3px;">@RepDay.O2_Wet</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 3px;">@RepDay.H2O</td>
+
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px;">@RepDay.Temperature_KIP</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px;">@RepDay.Temperature_NOx</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 3px;">@RepDay.Pressure_KIP</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 3px;">@RepDay.Temperature_Point_Dew</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 3px;">@RepDay.Temperature_Room</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 3px;">@RepDay.Temperature_PGS</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 3px;">@RepDay.O2_Room</td>
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 3px;">@RepDay.O2_PGS</td>
+                                    
+                                    <td style=" display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 3px; @ReportAnnualController.mode_ASK_String_color[Convert.ToInt32(RepDay.Mode_ASK)]">@ReportAnnualController.mode_ASK_String[Convert.ToInt32(RepDay.Mode_ASK)]</td>
+                                    
+                                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 3px;">@RepDay.PDZ_Fuel</td>
+
+                         </tr>
+                }
+                </tbody>
+                <tfoot>
+                    <tr class="table-secondary" style="font-weight:bold;">
+                                <td style=" padding: 4px;">Среднее / Сумма </td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CO_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NO_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NOx_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.SO2_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Dust_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CH4_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.H2S_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NH3_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Conc_1</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Conc_2</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Conc_3</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_4; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Conc_4</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_5; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Conc_5</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CO_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.CO_Emis&nbspт.</td> @*&nbsp - не разрывной пробел*@
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CO2_Emis  / @ReportAnnualController.ReportMonth.sumTotal_20M.CO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NO_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.NO_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NO2_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.NO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NOx_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.NOx_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.SO2_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.SO2_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Dust_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.Dust_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.CH4_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.CH4_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.H2S_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.H2S_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.NH3_Emis / @ReportAnnualController.ReportMonth.sumTotal_20M.NH3_Emis&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Emis_1 / @ReportAnnualController.ReportMonth.sumTotal_20M.Add_Emis_1&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Emis_2 / @ReportAnnualController.ReportMonth.sumTotal_20M.Add_Emis_2&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Emis_3 / @ReportAnnualController.ReportMonth.sumTotal_20M.Add_Emis_3&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Emis_4 / @ReportAnnualController.ReportMonth.sumTotal_20M.Add_Emis_4&nbspт.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Add_Emis_5 / @ReportAnnualController.ReportMonth.sumTotal_20M.Add_Emis_5&nbspт.</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Pressure</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Speed</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Flow</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.O2_Dry</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.O2_Wet</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.H2O</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature_KIP</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature_NOx</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Pressure_KIP</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature_Point_Dew</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature_Room</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.Temperature_PGS</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.O2_Room</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 4px;">@ReportAnnualController.ReportMonth.avgTotal_20M.O2_PGS</td>
+
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 4px; @if(@ReportAnnualController.ReportMonth.sumTotal_20M.Mode_ASK > 0.0){@ReportAnnualController.exceedColor};">@ReportAnnualController.ReportMonth.sumTotal_20M.Mode_ASK ч.</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 4px;">@*@ReportMonthlyController.avgAndTotal_20M.PDZ_Fuel*@</td>
+                    </tr>
+                      
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,7 @@ namespace ASK.BLL.Models
         public string Dust_Conc { get; set; } = "table-cell";
         public string CH4_Conc { get; set; } = "none";
         public string H2S_Conc { get; set; } = "none";
+        public string NH3_Conc { get; set; } = "none";
         public string Add_Conc_1 { get; set; } = "none";
         public string Add_Conc_2 { get; set; } = "none";
         public string Add_Conc_3 { get; set; } = "none";
@@ -33,6 +34,7 @@ namespace ASK.BLL.Models
         public string SO2_Emis { get; set; } = "table-cell";
         public string CH4_Emis { get; set; } = "none";
         public string H2S_Emis { get; set; } = "none";
+        public string NH3_Emis { get; set; } = "none";
         public string Dust_Emis { get; set; } = "table-cell";
         public string Add_Emis_1 { get; set; } = "none";
         public string Add_Emis_2 { get; set; } = "none";
@@ -56,6 +58,12 @@ namespace ASK.BLL.Models
 
         public string Temperature_KIP { get; set; } = "none";
         public string Temperature_NOx { get; set; } = "none";
+        public string Pressure_KIP { get; set; } = "none";
+        public string Temperature_Room { get; set; } = "none";
+        public string Temperature_PGS { get; set; } = "none";
+        public string Temperature_Point_Dew { get; set; } = "none";     //Температруа точки росы воздуха КИП
+        public string O2_Room { get; set; } = "none";                   //Кислород в помщенеии
+        public string O2_PGS { get; set; } = "none";                    //Кислород в помщении ПГС
 
 
         public string Mode_ASK { get; set; } = "table-cell";

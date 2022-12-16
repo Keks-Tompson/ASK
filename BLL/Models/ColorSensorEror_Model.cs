@@ -15,6 +15,7 @@ namespace ASK.BLL.Models
         public string Dust { get; set; }
         public string CH4 { get; set; }
         public string H2S { get; set; }
+        public string NH3 { get; set; }
         public string Rezerv_1 { get; set; }
         public string Rezerv_2 { get; set; }
         public string Rezerv_3 { get; set; }

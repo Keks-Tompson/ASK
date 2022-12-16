@@ -38,6 +38,7 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle">Тв.ч. (4-20мА)</td>                
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle">CH₄. (4-20мА).</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S. (4-20мА).</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; vertical-align: middle">NH₃. (4-20мА).</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Add_Conc_1. (4-20мА)</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle">Add_Conc_2. (4-20мА)</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle">Add_Conc_3. (4-20мА)</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
@@ -56,6 +57,12 @@
                             
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; vertical-align: middle">Температура КИП (4-20мА)</td>                   
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; vertical-align: middle">Температура NOx (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; vertical-align: middle">Давление воздуха КИП (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; vertical-align: middle">Температура точки росы воздуха КИП (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; vertical-align: middle">Температура в изммер. помещении (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; vertical-align: middle">Температура в помещении ПГС (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; vertical-align: middle">O₂ в измер. помещении (4-20мА)</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; vertical-align: middle">O₂ в помещении ПГС (4-20мА)</td>
                             
                                                           
                             
@@ -77,6 +84,7 @@
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 3px; ">@tableCurrent.Dust_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 3px; ">@tableCurrent.CH4_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; ">@tableCurrent.H2S_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; ">@tableCurrent.NH3_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px;">@tableCurrent.Rezerv_1_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px; ">@tableCurrent.Rezerv_2_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 3px; ">@tableCurrent.Rezerv_3_4_20mA</td>
@@ -93,8 +101,13 @@
                                     
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px;">@tableCurrent.Temperature_KIP_4_20mA</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px;">@tableCurrent.Temperature_NOx_4_20mA</td>
-                                
-                                        
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 3px;">@tableCurrent.Pressure_KIP_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 3px;">@tableCurrent.Temperature_Point_Dew_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 3px;">@tableCurrent.Temperature_Room_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 3px;">@tableCurrent.Temperature_PGS_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 3px;">@tableCurrent.O2_Room_4_20mA</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 3px;">@tableCurrent.O2_PGS_4_20mA</td>
+
                                 
                                         @*<td style=" display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 3px; @ReportDailyController.mode_ASK_String_color[Convert.ToInt32(RepDay.Mode_ASK)]">@ReportDailyController.mode_ASK_String[Convert.ToInt32(RepDay.Mode_ASK)]</td>*@
                                         @*<td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 3px;">@tableCurrent.PDZ_Fuel</td>*@

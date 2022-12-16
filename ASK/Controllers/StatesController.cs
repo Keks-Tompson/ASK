@@ -40,6 +40,12 @@ namespace ASK.Controllers
             return PartialView("_GlobalAlarmTable");
         }
 
+        //Аварии/Состояния газоаналитического оборудования
+        [HttpGet]
+        public ActionResult _CurrentDI_DQ(string Value)
+        {
+            return PartialView("_CurrentDI_DQ");
+        }
 
         //передаём таблицу текущих аналогов с прямыми значениями
         [HttpGet]

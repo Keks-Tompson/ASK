@@ -60,6 +60,7 @@ namespace ASK.BLL.Services
                 reportMonth.TableReport[i].Dust_Conc = bufdayReport.avgTotal_20M.Dust_Conc;
                 reportMonth.TableReport[i].CH4_Conc = bufdayReport.avgTotal_20M.CH4_Conc;
                 reportMonth.TableReport[i].H2S_Conc = bufdayReport.avgTotal_20M.H2S_Conc;
+                reportMonth.TableReport[i].NH3_Conc = bufdayReport.avgTotal_20M.NH3_Conc;
                 reportMonth.TableReport[i].Add_Conc_1 = bufdayReport.avgTotal_20M.Add_Conc_1;
                 reportMonth.TableReport[i].Add_Conc_2 = bufdayReport.avgTotal_20M.Add_Conc_2;
                 reportMonth.TableReport[i].Add_Conc_3 = bufdayReport.avgTotal_20M.Add_Conc_3;
@@ -76,6 +77,7 @@ namespace ASK.BLL.Services
                 reportMonth.TableReport[i].Dust_Conc_Percent = bufdayReport.durationTotal_20M.Dust_Conc_Percent;
                 reportMonth.TableReport[i].CH4_Conc_Percent = bufdayReport.durationTotal_20M.CH4_Conc_Percent;
                 reportMonth.TableReport[i].H2S_Conc_Percent = bufdayReport.durationTotal_20M.H2S_Conc_Percent;
+                reportMonth.TableReport[i].NH3_Conc_Percent = bufdayReport.durationTotal_20M.NH3_Conc_Percent;
                 reportMonth.TableReport[i].Add_Conc_1_Percent = bufdayReport.durationTotal_20M.Add_Conc_1_Percent;
                 reportMonth.TableReport[i].Add_Conc_2_Percent = bufdayReport.durationTotal_20M.Add_Conc_2_Percent;
                 reportMonth.TableReport[i].Add_Conc_3_Percent = bufdayReport.durationTotal_20M.Add_Conc_3_Percent;
@@ -92,6 +94,7 @@ namespace ASK.BLL.Services
                 reportMonth.TableReport[i].Dust_Emis = bufdayReport.sumTotal_20M.Dust_Emis;
                 reportMonth.TableReport[i].CH4_Emis = bufdayReport.sumTotal_20M.CH4_Emis;
                 reportMonth.TableReport[i].H2S_Emis = bufdayReport.sumTotal_20M.H2S_Emis;
+                reportMonth.TableReport[i].NH3_Emis = bufdayReport.sumTotal_20M.NH3_Emis;
                 reportMonth.TableReport[i].Add_Emis_1 = bufdayReport.sumTotal_20M.Add_Emis_1;
                 reportMonth.TableReport[i].Add_Emis_2 = bufdayReport.sumTotal_20M.Add_Emis_2;
                 reportMonth.TableReport[i].Add_Emis_3 = bufdayReport.sumTotal_20M.Add_Emis_3;
@@ -108,6 +111,7 @@ namespace ASK.BLL.Services
                 reportMonth.TableReport[i].Dust_Emis_Percent = bufdayReport.durationTotal_20M.Dust_Emis_Percent;
                 reportMonth.TableReport[i].CH4_Emis_Percent = bufdayReport.durationTotal_20M.CH4_Emis_Percent;
                 reportMonth.TableReport[i].H2S_Emis_Percent = bufdayReport.durationTotal_20M.H2S_Emis_Percent;
+                reportMonth.TableReport[i].NH3_Emis_Percent = bufdayReport.durationTotal_20M.NH3_Emis_Percent;
                 reportMonth.TableReport[i].Add_Emis_1_Percent = bufdayReport.durationTotal_20M.Add_Emis_1_Percent;
                 reportMonth.TableReport[i].Add_Emis_2_Percent = bufdayReport.durationTotal_20M.Add_Emis_2_Percent;
                 reportMonth.TableReport[i].Add_Emis_3_Percent = bufdayReport.durationTotal_20M.Add_Emis_3_Percent;
@@ -124,6 +128,13 @@ namespace ASK.BLL.Services
                 reportMonth.TableReport[i].O2_Dry = bufdayReport.avgTotal_20M.O2_Dry;
                 reportMonth.TableReport[i].O2_Wet = bufdayReport.avgTotal_20M.O2_Wet;
                 reportMonth.TableReport[i].H2O = bufdayReport.avgTotal_20M.H2O;
+
+                reportMonth.TableReport[i].Pressure_KIP = bufdayReport.avgTotal_20M.Pressure_KIP;
+                reportMonth.TableReport[i].Temperature_Point_Dew = bufdayReport.avgTotal_20M.Temperature_Point_Dew;
+                reportMonth.TableReport[i].Temperature_Room = bufdayReport.avgTotal_20M.Temperature_Room;
+                reportMonth.TableReport[i].Temperature_PGS = bufdayReport.avgTotal_20M.Temperature_PGS;
+                reportMonth.TableReport[i].O2_Room = bufdayReport.avgTotal_20M.O2_Room;
+                reportMonth.TableReport[i].O2_PGS = bufdayReport.avgTotal_20M.O2_PGS;
 
                 reportMonth.sumTotal_20M.Mode_ASK = Math.Round(reportMonth.sumTotal_20M.Mode_ASK + bufdayReport.sumTotal_20M.Mode_ASK, 3);
             }
@@ -142,6 +153,7 @@ namespace ASK.BLL.Services
             reportMonth.PDZ.Dust_Conc = pdz.Dust_Conc;
             reportMonth.PDZ.CH4_Conc = pdz.CH4_Conc;
             reportMonth.PDZ.H2S_Conc = pdz.H2S_Conc;
+            reportMonth.PDZ.NH3_Conc = pdz.NH3_Conc;
             reportMonth.PDZ.Add_Conc_1 = pdz.Add_Conc_1;
             reportMonth.PDZ.Add_Conc_2 = pdz.Add_Conc_2;
             reportMonth.PDZ.Add_Conc_3 = pdz.Add_Conc_3;
@@ -157,6 +169,7 @@ namespace ASK.BLL.Services
             reportMonth.PDZ.Dust_Emis = pdz.Dust_Emis;
             reportMonth.PDZ.CH4_Emis = pdz.CH4_Emis;
             reportMonth.PDZ.H2S_Emis = pdz.H2S_Emis;
+            reportMonth.PDZ.NH3_Emis = pdz.NH3_Emis;
             reportMonth.PDZ.Add_Emis_1 = pdz.Add_Emis_1;
             reportMonth.PDZ.Add_Emis_2 = pdz.Add_Emis_2;
             reportMonth.PDZ.Add_Emis_3 = pdz.Add_Emis_3;
@@ -174,6 +187,7 @@ namespace ASK.BLL.Services
                 reportMonth.sumTotal_20M.Dust_Conc += tabletDay.Dust_Conc;
                 reportMonth.sumTotal_20M.CH4_Conc += tabletDay.CH4_Conc;
                 reportMonth.sumTotal_20M.H2S_Conc += tabletDay.H2S_Conc;
+                reportMonth.sumTotal_20M.NH3_Conc += tabletDay.NH3_Conc;
                 reportMonth.sumTotal_20M.Add_Conc_1 += tabletDay.Add_Conc_1;
                 reportMonth.sumTotal_20M.Add_Conc_2 += tabletDay.Add_Conc_2;
                 reportMonth.sumTotal_20M.Add_Conc_3 += tabletDay.Add_Conc_3;
@@ -190,6 +204,7 @@ namespace ASK.BLL.Services
                 reportMonth.sumTotal_20M.Dust_Emis += tabletDay.Dust_Emis;
                 reportMonth.sumTotal_20M.CH4_Emis += tabletDay.CH4_Emis;
                 reportMonth.sumTotal_20M.H2S_Emis += tabletDay.H2S_Emis;
+                reportMonth.sumTotal_20M.NH3_Emis += tabletDay.NH3_Emis;
                 reportMonth.sumTotal_20M.Add_Emis_1 += tabletDay.Add_Emis_1;
                 reportMonth.sumTotal_20M.Add_Emis_2 += tabletDay.Add_Emis_2;
                 reportMonth.sumTotal_20M.Add_Emis_3 += tabletDay.Add_Emis_3;
@@ -204,6 +219,7 @@ namespace ASK.BLL.Services
                 reportMonth.avgTotal_20M.Dust_Conc_Percent += tabletDay.Dust_Conc_Percent;
                 reportMonth.avgTotal_20M.CH4_Conc_Percent += tabletDay.CH4_Conc_Percent;
                 reportMonth.avgTotal_20M.H2S_Conc_Percent += tabletDay.H2S_Conc_Percent;
+                reportMonth.avgTotal_20M.NH3_Conc_Percent += tabletDay.NH3_Conc_Percent;
                 reportMonth.avgTotal_20M.Add_Conc_1_Percent += tabletDay.Add_Conc_1_Percent;
                 reportMonth.avgTotal_20M.Add_Conc_2_Percent += tabletDay.Add_Conc_2_Percent;
                 reportMonth.avgTotal_20M.Add_Conc_3_Percent += tabletDay.Add_Conc_3_Percent;
@@ -220,6 +236,7 @@ namespace ASK.BLL.Services
                 reportMonth.avgTotal_20M.Dust_Emis_Percent += tabletDay.Dust_Emis_Percent;
                 reportMonth.avgTotal_20M.CH4_Emis_Percent += tabletDay.CH4_Emis_Percent;
                 reportMonth.avgTotal_20M.H2S_Emis_Percent += tabletDay.H2S_Emis_Percent;
+                reportMonth.avgTotal_20M.NH3_Emis_Percent += tabletDay.NH3_Emis_Percent;
                 reportMonth.avgTotal_20M.Add_Emis_1_Percent += tabletDay.Add_Emis_1_Percent;
                 reportMonth.avgTotal_20M.Add_Emis_2_Percent += tabletDay.Add_Emis_2_Percent;
                 reportMonth.avgTotal_20M.Add_Emis_3_Percent += tabletDay.Add_Emis_3_Percent;
@@ -236,6 +253,13 @@ namespace ASK.BLL.Services
                 reportMonth.sumTotal_20M.O2_Dry += tabletDay.O2_Dry;
                 reportMonth.sumTotal_20M.O2_Wet += tabletDay.O2_Wet;
                 reportMonth.sumTotal_20M.H2O += tabletDay.H2O;
+
+                reportMonth.sumTotal_20M.Pressure_KIP += tabletDay.Pressure_KIP;
+                reportMonth.sumTotal_20M.Temperature_Point_Dew += tabletDay.Temperature_Point_Dew;
+                reportMonth.sumTotal_20M.Temperature_Room += tabletDay.Temperature_Room;
+                reportMonth.sumTotal_20M.Temperature_PGS += tabletDay.Temperature_PGS;
+                reportMonth.sumTotal_20M.O2_Room += tabletDay.O2_Room;
+                reportMonth.sumTotal_20M.O2_PGS += tabletDay.O2_PGS;
             }
             //Усредняем за 20 мин
             int counter = reportMonth.TableReport.Count;
@@ -251,6 +275,7 @@ namespace ASK.BLL.Services
             reportMonth.avgTotal_20M.Dust_Conc = Math.Round(reportMonth.sumTotal_20M.Dust_Conc / counter, 3);
             reportMonth.avgTotal_20M.CH4_Conc = Math.Round(reportMonth.sumTotal_20M.CH4_Conc / counter, 3);
             reportMonth.avgTotal_20M.H2S_Conc = Math.Round(reportMonth.sumTotal_20M.H2S_Conc / counter, 3);
+            reportMonth.avgTotal_20M.NH3_Conc = Math.Round(reportMonth.sumTotal_20M.NH3_Conc / counter, 3);
             reportMonth.avgTotal_20M.Add_Conc_1 = Math.Round(reportMonth.sumTotal_20M.Add_Conc_1 / counter, 3);
             reportMonth.avgTotal_20M.Add_Conc_2 = Math.Round(reportMonth.sumTotal_20M.Add_Conc_2 / counter, 3);
             reportMonth.avgTotal_20M.Add_Conc_3 = Math.Round(reportMonth.sumTotal_20M.Add_Conc_3 / counter, 3);
@@ -267,6 +292,7 @@ namespace ASK.BLL.Services
             reportMonth.avgTotal_20M.Dust_Emis = Math.Round(reportMonth.sumTotal_20M.Dust_Emis / counter, 3);
             reportMonth.avgTotal_20M.CH4_Emis = Math.Round(reportMonth.sumTotal_20M.CH4_Emis / counter, 3);
             reportMonth.avgTotal_20M.H2S_Emis = Math.Round(reportMonth.sumTotal_20M.H2S_Emis / counter, 3);
+            reportMonth.avgTotal_20M.NH3_Emis = Math.Round(reportMonth.sumTotal_20M.NH3_Emis / counter, 3);
             reportMonth.avgTotal_20M.Add_Emis_1 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_1 / counter, 3);
             reportMonth.avgTotal_20M.Add_Emis_2 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_2 / counter, 3);
             reportMonth.avgTotal_20M.Add_Emis_3 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_3 / counter, 3);
@@ -284,6 +310,14 @@ namespace ASK.BLL.Services
             reportMonth.avgTotal_20M.O2_Wet = Math.Round(reportMonth.sumTotal_20M.O2_Wet / counter, 3);
             reportMonth.avgTotal_20M.H2O = Math.Round(reportMonth.sumTotal_20M.H2O / counter, 3);
 
+            reportMonth.avgTotal_20M.Pressure_KIP = Math.Round(reportMonth.sumTotal_20M.Pressure_KIP / counter, 3);
+            reportMonth.avgTotal_20M.Temperature_Point_Dew = Math.Round(reportMonth.sumTotal_20M.Temperature_Point_Dew / counter, 3);
+            reportMonth.avgTotal_20M.Temperature_Room = Math.Round(reportMonth.sumTotal_20M.Temperature_Room / counter, 3);
+            reportMonth.avgTotal_20M.Temperature_PGS = Math.Round(reportMonth.sumTotal_20M.Temperature_PGS / counter, 3);
+            reportMonth.avgTotal_20M.O2_Room = Math.Round(reportMonth.sumTotal_20M.O2_Room / counter, 3);
+            reportMonth.avgTotal_20M.O2_PGS = Math.Round(reportMonth.sumTotal_20M.O2_PGS / counter, 3);
+
+
             //Считаем время простоя
             //sumTotal_20M.Mode_ASK = Math.Round(sumTotal_20M.Mode_ASK / 3, 3);
 
@@ -297,6 +331,7 @@ namespace ASK.BLL.Services
             reportMonth.sumTotal_20M.Dust_Emis = Math.Round(reportMonth.sumTotal_20M.Dust_Emis / 1000, 3);
             reportMonth.sumTotal_20M.CH4_Emis = Math.Round(reportMonth.sumTotal_20M.CH4_Emis / 1000, 3);
             reportMonth.sumTotal_20M.H2S_Emis = Math.Round(reportMonth.sumTotal_20M.H2S_Emis / 1000, 3);
+            reportMonth.sumTotal_20M.NH3_Emis = Math.Round(reportMonth.sumTotal_20M.NH3_Emis / 1000, 3);
             reportMonth.sumTotal_20M.Add_Emis_1 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_1 / 1000, 3);
             reportMonth.sumTotal_20M.Add_Emis_2 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_2 / 1000, 3);
             reportMonth.sumTotal_20M.Add_Emis_3 = Math.Round(reportMonth.sumTotal_20M.Add_Emis_3 / 1000, 3);
@@ -312,6 +347,7 @@ namespace ASK.BLL.Services
             reportMonth.sumTotal_20M.Dust_Conc = 0.0;
             reportMonth.sumTotal_20M.CH4_Conc = 0.0;
             reportMonth.sumTotal_20M.H2S_Conc = 0.0;
+            reportMonth.sumTotal_20M.NH3_Conc = 0.0;
             reportMonth.sumTotal_20M.Add_Conc_1 = 0.0;
             reportMonth.sumTotal_20M.Add_Conc_2 = 0.0;
             reportMonth.sumTotal_20M.Add_Conc_3 = 0.0;
@@ -332,6 +368,7 @@ namespace ASK.BLL.Services
             reportMonth.avgTotal_20M.Dust_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.Dust_Conc_Percent, 3);
             reportMonth.avgTotal_20M.CH4_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.CH4_Conc_Percent, 3);
             reportMonth.avgTotal_20M.H2S_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.H2S_Conc_Percent, 3);
+            reportMonth.avgTotal_20M.NH3_Conc_Percent += Math.Round(reportMonth.avgTotal_20M.NH3_Conc_Percent, 3);
             reportMonth.avgTotal_20M.Add_Conc_1_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_1_Percent, 3);
             reportMonth.avgTotal_20M.Add_Conc_2_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_2_Percent, 3);
             reportMonth.avgTotal_20M.Add_Conc_3_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Conc_3_Percent, 3);
@@ -348,6 +385,7 @@ namespace ASK.BLL.Services
             reportMonth.avgTotal_20M.Dust_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.Dust_Emis_Percent, 3);
             reportMonth.avgTotal_20M.CH4_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.CH4_Emis_Percent, 3);
             reportMonth.avgTotal_20M.H2S_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.H2S_Emis_Percent, 3);
+            reportMonth.avgTotal_20M.NH3_Emis_Percent += Math.Round(reportMonth.avgTotal_20M.NH3_Emis_Percent, 3);
             reportMonth.avgTotal_20M.Add_Emis_1_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_1_Percent, 3);
             reportMonth.avgTotal_20M.Add_Emis_2_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_2_Percent, 3);
             reportMonth.avgTotal_20M.Add_Emis_3_Percent += Math.Round(reportMonth.avgTotal_20M.Add_Emis_3_Percent, 3);

@@ -38,6 +38,7 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; vertical-align: middle">Тв.ч. мг/м³, при н.у.</td>                
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; vertical-align: middle">CH₄. мг/м³, при н.у.</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S. мг/м³, при н.у.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; vertical-align: middle">NH₃. мг/м³, при н.у.</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Add_Conc_1. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; vertical-align: middle">Add_Conc_2. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; vertical-align: middle">Add_Conc_3. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
@@ -54,6 +55,7 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; vertical-align: middle">Тв.ч. г/c</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; vertical-align: middle">CH₄. г/c</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle">H₂S. г/c</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; vertical-align: middle">NH₃. г/c</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle">Add_Emis_1. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; vertical-align: middle">Add_Emis_2. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; vertical-align: middle">Add_Emis_3. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
@@ -65,11 +67,20 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; vertical-align: middle">Температура ДГ, °С</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; vertical-align: middle">Скорость ДГ, м³/с</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle">Расход ДГ, м³/с, при н.у.</td>                   
+                            
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>                   
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; vertical-align: middle">Давление воздуха КИП, кПа</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; vertical-align: middle">Температура точки росы воздуха КИП, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; vertical-align: middle">Температура в анализ. помещении, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; vertical-align: middle">Температура в помещении ПГС, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; vertical-align: middle">O₂ в анализ. помещении, °С</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; vertical-align: middle">O₂ в помещении ПГС, °С</td>
+                              
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; vertical-align: middle">О₂ сух, %</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; vertical-align: middle">О₂ вл, %</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; vertical-align: middle">H₂O, %</td>                               
+                            
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; vertical-align: middle">Режим</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; vertical-align: middle">ПДК</td>
                         </tr>
@@ -88,6 +99,7 @@
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Conc; padding: 3px; ">@tableCurrent.Dust_Conc</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 3px; ">@tableCurrent.CH4_Conc</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; ">@tableCurrent.H2S_Conc</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; ">@tableCurrent.NH3_Conc</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px;">@tableCurrent.Add_Conc_1</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px; ">@tableCurrent.Add_Conc_2</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_3; padding: 3px; ">@tableCurrent.Add_Conc_3</td>
@@ -104,6 +116,7 @@
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis; padding: 3px; ">@tableCurrent.Dust_Emis</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 3px; ">@tableCurrent.CH4_Emis</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px; ">@tableCurrent.H2S_Emis</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px; ">@tableCurrent.NH3_Emis</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px; ">@tableCurrent.Add_Emis_1</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 3px; ">@tableCurrent.Add_Emis_2</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3; padding: 3px; ">@tableCurrent.Add_Emis_3</td>
@@ -115,8 +128,15 @@
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 3px;">@tableCurrent.Temperature</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 3px;">@tableCurrent.Speed</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 3px;">@tableCurrent.Flow</td>
+                                        
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px;">@tableCurrent.Temperature_KIP</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px;">@tableCurrent.Temperature_NOx</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 3px;">@tableCurrent.Pressure_KIP</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 3px;">@tableCurrent.Temperature_Point_Dew</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 3px;">@tableCurrent.Temperature_Room</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 3px;">@tableCurrent.Temperature_PGS</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 3px;">@tableCurrent.O2_Room</td>
+                                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 3px;">@tableCurrent.O2_PGS</td>
                                 
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 3px;">@tableCurrent.O2_Dry</td>
                                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 3px;">@tableCurrent.O2_Wet</td>

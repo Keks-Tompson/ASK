@@ -107,6 +107,8 @@
                                                 </div>
                                                     @*<button class="text-center" type="submit" class="btn btn-primary">Войти</button>*@
                                             </form>
+                                           
+                                            
                                         </div>
 
                                         <div class="col">
@@ -118,6 +120,13 @@
 
                         <a class="btn btn-warning" style="margin: 0 5px 0 0;" asp-area="" asp-controller="AlarmList" asp-action="Index">Журнал аварий</a>
                     }
+
+                    @*<div class="text-center">
+                        GlobalStaticSettingsASK.SettingOptions.NameASK
+                    </div>*@
+
+                    
+
 
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -140,7 +149,7 @@
                                     <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Отчёт за месяц (средн. выбросы при простое)</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Отчёт за месяц (средн. выбросы за сутки)</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">За год</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="ReportAnnual" asp-action="">За год</a>
                                 </div>
                             </div>
 
@@ -195,11 +204,7 @@
                             </div> 
                         </li>
 
-                        <li class="nav-item">
-                            <div>
-                                  
-                            </div>
-                        </li>
+                        
 
                         &nbsp
 
@@ -224,11 +229,30 @@
                                 }
                             </div> 
                         </li>
+
+                        <li class="nav-item">
+                            <div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class=""
+                                 style="    color: #808080;
+                                    margin: 10px 0 0 0;
+                                    font-size: 93%;
+                                    font-family: Times New Roman" , Times, serif; ">
+
+                                <h8 class="text-center">
+                                    @GlobalStaticSettingsASK.SettingOptions.NameASKSystem. 
+                                    @GlobalStaticSettingsASK.SettingOptions.NameASK
+                                </h8>
+                            </div>
+                        </li>
                     </ul>
 
-
                     
-
+                    
+                    
 
                      
 
@@ -266,7 +290,7 @@
                     </div>
 
                     <div class="col">
-                        <div class="text-center">V1.0</div>
+                        <div class="text-center">V2.0.01</div>
                     </div>
 
                 </div>

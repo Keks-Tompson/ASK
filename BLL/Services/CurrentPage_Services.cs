@@ -46,117 +46,181 @@ namespace ASK.BLL.Services
             }
             string notUse = "-/-";
 
+
             if (currentPage.CurrentConcEmis.CO_Conc >= GlobalStaticSettingsASK.PDZ_Current.CO_Conc && currentPage.PDZ_Current_String.CO_Conc != notUse)
                 currentPage.Color_Conc.CO = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.CO = null;
+            
+            
             if (currentPage.CurrentConcEmis.CO2_Conc >= GlobalStaticSettingsASK.PDZ_Current.CO2_Conc && currentPage.PDZ_Current_String.CO2_Conc != notUse)
                 currentPage.Color_Conc.CO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.CO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.NO_Conc >= GlobalStaticSettingsASK.PDZ_Current.NO_Conc && currentPage.PDZ_Current_String.NO_Conc != notUse)
                 currentPage.Color_Conc.NO = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.NO = null;
+            
+            
             if (currentPage.CurrentConcEmis.NO2_Conc >= GlobalStaticSettingsASK.PDZ_Current.NO2_Conc && currentPage.PDZ_Current_String.NO2_Conc != notUse)
                 currentPage.Color_Conc.NO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.NO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.NOx_Conc >= GlobalStaticSettingsASK.PDZ_Current.NOx_Conc && currentPage.PDZ_Current_String.NOx_Conc != notUse)
                 currentPage.Color_Conc.NOx = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.NOx = null;
+            
+            
             if (currentPage.CurrentConcEmis.SO2_Conc >= GlobalStaticSettingsASK.PDZ_Current.SO2_Conc && currentPage.PDZ_Current_String.SO2_Conc != notUse)
                 currentPage.Color_Conc.SO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.SO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Dust_Conc >= GlobalStaticSettingsASK.PDZ_Current.Dust_Conc && currentPage.PDZ_Current_String.Dust_Conc != notUse)
                 currentPage.Color_Conc.Dust = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Dust = null;
+            
+            
             if (currentPage.CurrentConcEmis.CH4_Conc >= GlobalStaticSettingsASK.PDZ_Current.CH4_Conc && currentPage.PDZ_Current_String.CH4_Conc != notUse)
                 currentPage.Color_Conc.CH4 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.CH4 = null;
+            
+            
             if (currentPage.CurrentConcEmis.H2S_Conc >= GlobalStaticSettingsASK.PDZ_Current.H2S_Conc && currentPage.PDZ_Current_String.H2S_Conc != notUse)
                 currentPage.Color_Conc.H2S = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.H2S = null;
-
+            
+            
+            if (currentPage.CurrentConcEmis.NH3_Conc >= GlobalStaticSettingsASK.PDZ_Current.NH3_Conc && currentPage.PDZ_Current_String.NH3_Conc != notUse)
+                currentPage.Color_Conc.NH3 = "background: #f2aaaa96;";
+            else
+                currentPage.Color_Conc.NH3 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Conc_1 >= GlobalStaticSettingsASK.PDZ_Current.Add_Conc_1 && currentPage.PDZ_Current_String.Add_Conc_1 != notUse)
                 currentPage.Color_Conc.Rezerv_1 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Rezerv_1 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Conc_2 >= GlobalStaticSettingsASK.PDZ_Current.Add_Conc_2 && currentPage.PDZ_Current_String.Add_Conc_2 != notUse)
                 currentPage.Color_Conc.Rezerv_2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Rezerv_2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Conc_3 >= GlobalStaticSettingsASK.PDZ_Current.Add_Conc_3 && currentPage.PDZ_Current_String.Add_Conc_3 != notUse)
                 currentPage.Color_Conc.Rezerv_3 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Rezerv_3 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Conc_4 >= GlobalStaticSettingsASK.PDZ_Current.Add_Conc_4 && currentPage.PDZ_Current_String.Add_Conc_4 != notUse)
                 currentPage.Color_Conc.Rezerv_4 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Rezerv_4 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Conc_5 >= GlobalStaticSettingsASK.PDZ_Current.Add_Conc_5 && currentPage.PDZ_Current_String.Add_Conc_5 != notUse)
                 currentPage.Color_Conc.Rezerv_5 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Conc.Rezerv_5 = null;
 
+            
             if (currentPage.CurrentConcEmis.CO_Emis >= GlobalStaticSettingsASK.PDZ_Current.CO_Emis && currentPage.PDZ_Current_String.CO_Emis != notUse)
                 currentPage.Color_Emis.CO = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.CO = null;
+            
+            
             if (currentPage.CurrentConcEmis.CO2_Emis >= GlobalStaticSettingsASK.PDZ_Current.CO2_Emis && currentPage.PDZ_Current_String.CO2_Emis != notUse)
                 currentPage.Color_Emis.CO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.CO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.NO_Emis >= GlobalStaticSettingsASK.PDZ_Current.NO_Emis && currentPage.PDZ_Current_String.NO_Emis != notUse)
                 currentPage.Color_Emis.NO = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.NO = null;
+            
+            
             if (currentPage.CurrentConcEmis.NO2_Emis >= GlobalStaticSettingsASK.PDZ_Current.NO2_Emis && currentPage.PDZ_Current_String.NO2_Emis != notUse)
                 currentPage.Color_Emis.NO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.NO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.NOx_Emis >= GlobalStaticSettingsASK.PDZ_Current.NOx_Emis && currentPage.PDZ_Current_String.NOx_Emis != notUse)
                 currentPage.Color_Emis.NOx = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.NOx = null;
+            
+            
             if (currentPage.CurrentConcEmis.SO2_Emis >= GlobalStaticSettingsASK.PDZ_Current.SO2_Emis && currentPage.PDZ_Current_String.SO2_Emis != notUse)
                 currentPage.Color_Emis.SO2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.SO2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Dust_Emis >= GlobalStaticSettingsASK.PDZ_Current.Dust_Emis && currentPage.PDZ_Current_String.Dust_Emis != notUse)
                 currentPage.Color_Emis.Dust = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Dust = null;
+            
+            
             if (currentPage.CurrentConcEmis.CH4_Emis >= GlobalStaticSettingsASK.PDZ_Current.CH4_Emis && currentPage.PDZ_Current_String.CH4_Emis != notUse)
                 currentPage.Color_Emis.CH4 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.CH4 = null;
+            
+            
             if (currentPage.CurrentConcEmis.H2S_Emis >= GlobalStaticSettingsASK.PDZ_Current.H2S_Emis && currentPage.PDZ_Current_String.H2S_Emis != notUse)
                 currentPage.Color_Emis.H2S = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.H2S = null;
 
+
+            if (currentPage.CurrentConcEmis.NH3_Emis >= GlobalStaticSettingsASK.PDZ_Current.NH3_Emis && currentPage.PDZ_Current_String.NH3_Emis != notUse)
+                currentPage.Color_Emis.NH3 = "background: #f2aaaa96;";
+            else
+                currentPage.Color_Emis.NH3 = null;
+
+
             if (currentPage.CurrentConcEmis.Add_Emis_1 >= GlobalStaticSettingsASK.PDZ_Current.Add_Emis_1 && currentPage.PDZ_Current_String.Add_Emis_1 != notUse)
                 currentPage.Color_Emis.Rezerv_1 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Rezerv_1 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Emis_2 >= GlobalStaticSettingsASK.PDZ_Current.Add_Emis_2 && currentPage.PDZ_Current_String.Add_Emis_2 != notUse)
                 currentPage.Color_Emis.Rezerv_2 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Rezerv_2 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Emis_3 >= GlobalStaticSettingsASK.PDZ_Current.Add_Emis_3 && currentPage.PDZ_Current_String.Add_Emis_3 != notUse)
                 currentPage.Color_Emis.Rezerv_3 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Rezerv_3 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Emis_4 >= GlobalStaticSettingsASK.PDZ_Current.Add_Emis_4 && currentPage.PDZ_Current_String.Add_Emis_4 != notUse)
                 currentPage.Color_Emis.Rezerv_4 = "background: #f2aaaa96;";
             else
                 currentPage.Color_Emis.Rezerv_4 = null;
+            
+            
             if (currentPage.CurrentConcEmis.Add_Emis_5 >= GlobalStaticSettingsASK.PDZ_Current.Add_Emis_5 && currentPage.PDZ_Current_String.Add_Emis_5 != notUse)
                 currentPage.Color_Emis.Rezerv_5 = "background: #f2aaaa96;";
             else
@@ -217,6 +281,12 @@ namespace ASK.BLL.Services
                 currentPage.VisibilitySensorOptions.H2S_Conc = "table-cell";
             else
                 currentPage.VisibilitySensorOptions.H2S_Conc = "none";
+
+            //NH3
+            if (GlobalStaticSettingsASK.SensorRange.NH3.Is_Used)
+                currentPage.VisibilitySensorOptions.NH3_Conc = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.NH3_Conc = "none";
 
             //Rezerv_1
             if (GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
@@ -290,11 +360,48 @@ namespace ASK.BLL.Services
             else
                 currentPage.VisibilitySensorOptions.Temperature_KIP = "none";
 
+
             //T_NOx
             if (GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
                 currentPage.VisibilitySensorOptions.Temperature_NOx = "table-cell";
             else
                 currentPage.VisibilitySensorOptions.Temperature_NOx = "none";
+
+            //P_KIP
+            if (GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used)
+                currentPage.VisibilitySensorOptions.Pressure_KIP = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Pressure_KIP = "none";
+
+            //T_Point_Dew
+            if (GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature_Point_Dew = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature_Point_Dew = "none";
+
+            //T_Room
+            if (GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature_Room = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature_Room = "none";
+
+            //T_PGS
+            if (GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used)
+                currentPage.VisibilitySensorOptions.Temperature_PGS = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.Temperature_PGS = "none";
+
+            //O2_Room
+            if (GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used)
+                currentPage.VisibilitySensorOptions.O2_Room = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.O2_Room = "none";
+
+            //O2_PGS
+            if (GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used)
+                currentPage.VisibilitySensorOptions.O2_PGS = "table-cell";
+            else
+                currentPage.VisibilitySensorOptions.O2_PGS = "none";
 
             return currentPage;
         }

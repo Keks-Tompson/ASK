@@ -21,6 +21,8 @@ namespace ASK.DAL.Models
         public double Dust { get; set; }
         public double CH4 { get; set; }
         public double H2S { get; set; }
+        public double NH3 { get; set; }
+
 
         public double Rezerv_1 { get; set; }
         public double Rezerv_2 { get; set; }
@@ -38,5 +40,12 @@ namespace ASK.DAL.Models
         
         public double Temperature_KIP { get; set; }
         public double Temperature_NOx { get; set; }
+        public double Pressure_KIP { get; set; }
+        public double Temperature_Room { get; set; }
+        public double Temperature_PGS { get; set; }
+        public double Temperature_Point_Dew { get; set; }   //Температруа точки росы воздуха КИП
+        public double O2_Room { get; set; }                 //Кислород в помщенеии
+        public double O2_PGS { get; set; }                  //Кислород в помщении ПГС
     }
+
 }

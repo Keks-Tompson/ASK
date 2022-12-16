@@ -59,6 +59,11 @@ namespace ASK.Controllers
                     calculationViewModel.Calculation = _Calculation_Services.Count(GlobalStaticSettingsASK.CalculationSetting, GlobalStaticSettingsASK.SensorScaledNow.H2S_4_20mA, GlobalStaticSettingsASK.SensorRange.H2S.Is_ppm, 1.36);
                     calculationViewModel.Calculation.Name = "H₂S";
                     break;
+
+                case TypeCalulationViews.NH3:
+                    calculationViewModel.Calculation = _Calculation_Services.Count(GlobalStaticSettingsASK.CalculationSetting, GlobalStaticSettingsASK.SensorScaledNow.NH3_4_20mA, GlobalStaticSettingsASK.SensorRange.NH3.Is_ppm, 0.73);
+                    calculationViewModel.Calculation.Name = "NH₃";
+                    break;
             }
 
             return Json(calculationViewModel);
@@ -88,6 +93,10 @@ namespace ASK.Controllers
 
                 case 4:
                     GlobalStaticSettingsASK.CalculationSetting.TypeViews = TypeCalulationViews.H2S;
+                    break;
+
+                case 5:
+                    GlobalStaticSettingsASK.CalculationSetting.TypeViews = TypeCalulationViews.NH3;
                     break;
             }
 

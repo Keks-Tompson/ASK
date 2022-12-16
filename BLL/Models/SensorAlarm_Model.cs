@@ -6,34 +6,42 @@ namespace ASK.BLL.Models
 {
     public class SensorAlarm_Model
     {
-        public bool Is_Used { get; set; } = true;                                 //Испоьзуются ли аварии сенсоров
+        public bool Is_Used { get; set; } = true;                                   //Испоьзуются ли аварии сенсоров
 
-        public Alarm_Model CO { get; set; } = new Alarm_Model();                  //Обрыв CO
-        public Alarm_Model CO2 { get; set; } = new Alarm_Model();                 //Обрыв CO2
-        public Alarm_Model NO { get; set; } = new Alarm_Model();                  //Обрыв NO
-        public Alarm_Model NO2 { get; set; } = new Alarm_Model();                 //Обрыв NO2
-        public Alarm_Model NOx { get; set; } = new Alarm_Model();                 //Обрыв NOx
-        public Alarm_Model SO2 { get; set; } = new Alarm_Model();                 //Обрыв SO2
-        public Alarm_Model Dust { get; set; } = new Alarm_Model();                //Обрыв Dust
+        public Alarm_Model CO { get; set; } = new Alarm_Model();                    //Обрыв CO
+        public Alarm_Model CO2 { get; set; } = new Alarm_Model();                   //Обрыв CO2
+        public Alarm_Model NO { get; set; } = new Alarm_Model();                    //Обрыв NO
+        public Alarm_Model NO2 { get; set; } = new Alarm_Model();                   //Обрыв NO2
+        public Alarm_Model NOx { get; set; } = new Alarm_Model();                   //Обрыв NOx
+        public Alarm_Model SO2 { get; set; } = new Alarm_Model();                   //Обрыв SO2
+        public Alarm_Model Dust { get; set; } = new Alarm_Model();                  //Обрыв Dust
 
-        public Alarm_Model CH4 { get; set; } = new Alarm_Model();                 //Обрыв CH4
-        public Alarm_Model H2S { get; set; } = new Alarm_Model();                 //Обрыв H2S
+        public Alarm_Model CH4 { get; set; } = new Alarm_Model();                   //Обрыв CH4
+        public Alarm_Model H2S { get; set; } = new Alarm_Model();                   //Обрыв H2S
+        public Alarm_Model NH3 { get; set; } = new Alarm_Model();                   //Обрыв NH3
 
-        public Alarm_Model Rezerv_1 { get; set; } = new Alarm_Model();            //Обрыв Rezerv_1
-        public Alarm_Model Rezerv_2 { get; set; } = new Alarm_Model();            //Обрыв Rezerv_2
-        public Alarm_Model Rezerv_3 { get; set; } = new Alarm_Model();            //Обрыв Rezerv_3
-        public Alarm_Model Rezerv_4 { get; set; } = new Alarm_Model();            //Обрыв Rezerv_4
-        public Alarm_Model Rezerv_5 { get; set; } = new Alarm_Model();            //Обрыв Rezerv_5
+        public Alarm_Model Rezerv_1 { get; set; } = new Alarm_Model();              //Обрыв Rezerv_1
+        public Alarm_Model Rezerv_2 { get; set; } = new Alarm_Model();              //Обрыв Rezerv_2
+        public Alarm_Model Rezerv_3 { get; set; } = new Alarm_Model();              //Обрыв Rezerv_3
+        public Alarm_Model Rezerv_4 { get; set; } = new Alarm_Model();              //Обрыв Rezerv_4
+        public Alarm_Model Rezerv_5 { get; set; } = new Alarm_Model();              //Обрыв Rezerv_5
 
-        public Alarm_Model O2_Wet { get; set; } = new Alarm_Model();              //Обрыв O2 Влажный
-        public Alarm_Model O2_Dry { get; set; } = new Alarm_Model();              //Обрыв O2 Сухой
-        public Alarm_Model H2O { get; set; } = new Alarm_Model();                 //Обрыв H2O
+        public Alarm_Model O2_Wet { get; set; } = new Alarm_Model();                //Обрыв O2 Влажный
+        public Alarm_Model O2_Dry { get; set; } = new Alarm_Model();                //Обрыв O2 Сухой
+        public Alarm_Model H2O { get; set; } = new Alarm_Model();                   //Обрыв H2O
 
-        public Alarm_Model Pressure { get; set; } = new Alarm_Model();            //Обрыв Давления
-        public Alarm_Model Temperature { get; set; } = new Alarm_Model();         //Обрыв Температуры
-        public Alarm_Model Speed { get; set; } = new Alarm_Model();               //Обрыв Скорости
-        public Alarm_Model Temperature_KIP { get; set; } = new Alarm_Model();     //Обрыв Температуры КИП
-        public Alarm_Model Temperature_NOx { get; set; } = new Alarm_Model();     //Обрыв Тепературы конвертора NOx
+        public Alarm_Model Pressure { get; set; } = new Alarm_Model();              //Обрыв Давления
+        public Alarm_Model Temperature { get; set; } = new Alarm_Model();           //Обрыв Температуры
+        public Alarm_Model Speed { get; set; } = new Alarm_Model();                 //Обрыв Скорости
+
+        public Alarm_Model Temperature_KIP { get; set; } = new Alarm_Model();       //Обрыв Температуры КИП
+        public Alarm_Model Temperature_NOx { get; set; } = new Alarm_Model();       //Обрыв Тепературы конвертора NOx
+        public Alarm_Model Pressure_KIP { get; set; } = new Alarm_Model();          //Обрыв Давления КИП
+        public Alarm_Model Temperature_Room { get; set; } = new Alarm_Model();      //Обрыв Температуры в помешении
+        public Alarm_Model Temperature_PGS { get; set; } = new Alarm_Model();       //Обрыв Температуры в помещении ПГС
+        public Alarm_Model Temperature_Point_Dew { get; set; } = new Alarm_Model(); //Температруа точки росы воздуха КИП
+        public Alarm_Model O2_Room { get; set; } = new Alarm_Model();               //Кислород в помщенеии
+        public Alarm_Model O2_PGS { get; set; } = new Alarm_Model();                //Кислород в помщенеии ПГС
 
 
 
@@ -78,6 +86,10 @@ namespace ASK.BLL.Models
             H2S.Is_Used = true;
             H2S.Is_Critical = true;
 
+
+            NH3.ID = 58;
+            NH3.Is_Used = true;
+            NH3.Is_Critical = true;
 
 
             Rezerv_1.ID = 21;
@@ -128,13 +140,39 @@ namespace ASK.BLL.Models
             Speed.Is_Used = true;
             Speed.Is_Critical = true;
 
+
+
             Temperature_KIP.ID = 32;
             Temperature_KIP.Is_Used = true;
-            Temperature_KIP.Is_Critical = false;
+            Temperature_KIP.Is_Critical = true;
 
             Temperature_NOx.ID = 33;
             Temperature_NOx.Is_Used = true;
-            Temperature_NOx.Is_Critical = false;
+            Temperature_NOx.Is_Critical = true;
+
+            Pressure_KIP.ID = 59;
+            Pressure_KIP.Is_Used = true;
+            Pressure_KIP.Is_Critical = true;
+
+            Temperature_Point_Dew.ID = 60;
+            Temperature_Point_Dew.Is_Used = true;
+            Temperature_Point_Dew.Is_Critical = true;
+
+            Temperature_Room.ID = 61;
+            Temperature_Room.Is_Used = true;
+            Temperature_Room.Is_Critical = true;
+
+            Temperature_PGS.ID = 62;
+            Temperature_PGS.Is_Used = true;
+            Temperature_PGS.Is_Critical = true;
+
+            O2_Room.ID = 63;
+            O2_Room.Is_Used = true;
+            O2_Room.Is_Critical = true;
+
+            O2_PGS.ID = 64;
+            O2_PGS.Is_Used = true;
+            O2_PGS.Is_Critical = true;
         }
     }
 }

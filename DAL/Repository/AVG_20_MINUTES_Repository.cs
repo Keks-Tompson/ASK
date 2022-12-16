@@ -38,6 +38,7 @@ namespace ASK.DAL.Repository
                     Conc_D3 = new_AVG_20_MINUTES.Conc_D3,
                     Conc_D4 = new_AVG_20_MINUTES.Conc_D4,
                     Conc_D5 = new_AVG_20_MINUTES.Conc_D5,
+                    Conc_NH3 = new_AVG_20_MINUTES.Conc_NH3,
 
                     Emis_CO = new_AVG_20_MINUTES.Emis_CO,
                     Emis_CO2 = new_AVG_20_MINUTES.Emis_CO2,
@@ -53,6 +54,7 @@ namespace ASK.DAL.Repository
                     Emis_D3 = new_AVG_20_MINUTES.Emis_D3,
                     Emis_D4 = new_AVG_20_MINUTES.Emis_D4,
                     Emis_D5 = new_AVG_20_MINUTES.Emis_D5,
+                    Emis_NH3 = new_AVG_20_MINUTES.Emis_NH3,
 
                     O2_Wet = new_AVG_20_MINUTES.O2_Wet,
                     O2_Dry = new_AVG_20_MINUTES.O2_Dry,
@@ -62,8 +64,16 @@ namespace ASK.DAL.Repository
                     Temperature = new_AVG_20_MINUTES.Temperature,
                     Speed = new_AVG_20_MINUTES.Speed,
                     Flow = new_AVG_20_MINUTES.Flow,
+
                     Temperature_KIP = new_AVG_20_MINUTES.Temperature_KIP,
                     Temperature_NOx = new_AVG_20_MINUTES.Temperature_NOx,
+                    Pressure_KIP = new_AVG_20_MINUTES.Pressure,
+                    Temperature_Room = new_AVG_20_MINUTES.O2_Room,
+                    Temperature_PGS = new_AVG_20_MINUTES.Temperature_PGS,
+                    Temperature_Point_Dew = new_AVG_20_MINUTES.Temperature_Point_Dew,   //Температруа точки росы воздуха КИП
+                    O2_Room = new_AVG_20_MINUTES.O2_Room,                               //Кислород в помщенеии
+                    O2_PGS = new_AVG_20_MINUTES.O2_PGS,                                 //Кислород в помщении ПГС
+
 
                     Mode_ASK = new_AVG_20_MINUTES.Mode_ASK,
                     PDZ_Fuel = new_AVG_20_MINUTES.PDZ_Fuel,

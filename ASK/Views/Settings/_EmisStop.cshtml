@@ -1,0 +1,477 @@
+﻿@using ASK.BLL.Helper.Setting
+@using ASK.BLL.Models
+
+
+
+<div>
+    <h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Значение выбрсов в простое</label></h2> 
+</div>
+
+
+ @* <div class="row justify-content-around">
+    <div class="col-4">
+      Одна из двух колонок
+    </div>
+    <div class="col-4">
+      Одна из двух колонок
+    </div>
+  </div>
+*@
+<br />
+<div style=" color: #808080;
+            /*padding: 10px;*/
+            /*border-radius: 10px;*/
+            /*box-shadow: inset 0 0 2px;*/
+            margin: 0 0 0 0;">
+    <form method="post"> 
+        <table class="table table-borderless">
+        
+            <tr>
+            
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col"  style="width: 300px;">
+                
+                    <div class="row align-items_start" > 
+                    
+                        <div class="col">
+                        </div>
+
+                        @if (@GlobalStaticSettingsASK.emis_IsStop.isAuto)
+                        {
+                            <div class="form-check form-check-inline col" style=" color: #808080; font-family: Times New Roman , Times, serif; font-size: 100%;">
+                                <input class="form-check-input" type="radio" name="EmisStopType" id="EmisStopType1" value="1" checked >
+                                <label class="form-check-label" for="EmisStopType1" style="margin: 6px 0 0 0;" >Автоматический</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-check form-check-inline col"  style=" color: #808080; font-family: Times New Roman , Times, serif; font-size: 100%;">
+                                <input class="form-check-input" type="radio" name="EmisStopType" id="EmisStopType1" value="1">
+                                <label class="form-check-label" for="EmisStopType1" style="margin: 6px 0 0 0;">Автоматический</label>
+                            </div>
+                        }
+
+                        <div class="col">
+                        </div>
+                                                
+                        <br />
+                        <br />
+                  
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.CO_Auto" name="EmisStop_Auto_CO" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.CO2_Auto" name="EmisStop_Auto_CO2" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.NO_Auto" name="EmisStop_Auto_NO" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.NO2_Auto" name="EmisStop_Auto_NO2" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.NOx_Auto" name="EmisStop_Auto_NOx" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.SO2_Auto" name="EmisStop_Auto_SO2" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Dust_Auto" name="EmisStop_Auto_Dust" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.CH4_Auto" name="EmisStop_Auto_CH4" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.H2S_Auto" name="EmisStop_Auto_H2S" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NH₃</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.NH3_Auto" name="EmisStop_Auto_NH3" readonly> 
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_1_Auto" name="EmisStop_Auto_Add_1" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_2_Auto" name="EmisStop_Auto_Add_2" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_3_Auto" name="EmisStop_Auto_Add_3" readonly> 
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_4_Auto" name="EmisStop_Auto_Add_4" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_5_Auto" name="EmisStop_Auto_Add_5" readonly>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                    </div>
+                </th>
+
+                <th scope="col">
+                </th>
+
+          
+          
+
+                <th scope="col" style="width: 300px;">
+                    <div class="row align-items_start"> 
+                    
+                        <div class="col">
+                        </div>
+
+                        <div class="col">
+                        </div>
+
+                        @if (!@GlobalStaticSettingsASK.emis_IsStop.isAuto)
+                        {
+                            <div class="form-check form-check-inline col" style=" color: #808080; font-family: Times New Roman , Times, serif; font-size: 100%;">
+                                <input class="form-check-input" type="radio" name="EmisStopType" id="EmisStopType2" value="2" checked>
+                                <label class="form-check-label" for="EmisStopType2" style="margin: 6px 0 0 0;" >Ручной</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-check form-check-inline col"  style=" color: #808080; font-family: Times New Roman , Times, serif; font-size: 100%;">
+                                <input class="form-check-input" type="radio" name="EmisStopType" id="EmisStopType2" value="2">
+                                <label class="form-check-label" for="EmisStopType2" style="margin: 6px 0 0 0;">Ручной</label>
+                            </div>
+                        }
+
+                        <div class="col">
+                        </div>
+
+                        <div class="col">
+                        </div>
+
+                        <br />
+                        <br />
+
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CO</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00"  class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.CO_Manual" name="EmisStop_Manual_CO">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.CO2_Manual" name="EmisStop_Manual_CO2">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NO</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.NO_Manual" name="EmisStop_Manual_NO">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end"  value="@GlobalStaticSettingsASK.emis_IsStop.NO2_Manual" name="EmisStop_Manual_NO2">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NOx_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NOx</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.NOx_Manual" name="EmisStop_Manual_NOx">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.SO2_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">SO₂</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.SO2_Manual" name="EmisStop_Manual_SO2">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Тв.ч.</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Dust_Manual" name="EmisStop_Manual_Dust">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">CH₄</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.CH4_Manual" name="EmisStop_Manual_CH4">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">H₂S</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.H2S_Manual" name="EmisStop_Manual_H2S">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">NH₃</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.NH3_Manual" name="EmisStop_Manual_NH3"> 
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 1</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_1_Manual" name="EmisStop_Manual_Add_1">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 2</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_2_Manual" name="EmisStop_Manual_Add_2">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_3 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 3</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_3_Manual" name="EmisStop_Manual_Add_3">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_4 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 4</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_4_Manual" name="EmisStop_Manual_Add_4">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+                        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5 == "table-cell")
+                        {
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Резерв 5</span>
+                                <input type="number" step="0.001" min="0.001" max="9999999.00" class="form-control text-end" value="@GlobalStaticSettingsASK.emis_IsStop.Rezerv_5_Manual" name="EmisStop_Manual_Add_5">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style=" color: #808080; font-family: Times New Roman , Times, serif;">г/с</span>
+                            </div>
+                        }
+
+
+                    </div>
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+            </tr>
+
+            <h5>В автоматическом режиме, во время простоя идёт подстановка усреднённых выбросов за последние 
+                                <input style="width: 50px;" class="text-center" type="number" step="1" min="6" max="100" value="@GlobalStaticSettingsASK.emis_IsStop.Day" name="EmisStop_Day">
+                 суток.
+             <br /> В ручном режиме, во время простоя идёт подстановка заданных значений.
+            <br /> <br />* во всех режимах концентрации продолжают высчитываться в штатном режиме, если это возможно.</h5>
+        
+            <tr>
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                 <th scope="col">
+                </th>
+
+                <th scope="col" style="width: 100px;">
+                    <input class="btn btn-primary " style="float: right;" type="submit" asp-action="EmisStop" asp-controller="Settings" value="Изменить"/>
+                </th>
+
+           
+            </tr>
+        </table>
+    </form> 
+</div>

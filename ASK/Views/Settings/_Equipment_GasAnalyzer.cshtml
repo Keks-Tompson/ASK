@@ -1,0 +1,95 @@
+﻿@using ASK.BLL.Helper.Setting
+@using ASK.BLL.Models
+
+
+
+<div>
+    <h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Выберите используемые газоанализаторы </label></h2> 
+</div>
+
+
+
+<div style="color: #808080;
+            line-height: 1;
+            margin:0 0 0 0;
+            /*padding: -23px;*/
+            font-size: 120%;
+            font-family: Times New Roman" , Times, serif; font-size: 20%;">
+
+    <label>
+        @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis == "table-cell")
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault4145" checked>
+                    <label class="form-check-label" for="flexCheckDefault4145"  style=" margin:6px 0 0 0;">
+                        SICK&nbsp
+                    </label>
+            </div>
+        }
+        else
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault4145">
+                    <label class="form-check-label" for="flexCheckDefault4145" style="margin:6px 0 0 0;">
+                        SICK&nbsp
+                </label>
+            </div>
+        }
+    </label>
+
+
+
+    <label>
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+                Выбрать модели
+            </a>
+        </p>
+    </label>
+
+
+
+    <div class="collapse" id="collapseExample1">
+        <div class="card card-body">
+            <label>
+                @if (GlobalStaticSettingsASK.VisibilityReportOptions.Dust_Emis == "table-cell")
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault41451" checked>
+                            <label class="form-check-label" for="flexCheckDefault41451"  style=" margin:6px 0 0 0;">
+                                GMS810
+                            </label>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" typeof="checkbox" name="check_Dust_Emis" id="flexCheckDefault41451">
+                            <label class="form-check-label" for="flexCheckDefault41451" style="margin:6px 0 0 0;">
+                                GMS810
+                        </label>
+                    </div>
+                }
+                
+            </label>
+        </div>
+    </div>
+    
+</div>
+
+
+                            
+
+
+
+
+
+
+
+@*просто строка что бы всё изначально было по центру*@
+<div>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  </p>
+</div>
+
+
+  

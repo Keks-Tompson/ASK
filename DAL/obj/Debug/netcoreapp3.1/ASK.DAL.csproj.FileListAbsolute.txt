@@ -11,3 +11,29 @@ D:\new ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.dll
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.pdb
 D:\new ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.genruntimeconfig.cache
+D:\ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.deps.json
+D:\ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.json
+D:\ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.dev.json
+D:\ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.dll
+D:\ASK\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.csproj.AssemblyReference.cache
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.AssemblyInfoInputs.cache
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.AssemblyInfo.cs
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.csproj.CoreCompileInputs.cache
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.dll
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.pdb
+D:\ASK\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.genruntimeconfig.cache
+D:\new ASK\10626\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.deps.json
+D:\new ASK\10626\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.json
+D:\new ASK\10626\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.runtimeconfig.dev.json
+D:\new ASK\10626\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.dll
+D:\new ASK\10626\ASK\DAL\bin\Debug\netcoreapp3.1\ASK.DAL.pdb
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.csproj.AssemblyReference.cache
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.AssemblyInfoInputs.cache
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.AssemblyInfo.cs
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.csproj.CoreCompileInputs.cache
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.dll
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.pdb
+D:\new ASK\10626\ASK\DAL\obj\Debug\netcoreapp3.1\ASK.DAL.genruntimeconfig.cache

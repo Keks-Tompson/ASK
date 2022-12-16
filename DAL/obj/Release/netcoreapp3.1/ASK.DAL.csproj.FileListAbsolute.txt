@@ -1,0 +1,13 @@
+D:\ASK\ASK\DAL\bin\Release\netcoreapp3.1\ASK.DAL.deps.json
+D:\ASK\ASK\DAL\bin\Release\netcoreapp3.1\ASK.DAL.runtimeconfig.json
+D:\ASK\ASK\DAL\bin\Release\netcoreapp3.1\ASK.DAL.runtimeconfig.dev.json
+D:\ASK\ASK\DAL\bin\Release\netcoreapp3.1\ASK.DAL.dll
+D:\ASK\ASK\DAL\bin\Release\netcoreapp3.1\ASK.DAL.pdb
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.csproj.AssemblyReference.cache
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.AssemblyInfoInputs.cache
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.AssemblyInfo.cs
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.csproj.CoreCompileInputs.cache
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.dll
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.pdb
+D:\ASK\ASK\DAL\obj\Release\netcoreapp3.1\ASK.DAL.genruntimeconfig.cache

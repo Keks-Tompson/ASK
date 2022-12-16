@@ -1,0 +1,61 @@
+﻿
+
+
+@*<h2 class="text-center" ><label style="font-family: Times New Roman , Times, serif;"  >Настройка оборудования</label></h2>  @*&nbsp - не разрывной пробел*@
+
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active" id="GasAnalyzers" data-bs-toggle="pill" data-bs-target="#gasAnalyzers" type="button" role="tab" aria-controls="GasAnalyzers_" aria-selected="true">Газоанализаторы</button>
+    <button class="nav-link" id="FlowMeter" data-bs-toggle="pill" data-bs-target="#flowMeter" type="button" role="tab" aria-controls="FlowMeter_" aria-selected="false">Расходомеры</button>
+    <button class="nav-link" id="DustMeter" data-bs-toggle="pill" data-bs-target="#dustMeter" type="button" role="tab" aria-controls="DustMeter_" aria-selected="false">Пылемеры</button>
+    <button class="nav-link" id="OxygenMeter" data-bs-toggle="pill" data-bs-target="#oxygenMeter" type="button" role="tab" aria-controls="oxygenMeter_" aria-selected="false">Кислородомеры</button>
+    <button class="nav-link" id="Converter" data-bs-toggle="pill" data-bs-target="#converter" type="button" role="tab" aria-controls="converter_" aria-selected="false">Конвертеры</button>
+    <button class="nav-link" id="Samplingline" data-bs-toggle="pill" data-bs-target="#samplingline" type="button" role="tab" aria-controls="Samplingline_" aria-selected="false">Проботборные линии</button>
+    <button class="nav-link" id="Fridge" data-bs-toggle="pill" data-bs-target="#fridge" type="button" role="tab" aria-controls="fridge_" aria-selected="false">Холодильники</button>
+    <button class="nav-link" id="Valve" data-bs-toggle="pill" data-bs-target="#valve" type="button" role="tab" aria-controls="valve_" aria-selected="false">Клапана</button>
+    
+</div>
+  <div class="tab-content" id="v-pills-tabContent">
+    
+    @*Газоанализаторы*@
+    <div class="tab-pane fade show active" id="gasAnalyzers" role="tabpanel" aria-labelledby="GasAnalyzers_">
+        @Html.Partial("~/Views/Settings/_Equipment_GasAnalyzer.cshtml")
+    </div>
+
+    @*Расходомеры*@
+    <div class="tab-pane fade" id="flowMeter" role="tabpanel" aria-labelledby="FlowMeter_">
+
+    </div>
+
+    @*Пылемеры*@
+    <div class="tab-pane fade" id="dustMeter" role="tabpanel" aria-labelledby="DustMeter_">
+
+    </div>
+
+    @*Кислородомеры*@
+    <div class="tab-pane fade" id="oxygenMeter" role="tabpanel" aria-labelledby="OxygenMeter_">
+
+    </div>
+
+    @*Конверторы*@
+    <div class="tab-pane fade" id="converter" role="tabpanel" aria-labelledby="Converter_">
+
+    </div>
+
+    @*Пробоотборные линии*@
+    <div class="tab-pane fade" id="samplingline" role="tabpanel" aria-labelledby="Samplingline_">
+
+    </div>
+
+    @*Холодильники*@
+    <div class="tab-pane fade" id="fridge" role="tabpanel" aria-labelledby="Fridge_">
+
+    </div>
+
+    @*Клапана*@
+    <div class="tab-pane fade" id="valve" role="tabpanel" aria-labelledby="Valve_">
+
+    </div>
+
+  </div>
+</div>

@@ -20,31 +20,41 @@ namespace ASK.BLL.Services
             if (GlobalStaticSettingsASK.globalAlarms.Is_NotProcess.Value)
             {
                 //нужно подставт значения при отсутствии тех процесса (кислород больше 20%)
-                calculation.M = 0;
-                calculation.C = 0;
+                calculation.C = 0.0;
+                calculation.C_NO = 0.0;
+                calculation.C_NO2 = 0.0;
+                calculation.C_NOx = 0.0;
+                calculation.C_Dust = 0.0;
+
+
+                calculation.M = 0.0;
+                calculation.M_NO = 0.0;
+                calculation.M_NO2 = 0.0;
+                calculation.M_NOx = 0.0;
+                calculation.M_Dust = 0.0;
             }
             else
             {
-                //Просой системы
-                if (GlobalStaticSettingsASK.globalAlarms.Is_Stop.Value)
-                {
-                    //нужно подставить значения при простое
+                ////Просой системы
+                //if (GlobalStaticSettingsASK.globalAlarms.Is_Stop.Value)
+                //{
+                //    //нужно подставить значения при простое
                     
-                    calculation.C = 100.0;
-                    calculation.C_NO = 80.0;
-                    calculation.C_NO2 = 60.0;
-                    calculation.C_NOx = 40.0;
-                    calculation.C_Dust = 20.0;
+                //    calculation.C = 100.0;
+                //    calculation.C_NO = 80.0;
+                //    calculation.C_NO2 = 60.0;
+                //    calculation.C_NOx = 40.0;
+                //    calculation.C_Dust = 20.0;
 
 
-                    calculation.M = 0.123;
-                    calculation.M_NO = 0.123;
-                    calculation.M_NO2 = 0.123;
-                    calculation.M_NOx = 0.123;
-                    calculation.M_Dust = 0.123;
-                }
-                else
-                {
+                //    calculation.M = 0.123;
+                //    calculation.M_NO = 0.123;
+                //    calculation.M_NO2 = 0.123;
+                //    calculation.M_NOx = 0.123;
+                //    calculation.M_Dust = 0.123;
+                //}
+                //else
+                //{
                     //Расчитываем NOx? (+ NO, + NO2)
 
 
@@ -241,9 +251,14 @@ namespace ASK.BLL.Services
                             else
                                 calculation.Dust_a_cast = 1;
 
-                            if (calculationSetting.Is_NormalizationDust)                            //Приводить gskm  к н.у.
-                                calculation.Normalization_Dust = Math.Round(((273 + calculation.tg) * 101.3) / (273 * calculation.Pa), 3);
-                  
+                    if (calculationSetting.Is_NormalizationDust)                            //Приводить gskm  к н.у.
+                        if (calculation.Pa != 0) //нелья, деление на ноль
+                            calculation.Normalization_Dust = Math.Round(((273 + calculation.tg) * 101.3) / (273 * calculation.Pa), 3);
+                        else
+                            calculation.Normalization_Dust = 0;
+
+
+
 
 
                             switch (calculationSetting.TypeDust)
@@ -285,7 +300,7 @@ namespace ASK.BLL.Services
                             calculation.M = Math.Round(calculation.C * calculation.Vdry * 0.001, 3);
                         //}
                     //}
-                }
+                //}
             }
 
             return calculation;

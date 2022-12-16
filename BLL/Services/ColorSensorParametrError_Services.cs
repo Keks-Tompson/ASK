@@ -35,6 +35,8 @@ namespace ASK.BLL.Services
                 color_Param.CH4 = "background: #f2aaaa96;";
             if (GlobalStaticSettingsASK.SensorNow.H2S_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.H2S_4_20mA < mA_Min)
                 color_Param.H2S = "background: #f2aaaa96;";
+            if (GlobalStaticSettingsASK.SensorNow.NH3_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.NH3_4_20mA < mA_Min)
+                color_Param.NH3 = "background: #f2aaaa96;";
 
             if (GlobalStaticSettingsASK.SensorNow.Rezerv_1_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Rezerv_1_4_20mA < mA_Min)
                 color_Param.Rezerv_1 = "background: #f2aaaa96;";
@@ -60,14 +62,26 @@ namespace ASK.BLL.Services
                 color_Param.Temperature = "background: #f2aaaa96;";
             if (GlobalStaticSettingsASK.SensorNow.Speed_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Speed_4_20mA < mA_Min)
                 color_Param.Speed = "background: #f2aaaa96;";
+
             if (GlobalStaticSettingsASK.SensorNow.Temperature_KIP_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_KIP_4_20mA < mA_Min)
                 color_Param.Temperature_KIP = "background: #f2aaaa96;";
             if (GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA < mA_Min)
                 color_Param.Temperature_NOx = "background: #f2aaaa96;";
 
-            
+            if (GlobalStaticSettingsASK.SensorNow.Pressure_KIP_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Pressure_KIP_4_20mA < mA_Min)
+                color_Param.Pressure_KIP = "background: #f2aaaa96;";
+            if(GlobalStaticSettingsASK.SensorNow.Temperature_Point_Dew_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_Point_Dew_4_20mA < mA_Min)
+                color_Param.Temperature_Point_Dew = "background: #f2aaaa96;";
+            if (GlobalStaticSettingsASK.SensorNow.Temperature_Room_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_Room_4_20mA < mA_Min)
+                color_Param.Temperature_Room = "background: #f2aaaa96;";
+            if (GlobalStaticSettingsASK.SensorNow.Temperature_PGS_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.Temperature_PGS_4_20mA < mA_Min)
+                color_Param.Temperature_PGS = "background: #f2aaaa96;";
+            if(GlobalStaticSettingsASK.SensorNow.O2_Room_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.O2_Room_4_20mA < mA_Min)
+                color_Param.O2_Room = "background: #f2aaaa96;";
+            if (GlobalStaticSettingsASK.SensorNow.O2_PGS_4_20mA > mA_Max || GlobalStaticSettingsASK.SensorNow.O2_PGS_4_20mA < mA_Min)
+                color_Param.O2_PGS= "background: #f2aaaa96;";
 
-            
+
 
 
             return color_Param;

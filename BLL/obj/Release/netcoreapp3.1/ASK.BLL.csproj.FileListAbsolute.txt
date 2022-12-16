@@ -1,0 +1,16 @@
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.BLL.deps.json
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.BLL.runtimeconfig.json
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.BLL.runtimeconfig.dev.json
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.BLL.dll
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.BLL.pdb
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.DAL.dll
+D:\ASK\ASK\BLL\bin\Release\netcoreapp3.1\ASK.DAL.pdb
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.csproj.AssemblyReference.cache
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.AssemblyInfoInputs.cache
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.AssemblyInfo.cs
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.csproj.CoreCompileInputs.cache
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.csproj.CopyComplete
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.dll
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.pdb
+D:\ASK\ASK\BLL\obj\Release\netcoreapp3.1\ASK.BLL.genruntimeconfig.cache

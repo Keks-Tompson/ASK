@@ -15,6 +15,7 @@ namespace ASK.BLL.Models
         public RangePPM_Model Dust { get; set; } = new RangePPM_Model();
         public RangePPM_Model CH4 { get; set; } = new RangePPM_Model();
         public RangePPM_Model H2S { get; set; } = new RangePPM_Model();
+        public RangePPM_Model NH3 { get; set; } = new RangePPM_Model();
         public RangePPM_Model Rezerv_1 { get; set; } = new RangePPM_Model();
         public RangePPM_Model Rezerv_2 { get; set; } = new RangePPM_Model();
         public RangePPM_Model Rezerv_3 { get; set; } = new RangePPM_Model();
@@ -27,8 +28,15 @@ namespace ASK.BLL.Models
         public Range_Model Pressure { get; set; } = new Range_Model();
         public Range_Model Temperature { get; set; } = new Range_Model();
         public Range_Model Speed { get; set; } = new Range_Model();
+
         public Range_Model Temperature_KIP { get; set; } = new Range_Model();
         public Range_Model Temperature_NOx { get; set; } = new Range_Model();
+        public Range_Model Pressure_KIP { get; set; } = new Range_Model();
+        public Range_Model Temperature_Room { get; set; } = new Range_Model();
+        public Range_Model Temperature_PGS { get; set; } = new Range_Model();
+        public Range_Model Temperature_Point_Dew { get; set; } = new Range_Model();  //Температруа точки росы воздуха КИП
+        public Range_Model O2_Room { get; set; } = new Range_Model();                //Кислород в помщенеии
+        public Range_Model O2_PGS { get; set; } = new Range_Model();                 //Кислород в помщении ПГС
 
 
         public SensorRange_JSON_Model()
@@ -77,6 +85,11 @@ namespace ASK.BLL.Models
             H2S.Is_Used = false;
             H2S.Is_ppm = false;
 
+            NH3.Max = 100.0;
+            NH3.Min = 0.0;
+            NH3.Is_Used = false;
+            NH3.Is_ppm = false;
+
             Rezerv_1.Max = 100.0;
             Rezerv_1.Min = 0.0;
             Rezerv_1.Is_Used = false;
@@ -103,13 +116,21 @@ namespace ASK.BLL.Models
             Rezerv_5.Is_ppm = false;
 
 
-            O2Wet.Max = 100.0;
+            O2Wet.Max = 25.0;
             O2Wet.Min = 0.0;
             O2Wet.Is_Used = false;
 
-            O2Dry.Max = 100.0;
+            O2Dry.Max = 25.0;
             O2Dry.Min = 0.0;
             O2Dry.Is_Used = false;
+
+            O2_Room.Max = 25.0;
+            O2_Room.Min = 0.0;
+            O2_Room.Is_Used = false;
+
+            O2_PGS.Max = 25.0;
+            O2_PGS.Min = 0.0;
+            O2_PGS.Is_Used = false;
 
             H2O.Max = 100.0;
             H2O.Min = 0.0;
@@ -119,9 +140,25 @@ namespace ASK.BLL.Models
             Pressure.Min = 0.0;
             Pressure.Is_Used = false;
 
+            Pressure_KIP.Max = 100.0;
+            Pressure_KIP.Min = 0.0;
+            Pressure_KIP.Is_Used = false;
+
             Temperature.Max = 200.0;
             Temperature.Min = 0.0;
             Temperature.Is_Used = false;
+
+            Temperature_Point_Dew.Max = 100.0;
+            Temperature_Point_Dew.Min = 0.0;
+            Temperature_Point_Dew.Is_Used = false;
+
+            Temperature_Room.Max = 100.0;
+            Temperature_Room.Min = 0.0;
+            Temperature_Room.Is_Used = false;
+
+            Temperature_PGS.Max = 100.0;
+            Temperature_PGS.Min = 0.0;
+            Temperature_PGS.Is_Used = false;
 
             Speed.Max = 100.0;
             Speed.Min = 0.0;

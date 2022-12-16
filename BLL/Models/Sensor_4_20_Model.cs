@@ -17,6 +17,7 @@ namespace ASK.BLL.Models
         public double Dust_4_20mA { get; set; } = 0;
         public double CH4_4_20mA { get; set; } = 0;
         public double H2S_4_20mA { get; set; } = 0;
+        public double NH3_4_20mA { get; set; } = 0;
 
         public double Rezerv_1_4_20mA { get; set; } = 0;
         public double Rezerv_2_4_20mA { get; set; } = 0;
@@ -34,6 +35,13 @@ namespace ASK.BLL.Models
 
         public double Temperature_KIP_4_20mA { get; set; } = 0;
         public double Temperature_NOx_4_20mA { get; set; } = 0;
+
+        public double Pressure_KIP_4_20mA { get; set; }
+        public double Temperature_Room_4_20mA { get; set; }
+        public double Temperature_PGS_4_20mA { get; set; }
+        public double Temperature_Point_Dew_4_20mA { get; set; }   //Температруа точки росы воздуха КИП
+        public double O2_Room_4_20mA { get; set; }                 //Кислород в помщенеии
+        public double O2_PGS_4_20mA { get; set; }
 
         public object Clone()
         {

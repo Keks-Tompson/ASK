@@ -18,6 +18,7 @@ namespace ASK.BLL.Models
         public string Dust_Conc { get; set; }
         public string CH4_Conc { get; set; }
         public string H2S_Conc { get; set; }
+        public string NH3_Conc { get; set; }
         public string Add_Conc_1 { get; set; }
         public string Add_Conc_2 { get; set; }
         public string Add_Conc_3 { get; set; }
@@ -33,6 +34,7 @@ namespace ASK.BLL.Models
         public string Dust_Emis { get; set; }
         public string CH4_Emis { get; set; }
         public string H2S_Emis { get; set; }
+        public string NH3_Emis { get; set; }
         public string Add_Emis_1 { get; set; }
         public string Add_Emis_2 { get; set; }
         public string Add_Emis_3 { get; set; }

@@ -57,7 +57,8 @@ namespace ASK.BLL.Models
         CO2 = 1,
         SO2 = 2,
         CH4 = 3,
-        H2S = 4
+        H2S = 4,
+        NH3 = 5
     }
 }
 

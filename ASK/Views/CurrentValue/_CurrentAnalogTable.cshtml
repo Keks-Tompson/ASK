@@ -15,19 +15,30 @@
                 @if(@GlobalStaticSettingsASK.SensorRange.Dust.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Dust;">Тв. ч.</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.CH4.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.CH4;">CH₄</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2S.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.H2S;">H₂S</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.NH3.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.NH3;">NH₃</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_1;">Резерв 1</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_2;">Резерв 2</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_3;">Резерв 3</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_4;">Резерв 4</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_5;">Резерв 5</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_Wet;">O₂(вл.)</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_Dry;">O₂(сух.)</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2O.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.H2O;">H₂O</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Pressure;">Давление ДГ</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature;">Температура ДГ </td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Speed.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Speed;">Скорость ДГ</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_KIP;">Температура КИП</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_NOx;">Температура конверора NOₓ</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Pressure_KIP;">Давление воздуха КИП</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_Point_Dew;">Температура точки росы воздуха КИП </td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_Room;">Температура в анализ. помещении </td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_PGS;">Температура в помещении ПГС </td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_Room;">O₂ в анализ. помещении </td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; @CurrentValueController.currentPageAnalog.Color_Param.O2_PGS;">O₂ в помещении ПГС</td>}
+            
             </tr>
             <tr>
                 <td style="vertical-align: middle; ">Показания</td>
@@ -40,19 +51,30 @@
                 @if(@GlobalStaticSettingsASK.SensorRange.Dust.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Dust_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.CH4.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.CH4_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2S.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.H2S_4_20mA мг/м³</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.NH3.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.NH3_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_1_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_2_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_3_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_4_4_20mA мг/м³</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Rezerv_5_4_20mA мг/м³</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_Wet_4_20mA %</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_Dry_4_20mA %</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2O.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.H2O_4_20mA %</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Pressure_4_20mA кПА</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_4_20mA °C</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Speed.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Speed_4_20mA м³/с</td>}
+               
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_KIP_4_20mA °C</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_NOx_4_20mA °C</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Pressure_KIP_4_20mA кПА</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_Point_Dew_4_20mA °C</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_Room_4_20mA °C</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.Temperature_PGS_4_20mA °C</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_Room_4_20mA %</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px">@GlobalStaticSettingsASK.SensorScaledNow.O2_PGS_4_20mA %</td>}
+                
             </tr>
             <tr>
                 <td style="vertical-align: middle; ">4-20 mA</td>
@@ -65,18 +87,29 @@
                 @if(@GlobalStaticSettingsASK.SensorRange.Dust.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Dust">@GlobalStaticSettingsASK.SensorNow.Dust_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.CH4.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.CH4">@GlobalStaticSettingsASK.SensorNow.CH4_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2S.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.H2S">@GlobalStaticSettingsASK.SensorNow.H2S_4_20mA</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.NH3.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.NH3">@GlobalStaticSettingsASK.SensorNow.NH3_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_1">@GlobalStaticSettingsASK.SensorNow.Rezerv_1_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_2.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_2">@GlobalStaticSettingsASK.SensorNow.Rezerv_2_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_3.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_3">@GlobalStaticSettingsASK.SensorNow.Rezerv_3_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_4.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_4">@GlobalStaticSettingsASK.SensorNow.Rezerv_4_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_5.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Rezerv_5">@GlobalStaticSettingsASK.SensorNow.Rezerv_5_4_20mA</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Wet.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_Wet">@GlobalStaticSettingsASK.SensorNow.O2_Wet_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.O2Dry.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_Dry">@GlobalStaticSettingsASK.SensorNow.O2_Dry_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.H2O.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.H2O">@GlobalStaticSettingsASK.SensorNow.H2O_4_20mA</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.Pressure.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Pressure">@GlobalStaticSettingsASK.SensorNow.Pressure_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.Temperature_4_20mA</div></td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Speed.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Speed">@GlobalStaticSettingsASK.SensorNow.Speed_4_20mA</td>}
+                
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_KIP">@GlobalStaticSettingsASK.SensorNow.Temperature_KIP_4_20mA</td>}
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_NOx">@GlobalStaticSettingsASK.SensorNow.Temperature_NOx_4_20mA</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Pressure_KIP">@GlobalStaticSettingsASK.SensorNow.Pressure_KIP_4_20mA</td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_Point_Dew"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.Temperature_Point_Dew_4_20mA</div></td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_Room"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.Temperature_Room_4_20mA</div></td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.Temperature_PGS"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.Temperature_PGS_4_20mA</div></td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_Room"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.O2_Room_4_20mA</div></td>}
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used) {<td style="padding: 1px; vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; @CurrentValueController.currentPageAnalog.Color_Param.O2_PGS"><div id="Temperature">@GlobalStaticSettingsASK.SensorNow.O2_PGS_4_20mA</div></td>}
+                
             </tr>
         </table>

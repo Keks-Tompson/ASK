@@ -51,6 +51,7 @@ namespace ASK.BLL.Services
                     ReportDay.PDZ.Dust_Conc = PDZs[i].Dust_Conc;
                     ReportDay.PDZ.CH4_Conc = PDZs[i].CH4_Conc;
                     ReportDay.PDZ.H2S_Conc = PDZs[i].H2S_Conc;
+                    ReportDay.PDZ.NH3_Conc = PDZs[i].NH3_Conc;
                     ReportDay.PDZ.Add_Conc_1 = PDZs[i].Add_Conc_1;
                     ReportDay.PDZ.Add_Conc_2 = PDZs[i].Add_Conc_2;
                     ReportDay.PDZ.Add_Conc_3 = PDZs[i].Add_Conc_3;
@@ -66,6 +67,7 @@ namespace ASK.BLL.Services
                     ReportDay.PDZ.Dust_Emis = PDZs[i].Dust_Emis;
                     ReportDay.PDZ.CH4_Emis = PDZs[i].CH4_Emis;
                     ReportDay.PDZ.H2S_Emis = PDZs[i].H2S_Emis;
+                    ReportDay.PDZ.H2S_Emis = PDZs[i].NH3_Emis;
                     ReportDay.PDZ.Add_Emis_1 = PDZs[i].Add_Emis_1;
                     ReportDay.PDZ.Add_Emis_2 = PDZs[i].Add_Emis_2;
                     ReportDay.PDZ.Add_Emis_3 = PDZs[i].Add_Emis_3;
@@ -100,6 +102,7 @@ namespace ASK.BLL.Services
                 ReportDay.TableReport[i].Dust_Conc = avg_20_minutes[i].Conc_Dust;
                 ReportDay.TableReport[i].CH4_Conc = avg_20_minutes[i].Conc_CH4;
                 ReportDay.TableReport[i].H2S_Conc = avg_20_minutes[i].Conc_H2S;
+                ReportDay.TableReport[i].NH3_Conc = avg_20_minutes[i].Conc_NH3;
                 ReportDay.TableReport[i].Add_Conc_1 = avg_20_minutes[i].Conc_D1;
                 ReportDay.TableReport[i].Add_Conc_2 = avg_20_minutes[i].Conc_D2;
                 ReportDay.TableReport[i].Add_Conc_3 = avg_20_minutes[i].Conc_D3;
@@ -116,6 +119,7 @@ namespace ASK.BLL.Services
                 if (ReportDay.PDZ.Dust_Conc != 0.0 && ReportDay.TableReport[i].Dust_Conc > ReportDay.PDZ.Dust_Conc) { ReportDay.TableReport[i].Dust_Conc_Percent = Math.Round((ReportDay.TableReport[i].Dust_Conc / (ReportDay.PDZ.Dust_Conc / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Dust_Conc_Percent++; }
                 if (ReportDay.PDZ.CH4_Conc != 0.0 && ReportDay.TableReport[i].CH4_Conc > ReportDay.PDZ.CH4_Conc) { ReportDay.TableReport[i].CH4_Conc_Percent = Math.Round((ReportDay.TableReport[i].CH4_Conc / (ReportDay.PDZ.CH4_Conc / 100.0)) - 100, 1); ReportDay.durationTotal_20M.CH4_Conc_Percent++; }
                 if (ReportDay.PDZ.H2S_Conc != 0.0 && ReportDay.TableReport[i].H2S_Conc > ReportDay.PDZ.H2S_Conc) { ReportDay.TableReport[i].H2S_Conc_Percent = Math.Round((ReportDay.TableReport[i].H2S_Conc / (ReportDay.PDZ.H2S_Conc / 100.0)) - 100, 1); ReportDay.durationTotal_20M.H2S_Conc_Percent++; }
+                if (ReportDay.PDZ.NH3_Conc != 0.0 && ReportDay.TableReport[i].NH3_Conc > ReportDay.PDZ.NH3_Conc) { ReportDay.TableReport[i].NH3_Conc_Percent = Math.Round((ReportDay.TableReport[i].NH3_Conc / (ReportDay.PDZ.NH3_Conc / 100.0)) - 100, 1); ReportDay.durationTotal_20M.NH3_Conc_Percent++; }
                 if (ReportDay.PDZ.Add_Conc_1 != 0.0 && ReportDay.TableReport[i].Add_Conc_1 > ReportDay.PDZ.Add_Conc_1) { ReportDay.TableReport[i].Add_Conc_1_Percent = Math.Round((ReportDay.TableReport[i].Add_Conc_1 / (ReportDay.PDZ.Add_Conc_1 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Conc_1_Percent++; }
                 if (ReportDay.PDZ.Add_Conc_2 != 0.0 && ReportDay.TableReport[i].Add_Conc_2 > ReportDay.PDZ.Add_Conc_2) { ReportDay.TableReport[i].Add_Conc_2_Percent = Math.Round((ReportDay.TableReport[i].Add_Conc_2 / (ReportDay.PDZ.Add_Conc_2 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Conc_2_Percent++; }
                 if (ReportDay.PDZ.Add_Conc_3 != 0.0 && ReportDay.TableReport[i].Add_Conc_3 > ReportDay.PDZ.Add_Conc_3) { ReportDay.TableReport[i].Add_Conc_3_Percent = Math.Round((ReportDay.TableReport[i].Add_Conc_3 / (ReportDay.PDZ.Add_Conc_3 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Conc_3_Percent++; }
@@ -132,6 +136,7 @@ namespace ASK.BLL.Services
                 ReportDay.TableReport[i].Dust_Emis = avg_20_minutes[i].Emis_Dust;
                 ReportDay.TableReport[i].CH4_Emis = avg_20_minutes[i].Emis_CH4;
                 ReportDay.TableReport[i].H2S_Conc = avg_20_minutes[i].Emis_H2S;
+                ReportDay.TableReport[i].NH3_Conc = avg_20_minutes[i].Emis_NH3;
                 ReportDay.TableReport[i].Add_Emis_1 = avg_20_minutes[i].Emis_D1;
                 ReportDay.TableReport[i].Add_Emis_2 = avg_20_minutes[i].Emis_D2;
                 ReportDay.TableReport[i].Add_Emis_3 = avg_20_minutes[i].Emis_D3;
@@ -148,6 +153,7 @@ namespace ASK.BLL.Services
                 if (ReportDay.PDZ.Dust_Emis != 0.0 && ReportDay.TableReport[i].Dust_Emis > ReportDay.PDZ.Dust_Emis) { ReportDay.TableReport[i].Dust_Emis_Percent = Math.Round((ReportDay.TableReport[i].Dust_Emis / (ReportDay.PDZ.Dust_Emis / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Dust_Emis_Percent++; }
                 if (ReportDay.PDZ.CH4_Emis != 0.0 && ReportDay.TableReport[i].CH4_Emis > ReportDay.PDZ.CH4_Emis) { ReportDay.TableReport[i].CH4_Emis_Percent = Math.Round((ReportDay.TableReport[i].CH4_Emis / (ReportDay.PDZ.CH4_Emis / 100.0)) - 100, 1); ReportDay.durationTotal_20M.CH4_Emis_Percent++; }
                 if (ReportDay.PDZ.H2S_Emis != 0.0 && ReportDay.TableReport[i].H2S_Emis > ReportDay.PDZ.H2S_Emis) { ReportDay.TableReport[i].H2S_Emis_Percent = Math.Round((ReportDay.TableReport[i].H2S_Emis / (ReportDay.PDZ.H2S_Emis / 100.0)) - 100, 1); ReportDay.durationTotal_20M.H2S_Emis_Percent++; }
+                if (ReportDay.PDZ.NH3_Emis != 0.0 && ReportDay.TableReport[i].NH3_Emis > ReportDay.PDZ.NH3_Emis) { ReportDay.TableReport[i].NH3_Emis_Percent = Math.Round((ReportDay.TableReport[i].NH3_Emis / (ReportDay.PDZ.NH3_Emis / 100.0)) - 100, 1); ReportDay.durationTotal_20M.NH3_Emis_Percent++; }
                 if (ReportDay.PDZ.Add_Emis_1 != 0.0 && ReportDay.TableReport[i].Add_Emis_1 > ReportDay.PDZ.Add_Emis_1) { ReportDay.TableReport[i].Add_Emis_1_Percent = Math.Round((ReportDay.TableReport[i].Add_Emis_1 / (ReportDay.PDZ.Add_Emis_1 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Emis_1_Percent++; }
                 if (ReportDay.PDZ.Add_Emis_2 != 0.0 && ReportDay.TableReport[i].Add_Emis_2 > ReportDay.PDZ.Add_Emis_2) { ReportDay.TableReport[i].Add_Emis_2_Percent = Math.Round((ReportDay.TableReport[i].Add_Emis_2 / (ReportDay.PDZ.Add_Emis_2 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Emis_2_Percent++; }
                 if (ReportDay.PDZ.Add_Emis_3 != 0.0 && ReportDay.TableReport[i].Add_Emis_3 > ReportDay.PDZ.Add_Emis_3) { ReportDay.TableReport[i].Add_Emis_3_Percent = Math.Round((ReportDay.TableReport[i].Add_Emis_3 / (ReportDay.PDZ.Add_Emis_3 / 100.0)) - 100, 1); ReportDay.durationTotal_20M.Add_Emis_3_Percent++; }
@@ -164,6 +170,14 @@ namespace ASK.BLL.Services
                 ReportDay.TableReport[i].O2_Dry = avg_20_minutes[i].O2_Dry;
                 ReportDay.TableReport[i].O2_Wet = avg_20_minutes[i].O2_Wet;
                 ReportDay.TableReport[i].H2O = avg_20_minutes[i].H2O;
+
+                ReportDay.TableReport[i].Pressure_KIP = avg_20_minutes[i].Pressure_KIP;
+                ReportDay.TableReport[i].Temperature_Point_Dew = avg_20_minutes[i].Temperature_Point_Dew;
+                ReportDay.TableReport[i].Temperature_Room = avg_20_minutes[i].Temperature_Room;
+                ReportDay.TableReport[i].Temperature_PGS = avg_20_minutes[i].Temperature_PGS;
+                ReportDay.TableReport[i].O2_Room = avg_20_minutes[i].O2_Room;
+                ReportDay.TableReport[i].O2_PGS = avg_20_minutes[i].O2_PGS;
+
             }
             ReportDay.TableReport = ReportDay.TableReport.OrderBy(x => x.Date).ToList();
 
@@ -181,6 +195,7 @@ namespace ASK.BLL.Services
                 ReportDay.sumTotal_20M.Dust_Conc += tabletDay.Dust_Conc;
                 ReportDay.sumTotal_20M.CH4_Conc += tabletDay.CH4_Conc;
                 ReportDay.sumTotal_20M.H2S_Conc += tabletDay.H2S_Conc;
+                ReportDay.sumTotal_20M.NH3_Conc += tabletDay.NH3_Conc;
                 ReportDay.sumTotal_20M.Add_Conc_1 += tabletDay.Add_Conc_1;
                 ReportDay.sumTotal_20M.Add_Conc_2 += tabletDay.Add_Conc_2;
                 ReportDay.sumTotal_20M.Add_Conc_3 += tabletDay.Add_Conc_3;
@@ -197,6 +212,7 @@ namespace ASK.BLL.Services
                 ReportDay.sumTotal_20M.Dust_Emis += tabletDay.Dust_Emis;
                 ReportDay.sumTotal_20M.CH4_Emis += tabletDay.CH4_Emis;
                 ReportDay.sumTotal_20M.H2S_Emis += tabletDay.H2S_Emis;
+                ReportDay.sumTotal_20M.NH3_Emis += tabletDay.NH3_Emis;
                 ReportDay.sumTotal_20M.Add_Emis_1 += tabletDay.Add_Emis_1;
                 ReportDay.sumTotal_20M.Add_Emis_2 += tabletDay.Add_Emis_2;
                 ReportDay.sumTotal_20M.Add_Emis_3 += tabletDay.Add_Emis_3;
@@ -213,6 +229,13 @@ namespace ASK.BLL.Services
                 ReportDay.sumTotal_20M.O2_Dry += tabletDay.O2_Dry;
                 ReportDay.sumTotal_20M.O2_Wet += tabletDay.O2_Wet;
                 ReportDay.sumTotal_20M.H2O += tabletDay.H2O;
+
+                ReportDay.sumTotal_20M.Pressure_KIP += tabletDay.Pressure_KIP;
+                ReportDay.sumTotal_20M.Temperature_Point_Dew += tabletDay.Temperature_Point_Dew;
+                ReportDay.sumTotal_20M.Temperature_Room += tabletDay.Temperature_Room;
+                ReportDay.sumTotal_20M.Temperature_PGS += tabletDay.Temperature_PGS;
+                ReportDay.sumTotal_20M.O2_Room += tabletDay.O2_Room;
+                ReportDay.sumTotal_20M.O2_PGS += tabletDay.O2_PGS;
 
                 //Считаем время простоя
                 if (tabletDay.Mode_ASK == 1.0)
@@ -235,6 +258,7 @@ namespace ASK.BLL.Services
             ReportDay.avgTotal_20M.Dust_Conc = Math.Round(ReportDay.sumTotal_20M.Dust_Conc / counter, 3);
             ReportDay.avgTotal_20M.CH4_Conc = Math.Round(ReportDay.sumTotal_20M.CH4_Conc / counter, 3);
             ReportDay.avgTotal_20M.H2S_Conc = Math.Round(ReportDay.sumTotal_20M.H2S_Conc / counter, 3);
+            ReportDay.avgTotal_20M.NH3_Conc = Math.Round(ReportDay.sumTotal_20M.NH3_Conc / counter, 3);
             ReportDay.avgTotal_20M.Add_Conc_1 = Math.Round(ReportDay.sumTotal_20M.Add_Conc_1 / counter, 3);
             ReportDay.avgTotal_20M.Add_Conc_2 = Math.Round(ReportDay.sumTotal_20M.Add_Conc_2 / counter, 3);
             ReportDay.avgTotal_20M.Add_Conc_3 = Math.Round(ReportDay.sumTotal_20M.Add_Conc_3 / counter, 3);
@@ -251,6 +275,7 @@ namespace ASK.BLL.Services
             if (ReportDay.PDZ.Dust_Conc != 0.0 && ReportDay.avgTotal_20M.Dust_Conc > ReportDay.PDZ.Dust_Conc) ReportDay.avgTotal_20M.Dust_Conc_Percent = Math.Round((ReportDay.avgTotal_20M.Dust_Conc / (ReportDay.PDZ.Dust_Conc / 100.0)) - 100, 1);
             if (ReportDay.PDZ.CH4_Conc != 0.0 && ReportDay.avgTotal_20M.CH4_Conc > ReportDay.PDZ.CH4_Conc) ReportDay.avgTotal_20M.CH4_Conc_Percent = Math.Round((ReportDay.avgTotal_20M.CH4_Conc / (ReportDay.PDZ.CH4_Conc / 100.0)) - 100, 1);
             if (ReportDay.PDZ.H2S_Conc != 0.0 && ReportDay.avgTotal_20M.H2S_Conc > ReportDay.PDZ.H2S_Conc) ReportDay.avgTotal_20M.H2S_Conc_Percent = Math.Round((ReportDay.avgTotal_20M.H2S_Conc / (ReportDay.PDZ.H2S_Conc / 100.0)) - 100, 1);
+            if (ReportDay.PDZ.NH3_Conc != 0.0 && ReportDay.avgTotal_20M.NH3_Conc > ReportDay.PDZ.NH3_Conc) ReportDay.avgTotal_20M.NH3_Conc_Percent = Math.Round((ReportDay.avgTotal_20M.NH3_Conc / (ReportDay.PDZ.NH3_Conc / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Conc_1 != 0.0 && ReportDay.avgTotal_20M.Add_Conc_1 > ReportDay.PDZ.Add_Conc_1) ReportDay.avgTotal_20M.Add_Conc_1_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Conc_1 / (ReportDay.PDZ.Add_Conc_1 / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Conc_2 != 0.0 && ReportDay.avgTotal_20M.Add_Conc_2 > ReportDay.PDZ.Add_Conc_2) ReportDay.avgTotal_20M.Add_Conc_2_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Conc_2 / (ReportDay.PDZ.Add_Conc_2 / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Conc_3 != 0.0 && ReportDay.avgTotal_20M.Add_Conc_3 > ReportDay.PDZ.Add_Conc_3) ReportDay.avgTotal_20M.Add_Conc_3_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Conc_3 / (ReportDay.PDZ.Add_Conc_3 / 100.0)) - 100, 1);
@@ -267,6 +292,7 @@ namespace ASK.BLL.Services
             ReportDay.avgTotal_20M.Dust_Emis = Math.Round(ReportDay.sumTotal_20M.Dust_Emis / counter, 3);
             ReportDay.avgTotal_20M.CH4_Emis = Math.Round(ReportDay.sumTotal_20M.CH4_Emis / counter, 3);
             ReportDay.avgTotal_20M.H2S_Emis = Math.Round(ReportDay.sumTotal_20M.H2S_Emis / counter, 3);
+            ReportDay.avgTotal_20M.NH3_Emis = Math.Round(ReportDay.sumTotal_20M.NH3_Emis / counter, 3);
             ReportDay.avgTotal_20M.Add_Emis_1 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_1 / counter, 3);
             ReportDay.avgTotal_20M.Add_Emis_2 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_2 / counter, 3);
             ReportDay.avgTotal_20M.Add_Emis_3 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_3 / counter, 3);
@@ -283,6 +309,7 @@ namespace ASK.BLL.Services
             if (ReportDay.PDZ.Dust_Emis != 0.0 && ReportDay.avgTotal_20M.Dust_Emis > ReportDay.PDZ.Dust_Emis) ReportDay.avgTotal_20M.Dust_Emis_Percent = Math.Round((ReportDay.avgTotal_20M.Dust_Emis / (ReportDay.PDZ.Dust_Emis / 100.0)) - 100, 1);
             if (ReportDay.PDZ.CH4_Emis != 0.0 && ReportDay.avgTotal_20M.CH4_Emis > ReportDay.PDZ.CH4_Emis) ReportDay.avgTotal_20M.CH4_Emis_Percent = Math.Round((ReportDay.avgTotal_20M.CH4_Emis / (ReportDay.PDZ.CH4_Emis / 100.0)) - 100, 1);
             if (ReportDay.PDZ.H2S_Emis != 0.0 && ReportDay.avgTotal_20M.H2S_Emis > ReportDay.PDZ.H2S_Emis) ReportDay.avgTotal_20M.H2S_Emis_Percent = Math.Round((ReportDay.avgTotal_20M.H2S_Emis / (ReportDay.PDZ.H2S_Emis / 100.0)) - 100, 1);
+            if (ReportDay.PDZ.NH3_Emis != 0.0 && ReportDay.avgTotal_20M.NH3_Emis > ReportDay.PDZ.NH3_Emis) ReportDay.avgTotal_20M.NH3_Emis_Percent = Math.Round((ReportDay.avgTotal_20M.NH3_Emis / (ReportDay.PDZ.NH3_Emis / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Emis_1 != 0.0 && ReportDay.avgTotal_20M.Add_Emis_1 > ReportDay.PDZ.Add_Emis_1) ReportDay.avgTotal_20M.Add_Emis_1_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Emis_1 / (ReportDay.PDZ.Add_Emis_1 / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Emis_2 != 0.0 && ReportDay.avgTotal_20M.Add_Emis_2 > ReportDay.PDZ.Add_Emis_2) ReportDay.avgTotal_20M.Add_Emis_2_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Emis_2 / (ReportDay.PDZ.Add_Emis_2 / 100.0)) - 100, 1);
             if (ReportDay.PDZ.Add_Emis_3 != 0.0 && ReportDay.avgTotal_20M.Add_Emis_3 > ReportDay.PDZ.Add_Emis_3) ReportDay.avgTotal_20M.Add_Emis_3_Percent = Math.Round((ReportDay.avgTotal_20M.Add_Emis_3 / (ReportDay.PDZ.Add_Emis_3 / 100.0)) - 100, 1);
@@ -300,6 +327,13 @@ namespace ASK.BLL.Services
             ReportDay.avgTotal_20M.O2_Wet = Math.Round(ReportDay.sumTotal_20M.O2_Wet / counter, 3);
             ReportDay.avgTotal_20M.H2O = Math.Round(ReportDay.sumTotal_20M.H2O / counter, 3);
 
+            ReportDay.avgTotal_20M.Pressure_KIP = Math.Round(ReportDay.sumTotal_20M.Pressure_KIP / counter, 3);
+            ReportDay.avgTotal_20M.Temperature_Point_Dew = Math.Round(ReportDay.sumTotal_20M.Temperature_Point_Dew / counter, 3);
+            ReportDay.avgTotal_20M.Temperature_Room = Math.Round(ReportDay.sumTotal_20M.Temperature_Room / counter, 3);
+            ReportDay.avgTotal_20M.Temperature_PGS = Math.Round(ReportDay.sumTotal_20M.Temperature_PGS / counter, 3);
+            ReportDay.avgTotal_20M.O2_Room = Math.Round(ReportDay.sumTotal_20M.O2_Room / counter, 3);
+            ReportDay.avgTotal_20M.O2_PGS = Math.Round(ReportDay.sumTotal_20M.O2_PGS / counter, 3);
+
             //Считаем время простоя
             ReportDay.sumTotal_20M.Mode_ASK = Math.Round(ReportDay.sumTotal_20M.Mode_ASK / 3, 3);
 
@@ -312,7 +346,8 @@ namespace ASK.BLL.Services
             ReportDay.sumTotal_20M.SO2_Emis = Math.Round(ReportDay.sumTotal_20M.SO2_Emis * 1.2, 3);
             ReportDay.sumTotal_20M.Dust_Emis = Math.Round(ReportDay.sumTotal_20M.Dust_Emis * 1.2, 3);
             ReportDay.sumTotal_20M.CH4_Emis = Math.Round(ReportDay.sumTotal_20M.CH4_Emis * 1.2, 3);
-            ReportDay.sumTotal_20M.H2S_Emis = Math.Round(ReportDay.sumTotal_20M.H2S_Emis * 1.2, 3);
+            ReportDay.sumTotal_20M.H2S_Emis = Math.Round(ReportDay.sumTotal_20M.CH4_Emis * 1.2, 3);
+            ReportDay.sumTotal_20M.NH3_Emis = Math.Round(ReportDay.sumTotal_20M.NH3_Emis * 1.2, 3);
             ReportDay.sumTotal_20M.Add_Emis_1 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_1 * 1.2, 3);
             ReportDay.sumTotal_20M.Add_Emis_2 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_2 * 1.2, 3);
             ReportDay.sumTotal_20M.Add_Emis_3 = Math.Round(ReportDay.sumTotal_20M.Add_Emis_3 * 1.2, 3);
@@ -328,6 +363,7 @@ namespace ASK.BLL.Services
             ReportDay.sumTotal_20M.Dust_Conc = 0.0;
             ReportDay.sumTotal_20M.CH4_Conc = 0.0;
             ReportDay.sumTotal_20M.H2S_Conc = 0.0;
+            ReportDay.sumTotal_20M.NH3_Conc = 0.0;
             ReportDay.sumTotal_20M.Add_Conc_1 = 0.0;
             ReportDay.sumTotal_20M.Add_Conc_2 = 0.0;
             ReportDay.sumTotal_20M.Add_Conc_3 = 0.0;
@@ -344,6 +380,7 @@ namespace ASK.BLL.Services
             ReportDay.durationTotal_20M.Dust_Conc_Percent = Math.Round(ReportDay.durationTotal_20M.Dust_Conc_Percent / 3, 1);
             ReportDay.durationTotal_20M.CH4_Conc_Percent = Math.Round(ReportDay.durationTotal_20M.CH4_Conc_Percent / 3, 1);
             ReportDay.durationTotal_20M.H2S_Conc_Percent = Math.Round(ReportDay.durationTotal_20M.H2S_Conc_Percent / 3, 1);
+            ReportDay.durationTotal_20M.NH3_Conc_Percent = Math.Round(ReportDay.durationTotal_20M.NH3_Conc_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Conc_1_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Conc_1_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Conc_2_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Conc_2_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Conc_3_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Conc_3_Percent / 3, 1);
@@ -358,6 +395,7 @@ namespace ASK.BLL.Services
             ReportDay.durationTotal_20M.Dust_Emis_Percent = Math.Round(ReportDay.durationTotal_20M.Dust_Emis_Percent / 3, 1);
             ReportDay.durationTotal_20M.CH4_Emis_Percent = Math.Round(ReportDay.durationTotal_20M.CH4_Emis_Percent / 3, 1);
             ReportDay.durationTotal_20M.H2S_Emis_Percent = Math.Round(ReportDay.durationTotal_20M.H2S_Emis_Percent / 3, 1);
+            ReportDay.durationTotal_20M.NH3_Emis_Percent = Math.Round(ReportDay.durationTotal_20M.NH3_Emis_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Emis_1_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Emis_1_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Emis_2_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Emis_2_Percent / 3, 1);
             ReportDay.durationTotal_20M.Add_Emis_3_Percent = Math.Round(ReportDay.durationTotal_20M.Add_Emis_3_Percent / 3, 1);

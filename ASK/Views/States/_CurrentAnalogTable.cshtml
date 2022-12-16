@@ -56,6 +56,11 @@
             <td style="vertical-align: middle">H₂S</td>
         }
 
+        @if (@GlobalStaticSettingsASK.SensorRange.NH3.Is_Used)
+        {
+            <td style="vertical-align: middle">NH₃</td>
+        }
+
         @if (@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
         {
             <td style="vertical-align: middle">Rezerv_1</td>
@@ -119,6 +124,36 @@
         @if (@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
         {
             <td style="vertical-align: middle">Температура конвертра NOₓ</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used)
+        {
+            <td style="vertical-align: middle">Давление воздуха КИП</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура точки росы воздуха КИП</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура в анализ. помещении</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used)
+        {
+            <td style="vertical-align: middle">Температура в помещении ПГС</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used)
+        {
+            <td style="vertical-align: middle">O₂ в анализ. помещени</td>
+        }
+
+        @if (@GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used)
+        {
+            <td style="vertical-align: middle">O₂ в помещени ПГС</td>
         }
     </tr>
 
@@ -214,6 +249,16 @@
                         <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
                     }
                 
+                @if(@GlobalStaticSettingsASK.SensorRange.NH3.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.NH3.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
                 @if(@GlobalStaticSettingsASK.SensorRange.Rezerv_1.Is_Used)
                     if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Rezerv_1.Value)
                     {
@@ -336,6 +381,67 @@
 
                 @if(@GlobalStaticSettingsASK.SensorRange.Temperature_NOx.Is_Used)
                     if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_NOx.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Pressure_KIP.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Pressure_KIP.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Point_Dew.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_Point_Dew.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_Room.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_Room.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.Temperature_PGS.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.Temperature_PGS.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_Room.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.O2_Room.Value)
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
+                    }
+                    else
+                    {
+                        <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                    }
+
+                @if(@GlobalStaticSettingsASK.SensorRange.O2_PGS.Is_Used)
+                    if(GlobalStaticSettingsASK.allAlarm.SensorAlarm.O2_PGS.Value)
                     {
                         <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">В обрыве</td>
                     }

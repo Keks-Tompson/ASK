@@ -315,6 +315,12 @@
                     j++;
                 }
 
+                 //NH3
+                if ('@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc' == 'table-cell') {
+                    myChart.data.datasets[j].data.push(chartCurrent.nH3);
+                    j++;
+                }
+
                 //Add_Conc_1
                 if ('@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1' == 'table-cell') {
                     myChart.data.datasets[j].data.push(chartCurrent.add_Conc_1);
@@ -417,7 +423,7 @@
                         const newDataset = {
                             label: 'CO₂',
                             data: [],
-                            backgroundColor: ['rrgba(9, 6, 219, 07)'],
+                    backgroundColor: ['rrgba(9, 6, 219, 0.07)'],
                             borderColor: ['rgba(9, 6, 219, 1)'], //Синий
                             borderWidth: 1,
                             pointRadius: 1,
@@ -435,7 +441,7 @@
                         const newDataset = {
                             label: 'NO',
                             data: [],
-                            backgroundColor: ['rgba(255, 140, 9, 07)'],
+                    backgroundColor: ['rgba(255, 140, 9, 0.07)'],
                             borderColor: ['rgba(255, 140, 9, 1)'], //DarkOrange
                             borderWidth: 1,
                             pointRadius: 1,
@@ -453,7 +459,7 @@
                         const newDataset = {
                             label: 'NO₂',
                             data: [],
-                            backgroundColor: ['rgba(68, 148, 74, 07)'],
+                            backgroundColor: ['rgba(68, 148, 74, 0.07)'],
                             borderColor: ['rgba(68, 148, 74, 1)'],  //Арлекин
                             borderWidth: 1,
                             pointRadius: 1,
@@ -529,7 +535,7 @@
                         const newDataset = {
                             label: 'CH4',
                             data: [],
-                            backgroundColor: ['rgba(128, 70, 27, 07)'],
+                    backgroundColor: ['rgba(128, 70, 27, 0.07)'],
                             borderColor: ['rgba(128, 70, 27, 1)'], //Красно-желто-коричневый
                             borderWidth: 1,
                             pointRadius: 1,
@@ -547,7 +553,7 @@
                         const newDataset = {
                             label: 'H₂S',
                             data: [],
-                            backgroundColor: ['rgba(174, 132, 139, 07)'],
+                    backgroundColor: ['rgba(174, 132, 139, 0.07)'],
                             borderColor: ['rgba(174, 132, 139, 1)'], //Тусклый пурпурный
                             borderWidth: 1,
                             pointRadius: 1,
@@ -556,6 +562,24 @@
 
                         for (var i = 0; i < count; i++) {
                             myChart.data.datasets[j].data.push(chartList[i].h2S);
+                        }
+                        j++;
+                    }
+
+                    //NH3
+                    if ('@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc' == 'table-cell') {
+                        const newDataset = {
+                    label: 'NH₃',
+                            data: [],
+                    backgroundColor: ['rgba(174, 132, 139, 0.07)'],
+                            borderColor: ['rgba(174, 132, 139, 1)'], //Тусклый пурпурный
+                            borderWidth: 1,
+                            pointRadius: 1,
+                        };
+                        myChart.data.datasets.push(newDataset);
+
+                        for (var i = 0; i < count; i++) {
+                            myChart.data.datasets[j].data.push(chartList[i].nH3);
                         }
                         j++;
                     }

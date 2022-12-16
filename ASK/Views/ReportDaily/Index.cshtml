@@ -187,6 +187,9 @@
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">H₂S. мг/м³, при н.у.</td>
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; vertical-align: middle">%</td>
 
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; vertical-align: middle">NH₃. мг/м³, при н.у.</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; vertical-align: middle">%</td>
+
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">Add_Conc_1. мг/м³, при н.у.</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; vertical-align: middle">%</td>
 
@@ -231,6 +234,9 @@
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle">H₂S. г/c</td>
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; vertical-align: middle">%</td>
 
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; vertical-align: middle">NH₃. г/c</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; vertical-align: middle">%</td>
+
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle">Add_Emis_1. г/c</td>   @*Дополнительные компоненты, переименовать если будут испол.*@
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; vertical-align: middle">%</td>
 
@@ -252,29 +258,26 @@
 
                     @*Параметры*@
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; vertical-align: middle">Давление ДГ, кПа</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; vertical-align: middle">Температура ДГ, °С</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; vertical-align: middle">Скорость ДГ, м³/с</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; vertical-align: middle">Расход ДГ, м³/с, при н.у.</td>
-                   
-                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>
-                    
-                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
-
 
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; vertical-align: middle">О₂ сух, %</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; vertical-align: middle">О₂ вл, %</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; vertical-align: middle">H₂O, %</td>
                     
-                    
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; vertical-align: middle">Температура КИП, °С</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; vertical-align: middle">Температура NOx, °С</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; vertical-align: middle">Давление воздуха КИП, кПа</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; vertical-align: middle">Температура точки росы воздуха КИП, °С</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; vertical-align: middle">Температура в измер. помещении, °С</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; vertical-align: middle">Температура в помещении ПГС, °С</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; vertical-align: middle">O₂ в измер. помещении, %</td>
+                    <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; vertical-align: middle">O₂ в помещении ПГС, %</td>
+
+
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; vertical-align: middle">Режим</td>
-
                     <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; vertical-align: middle">ПДК</td>
-
                 </tr>
 
             </thead>
@@ -302,6 +305,8 @@
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.H2S_Conc > 0.0 && @ReportDailyController.reportDay.PDZ.H2S_Conc < 999999.0) {@ReportDailyController.reportDay.PDZ.H2S_Conc} else {@ReportDailyController.noneValue; } </td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.NH3_Conc > 0.0 && @ReportDailyController.reportDay.PDZ.NH3_Conc < 999999.0) {@ReportDailyController.reportDay.PDZ.NH3_Conc} else {@ReportDailyController.noneValue; } </td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.Add_Conc_1 > 0.0 && @ReportDailyController.reportDay.PDZ.Add_Conc_1 < 999999.0) {@ReportDailyController.reportDay.PDZ.Add_Conc_1} else {@ReportDailyController.noneValue; } </td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.Add_Conc_2 > 0.0 && @ReportDailyController.reportDay.PDZ.Add_Conc_2 < 999999.0) {@ReportDailyController.reportDay.PDZ.Add_Conc_2} else {@ReportDailyController.noneValue; } </td>
@@ -331,6 +336,8 @@
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.H2S_Emis > 0.0 && @ReportDailyController.reportDay.PDZ.H2S_Emis < 999999.0) {@ReportDailyController.reportDay.PDZ.H2S_Emis} else {@ReportDailyController.noneValue; } </td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.NH3_Emis > 0.0 && @ReportDailyController.reportDay.PDZ.NH3_Emis < 999999.0) {@ReportDailyController.reportDay.PDZ.NH3_Emis} else {@ReportDailyController.noneValue; } </td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.Add_Emis_1 > 0.0 && @ReportDailyController.reportDay.PDZ.Add_Emis_1 < 999999.0) {@ReportDailyController.reportDay.PDZ.Add_Emis_1} else {@ReportDailyController.noneValue; } </td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.Add_Emis_2 > 0.0 && @ReportDailyController.reportDay.PDZ.Add_Emis_2 < 999999.0) {@ReportDailyController.reportDay.PDZ.Add_Emis_2} else {@ReportDailyController.noneValue; } </td>
@@ -342,17 +349,24 @@
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; padding: 3px; vertical-align: middle;">@if (@ReportDailyController.reportDay.PDZ.Add_Emis_5 > 0.0 && @ReportDailyController.reportDay.PDZ.Add_Emis_5 < 999999.0) {@ReportDailyController.reportDay.PDZ.Add_Emis_5} else {@ReportDailyController.noneValue; } </td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_5; padding: 3px; vertical-align: middle;"></td>
 
-
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 3px; vertical-align: middle;"></td>
-                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px; vertical-align: middle;"></td>
-                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px; vertical-align: middle;"></td>
+                        
                         
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 3px; vertical-align: middle;"></td>
+
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 3px; vertical-align: middle;"></td>
+                        <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 3px; vertical-align: middle;"></td>
                         
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 3px; vertical-align: middle;"></td>
                         <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 3px; vertical-align: middle;"></td>
@@ -381,7 +395,9 @@
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 3px; @if(RepDay.CH4_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.CH4_Conc_Percent > 0){@RepDay.CH4_Conc_Percent;}</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; @if(RepDay.H2S_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.H2S_Conc</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 3px; @if(RepDay.H2S_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.H2S_Conc_Percent > 0){@RepDay.H2S_Conc_Percent;}</td>
-                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px; @if(RepDay.Add_Conc_1_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.Add_Conc_1</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; @if(RepDay.NH3_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.NH3_Conc</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 3px; @if(RepDay.NH3_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.NH3_Conc_Percent > 0){@RepDay.NH3_Conc_Percent;}</td>
+                               <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px; @if(RepDay.Add_Conc_1_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.Add_Conc_1</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 3px; @if(RepDay.Add_Conc_1_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.Add_Conc_1_Percent > 0){@RepDay.Add_Conc_2_Percent;}</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px; @if(RepDay.Add_Conc_2_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.Add_Conc_2</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 3px; @if(RepDay.Add_Conc_2_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.Add_Conc_2_Percent > 0){@RepDay.Add_Conc_2_Percent;}</td>
@@ -411,6 +427,8 @@
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 3px; @if(RepDay.CH4_Emis_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.CH4_Emis_Percent > 0){@RepDay.CH4_Emis_Percent;}</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px; @if(RepDay.H2S_Emis_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.H2S_Emis</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 3px; @if(RepDay.H2S_Emis_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.H2S_Emis_Percent > 0){@RepDay.H2S_Emis_Percent;}</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px; @if(RepDay.NH3_Emis_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.NH3_Emis</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 3px; @if(RepDay.NH3_Emis_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.NH3_Emis_Percent > 0){@RepDay.NH3_Emis_Percent;}</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px; @if(RepDay.Add_Emis_1_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.Add_Emis_1</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 3px; @if(RepDay.Add_Emis_1_Percent > 0.0){@ReportDailyController.exceedColor};">@if (RepDay.Add_Emis_1_Percent > 0){@RepDay.Add_Emis_1_Percent;}</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 3px; @if(RepDay.Add_Emis_2_Percent > 0.0){@ReportDailyController.exceedColor};">@RepDay.Add_Emis_2</td>
@@ -427,12 +445,20 @@
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 3px;">@RepDay.Temperature</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 3px;">@RepDay.Speed</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 3px;">@RepDay.Flow</td>
-                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px;">@RepDay.Temperature_KIP</td>
-                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px;">@RepDay.Temperature_NOx</td>
                                 
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 3px;">@RepDay.O2_Dry</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 3px;">@RepDay.O2_Wet</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 3px;">@RepDay.H2O</td>
+
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 3px;">@RepDay.Temperature_KIP</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 3px;">@RepDay.Temperature_NOx</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 3px;">@RepDay.Pressure_KIP</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 3px;">@RepDay.Temperature_Point_Dew</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 3px;">@RepDay.Temperature_Room</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 3px;">@RepDay.Temperature_PGS</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 3px;">@RepDay.O2_Room</td>
+                                <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 3px;">@RepDay.O2_PGS</td>
+
                                 
                                 <td style=" display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 3px; @ReportDailyController.mode_ASK_String_color[Convert.ToInt32(RepDay.Mode_ASK)]">@ReportDailyController.mode_ASK_String[Convert.ToInt32(RepDay.Mode_ASK)]</td>
                                 <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 3px;">@RepDay.PDZ_Fuel</td>
@@ -461,6 +487,8 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Conc; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.CH4_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (ReportDailyController.reportDay.avgTotal_20M.CH4_Conc_Percent > 0){@ReportDailyController.reportDay.avgTotal_20M.CH4_Conc_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.H2S_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@ReportDailyController.reportDay.avgTotal_20M.H2S_Conc</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Conc; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.H2S_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (ReportDailyController.reportDay.avgTotal_20M.H2S_Conc_Percent > 0){@ReportDailyController.reportDay.avgTotal_20M.H2S_Conc_Percent;}</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.NH3_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@ReportDailyController.reportDay.avgTotal_20M.NH3_Conc</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Conc; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.NH3_Conc_Percent > 0.0){@ReportDailyController.exceedColor};">@if (ReportDailyController.reportDay.avgTotal_20M.NH3_Conc_Percent > 0){@ReportDailyController.reportDay.avgTotal_20M.NH3_Conc_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Conc_1_Percent > 0.0){@ReportDailyController.exceedColor};">@ReportDailyController.reportDay.avgTotal_20M.Add_Conc_1</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_1; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Conc_1_Percent > 0.0){@ReportDailyController.exceedColor};">@if (ReportDailyController.reportDay.avgTotal_20M.Add_Conc_1_Percent > 0){@ReportDailyController.reportDay.avgTotal_20M.Add_Conc_1_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Conc_2; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Conc_2_Percent > 0.0){@ReportDailyController.exceedColor};">@ReportDailyController.reportDay.avgTotal_20M.Add_Conc_2</td>
@@ -491,6 +519,8 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.CH4_Emis; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.CH4_Emis_Percent > 0.0){@ReportDailyController.exceedColor}">@if (ReportDailyController.reportDay.avgTotal_20M.CH4_Emis_Percent < 0){@ReportDailyController.reportDay.avgTotal_20M.CH4_Emis_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.H2S_Emis_Percent > 0.0){@ReportDailyController.exceedColor}">@ReportDailyController.reportDay.avgTotal_20M.H2S_Emis / @ReportDailyController.reportDay.sumTotal_20M.H2S_Emis&nbspкг.</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2S_Emis; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.H2S_Emis_Percent > 0.0){@ReportDailyController.exceedColor}">@if (ReportDailyController.reportDay.avgTotal_20M.H2S_Emis_Percent < 0){@ReportDailyController.reportDay.avgTotal_20M.H2S_Emis_Percent;}</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.NH3_Emis_Percent > 0.0){@ReportDailyController.exceedColor}">@ReportDailyController.reportDay.avgTotal_20M.NH3_Emis / @ReportDailyController.reportDay.sumTotal_20M.NH3_Emis&nbspкг.</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.NH3_Emis; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.NH3_Emis_Percent > 0.0){@ReportDailyController.exceedColor}">@if (ReportDailyController.reportDay.avgTotal_20M.NH3_Emis_Percent < 0){@ReportDailyController.reportDay.avgTotal_20M.NH3_Emis_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Emis_1_Percent > 0.0){@ReportDailyController.exceedColor}">@ReportDailyController.reportDay.avgTotal_20M.Add_Emis_1 / @ReportDailyController.reportDay.sumTotal_20M.Add_Emis_1&nbspкг.</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_1; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Emis_1_Percent > 0.0){@ReportDailyController.exceedColor}">@if (ReportDailyController.reportDay.avgTotal_20M.Add_Emis_1_Percent < 0){@ReportDailyController.reportDay.avgTotal_20M.Add_Emis_1_Percent;}</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Add_Emis_2; padding: 4px; @if(ReportDailyController.reportDay.avgTotal_20M.Add_Emis_2_Percent > 0.0){@ReportDailyController.exceedColor}">@ReportDailyController.reportDay.avgTotal_20M.Add_Emis_2 / @ReportDailyController.reportDay.sumTotal_20M.Add_Emis_2&nbspкг.</td>
@@ -507,13 +537,20 @@
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Speed; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Speed</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Flow; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Flow</td>
-                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_KIP</td>
-                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_NOx</td>
 
 
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Dry; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.O2_Dry</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Wet; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.O2_Wet</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.H2O; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.H2O</td>
+
+                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_KIP; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_KIP</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_NOx; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_NOx</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Pressure_KIP; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Pressure_KIP</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Point_Dew; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_Point_Dew</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_Room; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_Room</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Temperature_PGS; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.Temperature_PGS</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_Room; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.O2_Room</td>
+                            <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.O2_PGS; padding: 4px;">@ReportDailyController.reportDay.avgTotal_20M.O2_PGS</td>
 
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.Mode_ASK; padding: 4px; @if(@ReportDailyController.reportDay.sumTotal_20M.Mode_ASK > 0.0){@ReportDailyController.exceedColor};">@ReportDailyController.reportDay.sumTotal_20M.Mode_ASK ч.</td>
                             <td style="display:@GlobalStaticSettingsASK.VisibilityReportOptions.PDZ_Fuel; padding: 4px;">@*@ReportDailyController.avgAndTotal_20M.PDZ_Fuel*@</td>

@@ -21,6 +21,7 @@ namespace ASK.DAL.Models
         public double Dust_Conc { get; set; } = 9999999.00;
         public double CH4_Conc { get; set; } = 9999999.00;
         public double H2S_Conc { get; set; } = 9999999.00;
+        public double NH3_Conc { get; set; } = 9999999.00;
         public double Add_Conc_1 { get; set; } = 9999999.00;
         public double Add_Conc_2 { get; set; } = 9999999.00;
         public double Add_Conc_3 { get; set; } = 9999999.00;
@@ -36,6 +37,7 @@ namespace ASK.DAL.Models
         public double Dust_Emis { get; set; } = 9999999.00;
         public double CH4_Emis { get; set; } = 9999999.00;
         public double H2S_Emis { get; set; } = 9999999.00;
+        public double NH3_Emis { get; set; } = 9999999.00;
         public double Add_Emis_1 { get; set; } = 9999999.00;
         public double Add_Emis_2 { get; set; } = 9999999.00;
         public double Add_Emis_3 { get; set; } = 9999999.00;

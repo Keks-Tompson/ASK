@@ -15,6 +15,7 @@ namespace ASK.BLL.Models
         public string Dust { get; set; }
         public string CH4 { get; set; }
         public string H2S { get; set; }
+        public string NH3 { get; set; }
         public string Rezerv_1 { get; set; }
         public string Rezerv_2 { get; set; }
         public string Rezerv_3 { get; set; }
@@ -27,7 +28,14 @@ namespace ASK.BLL.Models
         public string Pressure { get; set; }
         public string Temperature { get; set; }
         public string Speed { get; set; }
+
         public string Temperature_KIP { get; set; }
         public string Temperature_NOx { get; set; }
+        public string Pressure_KIP { get; set; }
+        public string Temperature_Room { get; set; }
+        public string Temperature_PGS { get; set; }
+        public string Temperature_Point_Dew { get; set; }   //Температруа точки росы воздуха КИП
+        public string O2_Room { get; set; }                 //Кислород в помщенеии
+        public string O2_PGS { get; set; }                  //Кислород в помщении ПГС
     }
 }

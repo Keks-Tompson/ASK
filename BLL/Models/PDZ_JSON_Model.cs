@@ -19,6 +19,7 @@ namespace ASK.BLL.Models
         public double PDZ_1_Dust_Conc { get; set; } = 9999999.00;
         public double PDZ_1_CH4_Conc { get; set; } = 9999999.00;
         public double PDZ_1_H2S_Conc { get; set; } = 9999999.00;
+        public double PDZ_1_NH3_Conc { get; set; } = 9999999.00;
         public double PDZ_1_Add_Conc_1 { get; set; } = 9999999.00;
         public double PDZ_1_Add_Conc_2 { get; set; } = 9999999.00;
         public double PDZ_1_Add_Conc_3 { get; set; } = 9999999.00;
@@ -33,6 +34,7 @@ namespace ASK.BLL.Models
         public double PDZ_1_SO2_Emis { get; set; } = 9999999.00;
         public double PDZ_1_CH4_Emis { get; set; } = 9999999.00;
         public double PDZ_1_H2S_Emis { get; set; } = 9999999.00;
+        public double PDZ_1_NH3_Emis { get; set; } = 9999999.00;
         public double PDZ_1_Dust_Emis { get; set; } = 9999999.00;
         public double PDZ_1_Add_Emis_1 { get; set; } = 9999999.00;
         public double PDZ_1_Add_Emis_2 { get; set; } = 9999999.00;
@@ -54,6 +56,7 @@ namespace ASK.BLL.Models
         public double PDZ_2_Dust_Conc { get; set; } = 9999999.00;
         public double PDZ_2_CH4_Conc { get; set; } = 9999999.00;
         public double PDZ_2_H2S_Conc { get; set; } = 9999999.00;
+        public double PDZ_2_NH3_Conc { get; set; } = 9999999.00;
         public double PDZ_2_Add_Conc_1 { get; set; } = 9999999.00;
         public double PDZ_2_Add_Conc_2 { get; set; } = 9999999.00;
         public double PDZ_2_Add_Conc_3 { get; set; } = 9999999.00;
@@ -68,6 +71,7 @@ namespace ASK.BLL.Models
         public double PDZ_2_SO2_Emis { get; set; } = 9999999.00;
         public double PDZ_2_CH4_Emis { get; set; } = 9999999.00;
         public double PDZ_2_H2S_Emis { get; set; } = 9999999.00;
+        public double PDZ_2_NH3_Emis { get; set; } = 9999999.00;
         public double PDZ_2_Dust_Emis { get; set; } = 9999999.00;
         public double PDZ_2_Add_Emis_1 { get; set; } = 9999999.00;
         public double PDZ_2_Add_Emis_2 { get; set; } = 9999999.00;
@@ -89,6 +93,7 @@ namespace ASK.BLL.Models
         public double PDZ_3_Dust_Conc { get; set; } = 9999999.00;
         public double PDZ_3_CH4_Conc { get; set; } = 9999999.00;
         public double PDZ_3_H2S_Conc { get; set; } = 9999999.00;
+        public double PDZ_3_NH3_Conc { get; set; } = 9999999.00;
         public double PDZ_3_Add_Conc_1 { get; set; } = 9999999.00;
         public double PDZ_3_Add_Conc_2 { get; set; } = 9999999.00;
         public double PDZ_3_Add_Conc_3 { get; set; } = 9999999.00;
@@ -103,6 +108,7 @@ namespace ASK.BLL.Models
         public double PDZ_3_SO2_Emis { get; set; } = 9999999.00;
         public double PDZ_3_CH4_Emis { get; set; } = 9999999.00;
         public double PDZ_3_H2S_Emis { get; set; } = 9999999.00;
+        public double PDZ_3_NH3_Emis { get; set; } = 9999999.00;
         public double PDZ_3_Dust_Emis { get; set; } = 9999999.00;
         public double PDZ_3_Add_Emis_1 { get; set; } = 9999999.00;
         public double PDZ_3_Add_Emis_2 { get; set; } = 9999999.00;

@@ -1,0 +1,305 @@
+﻿@using ASK.BLL.Helper.Setting;
+
+
+@using ASK.Controllers;
+@using ASK.BLL.Helper;
+
+
+<div style="margin: 15px 0 0 0">
+    
+    @*Состояние входного напряжения*@
+    <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;">
+
+        <tr class="fw-bold" style="font-weight:bold; ">
+            <td colspan="6" style="vertical-align: middle">Состояние входного напряжения</td> @*style="width: 18rem;"class="table-primary"*@
+        </tr>
+
+
+        <tr>
+            @*Ввод 2 Запитан ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_1_Power.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_1_Power.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Ввод №1 обесточен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Ввод №1 запитан</td>
+                }
+            }
+
+            @*Ввод 1 Используется ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_1_Used.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_1_Used.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Ввод №1 используется</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Ввод №1 отключен</td>
+                }
+            }
+
+            @*Ввод 2 Запитан ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_2_Power.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_2_Power.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Ввод №2 обесточен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Ввод №2 запитан</td>
+                }
+            }
+
+            @*Ввод 2 Используется ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_2_Used.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Input_2_Used.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Ввод №2 используется</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Ввод №2 отключен</td>
+                }
+            }
+
+            @*Розетка кондиционера запитана ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Konditioner.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Konditioner.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Розетка кондиционера обесточена</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Розетка кондиционера запитана</td>
+                }
+            }
+
+            @* Шкаф сервера запитан ?*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_ServerCabinet.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_ServerCabinet.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Шкаф сервера обесточен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Шкаф сервера запитан</td>
+                }
+            }
+        </tr>
+    </table>
+
+    @*Автоматы защиты*@
+    <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;">
+
+        <tr class="fw-bold" style="font-weight:bold; ">
+            <td colspan="8" style="vertical-align: middle">Автоматы защиты</td> @*style="width: 18rem;"class="table-primary"*@
+        </tr>
+
+
+        <tr>
+            @*Вводной автомат ШС включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Input.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Input.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Вводной ШС отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Вводный ШС включен</td>
+                }
+            }
+
+            @*Автомат ИБП включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_UPS.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_UPS.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">ИБП отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">ИБП включен</td>
+                }
+            }
+
+            @*Автомат сервера и ком. оборудавания *@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_ServerSwitch.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_ServerSwitch.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Сервера и ком. оборудования отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Сервера и ком. оборудования включен</td>
+                }
+            }
+
+            @* Автомат изм. скорости*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_SpeedMeter.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_SpeedMeter.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Изм. скорости отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Изм. скорости включен</td>
+                }
+            }
+
+            @* Автомат БП А1 включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_BP_A1.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_BP_A1.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">БП А1 отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">БП А1 включен</td>
+                }
+            }
+
+            @* Автомат БП B1 включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_BP_B1.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_BP_B1.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">БП B1 отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">БП B1 включен</td>
+                }
+            }
+
+            @* Автомат газоанализатора BA1 включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_AnalyzerBA1.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_AnalyzerBA1.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Газоанализатора BA1 отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Газоанализатора BA1 включен</td>
+                }
+            }
+
+            @* Автомат зонда включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Zond.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.AZ_Zond.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Зонда отключен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Зонда включен</td>
+                }
+            }
+        </tr>
+    </table>
+
+    @*Газоаналитическое оборудование*@
+    <table class="table table-bordered  border-white table-secondary + text-center  " style="  box-shadow: 0 0 1px;  table-layout: fixed;">
+
+        <tr class="fw-bold" style="font-weight:bold; ">
+            <td colspan="3" style="vertical-align: middle">Газоанализатор BA1</td> @*style="width: 18rem;"class="table-primary"*@
+            <td colspan="1" style="vertical-align: middle">Расходомер</td> @*style="width: 18rem;"class="table-primary"*@
+            <td colspan="1" style="vertical-align: middle">Пробоотборный зонд</td> @*style="width: 18rem;"class="table-primary"*@
+            <td colspan="1" style="vertical-align: middle">Вентилятор вентиляции</td> @*style="width: 18rem;"class="table-primary"*@
+        </tr>
+
+
+        <tr>
+            @*Ошибка газоанализатра*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Error_GasAnalyzerBA1.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Error_GasAnalyzerBA1.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Ошибка</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                }
+            }
+
+            @*Запрос на обслуживание газоанализатора*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Service_Request_BA1.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Service_Request_BA1.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Есть запрос на обслуживание</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Нет запроса на обслуживание</td>
+                }
+            }
+
+            @*Подача нулевого газа в газоанализатор (калибровка нуля)*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Supply_ZeroGas.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Supply_ZeroGas.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Идёт подача газа (калибровка нуля)</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Нет подачи газа (калибровка нуля)</td>
+                }
+            }
+
+            @*Авария расходомера*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Accident_FlowMeter.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Accident_FlowMeter.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Авария</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                }
+            }
+
+            @* Прботборный зонд недогрев*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Underheating_Zond.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.Underheating_Zond.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f2aaaa96;">Недогрев</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">В норме</td>
+                }
+            }
+
+            @* Вентилятор вентиляции включен*@
+            @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.ON_FanVentilation.Is_Used)
+            {
+                @if (@GlobalStaticSettingsASK.allAlarm.ASK10626.ON_FanVentilation.Value)
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px; background: #f7e297;">Запущен</td>
+                }
+                else
+                {
+                    <td style="vertical-align: middle; background: #f5f5f5; box-shadow: inset 0 0 1px;">Остановлен</td>
+                }
+            }
+        </tr>
+    </table>
+</div>
